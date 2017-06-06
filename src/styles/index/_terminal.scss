@@ -28,32 +28,12 @@
   }
 
   &__body {
-    height: 200vh;
+    height: 100vh;
     padding: 1rem;
     color: #fff;
     overflow-x: scroll;
+    display: flex;
   }
-
-  &__text {
-    white-space: pre;
-
-    code {
-      font-family: 'Inconsolata', monospace;
-      font-weight: 100;
-      font-size: 1.1rem;
-      line-height: 1.7;
-
-      &::after {
-        content: '|';
-        animation: blink 1.2s infinite;
-      }
-    }
-  }
-}
-
-.typed-cursor {
-  opacity: 1;
-  animation: blink 0.7s infinite;
 }
 
 @keyframes blink {

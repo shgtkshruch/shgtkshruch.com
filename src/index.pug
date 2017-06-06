@@ -12,29 +12,17 @@ block body
           li.terminal__btn
           li.terminal__btn
       .terminal__body
-        #typed-strings
-          pre
-            code
-              .
-                $ cat package.json
-                {
-                  "name": "Shigetaka Shirouchi",
-                  "version": "1.0.0",
-                  "description": "Front-end engineer",
-                  "keywords": [
-                    "Programming",
-                    "Design",
-                    "Reading"
-                  ],
-                  "os": ["darwin"],
-                  "devDependencies": {
-                    "babel": "6.17.0",
-                    "Git": "2.10.0",
-                    "gulp": "3.9.1",
-                    "node-sass": "3.10.0",
-                    "pug": "2.0.0-beta6",
-                    "Vim": "8.0.0",
-                    "WordPress": "4.6.1"
-                  }
-                }
-        #typed.terminal__text
+        include ./partials/index/typed
+
+        .gallery
+          h2.gallery__heading Works
+          .gallery__inner
+            - var items = []; ['aviva-pro.jpg', 'damborghini.jpg', 'hydro-power.jpg', 'schoo-tours.jpg', 'timeline.png', 'feed-pocket.jpg']
+            - items[0] = {title: 'aviva pro', image: 'aviva-pro.jpg', age: 2016, url: 'http://www.aviva.co.jp/avivapro_web/'};
+            - items[1] = {title: 'damborghini', image: 'damborghini.jpg', age: 2016, url: 'http://damborghini.com/'};
+            - items[2] = {title: 'hydro power', image: 'hydro-power.jpg', age: 2016, url: 'http://hpjsuiso.com/'};
+            - items[3] = {title: 'schoo tours', image: 'schoo-tours.jpg', age: 2015, url: 'http://example.com'};
+            - items[4] = {title: 'timeline', image: 'timeline.png', age: 2015, url: 'http://example.com'};
+            - items[5] = {title: 'feed pocket', image: 'feed-pocket.jpg', age: 2015, url: 'http://example.com'};
+            each item in items
+              img.gallery__img.js-gallery-img(src=`images/index/${item.image}` alt=`${item.title}` data-title=`${item.title}` data-age=`${item.age}` data-url=`${item.url}` data-desc="onsectetur dolorem enim minus ipsum obcaecati voluptatem Aliquam voluptatem nulla eos fugiat repellat? Itaque nobis ipsam aliquid distinctio inventore Iste ducimus itaque eius fugit ratione! Vitae corrupti id quae facilis!")

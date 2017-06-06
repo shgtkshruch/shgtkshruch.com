@@ -1,3 +1,5 @@
-import name from './name';
+import typed from './typed';
+import gallery from './gallery';
 
-name();
+typed();
+gallery();

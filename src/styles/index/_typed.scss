@@ -1,0 +1,45 @@
+.typed {
+  $width: 27rem;
+
+  width: $width;
+  min-width: $width;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  padding: 2rem 1rem 1rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #fff;
+    transform: scale(1, 0);
+    transition: transform 0.8s;
+    transform-origin: top left;
+  }
+
+  &.is-intro-end {
+    &::before {
+      transform: scale(1, 1);
+    }
+  }
+
+  &__text {
+    white-space: pre;
+    font-size: 1.2rem;
+    line-height: 1.7;
+
+    &::after {
+      content: '|';
+      animation: blink 1.2s infinite;
+    }
+
+    &.is-text {
+      white-space: normal;
+    }
+  }
+}

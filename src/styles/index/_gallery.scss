@@ -1,0 +1,42 @@
+.gallery {
+  visibility: hidden;
+  margin-left: 27rem;
+
+  &.is-active {
+    visibility: visible;
+
+    & * {
+      opacity: 1;
+    }
+  }
+
+  &__heading {
+    letter-spacing: 0.1em;
+    font-size: 2rem;
+    margin: 0 0 2rem;
+    opacity: 0;
+    transition: opacity 0.5s 0.4s;
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  &__img {
+    width: 50%;
+    padding: 0.5rem;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.8s;
+    cursor: pointer;
+
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        transition-delay: 0.5s + 0.1s * ($i - 1);
+      }
+    }
+  }
+}
