@@ -1,10 +1,8 @@
 .gallery {
-  $margin: 5rem;
-
   visibility: hidden;
   margin-left: auto;
-  width: calc(100vw - 30rem - #{$margin});
-  margin-right: $margin;
+  width: calc(100vw - 30rem - 7rem);
+  margin-right: 3rem;
 
   &.is-active {
     visibility: visible;

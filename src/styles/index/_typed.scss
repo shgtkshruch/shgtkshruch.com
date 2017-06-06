@@ -5,9 +5,9 @@
   min-width: $width;
   position: fixed;
   top: 0;
-  left: 0;
+  left: 2rem;
   height: 100vh;
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 1rem 1rem 0;
 
   &__text {
     white-space: pre;
