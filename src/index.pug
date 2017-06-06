@@ -25,4 +25,5 @@ block body
             - items[4] = {title: 'timeline', image: 'timeline.png', age: 2015, url: 'http://example.com'};
             - items[5] = {title: 'feed pocket', image: 'feed-pocket.jpg', age: 2015, url: 'http://example.com'};
             each item in items
-              img.gallery__img.js-gallery-img(src=`images/index/${item.image}` alt=`${item.title}` data-title=`${item.title}` data-age=`${item.age}` data-url=`${item.url}` data-desc="onsectetur dolorem enim minus ipsum obcaecati voluptatem Aliquam voluptatem nulla eos fugiat repellat? Itaque nobis ipsam aliquid distinctio inventore Iste ducimus itaque eius fugit ratione! Vitae corrupti id quae facilis!")
+              .gallery__item.js-gallery-item(data-title=`${item.title}` data-age=`${item.age}` data-url=`${item.url}` data-desc="onsectetur dolorem enim minus ipsum obcaecati voluptatem Aliquam voluptatem nulla eos fugiat repellat? Itaque nobis ipsam aliquid distinctio inventore Iste ducimus itaque eius fugit ratione! Vitae corrupti id quae facilis!")
+                img.gallery__img(src=`images/index/${item.image}` alt=`${item.title}`)

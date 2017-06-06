@@ -1,7 +1,7 @@
 /* global Typed */
 
 export default () => {
-  const $images = $('.js-gallery-img');
+  const $images = $('.js-gallery-item');
 
   $images.click(function i() {
     const title = $(this).data('title');

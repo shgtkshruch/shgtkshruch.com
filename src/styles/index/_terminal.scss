@@ -1,6 +1,19 @@
 .terminal {
+  $root: &;
+
+  &.is-intro-end {
+    #{$root}__window {
+      background-color: #fff;
+    }
+
+    #{$root}__body {
+      color: #000;
+    }
+  }
+
   &__window {
-    background: #000;
+    background-color: #000;
+    transition: background-color 1s 1.2s;
   }
 
   &__header {
@@ -29,10 +42,10 @@
 
   &__body {
     height: 100vh;
-    padding: 1rem;
     color: #fff;
     overflow-x: scroll;
     display: flex;
+    transition: color 1s 1.2s;
   }
 }
 
