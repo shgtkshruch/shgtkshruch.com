@@ -15,12 +15,24 @@
   }
 
   &__heading {
-    letter-spacing: 0.1em;
-    font-size: 2rem;
-    font-weight: normal;
+    position: relative;
+    padding-left: 1.4rem;
     margin: 0 0 2rem;
+    font-size: 1.4rem;
+    font-weight: normal;
+    letter-spacing: 0.2em;
     opacity: 0;
     transition: opacity 0.5s;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 60%;
+      left: 0;
+      width: 0.8rem;
+      height: 1px;
+      background-color: currentColor;
+    }
   }
 
   &__inner {
