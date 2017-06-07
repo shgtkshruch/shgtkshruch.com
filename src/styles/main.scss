@@ -1,18 +1,18 @@
 // @import 'variables';
 @import 'base';
-// @import 'layout';
+@import 'layout';
 
 // modules
 
 // common
 @import 'common/btn';
+@import 'common/link';
 // common
 
 // index
 @import 'index/terminal';
 @import 'index/typed';
 @import 'index/gallery';
-@import 'index/mouse';
 // index
 
 // modules

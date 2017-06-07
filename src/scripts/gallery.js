@@ -1,15 +1,16 @@
-/* global Typed */
+/* global inView */
 
 export default () => {
-  const $images = $('.js-gallery-item');
-
-  $images.click(function i() {
-    $('#typed')
-      .addClass('is-text')
-      .html($(this).find('.js-gallery-data').html());
-
-    $images.removeClass('is-active');
-    $(this).addClass('is-active');
+  inView.offset({
+    bottom: $(window).height() / 2,
   });
+
+  inView('.gallery__img')
+    .on('enter', (el) => {
+      $(el).next('.js-gallery-data').show();
+    })
+    .on('exit', (el) => {
+      $(el).next('.js-gallery-data').fadeOut();
+    });
 };
 

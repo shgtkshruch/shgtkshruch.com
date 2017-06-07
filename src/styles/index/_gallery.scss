@@ -1,17 +1,4 @@
 .gallery {
-  visibility: hidden;
-  margin-left: auto;
-  width: calc(100vw - 30rem - 7rem);
-  margin-right: 3rem;
-
-  &.is-active {
-    visibility: visible;
-
-    & * {
-      opacity: 1;
-    }
-  }
-
   &__header {
     position: relative;
     height: 100vh;
@@ -25,39 +12,30 @@
     font-size: 4.4rem;
     font-weight: normal;
     letter-spacing: 0.2em;
-    opacity: 0;
-    transition: opacity 0.5s 1.5s;
-  }
-
-  &__inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: start;
   }
 
   &__item {
-    width: 70%;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    align-items: center;
     margin: 0 auto 14rem;
-    opacity: 0;
-    cursor: pointer;
-    transition: transform 0.4s ease-in-out;
-
-    &.is-active {
-      transform: scale(1.1, 1.1);
-    }
-  }
-
-  &__data {
-    display: none;
   }
 
   &__img {
+    width: 60%;
     box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.5s;
 
     &:hover {
       box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
     }
+  }
+
+  &__data {
+    display: none;
+    width: 30%;
+    line-height: 1.6;
+    margin-right: auto;
   }
 }
