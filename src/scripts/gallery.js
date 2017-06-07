@@ -1,5 +1,9 @@
 /* global Typed */
 
+function h(text) {
+  return `<p class="text"><span class="text__content">${text}</p><br>`;
+}
+
 export default () => {
   const $images = $('.js-gallery-item');
 
@@ -9,14 +13,12 @@ export default () => {
     const url = $(this).data('url');
     const desc = $(this).data('desc');
 
-    $('#typed').addClass('is-text');
+    $('#typed')
+      .addClass('is-text')
+      .html(`${h(title) + h(age) + h(url) + h(desc)}<a href="#" class="btn">more</a>`);
 
     $images.removeClass('is-active');
     $(this).addClass('is-active');
-
-    Typed.new('#typed', {
-      strings: [`title: ${title}<br>age: ${age}<br>url: <a href="${url}" target="_blank">${url}</a><br>${desc}<br><a href="#" class="btn">more</a>`],
-      showCursor: false,
-    });
   });
 };
+
