@@ -14,7 +14,7 @@
     font-size: 1.2rem;
     line-height: 1.7;
 
-    &::after {
+    &:not(.is-text)::after {
       content: '|';
       animation: blink 1.2s infinite;
     }
