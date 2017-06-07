@@ -13,7 +13,7 @@
 
   &__window {
     background-color: #000;
-    transition: background-color 1s 1.2s;
+    transition: background-color 1s 0.5s;
   }
 
   &__header {
@@ -43,9 +43,8 @@
   &__body {
     height: 100vh;
     color: #fff;
-    overflow-x: scroll;
     display: flex;
-    transition: color 1s 1.2s;
+    transition: color 1s 0.5s;
   }
 }
 

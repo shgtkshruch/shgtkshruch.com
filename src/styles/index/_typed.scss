@@ -21,6 +21,10 @@
 
     &.is-text {
       white-space: normal;
+      position: absolute;
+      top: 45%;
+      left: 0;
+      transform: translateY(-50%);
     }
   }
 }

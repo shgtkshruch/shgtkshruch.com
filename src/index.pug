@@ -6,16 +6,15 @@ block title
 block body
   .terminal
     .terminal__window
-      .terminal__header
-        ul
-          li.terminal__btn
-          li.terminal__btn
-          li.terminal__btn
       .terminal__body
         include ./partials/index/typed
 
         .gallery
-          h2.gallery__heading works
+          .gallery__header
+            h2.gallery__heading works
+            .mouse.js-mouse
+              .mouse__icon
+              p.mouse__text scroll
           .gallery__inner
             - var items = []; ['aviva-pro.jpg', 'damborghini.jpg', 'hydro-power.jpg', 'schoo-tours.jpg', 'timeline.png', 'feed-pocket.jpg']
             - items[0] = {title: 'aviva pro', image: 'aviva-pro.jpg', age: 2016, url: 'http://www.aviva.co.jp/avivapro_web/'};

@@ -76,7 +76,7 @@ gulp.task('pug', () => {
 
 gulp.task('sass', () => {
   return gulp.src('src/styles/main.scss')
-    .pipe($.sass().on('error', () => {}))
+    .pipe($.sass().on('error', (err) => { console.log(err) }))
     .pipe($.postcss([
       autoprefixer({ browers: ['defaults'] }),
       assets({
