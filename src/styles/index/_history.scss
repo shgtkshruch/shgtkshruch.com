@@ -5,7 +5,11 @@
   &__list {
     position: relative;
     padding: 4rem 0;
-    margin-top: 5rem;
+    margin-top: 2rem;
+
+    @include mq(pc) {
+      margin-top: 5rem;
+    }
 
     &::before {
       content: '';
@@ -43,17 +47,22 @@
     }
 
     &::before {
+      $size: 10px;
+
       content: '';
       position: absolute;
       left: 0;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      $size: 10px;
-
+      top: 0;
+      transform: translate(-50%, 50%);
       width: $size;
       height: $size;
       border-radius: 50%;
       background-color: #000;
+
+      @include mq(pc) {
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
     }
   }
 
@@ -62,7 +71,10 @@
     letter-spacing: 0.05em;
     font-size: 1.2rem;
     cursor: pointer;
-    text-decoration: underline;
+
+    @include mq(pc) {
+      text-decoration: underline;
+    }
 
     &.is-active {
       background-color: #000;
@@ -72,15 +84,20 @@
   }
 
   &__text {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 62%;
-    display: none;
-    padding-left: 1rem;
+    margin-top: 1.6rem;
     font-size: 1rem;
     letter-spacing: 0.02em;
     z-index: 1;
+
+    @include mq(pc) {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 62%;
+      padding-left: 1rem;
+      margin-top: 0;
+    }
 
     &::before {
       content: '';

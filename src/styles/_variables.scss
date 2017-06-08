@@ -1,1 +1,10 @@
-$base: 16px;
+$breakpoints: (
+  md: 600,
+  pc: 960,
+);
+
+@mixin mq($breakpoint) {
+  @media (min-width: #{map-get($breakpoints, $breakpoint)}px) {
+    @content;
+  }
+}

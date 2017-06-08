@@ -1,9 +1,13 @@
 .contact {
   &__list {
     max-width: 22rem;
-    margin: 6rem auto 0;
+    margin: 4rem auto 0;
     display: flex;
     justify-content: space-between;
+
+    @include mq(pc) {
+      margin-top: 6rem;
+    }
   }
 
   &__item {

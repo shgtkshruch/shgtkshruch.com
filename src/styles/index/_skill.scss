@@ -3,13 +3,17 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 50rem;
-    margin: 5rem auto 0;
+    margin: 3rem auto 0;
+
+    @include mq(pc) {
+      margin-top: 5rem;
+    }
   }
 
   &__item {
     position: relative;
     margin-right: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.4rem;
     font-size: 1.3rem;
     letter-spacing: 0.1em;
     opacity: 0;
@@ -30,12 +34,16 @@
       color: #000;
     }
 
-    &:hover {
-      color: red;
-    }
-
     .is-active & {
       opacity: 1;
+    }
+
+    @include mq(pc) {
+      margin-bottom: 2rem;
+
+      &:hover {
+        color: red;
+      }
     }
   }
 }

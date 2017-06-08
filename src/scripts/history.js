@@ -1,4 +1,6 @@
 export default () => {
+  if (!window.matchMedia('(min-width: 960px)').matches) return;
+
   const $name = $('.js-history-name');
 
   $name.click(function c() {

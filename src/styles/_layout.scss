@@ -1,6 +1,11 @@
 .l {
   &-container {
-    padding-right: 4rem;
-    padding-left: 4rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+
+    @include mq(pc) {
+      padding-right: 4rem;
+      padding-left: 4rem;
+    }
   }
 }

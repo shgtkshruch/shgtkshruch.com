@@ -15,12 +15,14 @@
     z-index: -1;
   }
 
-  &:hover {
-    color: #fff;
-    text-decoration: none;
+  @include mq(pc) {
+    &:hover {
+      color: #fff;
+      text-decoration: none;
 
-    &::before {
-      width: 100%;
+      &::before {
+        width: 100%;
+      }
     }
   }
 }

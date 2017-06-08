@@ -1,23 +1,35 @@
 .work {
   &__list {
     display: none;
-    padding-top: 14rem;
+    padding-top: 4rem;
+
+    @include mq(pc) {
+      padding-top: 14rem;
+    }
   }
 
   &__item {
     display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: wrap;
-    align-items: center;
+    flex-direction: column;
     margin: 0 auto;
 
     &:not(:last-child) {
-      margin-bottom: 14rem;
+      margin-bottom: 5rem;
+    }
+
+    @include mq(pc) {
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      align-items: center;
+
+      &:not(:last-child) {
+        margin-bottom: 14rem;
+      }
     }
   }
 
   &__img {
-    width: 60%;
+    margin-bottom: 3rem;
     box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition:
@@ -28,24 +40,48 @@
       opacity: 1;
     }
 
-    &:hover {
-      box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
+    @include mq(pc) {
+      width: 60%;
+
+      &:hover {
+        box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
+      }
     }
   }
 
   &__data {
     display: none;
-    width: 30%;
     line-height: 1.6;
-    margin-right: auto;
     font-weight: normal;
     font-size: 1.2rem;
 
-    > .text {
+    @include mq(pc) {
+      width: 35%;
+      margin-right: auto;
+    }
+
+    .text {
       margin: 0.3rem 0;
 
       &:last-child {
         margin-top: 1rem;
+      }
+
+      &--url {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+      }
+    }
+
+    .text__content--url {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: block;
+      white-space: nowrap;
+
+      @include mq(pc) {
+        display: inline;
       }
     }
   }

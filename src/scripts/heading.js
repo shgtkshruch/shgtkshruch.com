@@ -3,7 +3,7 @@
 export default () => {
   // calcurate heading height and adapt it
   $('.js-heading').each((i, el) => {
-    const $heading = $(el).find('.heading__typed').first();
+    const $heading = $(el).find('.heading__typed').eq(0);
     const height = $heading.height();
 
     $heading.hide();
