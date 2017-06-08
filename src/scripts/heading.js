@@ -34,6 +34,10 @@ export default () => {
           if ($(el).hasClass('skill')) {
             $('.skill__list').addClass('is-active');
           }
+
+          if ($(el).hasClass('contact')) {
+            $('.contact__list').addClass('is-active');
+          }
         },
       });
     });

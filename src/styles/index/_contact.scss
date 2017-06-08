@@ -1,0 +1,44 @@
+.contact {
+  &__list {
+    max-width: 22rem;
+    margin: 6rem auto 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    opacity: 0;
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        transition: opacity 1s 0.1s * ($i - 1);
+      }
+    }
+
+    .is-active & {
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    $size: 2.2rem;
+
+    width: $size;
+    height: $size;
+    transition: fill 0.3s;
+
+    $icons: (
+      mail: #d14836,
+      github: #181717,
+      twitter: #1da1f2,
+      facebook: #385998,
+      hatena: #00a4de,
+    );
+
+    @each $icon, $color in $icons {
+      &--#{$icon}:hover {
+        fill: $color;
+      }
+    }
+  }
+}
