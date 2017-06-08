@@ -97,6 +97,13 @@
       margin-bottom: 0.3rem;
     }
   }
+
+  &__btn {
+    border: 1px solid currentColor;
+    text-decoration: none;
+    padding: 0.4rem 1.4rem;
+    letter-spacing: 0.06em;
+  }
 }
 
 @keyframes line {
