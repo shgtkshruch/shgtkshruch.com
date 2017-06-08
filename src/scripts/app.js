@@ -1,7 +1,7 @@
-import gallery from './gallery';
+import work from './work';
 import heading from './heading';
 import history from './history';
 
-gallery();
+work();
 heading();
 history();

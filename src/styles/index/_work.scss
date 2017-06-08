@@ -1,4 +1,8 @@
-.gallery {
+.work {
+  &__inner {
+    padding-top: 10rem;
+  }
+
   &__item {
     display: flex;
     flex-direction: row-reverse;

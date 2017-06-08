@@ -5,15 +5,17 @@
 // modules
 
 // common
+@import 'common/section';
 @import 'common/btn';
 @import 'common/link';
 // common
 
 // index
-@import 'index/gallery';
+@import 'index/intro';
 @import 'index/heading';
+@import 'index/work';
+@import 'index/history';
 @import 'index/skill';
-@import 'index/timeline';
 // index
 
 // modules
