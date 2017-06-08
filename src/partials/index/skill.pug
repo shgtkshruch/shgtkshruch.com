@@ -9,26 +9,25 @@ section.section.skill.js-heading#skill
 
   ul.skill__list
     - var skills = [];
-    - skills[0] = {name: 'HTML'};
-    - skills[1] = {name: 'Pug'};
-    - skills[2] = {name: 'CSS'};
-    - skills[3] = {name: 'Sass'};
-    - skills[4] = {name: 'PostCSS'};
-    - skills[5] = {name: 'BEM'};
-    - skills[6] = {name: 'SMACSS'};
-    - skills[7] = {name: 'JavaScript'};
-    - skills[8] = {name: 'Babel'};
-    - skills[9] = {name: 'jQuery'};
-    - skills[10] = {name: 'gulp'};
-    - skills[11] = {name: 'PHP'};
-    - skills[12] = {name: 'WordPress'};
-    - skills[13] = {name: 'Vagrant'};
-    - skills[14] = {name: 'Git'};
-    - skills[15] = {name: 'GitHub'};
-    - skills[16] = {name: 'VIM'};
-    - skills[17] = {name: 'AWS'};
+    - skills[0] = {name: 'HTML', text: '仕様に沿ったコーディング'};
+    - skills[1] = {name: 'Pug', text: '効率的で変更に強いコーディング'};
+    - skills[2] = {name: 'CSS', text: 'レイアウトからアニメーションまで'};
+    - skills[3] = {name: 'Sass', text: '効率的で保守性の高いコーディング'};
+    - skills[4] = {name: 'PostCSS', text: 'Sassから一歩進んだCSSを書くために'};
+    - skills[5] = {name: 'BEM', text: '予測しやすいクラスの命名'};
+    - skills[6] = {name: 'SMACSS', text: 'わかりやすいCSSの設計'};
+    - skills[7] = {name: 'JavaScript', text: 'アイディアを形にする'};
+    - skills[8] = {name: 'Babel', text: '次世代の仕様を積極的に採用'};
+    - skills[9] = {name: 'jQuery', text: 'プロトタイプを素早く作る'};
+    - skills[10] = {name: 'React', text: 'SPAが作れるようになるべく勉強中'};
+    - skills[11] = {name: 'gulp', text: '自動化した時間で創造的な仕事を'};
+    - skills[12] = {name: 'Yeoman', text: 'コマンド１つで開発環境を生成'};
+    - skills[13] = {name: 'PHP', text: 'WordPressのカスタマイズ'};
+    - skills[14] = {name: 'WordPress', text: '小・中規模サイトの制作'};
+    - skills[15] = {name: 'Vagrant', text: 'VCCWを使った開発環境'};
+    - skills[16] = {name: 'Git', text: 'すべてのコードをバージョン管理'};
+    - skills[17] = {name: 'VIM', text: 'カスタマイズして素早いプログラミング'};
+    - skills[18] = {name: 'AWS', text: 'ドメイン取得からサーバーの作成まで'};
 
     each skill in skills
-      li.skill__item
-        = skill.name
-        span.skill__space /
+      li.skill__item.js-tippy(title=`${skill.text}`)= skill.name

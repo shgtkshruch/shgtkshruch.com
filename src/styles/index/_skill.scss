@@ -7,24 +7,35 @@
   }
 
   &__item {
-    margin-bottom: 1rem;
+    position: relative;
+    margin-right: 1rem;
+    margin-bottom: 2rem;
     font-size: 1.3rem;
-    line-height: 2;
     letter-spacing: 0.1em;
     opacity: 0;
 
     @for $i from 1 through 20 {
       &:nth-child(#{$i}) {
-        transition: opacity 0.8s 0.05s * ($i - 1);
+        transition:
+          color 0.3s,
+          opacity 0.8s 0.05s * ($i - 1);
       }
+    }
+
+    &::after {
+      content: '/';
+      position: absolute;
+      top: 0;
+      left: 100%;
+      color: #000;
+    }
+
+    &:hover {
+      color: red;
     }
 
     .is-active & {
       opacity: 1;
     }
-  }
-
-  &__space {
-    padding: 0 0.3rem;
   }
 }
