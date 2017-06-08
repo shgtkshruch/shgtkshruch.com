@@ -22,6 +22,10 @@ export default () => {
         stringsElement: $(el).find('.heading__main').get(0),
         showCursor: false,
         callback() {
+          if ($(el).hasClass('work')) {
+            $('.work__list').fadeIn();
+          }
+
           if ($(el).hasClass('history')) {
             setTimeout(() => {
               $('.history__list').addClass('is-active');
