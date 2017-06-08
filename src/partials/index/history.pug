@@ -1,0 +1,29 @@
+.history
+  .heading.heading--history.js-heading#history
+    .heading__main
+      span
+        span history
+        br
+        span.heading__sub Learn web technology using internet.
+    h2.heading__typed
+  ol.history__list
+    - var history = [];
+    - history[0] = {age: 2011, name: 'dotinstall', url: 'http://dotinstall.com/users/shgtkshruch', text: ['HTML・CSS・JavaScriptなどWEBテクノロジーの基礎を学ぶ。']};
+    - history[1] = {age: 2013, name: 'Schoo', url: 'https://schoo.jp/student/00015866/history', text: ['課題制作で実際にWEBサイトを制作する。', '授業内のコンペティションで最優秀賞を受賞。']};
+    - history[2] = {age: 2015, name: 'Lancers', url: 'https://www.lancers.jp/profile/sh19e', text: ['コーポレートサイトやランディングページなどの制作を受注。', '全ての評価で☆5つを獲得。']};
+    - history[3] = {age: 2016, name: 'Chogenbashugi', url: 'http://chogenba.com/', text: ['実際の案件を元に実践的なコーディング技術を学ぶ。']};
+
+    each his in history
+      li.history__item
+        span.histroy__age= his.age
+        span.history__name.link.js-history-name= his.name
+        p.history__text
+          each text in his.text
+            span.text
+              span.text__content= text
+            br
+          br
+          span.text
+            span.text__content
+              a.link(href=`${his.url}` target="_blank") more
+

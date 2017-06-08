@@ -31,9 +31,6 @@
 .text {
   display: inline-block;
   position: relative;
-  margin: 0.3rem 0;
-  font-weight: normal;
-  font-size: 1.2rem;
 
   &::before {
     content: '';

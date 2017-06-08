@@ -26,5 +26,11 @@
     width: 30%;
     line-height: 1.6;
     margin-right: auto;
+    font-weight: normal;
+    font-size: 1.2rem;
+
+    > p {
+      margin: 0.3rem 0;
+    }
   }
 }
