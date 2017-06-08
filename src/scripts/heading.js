@@ -16,6 +16,8 @@ export default () => {
 
   inView('.js-heading')
     .on('enter', (el) => {
+      if (!$(el).find('.js-heading-output').is(':empty')) return;
+
       Typed.new(`#${el.id} .js-heading-output`, {
         stringsElement: $(el).find('.heading__main').get(0),
         showCursor: false,
@@ -34,8 +36,5 @@ export default () => {
           }
         },
       });
-    })
-    .on('exit', (el) => {
-      $(el).find('.js-heading-output').empty();
     });
 };
