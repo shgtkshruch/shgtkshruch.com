@@ -7,13 +7,13 @@ section.work.section.js-heading#work
         span.heading__sub My client and private works.
     h2.heading__typed.js-heading-output
   .work__inner
-    - var items = []; ['aviva-pro.jpg', 'damborghini.jpg', 'hydro-power.jpg', 'schoo-tours.jpg', 'timeline.png', 'feed-pocket.jpg']
-    - items[0] = {title: 'aviva pro', image: 'aviva-pro.jpg', age: 2016, url: 'http://www.aviva.co.jp/avivapro_web/'};
-    - items[1] = {title: 'damborghini', image: 'damborghini.jpg', age: 2016, url: 'http://damborghini.com/'};
-    - items[2] = {title: 'hydro power', image: 'hydro-power.jpg', age: 2016, url: 'http://hpjsuiso.com/'};
-    - items[3] = {title: 'schoo tours', image: 'schoo-tours.jpg', age: 2015, url: 'http://example.com'};
-    - items[4] = {title: 'timeline', image: 'timeline.png', age: 2015, url: 'http://example.com'};
-    - items[5] = {title: 'feed pocket', image: 'feed-pocket.jpg', age: 2015, url: 'http://example.com'};
+    - var items = [];
+    - items[0] = {title: 'aviva pro', image: 'aviva-pro.jpg', age: 2016, url: 'http://www.aviva.co.jp/avivapro_web/', text: 'AVIVA様のWEBデザインコースのランディングページのコーディングを担当しました。落ち着いたデザインを守りつつ、アクセントとしてスクロールエフェクトやホバーエフェクトを工夫しました。'};
+    - items[1] = {title: 'damborghini', image: 'damborghini.jpg', age: 2016, url: 'http://damborghini.com/', text: 'ブランディングサイトのコーディングを担当しました。背景動画や斜めを多用したデザインをレスポンシブデザインでコーディングしました。'};
+    - items[2] = {title: 'hydro power', image: 'hydro-power.jpg', age: 2016, url: 'http://hpjsuiso.com/', text: 'コーポレートサイトのコーディング、スマートフォンUIを担当しました。波の動きをSVGで再現し、破綻しにくいCSSの設計を採用しました。'};
+    - items[3] = {title: 'schoo tours', image: 'schoo-tours.jpg', age: 2015, url: 'http://shgtkshruch.github.io/schoo-tours/', text: '架空の旅行会社のランディングページのデザイン・コーディングを担当しました。写真をきれいに見せるために要素をできるだけ省いたフラットなデザインを採用しました。'};
+    - items[4] = {title: 'timeline', image: 'timeline.png', age: 2015, url: 'http://shgtkshruch.github.io/timeline/', text: '歴史上の人物や出来事を表示するための年表を制作しました。データを見やすく表示しつつ、絞り込みや拡大縮小、Wikipediaからの詳細情報の取得などの機能も実装しました。'};
+    - items[5] = {title: 'feed pocket', image: 'feed-pocket.jpg', age: 2015, url: 'https://github.com/shgtkshruch/feed-pocket', text: 'デザイン系のサイトの情報を閲覧するためのまとめサイトのデザイン・コーディングを担当しました。Google Feed APIを使ってRSSを取得し、記事を１件ずつ落ち着いて見れるようなUIを制作しました。'};
     each item in items
       .work__item.js-gallery-item
         img.work__img(src=`images/index/${item.image}` alt=`${item.title}`)
@@ -29,8 +29,8 @@ section.work.section.js-heading#work
               | url:&nbsp;
               a.link(href=`${item.url}` target="_blank")= item.url
           br
-          p.text
-            span.text__content Adipisicing laudantium veritatis nam porro tenetur Dolor enim voluptatem repudiandae molestias dignissimos.
+          p.text.jp
+            span.text__content= item.text
           br
           p.text
             span.text__content

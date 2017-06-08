@@ -1,5 +1,5 @@
 .history {
-  max-width: 45rem;
+  max-width: 50rem;
   margin: 0 auto;
 
   &__list {
@@ -78,8 +78,9 @@
     width: 62%;
     display: none;
     padding-left: 1rem;
-    font-size: 1.05rem;
+    font-size: 1rem;
     letter-spacing: 0.02em;
+    z-index: 1;
 
     &::before {
       content: '';
