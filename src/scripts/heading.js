@@ -11,7 +11,7 @@ export default () => {
   });
 
   inView.offset({
-    bottom: 200,
+    bottom: $(window).height() / 3,
   });
 
   inView('.js-heading')

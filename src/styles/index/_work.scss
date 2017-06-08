@@ -33,8 +33,12 @@
     font-weight: normal;
     font-size: 1.2rem;
 
-    > p {
+    > .text {
       margin: 0.3rem 0;
+
+      &:last-child {
+        margin-top: 1rem;
+      }
     }
   }
 }
