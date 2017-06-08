@@ -1,0 +1,36 @@
+.heading {
+  position: relative;
+  height: 100vh;
+
+  &__main {
+    display: none;
+  }
+
+  &__typed {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-size: 4.4rem;
+    font-weight: normal;
+    letter-spacing: 0.2em;
+  }
+
+  &__sub {
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
+
+    &::after {
+      content: '|';
+      animation: blink 1.2s infinite;
+    }
+  }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}

@@ -1,5 +1,5 @@
-import typed from './typed';
 import gallery from './gallery';
+import heading from './heading';
 
-typed();
 gallery();
+heading();

@@ -6,8 +6,13 @@ block title
 block body
   .l-container
     .gallery
-      .gallery__header
-        h2.gallery__heading works
+      .heading.js-heading
+        h2.heading__main
+          span
+            span works
+            br
+            span.heading__sub My client and private works.
+        h2.heading__typed
       .gallery__inner
         - var items = []; ['aviva-pro.jpg', 'damborghini.jpg', 'hydro-power.jpg', 'schoo-tours.jpg', 'timeline.png', 'feed-pocket.jpg']
         - items[0] = {title: 'aviva pro', image: 'aviva-pro.jpg', age: 2016, url: 'http://www.aviva.co.jp/avivapro_web/'};

@@ -1,19 +1,4 @@
 .gallery {
-  &__header {
-    position: relative;
-    height: 100vh;
-  }
-
-  &__heading {
-    position: absolute;
-    top: 43%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 4.4rem;
-    font-weight: normal;
-    letter-spacing: 0.2em;
-  }
-
   &__item {
     display: flex;
     flex-direction: row-reverse;
