@@ -10,10 +10,6 @@ export default () => {
     $(el).find('.heading__typed').eq(1).css({ height });
   });
 
-  inView.offset({
-    bottom: $(window).height() / 3,
-  });
-
   let introShow = false;
   let workIsShow = false;
   let historyIsShow = false;
