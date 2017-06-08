@@ -19,7 +19,14 @@
   &__img {
     width: 60%;
     box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.5s;
+    opacity: 0;
+    transition:
+      box-shadow 0.5s,
+      opacity 1s;
+
+    &.is-active {
+      opacity: 1;
+    }
 
     &:hover {
       box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
