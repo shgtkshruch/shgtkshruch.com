@@ -19,6 +19,20 @@ export default () => {
       Typed.new(`#${el.id} .js-heading-output`, {
         stringsElement: $(el).find('.heading__main').get(0),
         showCursor: false,
+        callback() {
+          if ($(el).hasClass('history')) {
+            setTimeout(() => {
+              $('.history__list').addClass('is-active');
+              setTimeout(() => {
+                $('.history__item').first().find('.history__name').click();
+              }, 1800);
+            }, 500);
+          }
+
+          if ($(el).hasClass('skill')) {
+            $('.skill__list').addClass('is-active');
+          }
+        },
       });
     })
     .on('exit', (el) => {

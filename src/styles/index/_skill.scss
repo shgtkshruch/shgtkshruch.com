@@ -12,6 +12,17 @@
     margin-bottom: 1rem;
     font-size: 1.3rem;
     letter-spacing: 0.1em;
+    opacity: 0;
+
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        transition: opacity 0.8s 0.05s * ($i - 1);
+      }
+    }
+
+    .is-active & {
+      opacity: 1;
+    }
   }
 
   &__space {
