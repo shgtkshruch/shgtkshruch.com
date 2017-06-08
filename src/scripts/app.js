@@ -10,6 +10,10 @@ inView.offset({
   bottom: $(window).height() / 3,
 });
 
+$(window).scroll(() => {
+  $('.js-mouse').fadeOut(1000);
+});
+
 
 work();
 heading();

@@ -32,6 +32,7 @@ export default () => {
         callback() {
           if ($(el).hasClass('intro')) {
             introShow = true;
+            $('.js-mouse').fadeIn(1000);
           }
 
           if ($(el).hasClass('work')) {
