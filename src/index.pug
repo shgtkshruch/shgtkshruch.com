@@ -5,51 +5,7 @@ block title
 
 block body
   .l-container
-    .intro
-      .heading.js-heading#intro
-        .heading__main
-          span
-            span.heading__name Shigetaka Shirouchi
-            br
-            span.heading__sub I'm a markup engineer.
-        h1.heading__typed.heading__typed--intro
-    .gallery
-      .heading.js-heading#gallery
-        .heading__main
-          span
-            span works
-            br
-            span.heading__sub My client and private works.
-        h2.heading__typed
-      .gallery__inner
-        - var items = []; ['aviva-pro.jpg', 'damborghini.jpg', 'hydro-power.jpg', 'schoo-tours.jpg', 'timeline.png', 'feed-pocket.jpg']
-        - items[0] = {title: 'aviva pro', image: 'aviva-pro.jpg', age: 2016, url: 'http://www.aviva.co.jp/avivapro_web/'};
-        - items[1] = {title: 'damborghini', image: 'damborghini.jpg', age: 2016, url: 'http://damborghini.com/'};
-        - items[2] = {title: 'hydro power', image: 'hydro-power.jpg', age: 2016, url: 'http://hpjsuiso.com/'};
-        - items[3] = {title: 'schoo tours', image: 'schoo-tours.jpg', age: 2015, url: 'http://example.com'};
-        - items[4] = {title: 'timeline', image: 'timeline.png', age: 2015, url: 'http://example.com'};
-        - items[5] = {title: 'feed pocket', image: 'feed-pocket.jpg', age: 2015, url: 'http://example.com'};
-        each item in items
-          .gallery__item.js-gallery-item
-            img.gallery__img(src=`images/index/${item.image}` alt=`${item.title}`)
-            .gallery__data.js-gallery-data
-              h2.text
-                span.text__content= `title: ${item.title}`
-              br
-              p.text
-                span.text__content= `age: ${item.age}`
-              br
-              p.text
-                span.text__content
-                  | url:&nbsp;
-                  a.link(href=`${item.url}` target="_blank")= item.url
-              br
-              p.text
-                span.text__content Adipisicing laudantium veritatis nam porro tenetur Dolor enim voluptatem repudiandae molestias dignissimos.
-              br
-              p.text
-                span.text__content Iusto repudiandae molestiae adipisci fuga asperiores, dolorum aperiam cupiditate Sequi omnis quod earum autem numquam fuga Mollitia quis
-              br
-              p.text
-                span.text__content
-                  a.btn(href="#") more
+    include ./partials/index/intro
+    include ./partials/index/gallery
+    include ./partials/index/skill
+

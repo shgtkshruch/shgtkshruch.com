@@ -4,7 +4,11 @@
     flex-direction: row-reverse;
     flex-wrap: wrap;
     align-items: center;
-    margin: 0 auto 14rem;
+    margin: 0 auto;
+
+    &:not(:last-child) {
+      margin-bottom: 14rem;
+    }
   }
 
   &__img {

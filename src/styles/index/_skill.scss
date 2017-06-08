@@ -1,0 +1,20 @@
+.skill {
+  margin-bottom: 10rem;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+
+  &__item {
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+  }
+
+  &__space {
+    padding: 0 0.3rem;
+  }
+}

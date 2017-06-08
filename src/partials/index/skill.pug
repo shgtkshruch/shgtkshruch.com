@@ -1,0 +1,34 @@
+.skill
+  .heading.js-heading#skill
+    .heading__main
+      span
+        span.heading__name skills
+        br
+        span.heading__sub Adopt the latest tools and methodology.
+    h2.heading__typed.heading__typed--intro
+
+  ul.skill__list
+    - var skills = [];
+    - skills[0] = {name: 'HTML'};
+    - skills[1] = {name: 'Pug'};
+    - skills[2] = {name: 'CSS'};
+    - skills[3] = {name: 'Sass'};
+    - skills[4] = {name: 'PostCSS'};
+    - skills[5] = {name: 'BEM'};
+    - skills[6] = {name: 'SMACSS'};
+    - skills[7] = {name: 'JavaScript'};
+    - skills[8] = {name: 'Babel'};
+    - skills[9] = {name: 'jQuery'};
+    - skills[10] = {name: 'gulp'};
+    - skills[11] = {name: 'PHP'};
+    - skills[12] = {name: 'WordPress'};
+    - skills[13] = {name: 'Vagrant'};
+    - skills[14] = {name: 'Git'};
+    - skills[15] = {name: 'GitHub'};
+    - skills[16] = {name: 'VIM'};
+    - skills[17] = {name: 'AWS'};
+
+    each skill in skills
+      li.skill__item
+        = skill.name
+        span.skill__space /
