@@ -2,14 +2,14 @@ $colorBg: #fff;
 $colorOutline: #bbb;
 $colorOutlineFade: #333;
 
-$widthMouse: 40px;
-$heightMouse: 70px;
+$widthMouse: 30px;
+$heightMouse: 50px;
 $borderMouse: 6px;
 
 $posMouse: 8px;
 $posText: 2px;
 
-$sizeTrackball: 10px;
+$sizeTrackball: 7px;
 $posTrackball: 20px;
 $shrinkTrackball: 0.4;
 
@@ -31,7 +31,7 @@ $animDuration: 5s;
 
   display: none;
   position: absolute;
-  bottom: 5rem;
+  bottom: 3rem;
   left: 50%;
   width: $widthMouse;
   height: $heightMouse;
@@ -68,17 +68,45 @@ $animDuration: 5s;
     animation: trackBallSlide $animDuration linear infinite;
   }
 
+  @include mq(pc) {
+    $widthMouse: 40px;
+    $heightMouse: 70px;
+
+    width: $widthMouse;
+    height: $heightMouse;
+    bottom: 5rem;
+
+    &::before {
+      width: $widthMouse - $borderMouse;
+      height: $heightMouse - $borderMouse;
+    }
+
+    &::after {
+      $sizeTrackball: 10px;
+
+      width: $sizeTrackball;
+      height: $sizeTrackball;
+    }
+  }
+
   &__text {
     position: absolute;
-    top: 110%;
+    top: 115%;
     left: 50%;
     transform: translate(-50%, 0);
-    letter-spacing: 0.5em;
-    text-indent: 0.5em;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    font-size: 0.8rem;
     color: $colorOutline;
     animation:
       colorText $animDuration ease-out infinite,
       nudgeText $animDuration ease-out infinite;
+
+    @include mq(pc) {
+      font-size: 1rem;
+      letter-spacing: 0.5em;
+      text-indent: 0.5em;
+    }
   }
 }
 
