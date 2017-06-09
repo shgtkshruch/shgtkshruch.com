@@ -68,20 +68,10 @@
       }
 
       &--url {
-        display: block;
         width: 100%;
         overflow: hidden;
-      }
-    }
-
-    .text__content--url {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      display: block;
-      white-space: nowrap;
-
-      @include mq(pc) {
-        display: inline;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
     }
   }
