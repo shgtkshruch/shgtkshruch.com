@@ -85,9 +85,10 @@
 
   &__text {
     margin-top: 1.6rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
     letter-spacing: 0.02em;
     z-index: 1;
+    line-height: 1.8;
 
     @include mq(pc) {
       display: none;
@@ -97,6 +98,7 @@
       width: 62%;
       padding-left: 1rem;
       margin-top: 0;
+      font-size: 1rem;
     }
 
     &::before {
