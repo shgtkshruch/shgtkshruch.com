@@ -1,4 +1,8 @@
 .heading {
+  &__main {
+    visibility: hidden;
+  }
+
   &__typed {
     width: 100%;
     text-align: center;
