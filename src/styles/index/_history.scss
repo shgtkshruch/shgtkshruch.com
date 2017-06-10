@@ -1,13 +1,21 @@
 .history {
   max-width: 50rem;
   margin: 0 auto;
+  text-align: center;
+
+  @include mq(pc) {
+    text-align: left;
+  }
 
   &__list {
+    display: inline-block;
+    text-align: left;
     position: relative;
     padding: 4rem 0;
     margin-top: 2rem;
 
     @include mq(pc) {
+      display: block;
       margin-top: 5rem;
     }
 

@@ -14,7 +14,7 @@
     margin: 0 auto;
 
     &:not(:last-child) {
-      margin-bottom: 5rem;
+      margin-bottom: 6rem;
     }
 
     @include mq(pc) {
@@ -59,10 +59,6 @@
 
     .text {
       margin: 0.3rem 0;
-
-      &:last-child {
-        margin-top: 1rem;
-      }
 
       &--url {
         width: 100%;
