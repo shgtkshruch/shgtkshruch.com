@@ -51,9 +51,6 @@
 
   &__data {
     display: none;
-    line-height: 1.6;
-    font-weight: normal;
-    font-size: 1.2rem;
 
     @include mq(pc) {
       width: 35%;

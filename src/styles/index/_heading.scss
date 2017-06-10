@@ -11,13 +11,21 @@
   &__title {
     display: inline-block;
     margin-bottom: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
+    line-height: 1.4;
     font-weight: normal;
     letter-spacing: 0.2em;
+
+    @include mq(pc) {
+      font-size: 3rem;
+    }
   }
 
   &__name {
+    display: inline-block;
+    margin-bottom: 1rem;
     font-size: 2.2rem;
+    line-height: 1.2;
     letter-spacing: 0.3em;
     text-transform: uppercase;
 

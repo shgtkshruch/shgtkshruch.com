@@ -10,6 +10,6 @@ export default () => {
 
     $(this)
       .addClass('is-active')
-      .next('.history__text').show();
+      .parent().next('.history__text').show();
   });
 };

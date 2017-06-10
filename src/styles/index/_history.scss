@@ -45,15 +45,19 @@
     &:not(:last-child) {
       margin-bottom: 4rem;
     }
+  }
+
+  &__header {
+    position: relative;
 
     &::before {
       $size: 10px;
 
       content: '';
       position: absolute;
-      left: 0;
-      top: 0;
-      transform: translate(-50%, 50%);
+      top: 50%;
+      left: -1rem;
+      transform: translate(-50%, -50%);
       width: $size;
       height: $size;
       border-radius: 50%;
@@ -84,8 +88,7 @@
   }
 
   &__text {
-    margin-top: 1.6rem;
-    font-size: 0.9rem;
+    margin-top: 1.6em;
     letter-spacing: 0.02em;
     z-index: 1;
     line-height: 1.8;
@@ -98,7 +101,6 @@
       width: 62%;
       padding-left: 1rem;
       margin-top: 0;
-      font-size: 1rem;
     }
 
     &::before {

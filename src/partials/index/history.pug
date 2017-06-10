@@ -15,8 +15,9 @@ section.section.history.js-heading#history
 
     each his in history
       li.history__item
-        span.histroy__age= his.age
-        span.history__name.link.js-history-name= his.name
+        .history__header
+          span.histroy__year= his.age
+          span.history__name.link.js-history-name= his.name
         p.history__text.jp
           each text in his.text
             span.text
