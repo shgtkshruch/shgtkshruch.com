@@ -13,21 +13,20 @@ section.section.skill.js-heading#skill(data-speed=0)
     - skills[1] = {name: 'Pug', text: '効率的で変更に強いコーディング'};
     - skills[2] = {name: 'CSS', text: 'レイアウトからアニメーションまで'};
     - skills[3] = {name: 'Sass', text: '効率的で保守性の高いコーディング'};
-    - skills[4] = {name: 'PostCSS', text: 'Sassから一歩進んだCSSを書くために'};
-    - skills[5] = {name: 'BEM', text: '予測しやすいクラスの命名'};
-    - skills[6] = {name: 'SMACSS', text: 'わかりやすいCSSの設計'};
-    - skills[7] = {name: 'JavaScript', text: 'アイディアを形にする'};
-    - skills[8] = {name: 'Babel', text: '次世代の仕様を積極的に採用'};
-    - skills[9] = {name: 'jQuery', text: 'プロトタイプを素早く作る'};
-    - skills[10] = {name: 'React', text: 'SPAが作れるようになるべく勉強中'};
-    - skills[11] = {name: 'gulp', text: '自動化した時間で創造的な仕事を'};
-    - skills[12] = {name: 'Yeoman', text: 'コマンド１つで開発環境を生成'};
-    - skills[13] = {name: 'PHP', text: 'WordPressのカスタマイズ'};
-    - skills[14] = {name: 'WordPress', text: '小・中規模サイトの制作'};
-    - skills[15] = {name: 'Vagrant', text: 'VCCWを使った開発環境'};
-    - skills[16] = {name: 'Git', text: 'すべてのコードをバージョン管理'};
-    - skills[17] = {name: 'VIM', text: 'カスタマイズして素早いプログラミング'};
-    - skills[18] = {name: 'AWS', text: 'ドメイン取得からサーバーの作成まで'};
+    - skills[4] = {name: 'PostCSS', text: 'Sassに足りない機能を補完'};
+    - skills[5] = {name: 'BEM・SMACSS', text: 'この２つを組み合わせたCSS設計'};
+    - skills[6] = {name: 'JavaScript', text: '独自のUIや演出をつくる'};
+    - skills[7] = {name: 'Babel', text: '次世代の仕様を積極的に採用'};
+    - skills[8] = {name: 'jQuery', text: 'ライブラリーを組み合わせつつ独自のプログラムも実装'};
+    - skills[9] = {name: 'React', text: 'SPAが作れるようになるべく勉強中'};
+    - skills[10] = {name: 'gulp', text: '独自のビルド環境を作成'};
+    - skills[11] = {name: 'Yeoman', text: 'コマンド１つで開発環境を生成'};
+    - skills[12] = {name: 'PHP', text: 'WordPressのテーマ制作ができる'};
+    - skills[13] = {name: 'WordPress', text: '小・中規模サイトの制作'};
+    - skills[14] = {name: 'Vagrant', text: 'VCCWを使った開発環境'};
+    - skills[15] = {name: 'Git', text: 'すべてのプロジェクトをバージョン管理'};
+    - skills[16] = {name: 'VIM', text: '素早いコーディングができるようにカスタマイズ'};
+    - skills[17] = {name: 'AWS', text: 'ドメイン取得やサーバーの作成'};
 
     each skill in skills
-      li.skill__item.js-tippy(title=`${skill.text}`)= skill.name
+      li.skill__item(class=skill.text ? 'js-tippy' : '' title=`${skill.text}`)= skill.name
