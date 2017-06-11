@@ -1,6 +1,10 @@
 .section {
   padding: 3rem 0;
 
+  &:not(:first-of-type) {
+    display: none;
+  }
+
   @include mq(pc) {
     padding: 10rem 0;
   }

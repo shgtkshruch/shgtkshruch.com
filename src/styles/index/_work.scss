@@ -1,7 +1,11 @@
 .work {
   &__list {
-    display: none;
+    opacity: 0;
     padding-top: 4rem;
+
+    &.is-active {
+      opacity: 1;
+    }
 
     @include mq(pc) {
       padding-top: 14rem;

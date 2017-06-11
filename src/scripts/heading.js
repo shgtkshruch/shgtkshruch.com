@@ -25,11 +25,13 @@ export default () => {
           if ($(el).hasClass('intro')) {
             introShow = true;
             $('.js-mouse').fadeIn(1000);
+            $(el).next('.section').show();
           }
 
           if ($(el).hasClass('work')) {
-            $('.work__list').fadeIn();
             workIsShow = true;
+            $('.work__list').addClass('is-active');
+            $(el).next('.section').show();
           }
 
           if ($(el).hasClass('history')) {
@@ -38,13 +40,15 @@ export default () => {
               setTimeout(() => {
                 $('.history__item').first().find('.history__name').click();
                 historyIsShow = true;
+                $(el).next('.section').show();
               }, 1800);
             }, 500);
           }
 
           if ($(el).hasClass('skill')) {
-            $('.skill__list').addClass('is-active');
             skillIsShow = true;
+            $('.skill__list').addClass('is-active');
+            $(el).next('.section').show();
           }
 
           if ($(el).hasClass('contact')) {
