@@ -20,6 +20,7 @@ export default () => {
       Typed.new(`#${el.id} .js-heading-output`, {
         stringsElement: $(el).find('.heading__main').get(0),
         showCursor: false,
+        typeSpeed: $(el).data('speed'),
         callback() {
           if ($(el).hasClass('intro')) {
             introShow = true;
