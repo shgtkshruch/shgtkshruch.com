@@ -25,8 +25,9 @@ section.section.skill.js-heading#skill(data-speed=0)
     - skills[13] = {name: 'WordPress', text: '小・中規模サイトの制作'};
     - skills[14] = {name: 'Vagrant', text: 'VCCWを使った開発環境'};
     - skills[15] = {name: 'Git', text: 'すべてのプロジェクトをバージョン管理'};
-    - skills[16] = {name: 'VIM', text: '素早いコーディングができるようにカスタマイズ'};
-    - skills[17] = {name: 'AWS', text: 'ドメイン取得やサーバーの作成'};
+    - skills[16] = {name: 'AWS', text: 'ドメイン取得やサーバーの作成'};
+    - skills[17] = {name: 'VIM', text: '素早いコーディングができるようにカスタマイズ'};
+    - skills[18] = {name: 'Chrome', text: 'パフォーマンスの計測やデバック'};
 
     each skill in skills
       li.skill__item(class=skill.text ? 'js-tippy' : '' title=`${skill.text}`)= skill.name
