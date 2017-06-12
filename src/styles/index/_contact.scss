@@ -12,15 +12,17 @@
 
   &__item {
     opacity: 0;
+    transform: translateY(30px);
 
     @for $i from 1 through 5 {
       &:nth-child(#{$i}) {
-        transition: opacity 1s 0.1s * ($i - 1);
+        transition: all 0.8s 0.12s * ($i - 1);
       }
     }
 
     .is-active & {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 
