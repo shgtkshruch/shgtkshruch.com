@@ -3,7 +3,7 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 50rem;
-    margin: 3rem auto 0;
+    margin: 3rem auto -1.6rem;
 
     @include mq(pc) {
       margin-top: 5rem;
