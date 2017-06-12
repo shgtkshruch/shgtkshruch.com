@@ -36,3 +36,8 @@ h2 {
   font-weight: normal;
   font-size: inherit;
 }
+
+::selection {
+  background-color: #000;
+  color: #fff;
+}
