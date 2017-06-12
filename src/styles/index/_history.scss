@@ -121,15 +121,10 @@
       background-color: #000;
       animation: line 0.3s 1s forwards;
     }
-
-    > span:not(:last-child) {
-      margin-bottom: 0.3rem;
-    }
   }
 
   &__btn {
     display: inline-block;
-    margin-top: 1rem;
     border: 1px solid currentColor;
     text-decoration: none;
     padding: 0.5rem 1.4rem;
