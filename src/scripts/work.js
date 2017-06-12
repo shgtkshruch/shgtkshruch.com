@@ -1,7 +1,7 @@
 /* global inView */
 
 export default () => {
-  inView('.work__img')
+  inView('.work__item:not(:first-child) > .work__img')
     .on('enter', (el) => {
       $(el)
         .addClass('is-active')

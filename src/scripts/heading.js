@@ -31,6 +31,9 @@ export default () => {
           if ($(el).hasClass('work')) {
             workIsShow = true;
             $('.work__list').addClass('is-active');
+            $('.work__item:first-child > .work__img')
+              .addClass('is-active')
+              .next('.js-work-data').show();
             $(el).next('.section').show();
           }
 
