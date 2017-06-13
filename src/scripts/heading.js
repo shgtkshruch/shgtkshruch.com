@@ -33,7 +33,7 @@ export default () => {
             $('.work__list').addClass('is-active');
             $('.work__item:first-child > .work__img')
               .addClass('is-active')
-              .next('.js-work-data').show();
+              .siblings('.js-work-data').show();
             $(el).next('.section').show();
           }
 

@@ -5,7 +5,7 @@ export default () => {
     .on('enter', (el) => {
       $(el)
         .addClass('is-active')
-        .next('.js-work-data').show();
+        .siblings('.js-work-data').show();
     });
 };
 

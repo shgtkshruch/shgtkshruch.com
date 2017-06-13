@@ -14,7 +14,7 @@
 
   &__item {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin: 0 auto;
 
     &:not(:last-child) {
@@ -22,7 +22,7 @@
     }
 
     @include mq(pc) {
-      flex-direction: row-reverse;
+      flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
 
@@ -46,6 +46,7 @@
 
     @include mq(pc) {
       width: 60%;
+      margin-bottom: 0;
 
       &:hover {
         box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);

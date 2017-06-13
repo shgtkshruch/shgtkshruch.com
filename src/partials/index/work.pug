@@ -16,7 +16,6 @@ section.work.section.js-heading#work(data-speed=0)
     - items[5] = {title: 'schoo tours', image: 'schoo-tours.jpg', age: 2015, url: 'http://shgtkshruch.github.io/schoo-tours/', text: '架空の旅行会社のランディングページのデザイン・コーディングを担当しました。写真をきれいに見せるために要素をできるだけ省いたフラットなデザインを採用しました。'};
     each item in items
       .work__item.js-gallery-item
-        img.work__img(src=`images/index/${item.image}` alt=`${item.title}`)
         .work__data.js-work-data
           h2.text
             span.text__content= `title: ${item.title}`
@@ -31,7 +30,4 @@ section.work.section.js-heading#work(data-speed=0)
           br
           p.text.jp
             span.text__content= item.text
-          // br
-          // p.text
-          //   span.text__content
-          //     a.btn(href="#") more
+        img.work__img(src=`images/index/${item.image}` alt=`${item.title}`)
