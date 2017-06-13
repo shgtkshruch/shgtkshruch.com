@@ -17,6 +17,11 @@ section.section.contact.js-heading#contact(data-speed=0)
 
     each item in items
       li.contact__item
-        a(href=`${item.url}`)
-          svg.contact__icon(viewbox="0 0 16 16" class=`contact__icon--${item.name}`)
-            use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=`#${item.name}`)
+        if item.name === 'mail'
+          a(href=`${item.url}`)
+            svg.contact__icon(viewbox="0 0 16 16" class=`contact__icon--${item.name}`)
+              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=`#${item.name}`)
+        else
+          a(href=`${item.url}` target="_blank")
+            svg.contact__icon(viewbox="0 0 16 16" class=`contact__icon--${item.name}`)
+              use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=`#${item.name}`)
