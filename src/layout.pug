@@ -5,7 +5,8 @@ html(lang="ja")
     block title
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    meta(name='format-detection', content='telephone=no')
+    meta(name='description', content="I'm a Front-End Engineer.")
+
     link(href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet")
     // build:css styles/vendor.css
     // bower:css
@@ -16,6 +17,18 @@ html(lang="ja")
     // build:css styles/main.css
     link(rel='stylesheet', href='styles/main.css', media='all')
     // endbuild
+
+    meta(property="og:title" content="Shigetaka Shirouchi")
+    meta(property="og:type" content="website")
+    meta(property="og:url" content="http://shgtkshruch.com")
+    meta(property="og:image" content="http://shgtkshruch.com/images/common/opg.png")
+    meta(property="og:description" content="I'm a Front-End Engineer.")
+
+    meta(name="twitter:card" content="summary")
+    meta(name="twitter:site" content="@shgtkshruch")
+    meta(name="twitter:title" content="Shigetaka Shirouchi")
+    meta(name="twitter:description" content="I'm a Front-End Engineer")
+    meta(name="twitter:image" content="http://shgtkshruch.com/images/common/opg.png")
   body
     block body
     // build:js scripts/vendor.js
