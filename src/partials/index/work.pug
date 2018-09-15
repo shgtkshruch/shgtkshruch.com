@@ -30,4 +30,4 @@ section.work.section.js-heading#work(data-speed=0)
           br
           p.text.jp
             span.text__content= item.text
-        img.work__img(src=`images/index/${item.image}` alt=`${item.title}`)
+        img.work__img.lazy(src="https://via.placeholder.com/1920x1000" alt=`${item.title}` data-src=`/images/index/${item.image}`)
