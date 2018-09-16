@@ -141,6 +141,12 @@ gulp.task('image', () => {
     .pipe(gulp.dest('dist/images'));
 });
 
+gulp.task('webp', () => {
+  return gulp.src('src/images/**/*')
+    .pipe($.webp())
+    .pipe(gulp.dest('dist/images'));
+});
+
 gulp.task('clean:all', () => {
   return del('dist');
 });
@@ -175,7 +181,7 @@ gulp.task('default', (cb) => {
 });
 
 gulp.task('build', (cb) => {
-  runSequence('clean:all', ['html', 'image', 'js'], ['compress:js'], ['clean:build', 'clean:empty'], cb);
+  runSequence('clean:all', ['html', 'image', 'js'], ['compress:js', 'webp'], ['clean:build', 'clean:empty'], cb);
 });
 
 gulp.task('publish', (cb) => {

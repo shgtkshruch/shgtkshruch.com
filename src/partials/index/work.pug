@@ -8,12 +8,12 @@ section.work.section.js-heading#work(data-speed=20)
     h2.heading__typed.js-heading-output
   .work__list
     - var items = [];
-    - items[0] = {title: 'Nozomi Finacial Group', image: 'nozomi-financial-group.jpg', age: 2017, url: 'http://nozomifinancial.net/', text: 'アメリカと日本で活躍されているコンサルタントのコーポレートサイトをデザイン・制作しました。シンプルなデザインに統一しつつ、アニメーションで演出を加えました。日英の多言語対応も行い、WordPressですべての文言を更新できるようにしました。'};
-    - items[1] = {title: 'Yoshie Nishikawa', image: 'yoshienishikawa.jpg', age: 2017, url: 'http://www.yoshienishikawa.com/', text: 'イタリアで活躍されている写真家のコーポレートサイトをデザイン・制作しました。写真が主役になるようミニマルなデザインを採用しました。WordPressで実装し、SNS連携の機能も盛り込みました。'};
-    - items[2] = {title: 'aviva pro', image: 'aviva-pro.jpg', age: 2016, url: 'http://www.aviva.co.jp/avivapro_web/', text: 'AVIVA様のWEBデザインコースのランディングページのコーディングを担当しました。落ち着いたデザインを守りつつ、アクセントとしてスクロールエフェクトやホバーエフェクトを工夫しました。'};
-    - items[3] = {title: 'damborghini', image: 'damborghini.jpg', age: 2016, url: 'http://damborghini.com/', text: 'ブランディングサイトのコーディングを担当しました。導入部分のテキストによるアニメーション演出やSVGによるモーダル開閉アニメーションなどを実装しました。'};
-    - items[4] = {title: 'hydro power', image: 'hydro-power.jpg', age: 2016, url: 'http://hpjsuiso.com/', text: 'コーポレートサイトのコーディング、スマートフォンUIを担当しました。波の動きをSVGで再現し、破綻しにくいCSSの設計を採用しました。'};
-    - items[5] = {title: 'schoo tours', image: 'schoo-tours.jpg', age: 2013, url: 'http://shgtkshruch.github.io/schoo-tours/', text: '架空の旅行会社のランディングページのデザイン・コーディングを担当しました。写真をきれいに見せるために要素をできるだけ省いたフラットなデザインを採用しました。'};
+    - items[0] = {title: 'Nozomi Finacial Group', image: 'nozomi-financial-group', age: 2017, url: 'http://nozomifinancial.net/', text: 'アメリカと日本で活躍されているコンサルタントのコーポレートサイトをデザイン・制作しました。シンプルなデザインに統一しつつ、アニメーションで演出を加えました。日英の多言語対応も行い、WordPressですべての文言を更新できるようにしました。'};
+    - items[1] = {title: 'Yoshie Nishikawa', image: 'yoshienishikawa', age: 2017, url: 'http://www.yoshienishikawa.com/', text: 'イタリアで活躍されている写真家のコーポレートサイトをデザイン・制作しました。写真が主役になるようミニマルなデザインを採用しました。WordPressで実装し、SNS連携の機能も盛り込みました。'};
+    - items[2] = {title: 'aviva pro', image: 'aviva-pro', age: 2016, url: 'http://www.aviva.co.jp/avivapro_web/', text: 'AVIVA様のWEBデザインコースのランディングページのコーディングを担当しました。落ち着いたデザインを守りつつ、アクセントとしてスクロールエフェクトやホバーエフェクトを工夫しました。'};
+    - items[3] = {title: 'damborghini', image: 'damborghini', age: 2016, url: 'http://damborghini.com/', text: 'ブランディングサイトのコーディングを担当しました。導入部分のテキストによるアニメーション演出やSVGによるモーダル開閉アニメーションなどを実装しました。'};
+    - items[4] = {title: 'hydro power', image: 'hydro-power', age: 2016, url: 'http://hpjsuiso.com/', text: 'コーポレートサイトのコーディング、スマートフォンUIを担当しました。波の動きをSVGで再現し、破綻しにくいCSSの設計を採用しました。'};
+    - items[5] = {title: 'schoo tours', image: 'schoo-tours', age: 2013, url: 'http://shgtkshruch.github.io/schoo-tours/', text: '架空の旅行会社のランディングページのデザイン・コーディングを担当しました。写真をきれいに見せるために要素をできるだけ省いたフラットなデザインを採用しました。'};
     each item in items
       .work__item.js-gallery-item
         .work__data.js-work-data
@@ -30,4 +30,6 @@ section.work.section.js-heading#work(data-speed=20)
           br
           p.text.jp
             span.text__content= item.text
-        img.work__img.lazy(src="https://via.placeholder.com/1920x1000" alt=`${item.title}` data-src=`/images/index/${item.image}`)
+        picture.work__img
+          source(type="image/webp" srcset=`/images/index/${item.image}.webp`)
+          img(src=`/images/index/${item.image}.jpg` alt=`${item.title}`)
