@@ -1,5 +1,7 @@
 /* global inView */
 
+import $ from 'jquery';
+
 export default () => {
   inView('.work__item:not(:first-child) > .work__img')
     .on('enter', (el) => {

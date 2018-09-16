@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export default () => {
   if (!window.matchMedia('(min-width: 960px)').matches) return;
 

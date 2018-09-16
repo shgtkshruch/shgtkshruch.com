@@ -1,5 +1,7 @@
 /* global inView Typed */
 
+import $ from 'jquery';
+
 export default () => {
   let introShow = false;
   let workIsShow = false;
