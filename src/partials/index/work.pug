@@ -30,6 +30,4 @@ section.work.section.js-heading#work(data-speed=20)
           br
           p.text.jp
             span.text__content= item.text
-        picture.work__img
-          source(type="image/webp" srcset=`/images/index/${item.image}.webp`)
-          img(src=`/images/index/${item.image}.jpg` alt=`${item.title}`)
+        img.work__img.lazy(data-src=`/images/index/${item.image}.jpg` alt=`${item.title}`)
