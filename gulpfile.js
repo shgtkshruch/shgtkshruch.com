@@ -8,8 +8,11 @@ const assets = require('postcss-assets');
 const mqpacker = require('css-mqpacker');
 const stylefmt = require('stylefmt');
 
+const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
 const eslint = require('rollup-plugin-eslint');
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
 
 const del = require('del');
 const deleteEmpty = require('delete-empty');
@@ -38,7 +41,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('html', ['pug', 'sass', 'js'], () => {
+gulp.task('html', ['pug', 'sass'], () => {
   return gulp.src('dist/*.html')
     .pipe($.useref())
     .pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
@@ -47,7 +50,6 @@ gulp.task('html', ['pug', 'sass', 'js'], () => {
       ignore: [/is-.*/, /tippy.*/],
     })))
     .pipe($.if('*.css', $.cleanCss()))
-    .pipe($.if('*.js', $.uglify()))
     .pipe(gulp.dest('dist'));
 });
 
@@ -101,25 +103,32 @@ gulp.task('stylelint', () => {
 });
 
 gulp.task('js', () => {
-  return gulp.src('./src/scripts/app.js')
-    .pipe($.plumber())
-    .pipe($.sourcemaps.init())
-    .pipe($.rollup({
-      allowRealFiles: true,
-      entry: './src/scripts/app.js',
-      format: 'iife',
-      plugins: [
-        eslint({
-          useEslintrc: true,
-        }),
-        babel({
-          exclude: 'node_modules/**/*',
-        }),
-      ],
-    }))
-    .pipe($.sourcemaps.write('.'))
-    .pipe(gulp.dest('dist/scripts'))
-    .pipe(bs.stream());
+  return rollup.rollup({
+    input: './src/scripts/app.js',
+    format: 'iife',
+    plugins: [
+      resolve({ jsnext: true, main: true }),
+      commonjs(),
+      eslint({
+        useEslintrc: true,
+      }),
+      babel({
+        exclude: 'node_modules/**/*',
+      }),
+    ],
+  }).then(bundle => {
+    return bundle.write({
+      file: './dist/scripts/app.js',
+      format: 'umd',
+      sourcemap: true,
+    });
+  });
+});
+
+gulp.task('compress:js', () => {
+  return gulp.src('dist/scripts/app.js')
+    .pipe($.uglify())
+    .pipe(gulp.dest('dist/scripts/'));
 });
 
 gulp.task('image', () => {
@@ -166,7 +175,7 @@ gulp.task('default', (cb) => {
 });
 
 gulp.task('build', (cb) => {
-  runSequence('clean:all', ['html', 'image'], ['clean:build', 'clean:empty'], cb);
+  runSequence('clean:all', ['html', 'image', 'js'], ['compress:js'], ['clean:build', 'clean:empty'], cb);
 });
 
 gulp.task('publish', (cb) => {

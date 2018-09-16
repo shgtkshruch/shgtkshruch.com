@@ -1,5 +1,8 @@
 /* global inView */
 
+import $ from 'jquery';
+import inView from 'in-view';
+
 import work from './work';
 import heading from './heading';
 import history from './history';

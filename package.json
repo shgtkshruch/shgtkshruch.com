@@ -28,23 +28,31 @@
     "gulp-postcss": "^6.1.1",
     "gulp-prettify": "^0.4.0",
     "gulp-pug": "^3.0.3",
-    "gulp-rollup": "^2.11.0",
+    "gulp-rollup": "^2.16.2",
     "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.4.1",
     "gulp-stylefmt": "^1.0.0",
     "gulp-stylelint": "^3.9.0",
-    "gulp-sourcemaps": "^2.4.1",
-    "gulp-uglify": "^1.5.4",
+    "gulp-uglify": "^3.0.1",
     "gulp-uncss": "^1.0.6",
     "gulp-useref": "^3.1.0",
     "postcss-assets": "^4.1.0",
     "postcss-sorting": "1.6.0",
+    "rollup": "^0.65.2",
     "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^9.1.6",
     "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-node-resolve": "^3.4.0",
     "run-sequence": "^1.2.2",
     "stylelint": "^7.9.0",
     "stylelint-config-standard": "^16.0.0",
     "stylelint-scss": "^1.4.3",
     "wiredep": "taptapship/wiredep.git#0c247f93656147789c6aba5d8fb8decd45ea449c"
+  },
+  "dependencies": {
+    "in-view": "^0.6.1",
+    "jquery": "^3.3.1",
+    "tippy.js": "^2.6.0",
+    "typed.js": "^2.0.9"
   }
 }
-

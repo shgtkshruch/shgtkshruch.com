@@ -1,5 +1,9 @@
 /* global inView Typed */
 
+import $ from 'jquery';
+import inView from 'in-view';
+import Typed from 'typed.js';
+
 export default () => {
   let introShow = false;
   let workIsShow = false;
@@ -17,11 +21,11 @@ export default () => {
         ($(el).hasClass('contact') && !skillIsShow)
       ) return;
 
-      Typed.new(`#${el.id} .js-heading-output`, {
+      const typed = new Typed(`#${el.id} .js-heading-output`, {
         stringsElement: $(el).find('.heading__main').get(0),
         showCursor: false,
         typeSpeed: $(el).data('speed'),
-        callback() {
+        onComplete() {
           if ($(el).hasClass('intro')) {
             introShow = true;
             $('.js-mouse').fadeIn(1000);
