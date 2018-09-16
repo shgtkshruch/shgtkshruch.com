@@ -50,6 +50,9 @@
     "wiredep": "taptapship/wiredep.git#0c247f93656147789c6aba5d8fb8decd45ea449c"
   },
   "dependencies": {
-    "jquery": "^3.3.1"
+    "in-view": "^0.6.1",
+    "jquery": "^3.3.1",
+    "tippy.js": "^2.6.0",
+    "typed.js": "^2.0.9"
   }
 }

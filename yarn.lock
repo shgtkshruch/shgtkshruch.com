@@ -3727,6 +3727,12 @@ in-publish@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/in-publish/-/in-publish-2.0.0.tgz#e20ff5e3a2afc2690320b6dc552682a9c7fadf51"
 
+in-view@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/in-view/-/in-view-0.6.1.tgz#f9f99b5d5a6fe01359d9e19c570302a3121baf42"
+  dependencies:
+    lodash "^4.15.0"
+
 indent-string@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/indent-string/-/indent-string-2.1.0.tgz#8e2d48348742121b4a8218b7a137e9a52049dc80"
@@ -4595,7 +4601,7 @@ lodash@^3.10.1:
   version "3.10.1"
   resolved "http://registry.npmjs.org/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.1.0, lodash@^4.11.1, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.1.0, lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.10, lodash@^4.17.4, lodash@^4.3.0, lodash@^4.6.1, lodash@~4.17.10:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
@@ -5539,6 +5545,10 @@ plur@^2.0.0, plur@^2.1.2:
 pluralize@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
+
+popper.js@^1.14.3:
+  version "1.14.4"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.14.4.tgz#8eec1d8ff02a5a3a152dd43414a15c7b79fd69b6"
 
 portscanner@2.1.1:
   version "2.1.1"
@@ -7218,6 +7228,12 @@ timers-ext@^0.1.5:
     es5-ext "~0.10.14"
     next-tick "1"
 
+tippy.js@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/tippy.js/-/tippy.js-2.6.0.tgz#5493cd478322ce75c08306e67a0107aa609a39c9"
+  dependencies:
+    popper.js "^1.14.3"
+
 title-case@^2.1.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/title-case/-/title-case-2.1.1.tgz#3e127216da58d2bc5becf137ab91dae3a7cd8faa"
@@ -7330,6 +7346,10 @@ type-check@~0.3.2:
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.3.2.tgz#5884cab512cf1d355e3fb784f30804b2b520db72"
   dependencies:
     prelude-ls "~1.1.2"
+
+typed.js@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/typed.js/-/typed.js-2.0.9.tgz#2e4e590466938ecb2ef5ec966a79b2d9381495ff"
 
 typedarray@^0.0.6:
   version "0.0.6"
