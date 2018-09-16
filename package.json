@@ -36,6 +36,7 @@
     "gulp-uglify": "^3.0.1",
     "gulp-uncss": "^1.0.6",
     "gulp-useref": "^3.1.0",
+    "gulp-webp": "^3.0.0",
     "postcss-assets": "^4.1.0",
     "postcss-sorting": "1.6.0",
     "rollup": "^0.65.2",
