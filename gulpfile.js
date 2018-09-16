@@ -41,7 +41,7 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('html', ['pug', 'sass', 'js'], () => {
+gulp.task('html', ['pug', 'sass'], () => {
   return gulp.src('dist/*.html')
     .pipe($.useref())
     .pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
@@ -50,7 +50,6 @@ gulp.task('html', ['pug', 'sass', 'js'], () => {
       ignore: [/is-.*/, /tippy.*/],
     })))
     .pipe($.if('*.css', $.cleanCss()))
-    .pipe($.if('*.js', $.uglify()))
     .pipe(gulp.dest('dist'));
 });
 
@@ -126,6 +125,12 @@ gulp.task('js', () => {
   });
 });
 
+gulp.task('compress:js', () => {
+  return gulp.src('dist/scripts/app.js')
+    .pipe($.uglify())
+    .pipe(gulp.dest('dist/scripts/'));
+});
+
 gulp.task('image', () => {
   return gulp.src('src/images/**/*')
     .pipe($.changed('dist/images'))
@@ -170,7 +175,7 @@ gulp.task('default', (cb) => {
 });
 
 gulp.task('build', (cb) => {
-  runSequence('clean:all', ['html', 'image'], ['clean:build', 'clean:empty'], cb);
+  runSequence('clean:all', ['html', 'image', 'js'], ['compress:js'], ['clean:build', 'clean:empty'], cb);
 });
 
 gulp.task('publish', (cb) => {
