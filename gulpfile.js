@@ -7,6 +7,7 @@ const sorting = require('postcss-sorting');
 const assets = require('postcss-assets');
 const mqpacker = require('css-mqpacker');
 const stylefmt = require('stylefmt');
+const packageImporter = require('node-sass-package-importer');
 
 const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
@@ -41,18 +42,6 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('html', ['pug', 'sass'], () => {
-  return gulp.src('dist/*.html')
-    .pipe($.useref())
-    .pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
-    .pipe($.if('*.css', $.uncss({
-      html: ['dist/*.html'],
-      ignore: [/is-.*/, /tippy.*/],
-    })))
-    .pipe($.if('*.css', $.cleanCss()))
-    .pipe(gulp.dest('dist'));
-});
-
 gulp.task('pug', () => {
   return gulp.src('src/**/*.pug')
     .pipe($.plumber())
@@ -76,9 +65,21 @@ gulp.task('pug', () => {
     .pipe(bs.stream());
 });
 
+gulp.task('compress:html', () => {
+  return gulp.src('dist/index.html')
+    .pipe($.htmlmin({
+      collapseWhitespace: true,
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('sass', () => {
-  return gulp.src('src/styles/main.scss')
-    .pipe($.sass().on('error', (err) => { console.log(err) }))
+  return gulp.src('src/styles/app.scss')
+    .pipe($.sass({
+      importer: packageImporter({
+        extensions: ['.scss', '.css'],
+      }),
+    }).on('error', (err) => { console.log(err) }))
     .pipe($.postcss([
       autoprefixer({ browers: ['defaults'] }),
       assets({
@@ -100,6 +101,16 @@ gulp.task('stylelint', () => {
         { formatter: 'string', console: true },
       ],
     }));
+});
+
+gulp.task('compress:css', () => {
+  return gulp.src('dist/styles/app.css')
+    .pipe($.uncss({
+      html: ['dist/*.html'],
+      ignore: [/is-.*/, /tippy.*/],
+    }))
+    .pipe($.cleanCss())
+    .pipe(gulp.dest('dist/styles'));
 });
 
 gulp.task('js', () => {
@@ -156,7 +167,7 @@ gulp.task('clean:build', () => {
     'dist/layout.html',
     'dist/partials',
     'dist/{styles,scripts}/*',
-    '!dist/{styles,scripts}/{app,main,vendor}.{css,js}',
+    '!dist/{styles,scripts}/app.{css,js}',
   ]);
 });
 
@@ -181,7 +192,13 @@ gulp.task('default', (cb) => {
 });
 
 gulp.task('build', (cb) => {
-  runSequence('clean:all', ['html', 'image', 'js'], ['compress:js', 'webp'], ['clean:build', 'clean:empty'], cb);
+  runSequence(
+    'clean:all',
+    ['pug', 'sass', 'js', 'image'],
+    ['compress:html', 'compress:css', 'compress:js', 'webp'],
+    ['clean:build', 'clean:empty'],
+    cb,
+  );
 });
 
 gulp.task('publish', (cb) => {
