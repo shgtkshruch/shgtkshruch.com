@@ -7,17 +7,6 @@ html(lang="ja")
     meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(name='description', content="I'm a Front-End Engineer.")
 
-    link(href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet")
-    // build:css styles/vendor.css
-    // bower:css
-    link(rel='stylesheet', href='../bower_components/sanitize-css/sanitize.css')
-    link(rel='stylesheet', href='../bower_components/tippyjs/dist/tippy.css')
-    // endbower
-    // endbuild
-    // build:css styles/main.css
-    link(rel='stylesheet', href='styles/main.css', media='all')
-    // endbuild
-
     meta(property="og:title" content="Shigetaka Shirouchi")
     meta(property="og:type" content="website")
     meta(property="og:url" content="http://shgtkshruch.com")
@@ -30,6 +19,8 @@ html(lang="ja")
     meta(name="twitter:description" content="I'm a Front-End Engineer.")
     meta(name="twitter:image" content="http://shgtkshruch.com/images/common/ogp.png")
 
+    include ./partials/common/style
+
     script.
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -38,8 +29,25 @@ html(lang="ja")
 
       ga('create', 'UA-100961233-1', 'auto');
       ga('send', 'pageview');
-
   body
     block body
 
     script(async src='scripts/app.js')
+
+    noscript(id="deferred-styles")
+      link(href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet")
+      link(rel="stylesheet" type="text/css" href="/styles/app.css")
+
+    script.
+      var loadDeferredStyles = function() {
+        var addStylesNode = document.getElementById("deferred-styles");
+        var replacement = document.createElement("div");
+        replacement.innerHTML = addStylesNode.textContent;
+        document.body.appendChild(replacement)
+        addStylesNode.parentElement.removeChild(addStylesNode);
+      };
+      var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+          window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+      if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+      else window.addEventListener('load', loadDeferredStyles);
+
