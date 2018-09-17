@@ -42,18 +42,6 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('src'));
 });
 
-gulp.task('html', ['pug', 'sass'], () => {
-  return gulp.src('dist/*.html')
-    .pipe($.useref())
-    .pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
-    .pipe($.if('*.css', $.uncss({
-      html: ['dist/*.html'],
-      ignore: [/is-.*/, /tippy.*/],
-    })))
-    .pipe($.if('*.css', $.cleanCss()))
-    .pipe(gulp.dest('dist'));
-});
-
 gulp.task('pug', () => {
   return gulp.src('src/**/*.pug')
     .pipe($.plumber())
@@ -204,7 +192,13 @@ gulp.task('default', (cb) => {
 });
 
 gulp.task('build', (cb) => {
-  runSequence('clean:all', ['html', 'image', 'js'], ['compress:js', 'webp'], ['clean:build', 'clean:empty'], cb);
+  runSequence(
+    'clean:all',
+    ['pug', 'sass', 'js', 'image'],
+    ['compress:html', 'compress:css', 'compress:js', 'webp'],
+    ['clean:build', 'clean:empty'],
+    cb,
+  );
 });
 
 gulp.task('publish', (cb) => {
