@@ -27,7 +27,7 @@
       width: 1px;
       height: 0;
       background-color: #000;
-      transition: height 0.5s;
+      transition: height 0.8s;
     }
 
     &.is-active::before {
@@ -40,7 +40,7 @@
     padding-left: 1rem;
     opacity: 0;
 
-    @for $i from 1 through 4 {
+    @for $i from 1 through 5 {
       &:nth-child(#{$i}) {
         transition: opacity 1.8s 0.5s + 0.1s * ($i - 1);
       }
