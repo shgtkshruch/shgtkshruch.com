@@ -18,7 +18,6 @@ const commonjs = require('rollup-plugin-commonjs');
 const del = require('del');
 const deleteEmpty = require('delete-empty');
 const runSequence = require('run-sequence');
-const wiredep = require('wiredep').stream;
 
 const $ = gulpLoadPlugins();
 const bs = browserSync.create();
@@ -34,12 +33,6 @@ gulp.task('browserSync', () => {
     notify: false,
     browser: 'Google Chrome Canary',
   });
-});
-
-gulp.task('wiredep', () => {
-  return gulp.src('src/layout.pug')
-    .pipe(wiredep())
-    .pipe(gulp.dest('src'));
 });
 
 gulp.task('pug', () => {
