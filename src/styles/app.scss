@@ -1,3 +1,4 @@
+@import '~sanitize.css';
 @import '~tippy.js/dist/tippy.css';
 @import 'variables';
 @import 'base';
@@ -15,6 +16,9 @@
 // common
 
 // index
+// @import 'index/intro';
+// @import 'index/mouse';
+// @import 'index/heading';
 @import 'index/work';
 @import 'index/history';
 @import 'index/skill';
