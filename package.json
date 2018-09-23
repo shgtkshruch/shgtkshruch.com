@@ -53,6 +53,7 @@
   "dependencies": {
     "in-view": "^0.6.1",
     "jquery": "^3.3.1",
+    "sanitize.css": "^7.0.3",
     "tippy.js": "^2.6.0",
     "typed.js": "^2.0.9",
     "vanilla-lazyload": "8.15.2"
