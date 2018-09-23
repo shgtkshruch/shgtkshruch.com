@@ -9,8 +9,8 @@ $borderMouse: 6px;
 $posMouse: 8px;
 $posText: 2px;
 
-$sizeTrackball: 7px;
-$posTrackball: 20px;
+$sizeTrackball: 5px;
+$posTrackball: 15px;
 $shrinkTrackball: 0.4;
 
 $animDuration: 5s;
@@ -69,8 +69,8 @@ $animDuration: 5s;
   }
 
   @include mq(pc) {
-    $widthMouse: 40px;
-    $heightMouse: 70px;
+    $widthMouse: 30px;
+    $heightMouse: 50px;
 
     width: $widthMouse;
     height: $heightMouse;
@@ -82,7 +82,7 @@ $animDuration: 5s;
     }
 
     &::after {
-      $sizeTrackball: 10px;
+      $sizeTrackball: 7px;
 
       width: $sizeTrackball;
       height: $sizeTrackball;
@@ -97,6 +97,7 @@ $animDuration: 5s;
     letter-spacing: 0.3em;
     text-indent: 0.3em;
     font-size: 0.8rem;
+    white-space: nowrap;
     color: $colorOutline;
     animation:
       colorText $animDuration ease-out infinite,
