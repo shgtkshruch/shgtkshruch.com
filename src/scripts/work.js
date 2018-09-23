@@ -2,7 +2,7 @@
 
 import $ from 'jquery';
 import inView from 'in-view';
-import LazyLoad from 'vanilla-lazyload';
+import LazyLoad from 'vanilla-lazyload/dist/lazyload.min.js';
 
 export default () => {
   inView('.work__item:not(:first-child) > .work__img')
