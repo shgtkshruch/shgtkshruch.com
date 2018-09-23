@@ -1,6 +1,6 @@
 {
   "name": "shgtkshruch-com",
   "dependencies": {
-    "sanitize-css": "*",
+    "sanitize-css": "*"
   }
 }
