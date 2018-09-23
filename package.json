@@ -48,8 +48,7 @@
     "run-sequence": "^1.2.2",
     "stylelint": "^7.9.0",
     "stylelint-config-standard": "^16.0.0",
-    "stylelint-scss": "^1.4.3",
-    "wiredep": "taptapship/wiredep.git#0c247f93656147789c6aba5d8fb8decd45ea449c"
+    "stylelint-scss": "^1.4.3"
   },
   "dependencies": {
     "in-view": "^0.6.1",
