@@ -17,7 +17,7 @@
     letter-spacing: 0.1em;
     opacity: 0;
 
-    @for $i from 1 through 20 {
+    @for $i from 1 through 25 {
       &:nth-child(#{$i}) {
         transition:
           color 0.3s,
