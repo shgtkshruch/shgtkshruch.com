@@ -26,7 +26,7 @@ section.work.section.js-heading#work(data-speed=20)
           p.text.text--url
             span.text__content.text__content--url
               | url:&nbsp;
-              a.link(href=`${item.url}` target="_blank")= item.url
+              a.link(href=`${item.url}` target="_blank" rel="noopener")= item.url
           br
           p.text.jp
             span.text__content= item.text
