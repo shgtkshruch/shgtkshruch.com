@@ -18,10 +18,10 @@ section.section.contact.js-heading#contact(data-speed=20)
     each item in items
       li.contact__item
         if item.name === 'mail'
-          a(href=`${item.url}`)
+          a(href=`${item.url}` rel="noopener")
             svg.contact__icon(viewbox="0 0 16 16" class=`contact__icon--${item.name}`)
               use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=`#${item.name}`)
         else
-          a(href=`${item.url}` target="_blank")
+          a(href=`${item.url}` target="_blank" rel="noopener")
             svg.contact__icon(viewbox="0 0 16 16" class=`contact__icon--${item.name}`)
               use(xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href=`#${item.name}`)
