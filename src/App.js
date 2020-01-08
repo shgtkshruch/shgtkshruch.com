@@ -8,8 +8,10 @@ import Contact from './Contact'
 
 export default () => (
   <Container>
-    <link href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
+      rel="stylesheet"
+    />
     <Work />
     <History />
     <Skill />
