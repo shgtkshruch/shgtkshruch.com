@@ -11,7 +11,7 @@ const Container = styled.div`
   padding-left: 1rem;
 
   ${mq.pc} {
-    max-width: 100%;
+    max-width: 98rem;
     padding-right: 4rem;
     padding-left: 4rem;
   }
