@@ -31,14 +31,12 @@ const linkStyle = css`
     }
   }
 `
-export default ({ url, children }) => {
-  return (
-    <a
-      css={linkStyle}
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer">
-      {children}
-   </a>
-  )
-}
+export default ({ url, children }) => (
+  <a
+    css={linkStyle}
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer">
+    {children}
+  </a>
+)

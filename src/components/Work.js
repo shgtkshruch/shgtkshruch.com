@@ -71,15 +71,15 @@ export default ({ item }) => {
         <h3 className="text">
           <span className="text__content">title: {title}</span>
         </h3>
-        <p className="text"></p>
-        <span className="text__content">year: {age}</span>
-        <br />
-        <p className="text text--url"></p>
-        <span className="text__content text__content--url">
-          url:&nbsp;
-          <Link href={url}>{url}</Link>
-        </span>
-        <br />
+        <p className="text">
+          <span className="text__content">year: {age}</span>
+        </p>
+        <p className="text text--url">
+          <span className="text__content text__content--url">
+            url:&nbsp;
+            <Link href={url}>{url}</Link>
+          </span>
+        </p>
         <p className="text jp">
           <span className="text__content">{text}</span>
         </p>

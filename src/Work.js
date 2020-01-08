@@ -70,13 +70,11 @@ const List = styled.div`
     padding-top: 14rem;
   }
 `
-export default () => {
-  return (
-    <Section id="work" className="work">
-      <Heading title="work" subTitle="My client and private works." />
-      <List>
+export default () => (
+  <Section id="work" className="work">
+    <Heading title="work" subTitle="My client and private works." />
+    <List>
         {items.map((item, i) => ( <Work key={i} item={item} /> ))}
-      </List>
-    </Section>
-  )
-}
+    </List>
+  </Section>
+)

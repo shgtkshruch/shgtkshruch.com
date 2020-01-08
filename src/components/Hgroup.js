@@ -30,11 +30,9 @@ const Sub = styled.span`
   }
 `
 
-export default ({ title, subTitle, children }) => {
-  return (
-    <Hgroup class="heading">
-      <Title class="heading__title">{title}</Title>
-      <Sub class="heading__sub">{subTitle}</Sub>
-    </Hgroup>
-  )
-}
+export default ({ title, subTitle, children }) => (
+  <Hgroup>
+    <Title>{title}</Title>
+    <Sub>{subTitle}</Sub>
+  </Hgroup>
+)

@@ -6,10 +6,6 @@ import { mq } from '../variables'
 const Section = styled.section`
   padding: 3rem 0;
 
-  &:not(:first-of-type) {
-    display: none;
-  }
-
   ${mq.pc} {
     padding: 9rem 0;
   }
@@ -19,10 +15,9 @@ const Section = styled.section`
   }
 `
 
-export default ({ id, className, children }) => {
-  return (
-    <Section id={id} className={className}>
-      {children}
-    </Section>
-  )
-}
+export default ({ id, className, children }) => (
+  <Section id={id} className={className}>
+    {children}
+  </Section>
+)
+

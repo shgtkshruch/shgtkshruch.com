@@ -17,8 +17,6 @@ const Container = styled.div`
   }
 `
 
-export default ({ children }) => {
-  return (
-    <Container>{ children }</Container>
-  )
-}
+export default ({ children }) => (
+  <Container>{children}</Container>
+)
