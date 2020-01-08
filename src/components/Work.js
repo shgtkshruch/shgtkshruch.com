@@ -77,7 +77,7 @@ export default ({ item }) => {
         <p className="text text--url">
           <span className="text__content text__content--url">
             url:&nbsp;
-            <Link href={url}>{url}</Link>
+            <Link url={url}>{url}</Link>
           </span>
         </p>
         <p className="text jp">
