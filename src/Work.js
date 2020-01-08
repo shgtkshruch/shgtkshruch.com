@@ -1,4 +1,11 @@
 import React from 'react';
+import styled from '@emotion/styled'
+
+import { mq } from './variables'
+
+import Section from './components/Section';
+import Heading from './components/Hgroup';
+import Work from './components/Work'
 
 import nozomiFinancialGroup from './images/nozomi-financial-group.jpg';
 import yoshienishikawa from './images/yoshienishikawa.jpg';
@@ -51,39 +58,25 @@ const items = [
     text: '架空の旅行会社のランディングページのデザイン・コーディングを担当しました。写真をきれいに見せるために要素をできるだけ省いたフラットなデザインを採用しました。'
   }
 ]
+
+const List = styled.div`
+  padding-top: 4rem;
+
+  &.is-active {
+    opacity: 1;
+  }
+
+  ${mq.pc} {
+    padding-top: 14rem;
+  }
+`
 export default () => {
   return (
-    <section id="work" class="work section">
-      <hgroup class="heading">
-        <h2 class="heading__title">Work</h2>
-        <span class="heading__sub">My client and private works.</span>
-      </hgroup>
-      <div class="work__list">
-        {items.map(item => {
-          return (
-            <div class="work__item js-gallery-item">
-              <div class="work__data js-work-data">
-                <h3 class="text">
-                  <span class="text__content">title: {item.title}</span>
-                </h3>
-                <p class="text"></p>
-                <span class="text__content">year: {item.age}</span>
-                <br />
-                <p class="text text--url"></p>
-                <span class="text__content text__content--url">
-                  url:&nbsp;
-                  <a class="link" href={item.url} target="_blank" rel="noopener noreferrer">{item.url}</a>
-                </span>
-                <br />
-                <p class="text jp">
-                  <span class="text__content">{item.text}</span>
-                </p>
-              </div>
-              <img class="work__img lazy" src={`${item.image}`} alt={item.title} />
-            </div>
-          )
-        })}
-      </div>
-    </section>
+    <Section id="work" className="work">
+      <Heading title="work" subTitle="My client and private works." />
+      <List>
+        {items.map((item, i) => ( <Work key={i} item={item} /> ))}
+      </List>
+    </Section>
   )
 }
