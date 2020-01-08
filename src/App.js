@@ -3,6 +3,7 @@ import React from 'react';
 import Container from './components/Container'
 import Work from './Work'
 import History from './History'
+import Skill from './Skill'
 
 export default () => (
   <Container>
@@ -10,5 +11,6 @@ export default () => (
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" />
     <Work />
     <History />
+    <Skill />
   </Container>
 )
