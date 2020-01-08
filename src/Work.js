@@ -1,9 +1,7 @@
 import React from 'react';
 
-import Work from './Work'
-
 export default () => {
   return (
-    <Work />
-  );
+    <h2>Work</h2>
+  )
 }
