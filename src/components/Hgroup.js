@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled'
+import Typist from 'react-typist';
 
 import { mq } from '../variables'
 
@@ -23,16 +24,13 @@ const Sub = styled.span`
   ${mq.pc} {
     font-size: 1.2rem;
   }
-
-  &::after {
-    content: '|';
-    animation: blink 1.2s infinite;
-  }
 `
 
 export default ({ title, subTitle, children }) => (
   <Hgroup>
-    <Title>{title}</Title>
-    <Sub>{subTitle}</Sub>
+    <Typist>
+      <Title>{title}</Title>
+      <Sub>{subTitle}</Sub>
+    </Typist>
   </Hgroup>
 )
