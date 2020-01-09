@@ -1,12 +1,12 @@
 /** @jsx jsx */
+import React from 'react';
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
-
+import { InView } from 'react-intersection-observer'
 import { mq } from '../variables'
-
 import Link from './Link'
 
-const Item = styled.div`
+const itemStyle = css`
   display: flex;
   flex-direction: column-reverse;
   margin: 0 auto;
@@ -45,13 +45,8 @@ const Data = styled.div`
 const imgStyle = css`
   margin-bottom: 3rem;
   box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
-  transition:
-    box-shadow 0.5s,
-    opacity 1s;
-
-  &.is-active {
-    opacity: 1;
-  }
+  transition: box-shadow 0.5s, opacity 1s;
+  animation: fadeIn 0.8s ease-in-out;
 
   ${mq.pc} {
     width: 60%;
@@ -61,30 +56,64 @@ const imgStyle = css`
       box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
     }
   }
-`
-export default ({ item }) => {
-  const { title, age, url, text, image } = item
 
-  return (
-    <Item>
-      <Data>
-        <h3 className="text">
-          <span className="text__content">title: {title}</span>
-        </h3>
-        <p className="text">
-          <span className="text__content">year: {age}</span>
-        </p>
-        <p className="text text--url">
-          <span className="text__content text__content--url">
-            url:&nbsp;
-            <Link url={url}>{url}</Link>
-          </span>
-        </p>
-        <p className="text jp">
-          <span className="text__content">{text}</span>
-        </p>
-      </Data>
-      <img src={image} alt={title} css={imgStyle} />
-    </Item>
-  )
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+`
+export default class Work extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      inview: false
+    };
+  }
+
+  handleInview(inview, entry) {
+    if (inview) {
+      this.setState({ inview: true })
+    }
+  }
+
+  render() {
+    const { title, age, url, text, image } = this.props.item
+
+    return (
+      <InView
+        as="div"
+        onChange={(inview, entry) => this.handleInview(inview, entry)}
+        css={itemStyle}
+      >
+        {this.state.inview &&
+          <>
+            <Data>
+              <h3 className="text">
+                <span className="text__content">title: {title}</span>
+              </h3>
+              <p className="text">
+                <span className="text__content">year: {age}</span>
+              </p>
+              <p className="text text--url">
+                <span className="text__content text__content--url">
+                  url:&nbsp;
+                  <Link url={url}>{url}</Link>
+                </span>
+              </p>
+              <p className="text jp">
+                <span className="text__content">{text}</span>
+              </p>
+            </Data>
+            <img src={image} alt={title} css={imgStyle} />
+          </>
+        }
+      </InView>
+    )
+  }
 }
