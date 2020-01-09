@@ -74,7 +74,7 @@ export default () => (
   <Section id="work" className="work">
     <Heading title="work" subTitle="My client and private works." />
     <List>
-        {items.map((item, i) => ( <Work key={i} item={item} /> ))}
+      {items.map((item, i) => <Work key={i} item={item} />)}
     </List>
   </Section>
 )

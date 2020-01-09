@@ -1,6 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled'
 
+const nthChildAnimation = [1, 1, 1, 1, 1, 1].reduce((res, _, i) => {
+  const delay = 0.15 * (i + 1)
+  res += `
+    &:nth-of-type(${i + 1})::before {
+      animation: fadeOut 0.9s ${delay}s both ease-in-out;
+    }
+  `
+  return res
+}, '')
+
 const Wrapper = styled.div`
   display: inline-block;
   position: relative;
@@ -20,6 +30,8 @@ const Wrapper = styled.div`
     animation: fadeOut 0.9s 0.15s both ease-in-out;
     z-index: 1;
   }
+
+  ${nthChildAnimation}
 
   @keyframes fadeOut {
     0% {
@@ -60,10 +72,7 @@ const Content = styled.span`
 `
 
 export default ({ className, children }) => (
-  <>
-    <Wrapper className={className}>
-      <Content>{children}</Content>
-    </Wrapper>
-    <br />
-  </>
+  <Wrapper className={className}>
+    <Content>{children}</Content>
+  </Wrapper>
 )

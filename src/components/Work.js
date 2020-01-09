@@ -96,11 +96,14 @@ export default class Work extends React.Component {
           <>
             <Data>
               <Text>title: {title}</Text>
+              <br />
               <Text>year: {age}</Text>
+              <br />
               <Text className="text--url">
                 url:&nbsp;
                 <Link url={url}>{url}</Link>
               </Text>
+              <br />
               <Text className="jp">{text}</Text>
             </Data>
             <img src={image} alt={title} css={imgStyle} />
