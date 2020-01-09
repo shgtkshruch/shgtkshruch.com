@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
 import { InView } from 'react-intersection-observer'
 import { mq } from '../variables'
+import Text from './Text'
 import Link from './Link'
 
 const itemStyle = css`
@@ -94,21 +95,13 @@ export default class Work extends React.Component {
         {this.state.inview &&
           <>
             <Data>
-              <h3 className="text">
-                <span className="text__content">title: {title}</span>
-              </h3>
-              <p className="text">
-                <span className="text__content">year: {age}</span>
-              </p>
-              <p className="text text--url">
-                <span className="text__content text__content--url">
-                  url:&nbsp;
-                  <Link url={url}>{url}</Link>
-                </span>
-              </p>
-              <p className="text jp">
-                <span className="text__content">{text}</span>
-              </p>
+              <Text>title: {title}</Text>
+              <Text>year: {age}</Text>
+              <Text className="text--url">
+                url:&nbsp;
+                <Link url={url}>{url}</Link>
+              </Text>
+              <Text className="jp">{text}</Text>
             </Data>
             <img src={image} alt={title} css={imgStyle} />
           </>

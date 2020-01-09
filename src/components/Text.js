@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled'
 
-const Wrapper = styled.span`
+const Wrapper = styled.div`
   display: inline-block;
   position: relative;
 
@@ -17,7 +17,30 @@ const Wrapper = styled.span`
     width: 100%;
     height: 100%;
     background-color: #333;
+    animation: fadeOut 0.9s 0.15s both ease-in-out;
     z-index: 1;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      transform: scale(0, 1);
+      transform-origin: left top;
+    }
+
+    30% {
+      transform: scale(1, 1);
+      transform-origin: left top;
+    }
+
+    70% {
+      transform: scale(1, 1);
+      transform-origin: right top;
+    }
+
+    100% {
+      transform: scale(0, 1);
+      transform-origin: right top;
+    }
   }
 `
 
@@ -36,8 +59,11 @@ const Content = styled.span`
   }
 `
 
-export default ({ children }) => (
-  <Wrapper>
-    <Content>{children}</Content>
-  </Wrapper>
+export default ({ className, children }) => (
+  <>
+    <Wrapper className={className}>
+      <Content>{children}</Content>
+    </Wrapper>
+    <br />
+  </>
 )

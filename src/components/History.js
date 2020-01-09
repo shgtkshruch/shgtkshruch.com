@@ -99,12 +99,9 @@ export default ({ item }) => {
         <span>{age}</span>
         <Name>{name}</Name>
       </Header>
-      <p className="jp" css={textStyle}>
+      <div className="jp" css={textStyle}>
         {text.map((t, i) => (
-          <span key={i}>
-            <Text>{t}</Text>
-            <br />
-          </span>
+          <Text key={i}>{t}</Text>
         ))}
         <Text>
           <Link
@@ -113,7 +110,7 @@ export default ({ item }) => {
             css={btnStyle}
           >more</Link>
         </Text>
-      </p>
+      </div>
     </Item>
   )
 }
