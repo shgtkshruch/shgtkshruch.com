@@ -2,7 +2,30 @@
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
 
-const Contact = styled.li``
+const nthChildAnimation = Array.from('_'.repeat(5)).reduce((res, _, i) => {
+  const delay = 0.12 * (i + 1);
+  res += `
+    &:nth-of-type(${i + 1}) {
+      animation: fadeIn 0.8s ${delay}s forwards;
+    }
+  `
+  return res
+}, '')
+
+const Contact = styled.li`
+  opacity: 0;
+  ${nthChildAnimation}
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+`
 const Svg = props => {
   const size = `2.2rem`;
   return (
