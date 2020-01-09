@@ -1,6 +1,9 @@
-import React from 'react';
+import React from 'react'
 import styled from '@emotion/styled'
-
+import Tippy from '@tippy.js/react'
+import 'tippy.js/dist/tippy.css';
+import 'tippy.js/animations/shift-toward-subtle.css';
+import 'tippy.js/themes/material.css';
 import { mq } from '../variables'
 
 const Skill = styled.li`
@@ -30,9 +33,11 @@ const Skill = styled.li`
   }
 `
 export default ({ item, children }) => {
-  const { name } = item
+  const { name, text } = item
 
   return (
-    <Skill>{name}</Skill>
+    <Tippy content={text} animation="shift-toward-subtle" theme="material">
+      <Skill>{name}</Skill>
+    </Tippy>
   )
 }
