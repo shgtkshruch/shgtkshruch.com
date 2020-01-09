@@ -106,7 +106,6 @@ export default ({ item }) => {
         <Text>
           <Link
             href={url}
-            className="link"
             css={btnStyle}
           >more</Link>
         </Text>
