@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled'
 import Typist from 'react-typist';
+import 'react-typist/dist/Typist.css';
 import { InView } from 'react-intersection-observer'
 import { mq } from '../variables'
 
@@ -26,36 +27,26 @@ const Sub = styled.span`
   }
 `
 
-export default class H extends React.Component {
-  constructor() {
-    super();
+export default ({ title, subTitle, onTypingDone }) => {
+  const [inview, setView] = useState(false);
 
-    this.state = {
-      inView: false
-    };
-  }
-
-  handleInview(inview, entry) {
-    if (inview) {
-      this.setState({ inView: true })
-    }
-  }
-
-  render() {
-    return (
-      <Hgroup>
-        <InView
-          as="div"
-          onChange={(inview, entry) => this.handleInview(inview, entry)}
-        >
-          {this.state.inView &&
-            <Typist>
-              <Title>{this.props.title}</Title>
-              <Sub>{this.props.subTitle}</Sub>
-            </Typist>
-          }
-        </InView>
-      </Hgroup>
-    )
-  }
+  return (
+    <Hgroup>
+      <InView
+        as="div"
+        onChange={(inview, entry) => inview ? setView(true) : false}
+      >
+        {inview &&
+          <Typist
+            avgTypingDelay={60}
+            stdTypingDelay={40}
+            onTypingDone={onTypingDone}
+          >
+            <Title>{title}</Title>
+            <Sub>{subTitle}</Sub>
+          </Typist>
+        }
+      </InView>
+    </Hgroup>
+  )
 }

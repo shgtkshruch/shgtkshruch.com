@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
 import { InView } from 'react-intersection-observer'
@@ -68,48 +68,34 @@ const imgStyle = css`
     }
   }
 `
-export default class Work extends React.Component {
-  constructor() {
-    super();
+export default ({ isTypingDone, item }) => {
+  const { title, age, url, text, image } = item
 
-    this.state = {
-      inview: false
-    };
-  }
+  const [inview, setView] = useState(false);
 
-  handleInview(inview, entry) {
-    if (inview) {
-      this.setState({ inview: true })
-    }
-  }
-
-  render() {
-    const { title, age, url, text, image } = this.props.item
-
-    return (
-      <InView
-        as="div"
-        onChange={(inview, entry) => this.handleInview(inview, entry)}
-        css={itemStyle}
-      >
-        {this.state.inview &&
-          <>
-            <Data>
-              <Text>title: {title}</Text>
-              <br />
-              <Text>year: {age}</Text>
-              <br />
-              <Text className="text--url">
-                url:&nbsp;
-                <Link url={url}>{url}</Link>
-              </Text>
-              <br />
-              <Text className="jp">{text}</Text>
-            </Data>
-            <img src={image} alt={title} css={imgStyle} />
-          </>
-        }
-      </InView>
-    )
-  }
+  return (
+    <InView
+      as="div"
+      onChange={(inview, entry) => inview ? setView(true) : false}
+      css={itemStyle}
+    >
+      {inview && isTypingDone &&
+        <>
+          <Data>
+            <Text>title: {title}</Text>
+            <br />
+            <Text>year: {age}</Text>
+            <br />
+            <Text className="text--url">
+              url:&nbsp;
+              <Link url={url}>{url}</Link>
+            </Text>
+            <br />
+            <Text className="jp">{text}</Text>
+          </Data>
+          <img src={image} alt={title} css={imgStyle} />
+        </>
+      }
+    </InView>
+  )
 }

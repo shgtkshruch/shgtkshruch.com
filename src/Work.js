@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled'
-
+import { InView } from 'react-intersection-observer'
 import { mq } from './variables'
-
 import Section from './components/Section';
 import Heading from './components/Hgroup';
 import Work from './components/Work'
@@ -62,19 +61,32 @@ const items = [
 const List = styled.div`
   padding-top: 4rem;
 
-  &.is-active {
-    opacity: 1;
-  }
-
   ${mq.pc} {
     padding-top: 14rem;
   }
 `
-export default () => (
-  <Section id="work" className="work">
-    <Heading title="work" subTitle="My client and private works." />
-    <List>
-      {items.map((item, i) => <Work key={i} item={item} />)}
-    </List>
-  </Section>
-)
+
+export default () => {
+  const [inview, setView] = useState(false);
+  const [isTypingDone, setIsTypingDone] = useState(false);
+
+  return (
+    <InView
+      as="div"
+      onChange={(inview, entry) => inview ? setView(true) : false}
+    >
+      {inview &&
+        <Section id="work" className="work">
+          <Heading
+            title="work"
+            subTitle="My client and private works."
+            onTypingDone={() => setIsTypingDone(true)}
+          />
+          <List>
+            {items.map((item, i) => <Work key={i} item={item} isTypingDone={isTypingDone} />)}
+          </List>
+        </Section>
+      }
+    </InView>
+  )
+}
