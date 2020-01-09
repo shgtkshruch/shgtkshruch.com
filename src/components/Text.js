@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled'
 
-const nthChildAnimation = [1, 1, 1, 1, 1, 1].reduce((res, _, i) => {
+const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
   const delay = 0.15 * (i + 1)
   res += `
     &:nth-of-type(${i + 1})::before {
