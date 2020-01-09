@@ -1,9 +1,9 @@
 /** @jsx jsx */
+import React from 'react';
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
 
-import { mq } from './variables'
-
+import { breakpoints, mq } from './variables'
 import Section from './components/Section';
 import Heading from './components/Hgroup';
 import History from './components/History'
@@ -73,11 +73,53 @@ const sectionStyle = css`
   margin: 0 auto;
   text-align: center;
 `
-export default () => (
-  <Section id="history" css={sectionStyle}>
-    <Heading title="history" subTitle="Learn WEB technology with Internet." />
-    <List>
-      {items.map((item, i) => ( <History key={i} item={item} /> ))}
-    </List>
-  </Section>
-)
+
+export default class H extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      currentIndex: 0
+    }
+
+    this.updateCurrentIndex = this.updateCurrentIndex.bind(this)
+  }
+
+  isShow(i) {
+    if (this.isMobile()) return true
+    return this.isPc() && this.state.currentIndex === i
+  }
+
+  updateCurrentIndex(index) {
+    if (this.isPc()) {
+      this.setState({ currentIndex: index })
+    }
+  }
+
+  isPc() {
+    return window.innerWidth >= breakpoints.pc
+  }
+
+  isMobile() {
+    return window.innerWidth < breakpoints.pc
+  }
+
+  render() {
+    return (
+      <Section id="history" css={sectionStyle}>
+        <Heading title="history" subTitle="Learn WEB technology with Internet." />
+        <List>
+          {items.map((item, i) => (
+            <History
+              key={i}
+              item={item}
+              index={i}
+              isShow={this.isShow(i)}
+              updateCurrentIndex={this.updateCurrentIndex}
+            />
+          ))}
+        </List>
+      </Section>
+    )
+  }
+}

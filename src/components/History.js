@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import React from 'react';
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
 
@@ -90,26 +91,38 @@ const btnStyle = css`
   letter-spacing: 0.06em;
 `
 
-export default ({ item }) => {
-  const { age, name, text, url } = item
+export default class History extends React.Component {
+  handleClick(index) {
+    this.props.updateCurrentIndex(index);
+  }
 
-  return (
-    <Item>
-      <Header>
-        <span>{age}</span>
-        <Name>{name}</Name>
-      </Header>
-      <div className="jp" css={textStyle}>
-        {text.map((t, i) => (
-          <Text key={i}>{t}</Text>
-        ))}
-        <Text>
-          <Link
-            href={url}
-            css={btnStyle}
-          >more</Link>
-        </Text>
-      </div>
-    </Item>
-  )
+  render() {
+    const { index, isShow, item } = this.props
+    const { age, name, text, url } = item
+
+    return (
+      <Item>
+        <Header onClick={() => this.handleClick(index)}>
+          <span>{age}</span>
+          <Name>{name}</Name>
+        </Header>
+        <div
+          className="jp"
+          css={css`
+            display: ${isShow ? 'block' : 'none'};
+            ${textStyle}
+          `}
+        >
+          {text.map((t, i) => <Text key={i}>{t}</Text>)}
+          <br />
+          <Text>
+            <Link
+              href={url}
+              css={btnStyle}
+            >more</Link>
+          </Text>
+        </div>
+      </Item>
+    )
+  }
 }

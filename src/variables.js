@@ -5,4 +5,4 @@ const mq = Object.keys(breakpoints).reduce((obj, type) => {
   return obj
 }, {})
 
-export { mq }
+export { breakpoints, mq }
