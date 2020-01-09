@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled'
 import Typist from 'react-typist';
-
+import { InView } from 'react-intersection-observer'
 import { mq } from '../variables'
 
 const Hgroup = styled.hgroup`
@@ -26,11 +26,36 @@ const Sub = styled.span`
   }
 `
 
-export default ({ title, subTitle, children }) => (
-  <Hgroup>
-    <Typist>
-      <Title>{title}</Title>
-      <Sub>{subTitle}</Sub>
-    </Typist>
-  </Hgroup>
-)
+export default class H extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      inView: false
+    };
+  }
+
+  handleInview(inview, entry) {
+    if (inview) {
+      this.setState({ inView: true })
+    }
+  }
+
+  render() {
+    return (
+      <Hgroup>
+        <InView
+          as="div"
+          onChange={(inview, entry) => this.handleInview(inview, entry)}
+        >
+          {this.state.inView &&
+            <Typist>
+              <Title>{this.props.title}</Title>
+              <Sub>{this.props.subTitle}</Sub>
+            </Typist>
+          }
+        </InView>
+      </Hgroup>
+    )
+  }
+}
