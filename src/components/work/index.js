@@ -21,6 +21,8 @@ const itemStyle = css`
   ${mq.pc} {
     flex-direction: row;
     flex-wrap: wrap;
+    flex-flow: row-reverse;
+    justify-content: space-between;
     align-items: center;
 
     &:not(:last-child) {
@@ -33,8 +35,7 @@ const Data = styled.div`
   display: ${props => props.isShow ? 'block' : 'none'};
 
   ${mq.pc} {
-    width: 35%;
-    margin-right: auto;
+    width: 37%;
   }
 
   .text {
@@ -54,7 +55,7 @@ const Img = styled.img`
   transition: box-shadow 0.5s, opacity 1s;
 
   ${mq.pc} {
-    width: 60%;
+    width: 55%;
     margin-bottom: 0;
 
     &:hover {
