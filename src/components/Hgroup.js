@@ -45,7 +45,7 @@ export default ({ title, subTitle, onTypingDone }) => {
       {inview &&
         <Typist
           startDelay={500}
-          avgTypingDelay={40}
+          avgTypingDelay={35}
           stdTypingDelay={20}
           onTypingDone={onTypingDone}
         >

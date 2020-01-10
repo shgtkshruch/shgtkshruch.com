@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   position: relative;
 
   &:not(:last-child) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
   }
 
   &::before {
