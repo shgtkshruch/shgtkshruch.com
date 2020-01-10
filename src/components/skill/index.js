@@ -25,6 +25,7 @@ const Skill = styled.li`
   margin-bottom: 0.4rem;
   letter-spacing: 0.1em;
   opacity: 0;
+  font-size: 1.1rem;
 
   ${props => props.startAnimation ? nthChildAnimation : ''}
 
@@ -38,6 +39,7 @@ const Skill = styled.li`
 
   ${mq.pc} {
     margin-bottom: 1.6rem;
+    font-size: 1.2rem;
 
     &:hover {
       color: red;
