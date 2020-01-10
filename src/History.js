@@ -6,7 +6,7 @@ import { jsx, css } from '@emotion/core'
 import { breakpoints, mq } from './variables'
 import Section from './components/Section';
 import Heading from './components/Hgroup';
-import History from './components/History'
+import _History from './components/History'
 
 const items = [
   {
@@ -59,19 +59,9 @@ const List = styled.ul`
     top: 0;
     left: 0;
     width: 1px;
-    height: 100%;
+    height: ${props => props.isShow ? '100%' : 0};
     background-color: #000;
-    animation: long 0.8s ease-in-out;
-  }
-
-  @keyframes long {
-    0% {
-      height: 0;
-    }
-
-    100% {
-      height: 100%;
-    }
+    transition: height 0.8s ease-in-out;
   }
 `
 const sectionStyle = css`
@@ -79,10 +69,13 @@ const sectionStyle = css`
   margin: 0 auto;
   text-align: center;
 `
+const History = styled(_History)`
+  opacity: ${props => props.isInview ? 1 : 0};
+`
 
 export default ({ next }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [isTypingDone, setIsTypingDone] = useState(false);
+  const [inview, setInview] = useState(false);
 
   function updateCurrentIndex(index) {
     if (isPc()) setCurrentIndex(index)
@@ -101,8 +94,8 @@ export default ({ next }) => {
   }
 
   function onTypingDone() {
-    setIsTypingDone(true)
-    next()
+    setInview(true)
+    next();
   }
 
   return (
@@ -112,20 +105,19 @@ export default ({ next }) => {
         subTitle="Learn WEB technology with Internet."
         onTypingDone={onTypingDone}
       />
-      {isTypingDone &&
-        <List>
-          {items.map((item, i) => (
-            <History
-              key={i}
-              item={item}
-              index={i}
-              isShow={isShow(i)}
-              onAnimationEnd={(i) => i === items.length - 1 && currentIndex === -1 ? setCurrentIndex(0) : false}
-              updateCurrentIndex={updateCurrentIndex}
-            />
-          ))}
-        </List>
-      }
+      <List isShow={inview}>
+        {items.map((item, i) => (
+          <History
+            key={i}
+            item={item}
+            index={i}
+            isInview={inview}
+            isShow={isShow(i)}
+            onAnimationEnd={(i) => i === items.length - 1 && currentIndex === -1 ? setCurrentIndex(0) : false}
+            updateCurrentIndex={updateCurrentIndex}
+          />
+        ))}
+      </List>
     </Section>
   )
 }

@@ -25,7 +25,7 @@ const Item = styled.li`
      margin-bottom: 4.5rem;
    }
 
-   ${nthChildAnimation}
+   ${props => props.isInview ? nthChildAnimation : ''}
 
    @keyframes fadeIn {
     0% {
@@ -115,10 +115,13 @@ const btnStyle = css`
   letter-spacing: 0.06em;
 `
 
-export default ({ index, isShow, item, onAnimationEnd, updateCurrentIndex }) => {
+export default ({ index, isInview, isShow, item, onAnimationEnd, updateCurrentIndex }) => {
   const { age, name, text, url } = item
   return (
-    <Item onAnimationEnd={() => onAnimationEnd(index)}>
+    <Item
+      isInview={isInview}
+      onAnimationEnd={() => onAnimationEnd(index)}
+    >
       <Header>
         <span>{age}</span>
         <Name
