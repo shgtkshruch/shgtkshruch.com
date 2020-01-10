@@ -10,11 +10,11 @@ import Footer from './Footer'
 
 export default () => (
   <Container>
-    <Intro />
     <link
       href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
       rel="stylesheet"
     />
+    <Intro />
     <Work />
     <History />
     <Skill />

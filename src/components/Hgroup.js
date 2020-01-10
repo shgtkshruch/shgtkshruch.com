@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+/** @jsx jsx */
+import { useState } from 'react';
+import { jsx, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import Typist from 'react-typist';
 import 'react-typist/dist/Typist.css';
 import { InView } from 'react-intersection-observer'
 import { mq } from '../variables'
 
-const Hgroup = styled.hgroup`
+const wrapperStyle = css`
   text-align: center;
 `
 
@@ -31,22 +33,21 @@ export default ({ title, subTitle, onTypingDone }) => {
   const [inview, setView] = useState(false);
 
   return (
-    <Hgroup>
-      <InView
-        as="div"
-        onChange={(inview, entry) => inview ? setView(true) : false}
-      >
-        {inview &&
-          <Typist
-            avgTypingDelay={60}
-            stdTypingDelay={40}
-            onTypingDone={onTypingDone}
-          >
-            <Title>{title}</Title>
-            <Sub>{subTitle}</Sub>
-          </Typist>
-        }
-      </InView>
-    </Hgroup>
+    <InView
+      as="hgroup"
+      css={wrapperStyle}
+      onChange={(inview, entry) => inview ? setView(true) : false}
+    >
+      {inview &&
+        <Typist
+          avgTypingDelay={40}
+          stdTypingDelay={40}
+          onTypingDone={onTypingDone}
+        >
+          <Title>{title}</Title>
+          <Sub>{subTitle}</Sub>
+        </Typist>
+      }
+    </InView>
   )
 }
