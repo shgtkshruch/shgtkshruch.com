@@ -6,6 +6,7 @@ import Work from './Work'
 import History from './History'
 import Skill from './Skill'
 import Contact from './Contact'
+import Footer from './Footer'
 
 export default () => (
   <Container>
@@ -18,5 +19,6 @@ export default () => (
     <History />
     <Skill />
     <Contact />
+    <Footer />
   </Container>
 )
