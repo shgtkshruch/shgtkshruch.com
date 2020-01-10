@@ -4,30 +4,8 @@ import styled from '@emotion/styled'
 import { mq } from './variables'
 import Section from './components/Section';
 import Heading from './components/Hgroup';
-import Contact from './components/Contact';
-
-const items = [
-  {
-    name: 'mail',
-    url: 'mailto:info@shgtkshruch.com'
-  },
-  {
-    name: 'github',
-    url: 'https://github.com/shgtkshruch'
-  },
-  {
-    name: 'twitter',
-    url: 'https://twitter.com/shgtkshruch'
-  },
-  {
-    name: 'facebook',
-    url: 'https://www.facebook.com/shgtkshruch'
-  },
-  {
-    name: 'hatena',
-    url: 'http://b.hatena.ne.jp/sh19e/bookmark'
-  }
-]
+import Contact from './components/contact/';
+import items from './components/contact/data'
 
 const List = styled.ul`
   display: flex;

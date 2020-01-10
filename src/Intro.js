@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled'
+
 import Hgroup from './components/Hgroup'
-import Mouse from './Mouse'
+import Mouse from './components/Mouse'
 
 const Section = styled.section`
   position: relative;

@@ -2,9 +2,9 @@
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
 
-import { mq } from '../variables'
-import Link from './Link'
-import Text from './Text'
+import { mq } from '../../variables'
+import Link from '../Link'
+import Text from '../Text'
 
 const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
   const delay = 0.9 + 0.12 * i
@@ -117,6 +117,7 @@ const btnStyle = css`
 
 export default ({ index, isInview, isShow, item, onAnimationEnd, updateCurrentIndex }) => {
   const { age, name, text, url } = item
+
   return (
     <Item
       isInview={isInview}

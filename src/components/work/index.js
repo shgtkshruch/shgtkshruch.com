@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
+
 import { InView } from 'react-intersection-observer'
-import { mq } from '../variables'
-import Text from './Text'
-import Link from './Link'
+
+import { mq } from '../../variables'
+import Text from '../Text'
+import Link from '../Link'
 
 const itemStyle = css`
   display: flex;

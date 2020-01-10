@@ -1,10 +1,13 @@
 /** @jsx jsx */
 import { useState } from 'react';
+
 import { jsx, css } from '@emotion/core'
 import styled from '@emotion/styled'
+
 import Typist from 'react-typist';
 import 'react-typist/dist/Typist.css';
 import { InView } from 'react-intersection-observer'
+
 import { mq } from '../variables'
 
 const wrapperStyle = css`
