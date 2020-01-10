@@ -15,6 +15,7 @@ const wrapperStyle = css`
 `
 
 const Title = styled.h2`
+  display: inline-block;
   margin-bottom: 1rem;
   font-size: 2rem;
   line-height: 1.4;
@@ -43,11 +44,14 @@ export default ({ title, subTitle, onTypingDone }) => {
     >
       {inview &&
         <Typist
-          avgTypingDelay={30}
-          stdTypingDelay={30}
+          startDelay={500}
+          avgTypingDelay={40}
+          stdTypingDelay={20}
           onTypingDone={onTypingDone}
         >
           <Title>{title}</Title>
+          <Typist.Delay ms={350} />
+          <br/>
           <Sub>{subTitle}</Sub>
         </Typist>
       }
