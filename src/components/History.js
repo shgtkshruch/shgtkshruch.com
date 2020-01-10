@@ -37,8 +37,7 @@ const Item = styled.li`
       opacity: 1;
       transform: translateY(0);
     }
-    }
-   }
+  }
 `
 const size = '10px';
 
@@ -63,23 +62,22 @@ const Header = styled.div`
   }
 `
 
-const Name = styled.span`
+const Name = styled(Link)`
   margin-left: 1rem;
   letter-spacing: 0.05em;
   font-size: 1.2rem;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
 
-  ${mq.pc} {
-    text-decoration: underline;
-  }
-
-  &.is-active {
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-  }
+  ${props => props.isShow ? activeStyle : ''}
 `
 
+const activeStyle = css`
+  background-color: #000;
+  color: #fff;
+`
 const textStyle = css`
   margin-top: 1.6em;
   letter-spacing: 0.02em;
@@ -120,9 +118,13 @@ export default ({ index, isShow, item, onAnimationEnd, updateCurrentIndex }) => 
   const { age, name, text, url } = item
   return (
     <Item onAnimationEnd={() => onAnimationEnd(index)}>
-      <Header onClick={() => updateCurrentIndex(index)}>
+      <Header>
         <span>{age}</span>
-        <Name>{name}</Name>
+        <Name
+          as="button"
+          isShow={isShow}
+          onClick={() => updateCurrentIndex(index)}
+        >{name}</Name>
       </Header>
       <div
         className="jp"
@@ -132,7 +134,7 @@ export default ({ index, isShow, item, onAnimationEnd, updateCurrentIndex }) => 
         `}
       >
         {text.map((t, i) => <Text key={i}>{t}</Text>)}
-        <br />
+        <br/>
         <Text>
           <Link href={url} css={btnStyle} >more</Link>
          </Text>

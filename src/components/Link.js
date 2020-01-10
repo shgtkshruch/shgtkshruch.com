@@ -1,8 +1,8 @@
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import React from 'react';
+import styled from '@emotion/styled'
 import { mq } from '../variables'
 
-const linkStyle = css`
+const Link = styled.a`
   position: relative;
   padding: 0.3rem 0.5rem;
   transition: color 0.3s ease-in-out;
@@ -31,12 +31,14 @@ const linkStyle = css`
     }
   }
 `
-export default ({ url, children }) => (
-  <a
-    css={linkStyle}
+
+export default ({ url, children, ...props }) => (
+  <Link
     href={url}
     target="_blank"
-    rel="noopener noreferrer">
+    rel="noopener noreferrer"
+    {...props}
+  >
     {children}
-  </a>
+  </Link>
 )
