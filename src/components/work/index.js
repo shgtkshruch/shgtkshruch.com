@@ -48,7 +48,7 @@ const Data = styled.div`
   }
 `;
 
-const Img = styled.img`
+const A = styled.a`
   margin-bottom: 3rem;
   box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
   opacity: ${props => props.isShow ? 1 : 0};
@@ -91,7 +91,14 @@ export default ({ isTypingDone, item }) => {
         <br/>
         <Text className="jp">{text}</Text>
       </Data>
-      <Img src={image} alt={title} isShow={isTypingDone && inview} />
+      <A
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        isShow={isTypingDone && inview}
+      >
+        <img src={image} alt={title} />
+      </A>
     </InView>
   )
 }
