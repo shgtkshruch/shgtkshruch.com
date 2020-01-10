@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled'
 
 import { mq } from './variables'
@@ -40,11 +40,21 @@ const List = styled.ul`
   }
 `
 
-export default () => (
-  <Section id="contact">
-    <Heading title="contact" subTitle="Please feel free to contact me." />
-    <List>
-      {items.map((item, i) => ( <Contact key={i} item={item} /> ))}
-    </List>
-  </Section>
-)
+export default () => {
+  const [isTypingDone, setIsTypingDone] = useState(false);
+
+  return (
+    <Section id="contact">
+      <Heading
+        title="contact"
+        subTitle="Please feel free to contact me."
+        onTypingDone={() => setIsTypingDone(true)}
+      />
+      {isTypingDone &&
+        <List>
+          {items.map((item, i) => <Contact key={i} item={item} />)}
+        </List>
+      }
+    </Section>
+  )
+}

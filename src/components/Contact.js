@@ -6,7 +6,7 @@ const nthChildAnimation = Array.from('_'.repeat(5)).reduce((res, _, i) => {
   const delay = 0.12 * (i + 1);
   res += `
     &:nth-of-type(${i + 1}) {
-      animation: fadeIn 0.8s ${delay}s forwards;
+      animation: fadeInUp 0.8s ${delay}s forwards;
     }
   `
   return res
@@ -16,13 +16,15 @@ const Contact = styled.li`
   opacity: 0;
   ${nthChildAnimation}
 
-  @keyframes fadeIn {
+  @keyframes fadeInUp {
     0% {
       opacity: 0;
+      transform: translateY(30px);
     }
 
     100% {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 `
