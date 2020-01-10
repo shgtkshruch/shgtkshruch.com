@@ -74,7 +74,7 @@ export default ({ isTypingDone, item }) => {
       onChange={(inview, entry) => inview ? setView(true) : false}
       css={itemStyle}
     >
-      <Data isShow={inview}>
+      <Data isShow={isTypingDone && inview}>
         <Text>title: {title}</Text>
         <br />
         <Text>year: {age}</Text>
@@ -90,7 +90,7 @@ export default ({ isTypingDone, item }) => {
         <br />
         <Text className="jp">{text}</Text>
       </Data>
-      <Img src={image} alt={title} isShow={inview} />
+      <Img src={image} alt={title} isShow={isTypingDone && inview} />
     </InView>
   )
 }
