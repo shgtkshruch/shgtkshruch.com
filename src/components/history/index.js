@@ -54,11 +54,6 @@ const Header = styled.div`
     height: ${size};
     border-radius: 50%;
     background-color: #000;
-
-    ${mq.pc} {
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
   }
 `
 
@@ -82,7 +77,6 @@ const TextWrapper = styled.div`
   display: ${props => props.isShow ? 'block' : 'none'};
   margin-top: 1.6em;
   letter-spacing: 0.02em;
-  z-index: 1;
   line-height: 1.8;
 
   ${mq.pc} {
@@ -92,6 +86,7 @@ const TextWrapper = styled.div`
     width: 62%;
     padding-left: 1rem;
     margin-top: 0;
+    z-index: 1;
   }
 
   &::before {
@@ -103,6 +98,16 @@ const TextWrapper = styled.div`
     height: 0;
     background-color: #000;
     animation: line 0.3s 1s forwards;
+  }
+
+  @keyframes line {
+    0% {
+      height: 0;
+    }
+
+    100% {
+      height: 100%;
+    }
   }
 `
 
