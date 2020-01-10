@@ -116,10 +116,10 @@ const btnStyle = css`
   letter-spacing: 0.06em;
 `
 
-export default ({ index, isShow, item, updateCurrentIndex }) => {
+export default ({ index, isShow, item, onAnimationEnd, updateCurrentIndex }) => {
   const { age, name, text, url } = item
   return (
-    <Item>
+    <Item onAnimationEnd={() => onAnimationEnd(index)}>
       <Header onClick={() => updateCurrentIndex(index)}>
         <span>{age}</span>
         <Name>{name}</Name>
@@ -134,11 +134,8 @@ export default ({ index, isShow, item, updateCurrentIndex }) => {
         {text.map((t, i) => <Text key={i}>{t}</Text>)}
         <br />
         <Text>
-          <Link
-            href={url}
-            css={btnStyle}
-          >more</Link>
-        </Text>
+          <Link href={url} css={btnStyle} >more</Link>
+         </Text>
       </div>
     </Item>
   )

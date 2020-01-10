@@ -81,7 +81,7 @@ const sectionStyle = css`
 `
 
 export default () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(-1);
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   function updateCurrentIndex(index) {
@@ -115,6 +115,7 @@ export default () => {
               item={item}
               index={i}
               isShow={isShow(i)}
+              onAnimationEnd={(i) => i === items.length - 1 ? setCurrentIndex(0) : false}
               updateCurrentIndex={updateCurrentIndex}
             />
           ))}
