@@ -24,7 +24,7 @@ const Skill = styled.li`
   letter-spacing: 0.1em;
   opacity: 0;
 
-  ${nthChildAnimation}
+  ${props => props.startAnimation ? nthChildAnimation : ''}
 
   &::after {
     content: '/';
@@ -52,12 +52,12 @@ const Skill = styled.li`
     }
   }
 `
-export default ({ item, children }) => {
+export default ({ item, startAnimation, children }) => {
   const { name, text } = item
 
   return (
     <Tippy content={text} animation="shift-toward-subtle" theme="material">
-      <Skill>{name}</Skill>
+      <Skill startAnimation={startAnimation}>{name}</Skill>
     </Tippy>
   )
 }

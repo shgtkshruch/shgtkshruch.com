@@ -132,11 +132,9 @@ export default ({ next }) => {
         subTitle="Adopt the latest tools and methodology."
         onTypingDone={onTypingDone}
       />
-      {isTypingDone &&
-        <List>
-          {items.map((item, i) => <Skill key={i} item={item} />)}
-        </List>
-      }
+      <List>
+        {items.map((item, i) => <Skill key={i} item={item} startAnimation={isTypingDone} />)}
+      </List>
     </Section>
   )
 }
