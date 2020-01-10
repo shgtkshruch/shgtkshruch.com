@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from '@emotion/styled'
+import React from "react";
+import styled from "@emotion/styled";
 
-const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
-  const delay = 0.15 * (i + 1)
+const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
+  const delay = 0.15 * (i + 1);
   res += `
     &:nth-of-type(${i + 1})::before {
       animation: fadeOut 0.9s ${delay}s both ease-in-out;
     }
-  `
-  return res
-}, '')
+  `;
+  return res;
+}, "");
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -54,7 +54,7 @@ const Wrapper = styled.div`
       transform-origin: right top;
     }
   }
-`
+`;
 
 const Content = styled.span`
   opacity: 0;
@@ -69,10 +69,10 @@ const Content = styled.span`
       opacity: 1;
     }
   }
-`
+`;
 
 export default ({ className, children }) => (
   <Wrapper className={className}>
     <Content>{children}</Content>
   </Wrapper>
-)
+);

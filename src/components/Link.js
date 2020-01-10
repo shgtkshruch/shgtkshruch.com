@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from '@emotion/styled'
+import React from "react";
+import styled from "@emotion/styled";
 
-import { mq } from '../variables'
+import { mq } from "../variables";
 
 const Link = styled.a`
   position: relative;
@@ -10,7 +10,7 @@ const Link = styled.a`
   cursor: pointer;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -31,10 +31,6 @@ const Link = styled.a`
       }
     }
   }
-`
+`;
 
-export default ({ children, ...props }) => (
-  <Link {...props}>
-    {children}
-  </Link>
-)
+export default ({ children, ...props }) => <Link {...props}>{children}</Link>;
