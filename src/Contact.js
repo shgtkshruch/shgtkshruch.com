@@ -50,11 +50,9 @@ export default () => {
         subTitle="Please feel free to contact me."
         onTypingDone={() => setIsTypingDone(true)}
       />
-      {isTypingDone &&
-        <List>
-          {items.map((item, i) => <Contact key={i} item={item} />)}
-        </List>
-      }
+      <List>
+        {items.map((item, i) => <Contact key={i} item={item} isShow={isTypingDone} />)}
+      </List>
     </Section>
   )
 }

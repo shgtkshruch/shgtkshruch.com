@@ -14,7 +14,8 @@ const nthChildAnimation = Array.from('_'.repeat(5)).reduce((res, _, i) => {
 
 const Contact = styled.li`
   opacity: 0;
-  ${nthChildAnimation}
+
+  ${props => props.isShow ? nthChildAnimation : ''}
 
   @keyframes fadeInUp {
     0% {
@@ -70,12 +71,12 @@ const pathes = {
   }
 }
 
-export default ({ item, children }) => {
+export default ({ item, isShow }) => {
   const { name, url } = item
   const path = pathes[name]
 
   return (
-    <Contact>
+    <Contact isShow={isShow}>
       <a
         href={url}
         target="_blank"
