@@ -117,15 +117,20 @@ const List = styled.ul`
   }
 `
 
-export default () => {
+export default ({ next }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
+
+  function onTypingDone() {
+    setIsTypingDone(true)
+    next()
+  }
 
   return (
     <Section id="skils">
       <Heading
         title="skill"
         subTitle="Adopt the latest tools and methodology."
-        onTypingDone={() => setIsTypingDone(true)}
+        onTypingDone={onTypingDone}
       />
       {isTypingDone &&
         <List>

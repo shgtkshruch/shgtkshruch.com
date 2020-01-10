@@ -80,7 +80,7 @@ const sectionStyle = css`
   text-align: center;
 `
 
-export default () => {
+export default ({ next }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [isTypingDone, setIsTypingDone] = useState(false);
 
@@ -100,12 +100,17 @@ export default () => {
     return window.innerWidth < breakpoints.pc
   }
 
+  function onTypingDone() {
+    setIsTypingDone(true)
+    next()
+  }
+
   return (
     <Section id="history" css={sectionStyle}>
       <Heading
         title="history"
         subTitle="Learn WEB technology with Internet."
-        onTypingDone={() => setIsTypingDone(true)}
+        onTypingDone={onTypingDone}
       />
       {isTypingDone &&
         <List>

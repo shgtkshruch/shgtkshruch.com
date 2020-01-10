@@ -23,11 +23,12 @@ const MouseWrapper = styled.div`
   transition: opacity 0.7s ease-in;
 `
 
-export default () => {
+export default ({ next }) => {
   const [isMouseShow, setIsMouseShow] = useState(false)
 
   function onTypingDone() {
     setIsMouseShow(true)
+    next()
     window.addEventListener('scroll', () => setIsMouseShow(false))
   }
 

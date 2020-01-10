@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled'
-import { InView } from 'react-intersection-observer'
 import { mq } from './variables'
 import Section from './components/Section';
 import Heading from './components/Hgroup';
@@ -65,28 +64,24 @@ const List = styled.div`
     padding-top: 14rem;
   }
 `
-
-export default () => {
-  const [inview, setView] = useState(false);
+export default ({ next }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
+  function onTypingDone() {
+    setIsTypingDone(true)
+    next()
+  }
+
   return (
-    <InView
-      as="div"
-      onChange={(inview, entry) => inview ? setView(true) : false}
-    >
-      {inview &&
-        <Section id="work" className="work">
-          <Heading
-            title="work"
-            subTitle="My client and private works."
-            onTypingDone={() => setIsTypingDone(true)}
-          />
-          <List>
-            {items.map((item, i) => <Work key={i} item={item} isTypingDone={isTypingDone} />)}
-          </List>
-        </Section>
-      }
-    </InView>
+    <Section id="work" className="work">
+      <Heading
+        title="work"
+        subTitle="My client and private works."
+        onTypingDone={onTypingDone}
+      />
+      <List>
+        {items.map((item, i) => <Work key={i} item={item} isTypingDone={isTypingDone} />)}
+      </List>
+    </Section>
   )
 }
