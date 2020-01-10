@@ -28,6 +28,8 @@ const itemStyle = css`
 `
 
 const Data = styled.div`
+  display: ${props => props.isShow ? 'block' : 'none'};
+
   ${mq.pc} {
     width: 35%;
     margin-right: auto;
@@ -43,11 +45,11 @@ const Data = styled.div`
   }
 `
 
-const imgStyle = css`
+const Img = styled.img`
   margin-bottom: 3rem;
   box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
+  opacity: ${props => props.isShow ? 1 : 0};
   transition: box-shadow 0.5s, opacity 1s;
-  animation: fadeIn 0.8s ease-in-out;
 
   ${mq.pc} {
     width: 60%;
@@ -57,17 +59,8 @@ const imgStyle = css`
       box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
     }
   }
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
 `
+
 export default ({ isTypingDone, item }) => {
   const { title, age, url, text, image } = item
 
@@ -79,27 +72,23 @@ export default ({ isTypingDone, item }) => {
       onChange={(inview, entry) => inview ? setView(true) : false}
       css={itemStyle}
     >
-      {inview && isTypingDone &&
-        <>
-          <Data>
-            <Text>title: {title}</Text>
-            <br />
-            <Text>year: {age}</Text>
-            <br />
-            <Text className="text--url">
-              url:&nbsp;
-              <Link
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >{url}</Link>
-            </Text>
-            <br />
-            <Text className="jp">{text}</Text>
-          </Data>
-          <img src={image} alt={title} css={imgStyle} />
-        </>
-      }
+      <Data isShow={inview}>
+        <Text>title: {title}</Text>
+        <br />
+        <Text>year: {age}</Text>
+        <br />
+        <Text className="text--url">
+          url:&nbsp;
+          <Link
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >{url}</Link>
+        </Text>
+        <br />
+        <Text className="jp">{text}</Text>
+      </Data>
+      <Img src={image} alt={title} isShow={inview} />
     </InView>
   )
 }
