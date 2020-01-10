@@ -32,13 +32,8 @@ const Link = styled.a`
   }
 `
 
-export default ({ url, children, ...props }) => (
-  <Link
-    href={url}
-    target="_blank"
-    rel="noopener noreferrer"
-    {...props}
-  >
+export default ({ children, ...props }) => (
+  <Link {...props}>
     {children}
   </Link>
 )

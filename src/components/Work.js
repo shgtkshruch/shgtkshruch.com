@@ -88,7 +88,11 @@ export default ({ isTypingDone, item }) => {
             <br />
             <Text className="text--url">
               url:&nbsp;
-              <Link url={url}>{url}</Link>
+              <Link
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >{url}</Link>
             </Text>
             <br />
             <Text className="jp">{text}</Text>

@@ -22,7 +22,7 @@ const Item = styled.li`
    opacity: 0;
 
    &:not(:last-child) {
-     margin-bottom: 4rem;
+     margin-bottom: 4.5rem;
    }
 
    ${nthChildAnimation}
@@ -78,7 +78,8 @@ const activeStyle = css`
   background-color: #000;
   color: #fff;
 `
-const textStyle = css`
+const TextWrapper = styled.div`
+  display: ${props => props.isShow ? 'block' : 'none'};
   margin-top: 1.6em;
   letter-spacing: 0.02em;
   z-index: 1;
@@ -126,19 +127,18 @@ export default ({ index, isShow, item, onAnimationEnd, updateCurrentIndex }) => 
           onClick={() => updateCurrentIndex(index)}
         >{name}</Name>
       </Header>
-      <div
-        className="jp"
-        css={css`
-          display: ${isShow ? 'block' : 'none'};
-          ${textStyle}
-        `}
-      >
+      <TextWrapper className="jp" isShow={isShow}>
         {text.map((t, i) => <Text key={i}>{t}</Text>)}
         <br/>
         <Text>
-          <Link href={url} css={btnStyle} >more</Link>
+          <Link
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            css={btnStyle}
+          >more</Link>
          </Text>
-      </div>
+      </TextWrapper>
     </Item>
   )
 }
