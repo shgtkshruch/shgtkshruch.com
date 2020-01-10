@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
-import { mq } from './variables'
+import { mq } from './variables';
 import Section from './components/Section';
 import Heading from './components/Hgroup';
 import Work from './components/work/';

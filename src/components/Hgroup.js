@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { useState } from "react";
-
 import { jsx, css } from "@emotion/core";
 import styled from "@emotion/styled";
 
@@ -51,7 +50,7 @@ export default ({ title, subTitle, onTypingDone }) => {
         >
           <Title>{title}</Title>
           <Typist.Delay ms={350} />
-          <br />
+          <br/>
           <Sub>{subTitle}</Sub>
         </Typist>
       )}

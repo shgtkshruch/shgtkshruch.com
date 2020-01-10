@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 import { mq } from './variables'
 import Section from './components/Section';
 import Heading from './components/Hgroup';
 import Contact from './components/contact/';
-import items from './components/contact/data'
+import items from './components/contact/data';
 
 const List = styled.ul`
   display: flex;

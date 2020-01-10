@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
-import Hgroup from './components/Hgroup'
-import Mouse from './components/Mouse'
+import Hgroup from './components/Hgroup';
+import Mouse from './components/Mouse';
 
 const Section = styled.section`
   position: relative;
   height: 100vh;
-`
+`;
+
 const Wrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-`
+`;
 
 const MouseWrapper = styled.div`
   position: absolute;
@@ -23,7 +24,7 @@ const MouseWrapper = styled.div`
   transform: translate(-50%, 0);
   opacity: ${props => props.isMouseShow ? 1 : 0};
   transition: opacity 0.7s ease-in;
-`
+`;
 
 export default ({ next }) => {
   const [isMouseShow, setIsMouseShow] = useState(false)

@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { useState } from 'react';
 import styled from '@emotion/styled'
-import { jsx, css } from '@emotion/core'
+import { jsx, css } from '@emotion/core';
 
-import { breakpoints, mq } from './variables'
+import { breakpoints, mq } from './variables';
 import Section from './components/Section';
 import Heading from './components/Hgroup';
 import _History from './components/history/';

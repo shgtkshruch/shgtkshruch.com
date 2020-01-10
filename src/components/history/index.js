@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import styled from '@emotion/styled'
-import { jsx, css } from '@emotion/core'
+import styled from '@emotion/styled';
+import { jsx, css } from '@emotion/core';
 
-import { mq } from '../../variables'
-import Link from '../Link'
-import Text from '../Text'
+import { mq } from '../../variables';
+import Link from '../Link';
+import Text from '../Text';
 
 const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
   const delay = 0.9 + 0.12 * i
@@ -14,7 +14,7 @@ const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
     }
   `
   return res
-}, '')
+}, '');
 
 const Item = styled.li`
    position: relative;
@@ -38,7 +38,7 @@ const Item = styled.li`
       transform: translateY(0);
     }
   }
-`
+`;
 const size = '10px';
 
 const Header = styled.div`
@@ -55,7 +55,7 @@ const Header = styled.div`
     border-radius: 50%;
     background-color: #000;
   }
-`
+`;
 
 const Name = styled(Link)`
   margin-left: 1rem;
@@ -67,12 +67,12 @@ const Name = styled(Link)`
   font-family: inherit;
 
   ${props => props.isShow ? activeStyle : ''}
-`
+`;
 
 const activeStyle = css`
   background-color: #000;
   color: #fff;
-`
+`;
 const TextWrapper = styled.div`
   display: ${props => props.isShow ? 'block' : 'none'};
   margin-top: 1.6em;
@@ -109,7 +109,7 @@ const TextWrapper = styled.div`
       height: 100%;
     }
   }
-`
+`;
 
 const btnStyle = css`
   display: inline-block;
@@ -118,7 +118,7 @@ const btnStyle = css`
   padding: 0.5rem 1.4rem;
   line-height: 1;
   letter-spacing: 0.06em;
-`
+`;
 
 export default ({ index, isInview, isShow, item, onAnimationEnd, updateCurrentIndex }) => {
   const { age, name, text, url } = item
