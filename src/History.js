@@ -115,7 +115,7 @@ export default () => {
               item={item}
               index={i}
               isShow={isShow(i)}
-              onAnimationEnd={(i) => i === items.length - 1 ? setCurrentIndex(0) : false}
+              onAnimationEnd={(i) => i === items.length - 1 && currentIndex === -1 ? setCurrentIndex(0) : false}
               updateCurrentIndex={updateCurrentIndex}
             />
           ))}
