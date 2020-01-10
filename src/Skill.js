@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled'
 
 import { mq } from './variables'
@@ -117,11 +117,21 @@ const List = styled.ul`
   }
 `
 
-export default () => (
-  <Section id="skils">
-    <Heading title="skill" subTitle="Adopt the latest tools and methodology." />
-    <List>
-      {items.map((item, i) => ( <Skill key={i} item={item} /> ))}
-    </List>
-  </Section>
-)
+export default () => {
+  const [isTypingDone, setIsTypingDone] = useState(false);
+
+  return (
+    <Section id="skils">
+      <Heading
+        title="skill"
+        subTitle="Adopt the latest tools and methodology."
+        onTypingDone={() => setIsTypingDone(true)}
+      />
+      {isTypingDone &&
+        <List>
+          {items.map((item, i) => <Skill key={i} item={item} />)}
+        </List>
+      }
+    </Section>
+  )
+}
