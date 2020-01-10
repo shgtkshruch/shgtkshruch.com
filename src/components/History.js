@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from 'react';
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
 
@@ -7,12 +6,38 @@ import { mq } from '../variables'
 import Link from './Link'
 import Text from './Text'
 
+const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
+  const delay = 0.9 + 0.12 * i
+  res += `
+    &:nth-of-type(${i + 1}) {
+      animation: fadeIn 0.8s ${delay}s both ease-in-out;
+    }
+  `
+  return res
+}, '')
+
 const Item = styled.li`
    position: relative;
    padding-left: 1rem;
+   opacity: 0;
 
    &:not(:last-child) {
      margin-bottom: 4rem;
+   }
+
+   ${nthChildAnimation}
+
+   @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    }
    }
 `
 const size = '10px';
@@ -91,38 +116,30 @@ const btnStyle = css`
   letter-spacing: 0.06em;
 `
 
-export default class History extends React.Component {
-  handleClick(index) {
-    this.props.updateCurrentIndex(index);
-  }
-
-  render() {
-    const { index, isShow, item } = this.props
-    const { age, name, text, url } = item
-
-    return (
-      <Item>
-        <Header onClick={() => this.handleClick(index)}>
-          <span>{age}</span>
-          <Name>{name}</Name>
-        </Header>
-        <div
-          className="jp"
-          css={css`
-            display: ${isShow ? 'block' : 'none'};
-            ${textStyle}
-          `}
-        >
-          {text.map((t, i) => <Text key={i}>{t}</Text>)}
-          <br />
-          <Text>
-            <Link
-              href={url}
-              css={btnStyle}
-            >more</Link>
-          </Text>
-        </div>
-      </Item>
-    )
-  }
+export default ({ index, isShow, item, updateCurrentIndex }) => {
+  const { age, name, text, url } = item
+  return (
+    <Item>
+      <Header onClick={() => updateCurrentIndex(index)}>
+        <span>{age}</span>
+        <Name>{name}</Name>
+      </Header>
+      <div
+        className="jp"
+        css={css`
+          display: ${isShow ? 'block' : 'none'};
+          ${textStyle}
+        `}
+      >
+        {text.map((t, i) => <Text key={i}>{t}</Text>)}
+        <br />
+        <Text>
+          <Link
+            href={url}
+            css={btnStyle}
+          >more</Link>
+        </Text>
+      </div>
+    </Item>
+  )
 }

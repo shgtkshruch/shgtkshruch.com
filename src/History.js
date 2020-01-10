@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
 
@@ -61,11 +61,17 @@ const List = styled.ul`
     width: 1px;
     height: 100%;
     background-color: #000;
-    transition: height 0.8s;
+    animation: long 0.8s ease-in-out;
   }
 
-  &.is-active::before {
-    height: 100%;
+  @keyframes long {
+    0% {
+      height: 0;
+    }
+
+    100% {
+      height: 100%;
+    }
   }
 `
 const sectionStyle = css`
@@ -74,52 +80,46 @@ const sectionStyle = css`
   text-align: center;
 `
 
-export default class H extends React.Component {
-  constructor() {
-    super();
+export default () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTypingDone, setIsTypingDone] = useState(false);
 
-    this.state = {
-      currentIndex: 0
-    }
-
-    this.updateCurrentIndex = this.updateCurrentIndex.bind(this)
+  function updateCurrentIndex(index) {
+    if (isPc()) setCurrentIndex(index)
   }
 
-  isShow(i) {
-    if (this.isMobile()) return true
-    return this.isPc() && this.state.currentIndex === i
+  function isShow(i) {
+    return isMobile() ? true : currentIndex === i
   }
 
-  updateCurrentIndex(index) {
-    if (this.isPc()) {
-      this.setState({ currentIndex: index })
-    }
-  }
-
-  isPc() {
+  function isPc() {
     return window.innerWidth >= breakpoints.pc
   }
 
-  isMobile() {
+  function isMobile() {
     return window.innerWidth < breakpoints.pc
   }
 
-  render() {
-    return (
-      <Section id="history" css={sectionStyle}>
-        <Heading title="history" subTitle="Learn WEB technology with Internet." />
+  return (
+    <Section id="history" css={sectionStyle}>
+      <Heading
+        title="history"
+        subTitle="Learn WEB technology with Internet."
+        onTypingDone={() => setIsTypingDone(true)}
+      />
+      {isTypingDone &&
         <List>
           {items.map((item, i) => (
             <History
               key={i}
               item={item}
               index={i}
-              isShow={this.isShow(i)}
-              updateCurrentIndex={this.updateCurrentIndex}
+              isShow={isShow(i)}
+              updateCurrentIndex={updateCurrentIndex}
             />
           ))}
         </List>
-      </Section>
-    )
-  }
+      }
+    </Section>
+  )
 }
