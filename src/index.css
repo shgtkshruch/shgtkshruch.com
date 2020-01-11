@@ -1,3 +1,8 @@
+:root {
+  --primary-color: #000;
+  --bg-color: #fff;
+}
+
 html {
   font-size: 16px;
 }
@@ -7,6 +12,8 @@ body {
   font-family: 'Inconsolata', 'Sawarabi Gothic', monospace, sans-serif;
   font-size: 1.2rem;
   line-height: 1.7;
+  color: var(--primary-color);
+  background-color: var(--bg-color);
 }
 
 ul,
@@ -39,6 +46,6 @@ h3 {
 }
 
 ::selection {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
 }

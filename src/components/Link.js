@@ -16,14 +16,14 @@ const Link = styled.a`
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #000;
+    background-color: var(--primary-color);
     transition: width 0.3s ease-in-out;
     z-index: -1;
   }
 
   ${mq.pc} {
     &:hover {
-      color: #fff;
+      color: var(--bg-color);
       text-decoration: none;
 
       &::before {

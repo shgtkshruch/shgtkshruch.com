@@ -53,7 +53,7 @@ const Header = styled.div`
     width: ${size};
     height: ${size};
     border-radius: 50%;
-    background-color: #000;
+    background-color: currentColor;
   }
 `;
 
@@ -64,8 +64,9 @@ const Name = styled(Link)`
   cursor: pointer;
   border: none;
   background-color: transparent;
-  outline: none;
+  color: currentColor;
   font-family: inherit;
+  outline: none;
 
   &::before {
     left: -5%;
@@ -80,7 +81,7 @@ const Name = styled(Link)`
 `;
 
 const activeStyle = css`
-  color: #fff;
+  color: var(--bg-color);
 
   &::before {
     width: 110%;
@@ -109,7 +110,7 @@ const TextWrapper = styled.div`
     left: 0;
     width: 1px;
     height: 0;
-    background-color: #000;
+    background-color: var(--primary-color);
     animation: line 0.3s 1s forwards;
   }
 

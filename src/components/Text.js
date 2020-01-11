@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #333;
+    background-color: var(--primary-color);
     animation: fadeOut 0.9s 0.15s both ease-in-out;
     z-index: 1;
   }

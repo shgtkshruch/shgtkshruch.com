@@ -36,6 +36,7 @@ const Svg = props => {
       css={css`
         width: ${size};
         height: ${size};
+        fill: var(--primary-color);
         transition: fill 0.3s;
 
         &:hover {

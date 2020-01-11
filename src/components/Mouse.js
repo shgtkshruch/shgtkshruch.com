@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const color = "#545454";
-
 const Scroll = styled.div`
   width: 1em;
   height: 3.125em;
@@ -22,8 +20,8 @@ const Arrow = styled.div`
     display: block;
     width: 0.315em;
     height: 0.315em;
-    border-right: 1px solid ${color};
-    border-bottom: 1px solid ${color};
+    border-right: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     margin: 0 0 0.125em 0.315em;
     transform: rotate(45deg);
     animation: mouse-scroll 1s infinite;
@@ -59,7 +57,7 @@ const Arrow = styled.div`
 const Mouse = styled.div`
   height: 1.375em;
   width: 0.875em;
-  border: 1px solid ${color};
+  border: 1px solid var(--primary-color);
   border-radius: 2em;
 `;
 
@@ -67,7 +65,7 @@ const Wheel = styled.div`
   height: 0.1875em;
   width: 0.1875em;
   margin: 0.1875em auto 0;
-  background-color: ${color};
+  background-color: var(--primary-color);
   animation: mouse-wheel 1.4s ease infinite;
   border-radius: 50%;
 

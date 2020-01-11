@@ -50,8 +50,8 @@ const Data = styled.div`
 
 const A = styled.a`
   margin-bottom: 3rem;
-  box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
   opacity: ${props => props.isShow ? 1 : 0};
+  box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.5s, opacity 1s;
 
   ${mq.pc} {
