@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# shgtkshruch.com
+
+My portfoliio site.
+
+url: https://shgtkshruch.com/
 
 ## Available Scripts
 
