@@ -9,7 +9,7 @@ import Skill from './Skill';
 import Contact from './Contact';
 import Footer from './Footer';
 import Color from './components/Color';
-import { mq } from './variables';
+import { mq, theme } from './variables';
 
 export default () => {
   const [index, setIndex] = useState(0);
@@ -22,6 +22,11 @@ export default () => {
     <Container>
       <Global
         styles={css`
+          :root {
+            --primary-color: ${theme.light.primaryColor};
+            --bg-color: ${theme.light.bgColor};
+          }
+
           .jp {
             font-family: 'Sawarabi Gothic', "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
             font-size: 0.9rem;
@@ -39,7 +44,7 @@ export default () => {
         rel="stylesheet"
       />
       <Intro next={next} />
-      {index > 0 && <Work next={next} /> }
+      {index > 0 && <Work next={next} />}
       {index > 1 && <History next={next} />}
       {index > 2 && <Skill next={next} />}
       {index > 3 && <Contact next={next} />}

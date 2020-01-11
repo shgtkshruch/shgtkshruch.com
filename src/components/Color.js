@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { mq } from '../variables';
+import { mq, theme } from '../variables';
 
 const Button = styled.button`
   position: fixed;
@@ -34,9 +34,6 @@ const Icon = styled.i`
   font-size: 1rem;
 `;
 
-const lightColor = '#dee1e8';
-const darkColor = '#161725';
-
 export default () => {
   const [currentColor, setCurrentColor] = useState('light');
 
@@ -44,13 +41,13 @@ export default () => {
     switch (currentColor) {
       case 'light':
         setCurrentColor('dark');
-        document.documentElement.style.setProperty("--primary-color", lightColor);
-        document.documentElement.style.setProperty("--bg-color", darkColor);
+        document.documentElement.style.setProperty("--primary-color", theme.dark.primaryColor);
+        document.documentElement.style.setProperty("--bg-color", theme.dark.bgColor);
         break;
       default:
         setCurrentColor('light');
-        document.documentElement.style.setProperty("--primary-color", "#222");
-        document.documentElement.style.setProperty("--bg-color", "#fff");
+        document.documentElement.style.setProperty("--primary-color", theme.light.primaryColor);
+        document.documentElement.style.setProperty("--bg-color", theme.light.bgColor);
     }
   }
 

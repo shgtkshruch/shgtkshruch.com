@@ -5,4 +5,15 @@ const mq = Object.keys(breakpoints).reduce((obj, type) => {
   return obj
 }, {})
 
-export { breakpoints, mq }
+const theme = {
+  light: {
+    primaryColor: '#222',
+    bgColor: '#fff'
+  },
+  dark: {
+    primaryColor: '#dee1e8',
+    bgColor: '#161725'
+  }
+}
+
+export { breakpoints, mq, theme };
