@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { mq } from "../variables";
+import { mq } from '../variables';
 
 const Button = styled.button`
   position: fixed;
@@ -14,18 +14,27 @@ const Button = styled.button`
   background-color: var(--primary-color);
   color: var(--bg-color);
   transition: all 0.3s ease;
+  outline: none;
   cursor: pointer;
 
-  &:hover {
-    background-color: var(--bg-color);
-    color: var(--primary-color);
-    border-color: var(--primary-color);
+  ${mq.pc} {
+    &:hover {
+      background-color: var(--bg-color);
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
   }
 
   @media (min-width: 98rem) {
-    left: calc((100vw - 98rem) / 4);
+    top: calc(50% - 25px);
+    left: calc((100vw - 98rem) / 4 - 25px);
   }
 `;
+
+const Icon = styled.i`
+  font-size: 1rem;
+`;
+
 const lightColor = '#dee1e8';
 const darkColor = '#161725';
 
@@ -47,6 +56,8 @@ export default () => {
   }
 
   return (
-    <Button onClick={handleClick}>change color</Button>
+    <Button onClick={handleClick}>
+      <Icon className={currentColor === 'light' ? 'fa fa-sun' : 'fa fa-moon'} />
+    </Button>
   )
 }
