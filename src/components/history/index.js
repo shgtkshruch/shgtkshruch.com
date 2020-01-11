@@ -64,14 +64,27 @@ const Name = styled(Link)`
   cursor: pointer;
   border: none;
   background-color: transparent;
+  outline: none;
   font-family: inherit;
+
+  &::before {
+    left: -5%;
+    transform: skew(-25deg);
+  }
+
+  &:hover::before {
+    width: 110%;
+  }
 
   ${props => props.isShow ? activeStyle : ''}
 `;
 
 const activeStyle = css`
-  background-color: #000;
   color: #fff;
+
+  &::before {
+    width: 110%;
+  }
 `;
 const TextWrapper = styled.div`
   display: ${props => props.isShow ? 'block' : 'none'};
