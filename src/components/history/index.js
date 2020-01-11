@@ -22,7 +22,7 @@ const Item = styled.li`
    opacity: 0;
 
    &:not(:last-child) {
-     margin-bottom: 4.5rem;
+     margin-bottom: 5rem;
    }
 
    ${props => props.isInview ? nthChildAnimation : ''}
@@ -58,7 +58,7 @@ const Header = styled.div`
 `;
 
 const Name = styled(Link)`
-  margin-left: 1rem;
+  margin-left: 1.3rem;
   letter-spacing: 0.05em;
   font-size: 1.2rem;
   cursor: pointer;

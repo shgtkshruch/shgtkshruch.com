@@ -9,7 +9,7 @@ const Button = styled.button`
   display: inline-block;
   width: 50px;
   height: 50px;
-  border: 1px solid var(--bg-color);
+  border: 1px solid currentColor;
   border-radius: 50%;
   background-color: var(--primary-color);
   color: var(--bg-color);
@@ -21,7 +21,6 @@ const Button = styled.button`
     &:hover {
       background-color: var(--bg-color);
       color: var(--primary-color);
-      border-color: var(--primary-color);
     }
   }
 

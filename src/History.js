@@ -28,7 +28,7 @@ const List = styled.ul`
     left: 0;
     width: 1px;
     height: ${props => props.isShow ? '100%' : 0};
-    background-color: var(--primary-color);
+    background-color: currentColor;
     transition: height 0.8s ease-in-out;
   }
 `
