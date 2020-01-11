@@ -8,6 +8,7 @@ import History from './History';
 import Skill from './Skill';
 import Contact from './Contact';
 import Footer from './Footer';
+import Color from './components/Color';
 import { mq } from './variables';
 
 export default () => {
@@ -43,6 +44,7 @@ export default () => {
       {index > 2 && <Skill next={next} />}
       {index > 3 && <Contact next={next} />}
       <Footer />
+      <Color />
     </Container>
   )
 }
