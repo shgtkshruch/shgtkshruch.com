@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { mq, theme } from '../variables';
 
@@ -11,8 +11,8 @@ const Button = styled.button`
   height: 50px;
   border: 1px solid currentColor;
   border-radius: 50%;
-  background-color: var(--primary-color);
-  color: var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--primary-color);
   transition: all 0.3s ease;
   outline: none;
   cursor: pointer;
@@ -35,25 +35,20 @@ const Icon = styled.i`
 `;
 
 export default () => {
-  const [currentColor, setCurrentColor] = useState('light');
+  const [currentTheme, setCurrentTheme] = useState('light');
 
   function handleClick() {
-    switch (currentColor) {
-      case 'light':
-        setCurrentColor('dark');
-        document.documentElement.style.setProperty("--primary-color", theme.dark.primaryColor);
-        document.documentElement.style.setProperty("--bg-color", theme.dark.bgColor);
-        break;
-      default:
-        setCurrentColor('light');
-        document.documentElement.style.setProperty("--primary-color", theme.light.primaryColor);
-        document.documentElement.style.setProperty("--bg-color", theme.light.bgColor);
-    }
+    currentTheme === 'light' ? setCurrentTheme('dark') : setCurrentTheme('light')
   }
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--primary-color", theme[currentTheme].primaryColor);
+    document.documentElement.style.setProperty("--bg-color", theme[currentTheme].bgColor);
+  }, [currentTheme])
 
   return (
     <Button onClick={handleClick}>
-      <Icon className={currentColor === 'light' ? 'fa fa-sun' : 'fa fa-moon'} />
+      <Icon className={currentTheme === 'light' ? 'fa fa-sun' : 'fa fa-moon'} />
     </Button>
   )
 }
