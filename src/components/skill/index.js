@@ -8,7 +8,7 @@ import 'tippy.js/themes/material.css';
 
 import { mq } from '../../variables';
 
-const nthChildAnimation = Array.from('_'.repeat(25)).reduce((res, _, i) => {
+const nthChildAnimation = Array.from('_'.repeat(30)).reduce((res, _, i) => {
   const delay = 0.05 * (i + 1);
   res += `
     &:nth-of-type(${i + 1}) {

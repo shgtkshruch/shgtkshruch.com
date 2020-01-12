@@ -25,11 +25,7 @@ export default [
   },
   {
     name: 'JavaScript',
-    text: '独自のUIや演出をつくる'
-  },
-  {
-    name: 'Babel',
-    text: '次世代の仕様を積極的に採用'
+    text: '最新の仕様にキャッチアップしながら保守性の高いコーディング、独自のUIや演出を作成'
   },
   {
     name: 'jQuery',
@@ -37,11 +33,11 @@ export default [
   },
   {
     name: 'React',
-    text: 'SPA制作'
+    text: 'Next.jsでのSPA実装、StoryBookによるコンポーネント管理'
   },
   {
     name: 'Vue.js',
-    text: 'SPA制作'
+    text: 'Nuxt.jsでのSPA実装、StoryBookによるコンポーネント管理'
   },
   {
     name: 'gulp',
@@ -52,12 +48,12 @@ export default [
     text: 'プロジェクトにあったのビルド環境の作成'
   },
   {
-    name: 'PHP',
-    text: 'WordPressのテーマ制作ができる'
+    name: 'Jamstack',
+    text: 'パフォーマンスとセキュリティ・DXを高めた開発'
   },
   {
     name: 'WordPress',
-    text: '小・中規模サイトの制作'
+    text: 'テーマ作成、小・中規模サイトの制作'
   },
   {
     name: 'Rails',
@@ -66,6 +62,18 @@ export default [
   {
     name: 'Vagrant',
     text: 'プロジェクトの環境構築'
+  },
+  {
+    name: 'Docker',
+    text: 'プロジェクトの環境構築'
+  },
+  {
+    name: 'AWS',
+    text: 'サーバー構築・ドメイン・CDN・Lambda'
+  },
+  {
+    name: 'Terraform',
+    text: 'Infrastructure as Code'
   },
   {
     name: 'Itamae',
@@ -77,11 +85,7 @@ export default [
   },
   {
     name: 'GitHub',
-    text: 'プルリクエストベースのチーム開発経験'
-  },
-  {
-    name: 'AWS',
-    text: 'ドメイン取得やサーバーの作成'
+    text: 'プルリクエストベースのチーム開発'
   },
   {
     name: 'CircleCI',
