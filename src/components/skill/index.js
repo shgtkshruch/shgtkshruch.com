@@ -34,7 +34,7 @@ const Skill = styled.li`
     position: absolute;
     top: 0;
     left: 100%;
-    color: currentColor;
+    color: var(--primary-color);
   }
 
   ${mq.pc} {
