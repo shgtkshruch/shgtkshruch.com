@@ -20,7 +20,6 @@ const Item = styled.li`
    position: relative;
    padding-left: 1rem;
    opacity: 0;
-   pointer-events: none;
 
    &:not(:last-child) {
      margin-bottom: 5rem;
@@ -31,6 +30,7 @@ const Item = styled.li`
    @keyframes fadeInUp {
     0% {
       opacity: 0;
+      pointer-events: none;
       transform: translateY(15px);
     }
 

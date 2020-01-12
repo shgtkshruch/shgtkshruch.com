@@ -43,7 +43,7 @@ const Skill = styled.li`
     font-size: 1.2rem;
 
     &:hover {
-      color: red;
+      color: var(--accent-color);
     }
   }
 

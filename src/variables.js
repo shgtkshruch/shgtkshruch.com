@@ -8,11 +8,13 @@ const mq = Object.keys(breakpoints).reduce((obj, type) => {
 const theme = {
   light: {
     primaryColor: '#222',
-    bgColor: '#fff'
+    bgColor: '#fff',
+    accentColor: 'red',
   },
   dark: {
     primaryColor: '#dee1e8',
-    bgColor: '#161725'
+    bgColor: '#161725',
+    accentColor: '#ef40b8',
   }
 }
 

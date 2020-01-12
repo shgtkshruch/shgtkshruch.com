@@ -49,6 +49,7 @@ export default () => {
   useEffect(() => {
     document.documentElement.style.setProperty("--primary-color", theme[currentTheme].primaryColor);
     document.documentElement.style.setProperty("--bg-color", theme[currentTheme].bgColor);
+    document.documentElement.style.setProperty("--accent-color", theme[currentTheme].accentColor);
   }, [currentTheme])
 
   return (

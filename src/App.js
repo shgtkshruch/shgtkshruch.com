@@ -25,6 +25,7 @@ export default () => {
           :root {
             --primary-color: ${theme.light.primaryColor};
             --bg-color: ${theme.light.bgColor};
+            --accent-color: ${theme.light.accentColor};
           }
 
           .jp {
