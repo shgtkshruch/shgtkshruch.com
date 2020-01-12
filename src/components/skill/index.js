@@ -26,6 +26,7 @@ const Skill = styled.li`
   letter-spacing: 0.1em;
   opacity: 0;
   font-size: 1.1rem;
+  pointer-events: none;
 
   ${props => props.startAnimation ? nthChildAnimation : ''}
 
@@ -53,6 +54,7 @@ const Skill = styled.li`
 
     100% {
       opacity: 1;
+      pointer-events: auto;
     }
   }
 `;

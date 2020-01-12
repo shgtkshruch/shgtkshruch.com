@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
 
@@ -33,6 +33,7 @@ const itemStyle = css`
 
 const Data = styled.div`
   display: ${props => props.isShow ? 'block' : 'none'};
+  pointer-events: ${props => props.textAnimationDone ? 'auto' : 'none'};
 
   ${mq.pc} {
     width: 37%;
@@ -51,6 +52,7 @@ const Data = styled.div`
 const A = styled.a`
   margin-bottom: 3rem;
   opacity: ${props => props.isShow ? 1 : 0};
+  pointer-events: ${props => props.textAnimationDone ? 'auto' : 'none'};
   box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.5s, opacity 1s;
 
@@ -68,6 +70,7 @@ export default ({ isTypingDone, item }) => {
   const { title, age, url, text, image } = item
 
   const [inview, setView] = useState(false);
+  const [textAnimationDone, setTextAnimationDone] = useState(false);
 
   return (
     <InView
@@ -75,7 +78,7 @@ export default ({ isTypingDone, item }) => {
       onChange={(inview, entry) => inview ? setView(true) : false}
       css={itemStyle}
     >
-      <Data isShow={isTypingDone && inview}>
+      <Data isShow={isTypingDone && inview} textAnimationDone={textAnimationDone}>
         <Text>title: {title}</Text>
         <br/>
         <Text>year: {age}</Text>
@@ -89,13 +92,14 @@ export default ({ isTypingDone, item }) => {
           >{url}</Link>
         </Text>
         <br/>
-        <Text className="jp">{text}</Text>
+        <Text className="jp" onAnimationEnd={() => setTextAnimationDone(true)}>{text}</Text>
       </Data>
       <A
         href={url}
         target="_blank"
         rel="noopener noreferrer"
         isShow={isTypingDone && inview}
+        textAnimationDone={textAnimationDone}
       >
         <img src={image} alt={title} />
       </A>

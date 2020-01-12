@@ -71,8 +71,8 @@ const Content = styled.span`
   }
 `;
 
-export default ({ className, children }) => (
-  <Wrapper className={className}>
+export default ({ className, onAnimationEnd, children }) => (
+  <Wrapper className={className} onAnimationEnd={onAnimationEnd}>
     <Content>{children}</Content>
   </Wrapper>
 );
