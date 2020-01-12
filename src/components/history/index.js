@@ -10,7 +10,7 @@ const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
   const delay = 0.9 + 0.12 * i
   res += `
     &:nth-of-type(${i + 1}) {
-      animation: fadeIn 0.8s ${delay}s both ease-in-out;
+      animation: fadeInUp 0.8s ${delay}s forwards ease-in-out;
     }
   `
   return res
@@ -28,7 +28,7 @@ const Item = styled.li`
 
    ${props => props.isInview ? nthChildAnimation : ''}
 
-   @keyframes fadeIn {
+   @keyframes fadeInUp {
     0% {
       opacity: 0;
       transform: translateY(15px);
