@@ -7,8 +7,8 @@ const Container = styled.div`
   max-width: 48rem;
   margin-left: auto;
   margin-right: auto;
-  padding-right: 1rem;
-  padding-left: 1rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
 
   ${mq.pc} {
     max-width: 98rem;
