@@ -25,7 +25,7 @@ const Item = styled.li`
      margin-bottom: 5rem;
    }
 
-   ${props => props.isInview ? nthChildAnimation : ''}
+   ${props => props.typingDone ? nthChildAnimation : ''}
 
    @keyframes fadeInUp {
     0% {
@@ -89,8 +89,9 @@ const activeStyle = css`
     width: 110%;
   }
 `;
+
 const TextWrapper = styled.div`
-  display: ${props => props.isShow ? 'block' : 'none'};
+  display: ${props => props.isSelected ? 'block' : 'none'};
   margin-top: 1.6em;
   letter-spacing: 0.02em;
   line-height: 1.8;
@@ -136,24 +137,21 @@ const btnStyle = css`
   letter-spacing: 0.06em;
 `;
 
-export default ({ index, isInview, isShow, item, onAnimationEnd, updateCurrentIndex }) => {
+export default ({ item, typingDone, isSelected, onAnimationEnd, updateCurrentIndex }) => {
   const { age, name, text, url } = item
 
   return (
-    <Item
-      isInview={isInview}
-      onAnimationEnd={() => onAnimationEnd(index)}
-    >
+    <Item typingDone={typingDone} onAnimationEnd={onAnimationEnd}>
       <Header>
         <span>{age}</span>
         <Name
           as="button"
-          isShow={isShow}
-          onClick={() => updateCurrentIndex(index)}
-          onFocus={() => updateCurrentIndex(index)}
+          isShow={isSelected}
+          onClick={updateCurrentIndex}
+          onFocus={updateCurrentIndex}
         >{name}</Name>
       </Header>
-      <TextWrapper className="jp" isShow={isShow}>
+      <TextWrapper className="jp" isSelected={isSelected}>
         {text.map((t, i) => <Text key={i}>{t}</Text>)}
         <br/>
         <Text>

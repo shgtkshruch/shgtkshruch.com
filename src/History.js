@@ -6,7 +6,7 @@ import { jsx, css } from '@emotion/core';
 import { breakpoints, mq } from './variables';
 import Section from './components/Section';
 import Heading from './components/Hgroup';
-import _History from './components/history/';
+import History from './components/history/';
 import items from './components/history/data';
 
 const List = styled.ul`
@@ -27,7 +27,7 @@ const List = styled.ul`
     top: 0;
     left: 0;
     width: 1px;
-    height: ${props => props.isShow ? '100%' : 0};
+    height: ${props => props.typingDone ? '100%' : 0};
     background-color: currentColor;
     transition: height 0.8s ease-in-out;
   }
@@ -37,19 +37,16 @@ const sectionStyle = css`
   margin: 0 auto;
   text-align: center;
 `
-const History = styled(_History)`
-  opacity: ${props => props.isInview ? 1 : 0};
-`
 
 export default ({ next }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [inview, setInview] = useState(false);
+  const [typingDone, setTypingDone] = useState(false);
 
   function updateCurrentIndex(index) {
     if (isPc()) setCurrentIndex(index)
   }
 
-  function isShow(i) {
+  function isSelected(i) {
     return isMobile() ? true : currentIndex === i
   }
 
@@ -62,7 +59,7 @@ export default ({ next }) => {
   }
 
   function onTypingDone() {
-    setInview(true)
+    setTypingDone(true)
     next();
   }
 
@@ -73,16 +70,15 @@ export default ({ next }) => {
         subTitle="Learn WEB technology with Internet."
         onTypingDone={onTypingDone}
       />
-      <List isShow={inview}>
+      <List typingDone={typingDone}>
         {items.map((item, i) => (
           <History
             key={i}
             item={item}
-            index={i}
-            isInview={inview}
-            isShow={isShow(i)}
-            onAnimationEnd={(i) => i === items.length - 1 && currentIndex === -1 ? setCurrentIndex(0) : false}
-            updateCurrentIndex={updateCurrentIndex}
+            isSelected={isSelected(i)}
+            typingDone={typingDone}
+            onAnimationEnd={() => i === items.length - 1 && currentIndex === -1 ? setCurrentIndex(0) : false}
+            updateCurrentIndex={() => updateCurrentIndex(i)}
           />
         ))}
       </List>
