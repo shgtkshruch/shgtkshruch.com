@@ -9,6 +9,7 @@ import Skill from './Skill';
 import Contact from './Contact';
 import Footer from './Footer';
 import Color from './components/Color';
+import GitHubCorner from './components/Github-Corner';
 import { mq, theme } from './variables';
 
 export default () => {
@@ -19,38 +20,41 @@ export default () => {
   }
 
   return (
-    <Container>
-      <Global
-        styles={css`
-          :root {
-            --primary-color: ${theme.light.primaryColor};
-            --bg-color: ${theme.light.bgColor};
-            --accent-color: ${theme.light.accentColor};
-          }
-
-          .jp {
-            font-family: 'Sawarabi Gothic', "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            line-height: 2.6;
-
-            ${mq.pc} {
-              font-size: 0.95rem;
+    <>
+      <Container>
+        <Global
+          styles={css`
+            :root {
+              --primary-color: ${theme.light.primaryColor};
+              --bg-color: ${theme.light.bgColor};
+              --accent-color: ${theme.light.accentColor};
             }
-          }
-        `}
-      />
-      <link
-        href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
-        rel="stylesheet"
-      />
-      <Intro next={next} />
-      {index > 0 && <Work next={next} />}
-      {index > 1 && <History next={next} />}
-      {index > 2 && <Skill next={next} />}
-      {index > 3 && <Contact next={next} />}
-      <Footer />
-      <Color />
-    </Container>
+
+            .jp {
+              font-family: 'Sawarabi Gothic', "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+              font-size: 0.9rem;
+              letter-spacing: 0.08em;
+              line-height: 2.6;
+
+              ${mq.pc} {
+                font-size: 0.95rem;
+              }
+            }
+          `}
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
+          rel="stylesheet"
+        />
+        <Intro next={next} />
+        {index > 0 && <Work next={next} />}
+        {index > 1 && <History next={next} />}
+        {index > 2 && <Skill next={next} />}
+        {index > 3 && <Contact next={next} />}
+        <Footer />
+        <Color />
+      </Container>
+      <GitHubCorner />
+    </>
   )
 }
