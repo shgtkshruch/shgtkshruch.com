@@ -17,10 +17,15 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
 
+  &:focus {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+  }
+
   ${mq.pc} {
     &:hover {
-      background-color: var(--bg-color);
-      color: var(--primary-color);
+      background-color: var(--primary-color);
+      color: var(--bg-color);
     }
   }
 

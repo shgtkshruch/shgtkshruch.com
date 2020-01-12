@@ -150,6 +150,7 @@ export default ({ index, isInview, isShow, item, onAnimationEnd, updateCurrentIn
           as="button"
           isShow={isShow}
           onClick={() => updateCurrentIndex(index)}
+          onFocus={() => updateCurrentIndex(index)}
         >{name}</Name>
       </Header>
       <TextWrapper className="jp" isShow={isShow}>
