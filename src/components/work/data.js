@@ -1,3 +1,4 @@
+import mykinso from './images/mykinso.jpg';
 import nozomiFinancialGroup from './images/nozomi-financial-group.jpg';
 import yoshienishikawa from './images/yoshienishikawa.jpg';
 import avivaPro from './images/aviva-pro.jpg';
@@ -6,6 +7,13 @@ import hydroPower from './images/hydro-power.jpg';
 import schooTours from './images/schoo-tours.jpg';
 
 export default [
+  {
+    title: 'Mykinso',
+    image: mykinso,
+    age: '2017 -',
+    url: 'https://mykinso.com',
+    text: '腸内フローラ解析の会社で、Rails による WEB アプリケーション開発や Vue.js によるフロントエンドの開発をしています。LP のコーディングもしており、一貫性のある CSS の設計やスタイルガイドの整備をしています。'
+  },
   {
     title: 'Nozomi Finacial Group',
     image: nozomiFinancialGroup,
