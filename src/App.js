@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Global, css } from '@emotion/core';
 
-import Container from 'components/Container';
-import Intro from 'components/Intro/index';
-import Work from 'components/Work';
-import History from 'components/History';
-import Skill from 'components/Skill';
-import Contact from 'components/Contact';
-import Footer from 'components/Footer';
-import Color from 'components/Common/Color';
+import Container from './components/Container';
+import Intro from './components/Intro';
+import Work from './components/Work';
+import History from './components/History';
+import Skill from './components/Skill';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Color from './components/Common/Color';
 import GitHubCorner from './components/Github-Corner';
 import { mq, theme } from './variables';
 
