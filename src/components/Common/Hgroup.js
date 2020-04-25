@@ -7,7 +7,7 @@ import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
 import { InView } from "react-intersection-observer";
 
-import { mq } from "../variables";
+import { mq } from "variables";
 
 const wrapperStyle = css`
   text-align: center;

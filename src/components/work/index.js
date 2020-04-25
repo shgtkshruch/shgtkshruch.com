@@ -1,108 +1,38 @@
-/** @jsx jsx */
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { jsx, css } from '@emotion/core';
 
-import { InView } from 'react-intersection-observer';
+import { mq } from 'variables';
+import Section from 'components/Common/Section';
+import Heading from 'components/Common/Hgroup';
+import Item from './item';
+import data from 'components/Work/data';
 
-import { mq } from '../../variables';
-import Text from '../Text';
-import Link from '../Link';
-
-const itemStyle = css`
-  display: flex;
-  flex-direction: column-reverse;
-  margin: 0 auto;
-
-  &:not(:last-child) {
-    margin-bottom: 6rem;
-  }
+const List = styled.div`
+  padding-top: 4rem;
 
   ${mq.pc} {
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-flow: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-
-    &:not(:last-child) {
-      margin-bottom: 14rem;
-    }
+    padding-top: 14rem;
   }
-`;
+`
 
-const Data = styled.div`
-  display: ${props => props.isShow ? 'block' : 'none'};
-  pointer-events: ${props => props.textAnimationDone ? 'auto' : 'none'};
+export default ({ next }) => {
+  const [isTypingDone, setIsTypingDone] = useState(false);
 
-  ${mq.pc} {
-    width: 37%;
+  function onTypingDone() {
+    setIsTypingDone(true)
+    next()
   }
-
-  .text {
-    &--url {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-  }
-`;
-
-const A = styled.a`
-  margin-bottom: 3rem;
-  opacity: ${props => props.isShow ? 1 : 0};
-  pointer-events: ${props => props.textAnimationDone ? 'auto' : 'none'};
-  box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.5s, opacity 1s;
-
-  ${mq.pc} {
-    width: 55%;
-    margin-bottom: 0;
-
-    &:hover {
-      box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
-    }
-  }
-`;
-
-export default ({ isTypingDone, item }) => {
-  const { title, age, url, text, image } = item
-
-  const [inview, setView] = useState(false);
-  const [textAnimationDone, setTextAnimationDone] = useState(false);
 
   return (
-    <InView
-      as="div"
-      onChange={(inview, entry) => inview ? setView(true) : false}
-      css={itemStyle}
-    >
-      <Data isShow={isTypingDone && inview} textAnimationDone={textAnimationDone}>
-        <Text>title: {title}</Text>
-        <br/>
-        <Text>year: {age}</Text>
-        <br/>
-        <Text className="text--url">
-          url:&nbsp;
-          <Link
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >{url}</Link>
-        </Text>
-        <br/>
-        <Text className="jp" onAnimationEnd={() => setTextAnimationDone(true)}>{text}</Text>
-      </Data>
-      <A
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        isShow={isTypingDone && inview}
-        textAnimationDone={textAnimationDone}
-      >
-        <img src={image} alt={title} />
-      </A>
-    </InView>
+    <Section id="work" className="work">
+      <Heading
+        title="work"
+        subTitle="My client and private works."
+        onTypingDone={onTypingDone}
+      />
+      <List>
+        {data.map((item, i) => <Item key={i} item={item} isTypingDone={isTypingDone} />)}
+      </List>
+    </Section>
   )
 }

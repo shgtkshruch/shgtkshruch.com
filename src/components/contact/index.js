@@ -1,68 +1,36 @@
-/** @jsx jsx */
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
-import { jsx, css } from '@emotion/core';
 
-const nthChildAnimation = Array.from('_'.repeat(5)).reduce((res, _, i) => {
-  const delay = 0.12 * (i + 1);
-  res += `
-    &:nth-of-type(${i + 1}) {
-      animation: fadeInUp 0.8s ${delay}s forwards;
-    }
-  `
-  return res
-}, '')
+import { mq } from 'variables'
+import Section from 'components/Common/Section';
+import Heading from 'components/Common/Hgroup';
+import Item from './item';
+import data from './data';
 
-const Contact = styled.li`
-  opacity: 0;
+const List = styled.ul`
+  display: flex;
+  max-width: 22rem;
+  margin: 4rem auto 0;
+  justify-content: space-between;
 
-  ${props => props.isShow ? nthChildAnimation : ''}
-
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  ${mq.pc} {
+    margin-top: 6rem;
   }
 `
-const Svg = props => {
-  const size = `2.2rem`;
-  return (
-    <svg
-      css={css`
-        width: ${size};
-        height: ${size};
-        fill: var(--primary-color);
-        transition: fill 0.3s;
 
-        &:hover {
-          fill: ${props.color};
-        }
-        `
-      }
-      {...props}
-    />
-  )
-}
-
-export default ({ item, isShow }) => {
-  const { url, color, d } = item
+export default () => {
+  const [isTypingDone, setIsTypingDone] = useState(false);
 
   return (
-    <Contact isShow={isShow}>
-      <a
-        href={url}
-        target="_blank"
-        rel="noreferrer noopener"
-      >
-        <Svg viewBox="0 0 16 16" color={color}>
-          <path d={d} />
-        </Svg>
-      </a>
-    </Contact>
+    <Section id="contact">
+      <Heading
+        title="contact"
+        subTitle="Please feel free to contact me."
+        onTypingDone={() => setIsTypingDone(true)}
+      />
+      <List>
+        {data.map((item, i) => <Item key={i} item={item} isShow={isTypingDone} />)}
+      </List>
+    </Section>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
-import { mq, theme } from '../variables';
+import { mq, theme } from 'variables';
 
 const Button = styled.button`
   position: fixed;

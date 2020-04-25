@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { mq } from './variables';
+import { mq } from 'variables';
 
 const Footer = styled.footer`
   padding-bottom: 1rem;

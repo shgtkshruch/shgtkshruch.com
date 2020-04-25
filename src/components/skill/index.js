@@ -1,70 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
-import Tippy from '@tippy.js/react';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/shift-toward-subtle.css';
-import 'tippy.js/themes/material.css';
+import { mq } from 'variables';
+import Section from 'components/Common/Section';
+import Heading from 'components/Common/Hgroup';
+import Item from './item';
+import data from './data';
 
-import { mq } from '../../variables';
-
-const nthChildAnimation = Array.from('_'.repeat(30)).reduce((res, _, i) => {
-  const delay = 0.05 * (i + 1);
-  res += `
-    &:nth-of-type(${i + 1}) {
-      transition: color 0.3s;
-      animation: fadeIn 0.8s ${delay}s forwards;
-    }
-  `
-  return res
-}, '');
-
-const Skill = styled.li`
-  position: relative;
-  margin-right: 1rem;
-  margin-bottom: 0.4rem;
-  letter-spacing: 0.1em;
-  opacity: 0;
-  font-size: 1.1rem;
-  pointer-events: none;
-
-  ${props => props.startAnimation ? nthChildAnimation : ''}
-
-  &::after {
-    content: '/';
-    position: absolute;
-    top: 0;
-    left: 100%;
-    color: var(--primary-color);
-  }
+const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 55rem;
+  margin: 3rem auto -1.6rem;
 
   ${mq.pc} {
-    margin-bottom: 1.6rem;
-    font-size: 1.2rem;
-
-    &:hover {
-      color: var(--accent-color);
-    }
+    margin-top: 5rem;
   }
+`
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
+export default ({ next }) => {
+  const [isTypingDone, setIsTypingDone] = useState(false);
 
-    100% {
-      opacity: 1;
-      pointer-events: auto;
-    }
+  function onTypingDone() {
+    setIsTypingDone(true)
+    next()
   }
-`;
-
-export default ({ item, startAnimation, children }) => {
-  const { name, text } = item
 
   return (
-    <Tippy content={text} animation="shift-toward-subtle" theme="material">
-      <Skill startAnimation={startAnimation}>{name}</Skill>
-    </Tippy>
+    <Section id="skils">
+      <Heading
+        title="skill"
+        subTitle="Adopt the latest tools and methodology."
+        onTypingDone={onTypingDone}
+      />
+      <List>
+        {data.map((item, i) => <Item key={i} item={item} startAnimation={isTypingDone} />)}
+      </List>
+    </Section>
   )
 }
