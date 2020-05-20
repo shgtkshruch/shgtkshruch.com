@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
 import { mq } from 'variables';
-import Section from 'components/Common/Section';
-import Heading from 'components/Common/Hgroup';
+import Section from 'components/common/Section';
+import Heading from 'components/common/Hgroup';
 import Item from './item';
-import data from 'components/Work/data';
+import data from './data';
 
 const List = styled.div`
   padding-top: 4rem;

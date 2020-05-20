@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "@emotion/styled";
+import React from 'react';
+import styled from '@emotion/styled';
 
 const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
   const delay = 0.15 * (i + 1);

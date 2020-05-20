@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { useState } from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
+
 import { jsx, css } from '@emotion/core';
 
 import { breakpoints, mq } from 'variables';
-import Section from 'components/Common/Section';
-import Heading from 'components/Common/Hgroup';
+import Section from 'components/common/Section';
+import Heading from 'components/common/Hgroup';
 import Item from './item';
 import data from './data';
 

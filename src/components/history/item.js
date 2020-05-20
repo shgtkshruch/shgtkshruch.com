@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 import { jsx, css } from '@emotion/core';
 
 import { mq } from 'variables';
-import Link from 'components/Common/Link';
-import Text from 'components/Common/Text';
+import Link from 'components/common/Link';
+import Text from 'components/common/Text';
 
 const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
   const delay = 0.9 + 0.12 * i

@@ -6,8 +6,8 @@ import { jsx, css } from '@emotion/core';
 import { InView } from 'react-intersection-observer';
 
 import { mq } from 'variables';
-import Text from 'components/Common/Text';
-import Link from 'components/Common/Link';
+import Text from 'components/common/Text';
+import Link from 'components/common/Link';
 
 const itemStyle = css`
   display: flex;

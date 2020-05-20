@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
 
-import Hgroup from 'components/Common/Hgroup';
+import Hgroup from 'components/common/Hgroup';
 import Mouse from './Mouse';
 
 const Section = styled.section`

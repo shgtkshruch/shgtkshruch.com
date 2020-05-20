@@ -6,7 +6,7 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-toward-subtle.css';
 import 'tippy.js/themes/material.css';
 
-import { mq } from '../../variables';
+import { mq } from 'variables';
 
 const nthChildAnimation = Array.from('_'.repeat(30)).reduce((res, _, i) => {
   const delay = 0.05 * (i + 1);

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Global, css } from '@emotion/core';
 
-import Container from './components/Container';
-import Intro from './components/Intro';
-import Work from './components/Work';
-import History from './components/History';
-import Skill from './components/Skill';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Color from './components/Common/Color';
-import GitHubCorner from './components/Github-Corner';
-import { mq, theme } from './variables';
+import Container from 'components/Container';
+import Intro from 'components/intro/index.js';
+import Work from 'components/work/index.js';
+import History from 'components/history/index.js';
+import Skill from 'components/skill/index.js';
+import Contact from 'components/contact/index.js';
+import Footer from 'components/footer/index.js';
+import Color from 'components/common/Color';
+import GitHubCorner from 'components/Github-Corner';
+import { mq, theme } from 'variables';
 
 export default () => {
   const [index, setIndex] = useState(0);
