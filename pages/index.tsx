@@ -5,6 +5,7 @@ import Head from 'next/head'
 import Container from '../components/layout/Container';
 import Intro from '../components/intro';
 import Work from '../components/work';
+import History from '../components/history';
 import { mq, theme } from '../components/variables';
 
 export default function Home() {
@@ -19,7 +20,14 @@ export default function Home() {
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
-        <Global
+        <link
+          href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
+          rel="stylesheet"
+        />
+      </Head>
+
+      <Container>
+      <Global
           styles={css`
             :root {
               --primary-color: ${theme.light.primaryColor};
@@ -37,16 +45,10 @@ export default function Home() {
             }
           `}
         />
-        <link
-          href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
-          rel="stylesheet"
-        />
-      </Head>
-
-      <Container>
         <main>
           <Intro next={next} />
           {index > 0 && <Work next={next} />}
+          {index > 0 && <History next={next} />}
         </main>
 
         <footer>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "@emotion/styled";
 
 import { mq } from "../variables";
@@ -13,7 +13,13 @@ const Section = styled.section`
   }
 `;
 
-export default ({ id, className, children }) => (
+type SectionProps = {
+  id?: string
+  className?: string
+  children: ReactNode
+}
+
+export default ({ id, className, children }: SectionProps) => (
   <Section id={id} className={className}>
     {children}
   </Section>

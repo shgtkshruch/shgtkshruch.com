@@ -1,8 +1,8 @@
 const breakpoints = { sp: 600,  pc:1200 }
 
 type MQ = {
-  sp: string
-  pc: string
+  sp?: string
+  pc?: string
 }
 
 const mq: MQ = Object.keys(breakpoints).reduce((obj, type) => {
