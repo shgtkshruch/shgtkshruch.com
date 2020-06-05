@@ -9,6 +9,7 @@ import History from '../components/history';
 import Skill from '../components/skill';
 import Contact from '../components/contact';
 import Footer from '../components/footer';
+import GitHubCorner from '../components/common/GitHub-Corner';
 import { mq, theme } from '../components/variables';
 
 export default function Home() {
@@ -57,6 +58,7 @@ export default function Home() {
         </main>
         <Footer />
       </Container>
+      <GitHubCorner />
     </>
   )
 }
