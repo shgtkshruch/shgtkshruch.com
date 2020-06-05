@@ -6,6 +6,7 @@ import Container from '../components/layout/Container';
 import Intro from '../components/intro';
 import Work from '../components/work';
 import History from '../components/history';
+import Skill from '../components/skill';
 import { mq, theme } from '../components/variables';
 
 export default function Home() {
@@ -48,7 +49,8 @@ export default function Home() {
         <main>
           <Intro next={next} />
           {index > 0 && <Work next={next} />}
-          {index > 0 && <History next={next} />}
+          {index > 1 && <History next={next} />}
+          {index > 2 && <Skill next={next} />}
         </main>
 
         <footer>
