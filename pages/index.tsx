@@ -4,6 +4,7 @@ import { Global, css } from '@emotion/core';
 import Head from 'next/head'
 import Container from '../components/layout/Container';
 import Intro from '../components/intro';
+import Work from '../components/work';
 import { mq, theme } from '../components/variables';
 
 export default function Home() {
@@ -45,6 +46,7 @@ export default function Home() {
       <Container>
         <main>
           <Intro next={next} />
+          {index > 0 && <Work next={next} />}
         </main>
 
         <footer>
