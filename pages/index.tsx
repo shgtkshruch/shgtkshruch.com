@@ -7,6 +7,7 @@ import Intro from '../components/intro';
 import Work from '../components/work';
 import History from '../components/history';
 import Skill from '../components/skill';
+import Contact from '../components/contact';
 import { mq, theme } from '../components/variables';
 
 export default function Home() {
@@ -51,6 +52,7 @@ export default function Home() {
           {index > 0 && <Work next={next} />}
           {index > 1 && <History next={next} />}
           {index > 2 && <Skill next={next} />}
+          {index > 3 && <Contact next={next} />}
         </main>
 
         <footer>
