@@ -1,13 +1,13 @@
 /** @jsx jsx */
-import { useState } from 'react';
-import styled from '@emotion/styled';
-import { jsx, css } from '@emotion/core';
+import { useState } from 'react'
+import styled from '@emotion/styled'
+import { jsx, css } from '@emotion/core'
 
-import { InView } from 'react-intersection-observer';
+import { InView } from 'react-intersection-observer'
 
-import { mq } from '../variables';
-import Text from '../common/Text';
-import Link from '../common/Link';
+import { mq } from '../variables'
+import Text from '../common/Text'
+import Link from '../common/Link'
 
 const itemStyle = css`
   display: flex;
@@ -26,7 +26,7 @@ const itemStyle = css`
       margin-bottom: 14rem;
     }
   }
-`;
+`
 
 type DataProps = {
   isShow: boolean
@@ -64,7 +64,7 @@ const A = styled.a<AProps>`
       box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
     }
   }
-`;
+`
 
 export default ({ isTypingDone, item }) => {
   const { title, age, url, text, image } = item

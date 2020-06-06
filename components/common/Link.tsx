@@ -29,4 +29,4 @@ const Link = styled.a`
   }
 `;
 
-export default ({ children, ...props }) => <Link {...props}>{children}</Link>;
+export default ({ children, ...props }) => <Link {...props}>{children}</Link>

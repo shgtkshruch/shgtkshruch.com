@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import styled from '@emotion/styled';
+import { useState } from 'react'
+import styled from '@emotion/styled'
 
-import { mq } from '../variables';
-import Section from '../common/Section';
-import Heading from '../common/Hgroup';
-import Item from './Item';
-import items from './data';
+import { mq } from '../variables'
+import Section from '../common/Section'
+import Heading from '../common/Hgroup'
+import Item from './Item'
+import items from './data'
 
 const List = styled.ul`
   display: flex;

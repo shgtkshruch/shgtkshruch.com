@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "@emotion/styled"
 
 import { mq } from "../variables"
@@ -16,4 +15,4 @@ const Container = styled.div`
   }
 `;
 
-export default ({ children }) => <Container>{children}</Container>;
+export default ({ children }) => <Container>{children}</Container>

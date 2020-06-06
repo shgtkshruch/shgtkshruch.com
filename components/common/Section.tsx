@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react";
-import styled from "@emotion/styled";
+import { ReactNode } from "react"
+import styled from "@emotion/styled"
 
-import { mq } from "../variables";
+import { mq } from "../variables"
 
 const Section = styled.section`
   padding: 3rem 0;
@@ -23,4 +23,4 @@ export default ({ id, className, children }: SectionProps) => (
   <Section id={id} className={className}>
     {children}
   </Section>
-);
+)

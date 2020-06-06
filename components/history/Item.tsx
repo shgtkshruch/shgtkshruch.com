@@ -1,10 +1,10 @@
 /** @jsx jsx */
-import styled from '@emotion/styled';
-import { jsx, css } from '@emotion/core';
+import styled from '@emotion/styled'
+import { jsx, css } from '@emotion/core'
 
-import { mq } from '../variables';
-import Link from '../common/Link';
-import Text from '../common/Text';
+import { mq } from '../variables'
+import Link from '../common/Link'
+import Text from '../common/Text'
 
 const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
   const delay = 0.9 + 0.12 * i
@@ -14,7 +14,7 @@ const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
     }
   `
   return res
-}, '');
+}, '')
 
 type ItemProps = {
   typingDone: boolean
@@ -40,8 +40,8 @@ const Item = styled.li<ItemProps>`
       pointer-events: auto;
     }
   }
-`;
-const size = '10px';
+`
+const size = '10px'
 
 const Header = styled.div`
   position: relative;
@@ -56,7 +56,7 @@ const Header = styled.div`
     border-radius: 50%;
     background-color: currentColor;
   }
-`;
+`
 
 const Name = styled(Link)`
   margin-left: 1.3rem;
@@ -76,14 +76,14 @@ const Name = styled(Link)`
     width: 110%;
   }
   ${props => props.isShow ? activeStyle : ''}
-`;
+`
 
 const activeStyle = css`
   color: var(--bg-color);
   &::before {
     width: 110%;
   }
-`;
+`
 
 type TextWrapper = {
   isSelected: boolean
@@ -121,7 +121,7 @@ const TextWrapper = styled.div<TextWrapper>`
       height: 100%;
     }
   }
-`;
+`
 
 const btnStyle = css`
   display: inline-block;
@@ -130,7 +130,7 @@ const btnStyle = css`
   padding: 0.5rem 1.4rem;
   line-height: 1;
   letter-spacing: 0.06em;
-`;
+`
 
 export default ({ item, typingDone, isSelected, onAnimationEnd, updateCurrentIndex }) => {
   const { age, name, text, url } = item

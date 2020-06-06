@@ -1,11 +1,10 @@
-import React from 'react';
-import styled from '@emotion/styled';
-import Tippy from '@tippy.js/react';
+import styled from '@emotion/styled'
+import Tippy from '@tippy.js/react'
 
 import { mq } from '../variables';
 
 const nthChildAnimation = Array.from('_'.repeat(30)).reduce((res, _, i) => {
-  const delay = 0.05 * (i + 1);
+  const delay = 0.05 * (i + 1)
   res += `
     &:nth-of-type(${i + 1}) {
       transition: color 0.3s;
@@ -13,7 +12,7 @@ const nthChildAnimation = Array.from('_'.repeat(30)).reduce((res, _, i) => {
     }
   `
   return res
-}, '');
+}, '')
 
 type SkillProps = {
   startAnimation: boolean

@@ -23,4 +23,4 @@ const theme = {
   }
 }
 
-export { breakpoints, mq, theme };
+export { breakpoints, mq, theme }

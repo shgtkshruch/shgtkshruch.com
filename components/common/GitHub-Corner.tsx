@@ -1,7 +1,7 @@
 /** @jsx jsx */
-import styled from '@emotion/styled';
-import { jsx, css } from '@emotion/core';
-import { mq } from '../variables';
+import styled from '@emotion/styled'
+import { jsx, css } from '@emotion/core'
+import { mq } from '../variables'
 
 const Wrapper = styled.div`
   ${mq.pc} {

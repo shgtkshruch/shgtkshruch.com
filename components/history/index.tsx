@@ -1,13 +1,13 @@
 /** @jsx jsx */
-import { useState } from 'react';
+import { useState } from 'react'
 import styled from '@emotion/styled'
-import { jsx, css } from '@emotion/core';
+import { jsx, css } from '@emotion/core'
 
-import { breakpoints, mq } from '../variables';
-import Section from '../common/Section';
-import Heading from '../common/Hgroup';
-import Item from './Item';
-import items from './data';
+import { breakpoints, mq } from '../variables'
+import Section from '../common/Section'
+import Heading from '../common/Hgroup'
+import Item from './Item'
+import items from './data'
 
 type ListProps = {
   typingDone: boolean
