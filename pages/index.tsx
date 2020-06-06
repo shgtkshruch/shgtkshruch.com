@@ -9,6 +9,7 @@ import History from '../components/history';
 import Skill from '../components/skill';
 import Contact from '../components/contact';
 import Footer from '../components/footer';
+import ColorTheme from '../components/common/ColorTheme';
 import GitHubCorner from '../components/common/GitHub-Corner';
 import { mq, theme } from '../components/variables';
 
@@ -28,27 +29,28 @@ export default function Home() {
           href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
           rel="stylesheet"
         />
+        <script src="https://kit.fontawesome.com/f5bfd049f6.js" crossOrigin="anonymous"></script>
       </Head>
 
       <Container>
-      <Global
-          styles={css`
-            :root {
-              --primary-color: ${theme.light.primaryColor};
-              --bg-color: ${theme.light.bgColor};
-              --accent-color: ${theme.light.accentColor};
-            }
-            .jp {
-              font-family: 'Sawarabi Gothic', "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
-              font-size: 0.9rem;
-              letter-spacing: 0.08em;
-              line-height: 2.6;
-              ${mq.pc} {
-                font-size: 0.95rem;
+        <Global
+            styles={css`
+              :root {
+                --primary-color: ${theme.light.primaryColor};
+                --bg-color: ${theme.light.bgColor};
+                --accent-color: ${theme.light.accentColor};
               }
-            }
-          `}
-        />
+              .jp {
+                font-family: 'Sawarabi Gothic', "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+                font-size: 0.9rem;
+                letter-spacing: 0.08em;
+                line-height: 2.6;
+                ${mq.pc} {
+                  font-size: 0.95rem;
+                }
+              }
+            `}
+          />
         <main>
           <Intro next={next} />
           {index > 0 && <Work next={next} />}
@@ -58,6 +60,7 @@ export default function Home() {
         </main>
         <Footer />
       </Container>
+      <ColorTheme />
       <GitHubCorner />
     </>
   )
