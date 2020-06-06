@@ -12,7 +12,7 @@ import ColorTheme from '../components/common/ColorTheme'
 import GitHubCorner from '../components/common/GitHub-Corner'
 import { mq, theme } from '../components/variables'
 
-export default function Home({ works, history, skills }) {
+export default function Home({ works, history, skills, contacts }) {
   const [index, setIndex] = useState(0)
 
   function next() {
@@ -45,7 +45,7 @@ export default function Home({ works, history, skills }) {
           {index > 0 && <Work next={next} items={works} />}
           {index > 1 && <History next={next} items={history} />}
           {index > 2 && <Skill next={next} items={skills} />}
-          {index > 3 && <Contact />}
+          {index > 3 && <Contact items={contacts} />}
         </main>
         <Footer />
       </Container>
@@ -59,12 +59,14 @@ export const getStaticProps = async () => {
   const works = await fetchData('works')
   const history = await fetchData('history')
   const skills = await fetchData('skills')
+  const contacts = await fetchData('contacts')
 
   return {
     props: {
       works,
       history,
-      skills
+      skills,
+      contacts
     }
   }
 }
