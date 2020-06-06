@@ -5,7 +5,6 @@ import { mq } from '../variables'
 import Section from '../common/Section'
 import Heading from '../common/Hgroup'
 import Item from './Item'
-import items from './data'
 
 const List = styled.div`
   padding-top: 4rem;
@@ -14,7 +13,7 @@ const List = styled.div`
   }
 `
 
-export default ({ next }) => {
+export default ({ next, items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   function onTypingDone() {
