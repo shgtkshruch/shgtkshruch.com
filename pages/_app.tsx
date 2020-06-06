@@ -3,8 +3,8 @@ import { useEffect } from 'react'
 import Router from 'next/router'
 import * as gtag from '../lib/gtag'
 
-import "../static/index.css"
-import "react-typist/dist/Typist.css"
+import '../public/static/app.css'
+import 'react-typist/dist/Typist.css'
 import 'tippy.js/dist/tippy.css'
 import 'tippy.js/animations/shift-toward-subtle.css'
 import 'tippy.js/themes/material.css'
