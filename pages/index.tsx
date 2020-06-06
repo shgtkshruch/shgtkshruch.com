@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Global, css } from '@emotion/core'
 
+import Head from 'next/head'
 import Container from '../components/layout/Container'
 import Intro from '../components/intro'
 import Work from '../components/work'
@@ -21,6 +22,9 @@ export default function Home({ works, history, skills, contacts }) {
 
   return (
     <>
+      <Head>
+        <title>Shigetaka Shirouchi</title>
+      </Head>
       <Container>
         <Global
           styles={css`
