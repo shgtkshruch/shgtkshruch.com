@@ -12,7 +12,7 @@ import ColorTheme from '../components/common/ColorTheme'
 import GitHubCorner from '../components/common/GitHub-Corner'
 import { mq, theme } from '../components/variables'
 
-export default function Home({ works }) {
+export default function Home({ works, history }) {
   const [index, setIndex] = useState(0)
 
   function next() {
@@ -43,7 +43,7 @@ export default function Home({ works }) {
         <main>
           <Intro next={next} />
           {index > 0 && <Work next={next} items={works} />}
-          {index > 1 && <History next={next} />}
+          {index > 1 && <History next={next} items={history} />}
           {index > 2 && <Skill next={next} />}
           {index > 3 && <Contact />}
         </main>
@@ -56,16 +56,25 @@ export default function Home({ works }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://shgtkshruch.microcms.io/api/v1/works', {
+  const works = await fetchData('works')
+  const history = await fetchData('history')
+
+
+  return {
+    props: {
+      works,
+      history
+    }
+  }
+}
+
+async function fetchData(path: string) {
+  const res = await fetch(`https://shgtkshruch.microcms.io/api/v1/${path}`, {
     headers: {
       'X-API-KEY': process.env.MICRO_CMS_API_KEY
     }
   })
-  const items = await res.json()
-
-  return {
-    props: {
-      works: items.contents
-    }
-  }
+  const response = await res.json()
+  const items = response.contents
+  return items
 }
