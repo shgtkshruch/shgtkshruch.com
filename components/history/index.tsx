@@ -7,7 +7,6 @@ import { breakpoints, mq } from '../variables'
 import Section from '../common/Section'
 import Heading from '../common/Hgroup'
 import Item from './Item'
-import items from './data'
 
 type ListProps = {
   typingDone: boolean
@@ -40,7 +39,7 @@ const sectionStyle = css`
   text-align: center;
 `
 
-export default ({ next }) => {
+export default ({ next, items }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [typingDone, setTypingDone] = useState(false);
 

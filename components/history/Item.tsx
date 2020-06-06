@@ -133,7 +133,7 @@ const btnStyle = css`
 `
 
 export default ({ item, typingDone, isSelected, onAnimationEnd, updateCurrentIndex }) => {
-  const { age, name, text, url } = item
+  const { age, title, body, url } = item
 
   return (
     <Item typingDone={typingDone} onAnimationEnd={onAnimationEnd}>
@@ -144,10 +144,10 @@ export default ({ item, typingDone, isSelected, onAnimationEnd, updateCurrentInd
           isShow={isSelected}
           onClick={updateCurrentIndex}
           onFocus={updateCurrentIndex}
-        >{name}</Name>
+        >{title}</Name>
       </Header>
       <TextWrapper className="jp" isSelected={isSelected}>
-        {text.map((t, i) => <Text key={i}>{t}</Text>)}
+        {body.split('\n').map((t, i) => <Text key={i}>{t}</Text>)}
         <br/>
         <Text>
           <Link

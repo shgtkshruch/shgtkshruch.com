@@ -67,7 +67,7 @@ const A = styled.a<AProps>`
 `
 
 export default ({ isTypingDone, item }) => {
-  const { title, age, url, text, image } = item
+  const { title, age, url, body, image } = item
 
   const [inview, setView] = useState(false);
   const [textAnimationDone, setTextAnimationDone] = useState(false);
@@ -92,7 +92,7 @@ export default ({ isTypingDone, item }) => {
           >{url}</Link>
         </Text>
         <br/>
-        <Text className="jp" onAnimationEnd={() => setTextAnimationDone(true)}>{text}</Text>
+        <Text className="jp" onAnimationEnd={() => setTextAnimationDone(true)}>{body}</Text>
       </Data>
       <A
         href={url}
@@ -101,7 +101,7 @@ export default ({ isTypingDone, item }) => {
         isShow={isTypingDone && inview}
         textAnimationDone={textAnimationDone}
       >
-        <img src={image} alt={title} />
+        <img src={image.url} alt={title} />
       </A>
     </InView>
   )

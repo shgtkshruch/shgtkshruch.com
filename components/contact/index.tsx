@@ -5,7 +5,6 @@ import { mq } from '../variables'
 import Section from '../common/Section'
 import Heading from '../common/Hgroup'
 import Item from './Item'
-import items from './data'
 
 const List = styled.ul`
   display: flex;
@@ -17,7 +16,7 @@ const List = styled.ul`
   }
 `
 
-export default () => {
+export default ({ items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   return (
