@@ -53,11 +53,11 @@ const Skill = styled.li<SkillProps>`
 `;
 
 export default ({ item, startAnimation }) => {
-  const { name, text } = item
+  const { title, body } = item
 
   return (
-    <Tippy content={text} animation="shift-toward-subtle" theme="material">
-      <Skill startAnimation={startAnimation}>{name}</Skill>
+    <Tippy content={body} animation="shift-toward-subtle" theme="material">
+      <Skill startAnimation={startAnimation}>{title}</Skill>
     </Tippy>
   )
 }
