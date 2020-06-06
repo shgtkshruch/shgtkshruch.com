@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Global, css } from '@emotion/core';
 
-import Head from 'next/head'
 import Container from '../components/layout/Container';
 import Intro from '../components/intro';
 import Work from '../components/work';
@@ -22,19 +21,9 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
-          rel="stylesheet"
-        />
-        <script src="https://kit.fontawesome.com/f5bfd049f6.js" crossOrigin="anonymous"></script>
-      </Head>
-
       <Container>
         <Global
-            styles={css`
+          styles={css`
               :root {
                 --primary-color: ${theme.light.primaryColor};
                 --bg-color: ${theme.light.bgColor};
@@ -50,7 +39,7 @@ export default function Home() {
                 }
               }
             `}
-          />
+        />
         <main>
           <Intro next={next} />
           {index > 0 && <Work next={next} />}
