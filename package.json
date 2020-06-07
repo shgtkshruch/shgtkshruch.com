@@ -2,6 +2,11 @@
   "name": "shgtkshruch.com",
   "version": "0.1.0",
   "private": true,
+  "author": "Shigetaka Shirouchi <info@shgtkshruch.com>",
+  "description": "Portfolio",
+  "repository": "https://github.com/shgtkshruch/shgtkshruch.com",
+  "bugs": "https://github.com/shgtkshruch/shgtkshruch.com/issues",
+  "homepage": "https://shgtkshruch.com/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
