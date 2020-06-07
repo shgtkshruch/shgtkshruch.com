@@ -9,6 +9,7 @@ import Item from './Item'
 const List = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   max-width: 55rem;
   margin: 3rem auto -1.6rem;
   ${mq.pc} {
