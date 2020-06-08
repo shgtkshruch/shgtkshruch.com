@@ -1,5 +1,6 @@
 ## 3.0.0 (2020-06-06)
 - [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 - [microCMS](https://microcms.io/)
 - [Netlify](https://www.netlify.com/)
 
@@ -12,3 +13,4 @@
 - [Sass](https://sass-lang.com/)
 - [jQuery](https://jquery.com/)
 - [gulp](https://gulpjs.com/)
+- [GitHub Pages](https://pages.github.com/)
