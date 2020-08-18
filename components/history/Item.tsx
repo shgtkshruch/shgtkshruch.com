@@ -1,10 +1,11 @@
 /** @jsx jsx */
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
+import dynamic from 'next/dynamic'
 
 import { mq } from '../variables'
-import Link from '../common/Link'
-import Text from '../common/Text'
+const Link = dynamic(() => import('../common/Link'))
+const Text = dynamic(() => import('../common/Text'))
 
 const nthChildAnimation = Array.from('_'.repeat(7)).reduce((res, _, i) => {
   const delay = 0.9 + 0.12 * i

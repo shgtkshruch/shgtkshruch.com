@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import { Global, css } from '@emotion/core'
+import dynamic from 'next/dynamic'
 
 import Head from 'next/head'
-import Container from '../components/layout/Container'
-import Intro from '../components/intro'
-import Work from '../components/work'
-import History from '../components/history'
-import Skill from '../components/skill'
-import Contact from '../components/contact'
-import Footer from '../components/footer'
-import ColorTheme from '../components/common/ColorTheme'
-import GitHubCorner from '../components/common/GitHub-Corner'
+const Container = dynamic(() => import('../components/layout/Container'))
+const Intro = dynamic(() => import('../components/intro'))
+const Work = dynamic(() => import('../components/work'))
+const History = dynamic(() => import('../components/history'))
+const Skill = dynamic(() => import('../components/skill'))
+const Contact = dynamic(() => import('../components/contact'))
+const Footer = dynamic(() => import('../components/footer'))
+const ColorTheme = dynamic(() => import('../components/common/ColorTheme'))
+const GitHubCorner = dynamic(() => import('../components/common/GitHub-Corner'))
 import { mq, theme } from '../components/variables'
 
 export default function Home({ works, history, skills, contacts }) {

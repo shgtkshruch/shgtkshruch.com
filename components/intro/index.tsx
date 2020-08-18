@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
+import dynamic from 'next/dynamic'
 
-import Hgroup from '../common/Hgroup'
-import Mouse from './Mouse'
+const Hgroup = dynamic(() => import('../common/Hgroup'))
+const Mouse = dynamic(() => import('./Mouse'))
 
 const Section = styled.section`
   position: relative;

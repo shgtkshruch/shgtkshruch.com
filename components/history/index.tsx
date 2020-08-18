@@ -2,11 +2,12 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
 import { jsx, css } from '@emotion/core'
+import dynamic from 'next/dynamic'
 
 import { breakpoints, mq } from '../variables'
-import Section from '../common/Section'
-import Heading from '../common/Hgroup'
-import Item from './Item'
+const Section = dynamic(() => import('../common/Section'))
+const Heading = dynamic(() => import('../common/Hgroup'))
+const Item = dynamic(() => import('./Item'))
 
 type ListProps = {
   typingDone: boolean

@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
+import dynamic from 'next/dynamic'
 
 import { mq } from '../variables'
-import Section from '../common/Section'
-import Heading from '../common/Hgroup'
-import Item from './Item'
+const Section = dynamic(() => import('../common/Section'))
+const Heading = dynamic(() => import('../common/Hgroup'))
+const Item = dynamic(() => import('./Item'))
 
 const List = styled.div`
   padding-top: 4rem;
