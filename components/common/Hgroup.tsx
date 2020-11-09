@@ -1,6 +1,6 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/core */
 import { useState } from "react"
-import { jsx, css } from "@emotion/core"
+import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Typist from "react-typist"
