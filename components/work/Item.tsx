@@ -1,7 +1,7 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/core */
 import { useState } from 'react'
 import styled from '@emotion/styled'
-import { jsx, css } from '@emotion/core'
+import { css } from '@emotion/core'
 
 import { InView } from 'react-intersection-observer'
 
