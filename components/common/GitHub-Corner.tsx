@@ -1,6 +1,6 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import { css } from '@emotion/css'
 import { mq } from '../variables'
 
 const Wrapper = styled.div`

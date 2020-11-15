@@ -1,6 +1,6 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import { css } from '@emotion/css'
 
 const nthChildAnimation = Array.from('_'.repeat(5)).reduce((res, _, i) => {
   const delay = 0.12 * (i + 1);
