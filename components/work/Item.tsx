@@ -76,7 +76,7 @@ export default ({ isTypingDone, item }) => {
     <InView
       as="div"
       onChange={(inview, entry) => inview ? setView(true) : false}
-      css={itemStyle}
+      className={itemStyle}
     >
       <Data isShow={isTypingDone && inview} textAnimationDone={textAnimationDone}>
         <Text>title: {title}</Text>

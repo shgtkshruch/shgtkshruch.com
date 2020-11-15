@@ -65,7 +65,7 @@ export default ({ next, items }) => {
   }
 
   return (
-    <Section id="history" css={sectionStyle}>
+    <Section id="history" className={sectionStyle}>
       <Heading
         title="history"
         subTitle="Learn WEB technology with Internet."
