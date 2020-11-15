@@ -1,6 +1,6 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import { css } from '@emotion/css'
 
 const nthChildAnimation = Array.from('_'.repeat(5)).reduce((res, _, i) => {
   const delay = 0.12 * (i + 1);
@@ -34,7 +34,7 @@ const Svg = props => {
   const size = `2.2rem`;
   return (
     <svg
-      css={css`
+      className={css`
         width: ${size};
         height: ${size};
         fill: var(--primary-color);
@@ -58,7 +58,7 @@ const paths = {
 }
 
 export default ({ item, isShow }) => {
-  const { title, url, color, d } = item
+  const { title, url, color } = item
 
   return (
     <Contact isShow={isShow}>

@@ -1,7 +1,7 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 import { useState } from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import { css } from '@emotion/css'
 
 import { breakpoints, mq } from '../variables'
 import Section from '../common/Section'
@@ -65,7 +65,7 @@ export default ({ next, items }) => {
   }
 
   return (
-    <Section id="history" css={sectionStyle}>
+    <Section id="history" className={sectionStyle}>
       <Heading
         title="history"
         subTitle="Learn WEB technology with Internet."

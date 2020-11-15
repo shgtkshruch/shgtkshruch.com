@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Global, css } from '@emotion/core'
+import { Global, css } from '@emotion/react'
 
 import Head from 'next/head'
 import Container from '../components/layout/Container'

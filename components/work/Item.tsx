@@ -1,7 +1,7 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 import { useState } from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/core'
+import { css } from '@emotion/css'
 
 import { InView } from 'react-intersection-observer'
 
@@ -76,7 +76,7 @@ export default ({ isTypingDone, item }) => {
     <InView
       as="div"
       onChange={(inview, entry) => inview ? setView(true) : false}
-      css={itemStyle}
+      className={itemStyle}
     >
       <Data isShow={isTypingDone && inview} textAnimationDone={textAnimationDone}>
         <Text>title: {title}</Text>

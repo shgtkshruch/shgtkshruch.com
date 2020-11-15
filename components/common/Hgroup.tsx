@@ -1,6 +1,6 @@
-/** @jsxImportSource @emotion/core */
+/** @jsxImportSource @emotion/react */
 import { useState } from "react"
-import { css } from "@emotion/core"
+import { css } from "@emotion/css"
 import styled from "@emotion/styled"
 
 import Typist from "react-typist"
@@ -10,7 +10,7 @@ import { mq } from "../variables"
 
 const wrapperStyle = css`
   text-align: center;
-`;
+`
 
 const Title = styled.h2`
   display: inline-block;
@@ -36,7 +36,7 @@ export default ({ title, subTitle, onTypingDone }) => {
   return (
     <InView
       as="hgroup"
-      css={wrapperStyle}
+      className={wrapperStyle}
       onChange={(inview, entry) => (inview ? setView(true) : false)}
     >
       {inview && (
