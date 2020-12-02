@@ -30,7 +30,7 @@ const MouseWrapper = styled.div<MuseWapperProps>`
   transition: opacity 0.7s ease-in;
 `
 
-export default ({ next }) => {
+const Index = ({ next }) => {
   const [isMouseShow, setIsMouseShow] = useState(false)
 
   function onTypingDone() {
@@ -53,4 +53,6 @@ export default ({ next }) => {
       </MouseWrapper>
     </Section>
   )
-}
+};
+
+export default Index;

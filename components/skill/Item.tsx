@@ -52,7 +52,7 @@ const Skill = styled.li<SkillProps>`
   }
 `;
 
-export default ({ item, startAnimation }) => {
+const Item = ({ item, startAnimation }) => {
   const { title, body } = item
 
   return (
@@ -60,4 +60,6 @@ export default ({ item, startAnimation }) => {
       <Skill startAnimation={startAnimation}>{title}</Skill>
     </Tippy>
   )
-}
+};
+
+export default Item;

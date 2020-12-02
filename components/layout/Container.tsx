@@ -15,4 +15,6 @@ const Container = styled.div`
   }
 `;
 
-export default ({ children }) => <Container>{children}</Container>
+const ContainerComponent = ({ children }) => <Container>{children}</Container>;
+
+export default ContainerComponent;

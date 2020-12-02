@@ -68,8 +68,8 @@ type Text = {
   children: ReactNode
 }
 
-export default ({ className, onAnimationEnd, children }: Text) => (
-  <Wrapper className={className} onAnimationEnd={onAnimationEnd}>
-    <Content>{children}</Content>
-  </Wrapper>
-)
+const TextComponent = ({ className, onAnimationEnd, children }: Text) => <Wrapper className={className} onAnimationEnd={onAnimationEnd}>
+  <Content>{children}</Content>
+</Wrapper>;
+
+export default TextComponent;

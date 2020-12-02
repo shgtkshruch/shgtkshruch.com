@@ -74,13 +74,13 @@ const Wheel = styled.div`
   }
 `
 
-export default () => (
-  <Scroll>
-    <Mouse>
-      <Wheel />
-    </Mouse>
-    <Arrow>
-      <span></span>
-    </Arrow>
-  </Scroll>
-)
+const MouseComponent = () => <Scroll>
+  <Mouse>
+    <Wheel />
+  </Mouse>
+  <Arrow>
+    <span></span>
+  </Arrow>
+</Scroll>;
+
+export default MouseComponent;

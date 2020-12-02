@@ -132,7 +132,7 @@ const btnStyle = css`
   letter-spacing: 0.06em;
 `
 
-export default ({ item, typingDone, isSelected, onAnimationEnd, updateCurrentIndex }) => {
+const ItemComponent = ({ item, typingDone, isSelected, onAnimationEnd, updateCurrentIndex }) => {
   const { age, title, body, url } = item
 
   return (
@@ -160,4 +160,6 @@ export default ({ item, typingDone, isSelected, onAnimationEnd, updateCurrentInd
       </TextWrapper>
     </Item>
   )
-}
+};
+
+export default ItemComponent;
