@@ -16,7 +16,7 @@ const List = styled.ul`
   }
 `
 
-export default ({ items }) => {
+const Index = ({ items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   return (
@@ -31,4 +31,6 @@ export default ({ items }) => {
       </List>
     </Section>
   )
-}
+};
+
+export default Index;

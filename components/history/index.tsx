@@ -39,7 +39,7 @@ const sectionStyle = css`
   text-align: center;
 `
 
-export default ({ next, items }) => {
+const Index = ({ next, items }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [typingDone, setTypingDone] = useState(false);
 
@@ -85,4 +85,6 @@ export default ({ next, items }) => {
       </List>
     </Section>
   )
-}
+};
+
+export default Index;

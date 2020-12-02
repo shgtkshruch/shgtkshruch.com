@@ -19,8 +19,8 @@ type SectionProps = {
   children: ReactNode
 }
 
-export default ({ id, className, children }: SectionProps) => (
-  <Section id={id} className={className}>
-    {children}
-  </Section>
-)
+const SectionComponent = ({ id, className, children }: SectionProps) => <Section id={id} className={className}>
+  {children}
+</Section>;
+
+export default SectionComponent;

@@ -13,10 +13,10 @@ const Small = styled.small`
   }
 `
 
-export default () => (
-  <Footer>
-    <Small>
-      Copyright © 2017-2020 shigetaka shirouchi All Rights Reserved.
-    </Small>
-  </Footer>
-)
+const Index = () => <Footer>
+  <Small>
+    Copyright © 2017-2020 shigetaka shirouchi All Rights Reserved.
+  </Small>
+</Footer>;
+
+export default Index;

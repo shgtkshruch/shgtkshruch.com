@@ -66,7 +66,7 @@ const A = styled.a<AProps>`
   }
 `
 
-export default ({ isTypingDone, item }) => {
+const Item = ({ isTypingDone, item }) => {
   const { title, age, url, body, image } = item
 
   const [inview, setView] = useState(false);
@@ -105,4 +105,6 @@ export default ({ isTypingDone, item }) => {
       </A>
     </InView>
   )
-}
+};
+
+export default Item;

@@ -36,7 +36,7 @@ const Icon = styled.i`
   font-size: 1rem;
 `;
 
-export default () => {
+const ColorTheme = () => {
   const [currentTheme, setCurrentTheme] = useState('light');
 
   function handleClick() {
@@ -54,4 +54,6 @@ export default () => {
       <Icon className={currentTheme === 'light' ? 'fa fa-sun' : 'fa fa-moon'} aria-hidden />
     </Button>
   )
-}
+};
+
+export default ColorTheme;

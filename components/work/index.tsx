@@ -13,7 +13,7 @@ const List = styled.div`
   }
 `
 
-export default ({ next, items }) => {
+const Index = ({ next, items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   function onTypingDone() {
@@ -33,4 +33,6 @@ export default ({ next, items }) => {
       </List>
     </Section>
   )
-}
+};
+
+export default Index;

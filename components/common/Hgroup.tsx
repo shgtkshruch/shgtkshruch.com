@@ -30,7 +30,7 @@ const Sub = styled.span`
   }
 `;
 
-export default ({ title, subTitle, onTypingDone }) => {
+const Hgroup = ({ title, subTitle, onTypingDone }) => {
   const [inview, setView] = useState(false);
 
   return (
@@ -54,4 +54,6 @@ export default ({ title, subTitle, onTypingDone }) => {
       )}
     </InView>
   )
-}
+};
+
+export default Hgroup;
