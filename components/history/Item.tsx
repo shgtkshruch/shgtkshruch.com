@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 
+import { History } from "../../types/api";
 import { mq } from "../variables";
 import Link from "../common/Link";
 import Text from "../common/Text";
@@ -15,11 +16,7 @@ const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
   return res;
 }, "");
 
-type ItemProps = {
-  typingDone: boolean;
-};
-
-const Item = styled.li<ItemProps>`
+const Item = styled.li<{ typingDone: boolean }>`
   position: relative;
   padding-left: 1rem;
   opacity: 0;
@@ -57,7 +54,11 @@ const Header = styled.div`
   }
 `;
 
-const Name = styled(Link)`
+const Name = styled(Link)<{
+  isShow: boolean;
+  onClick: () => void;
+  onFocus: () => void;
+}>`
   margin-left: 1.3rem;
   letter-spacing: 0.05em;
   font-size: 1.2rem;
@@ -84,11 +85,7 @@ const activeStyle = `
   }
 `;
 
-type TextWrapper = {
-  isSelected: boolean;
-};
-
-const TextWrapper = styled.div<TextWrapper>`
+const TextWrapper = styled.div<{ isSelected: boolean }>`
   display: ${(props) => (props.isSelected ? "block" : "none")};
   margin-top: 1.6em;
   letter-spacing: 0.02em;
@@ -131,7 +128,15 @@ const MoreButton = styled(Link)`
   letter-spacing: 0.06em;
 `;
 
-const ItemComponent = ({
+type ItemPComponentProps = {
+  item: History;
+  typingDone: boolean;
+  isSelected: boolean;
+  onAnimationEnd: () => void;
+  updateCurrentIndex: () => void;
+}
+
+const ItemComponent: React.FC<ItemPComponentProps> = ({
   item,
   typingDone,
   isSelected,

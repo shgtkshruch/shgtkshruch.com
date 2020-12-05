@@ -1,10 +1,11 @@
-import { useState } from 'react'
-import styled from '@emotion/styled'
+import { useState } from "react";
+import styled from "@emotion/styled";
 
-import { mq } from '../variables'
-import Section from '../common/Section'
-import Heading from '../common/Hgroup'
-import Item from './Item'
+import type { Skill } from "../../types/api";
+import { mq } from "../variables";
+import Section from "../common/Section";
+import Heading from "../common/Hgroup";
+import Item from "./Item";
 
 const List = styled.ul`
   display: flex;
@@ -15,14 +16,17 @@ const List = styled.ul`
   ${mq.pc} {
     margin-top: 5rem;
   }
-`
+`;
 
-const Index = ({ next, items }) => {
+const Skills: React.FC<{ next: Function; items: Skill[] }> = ({
+  next,
+  items,
+}) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   function onTypingDone() {
-    setIsTypingDone(true)
-    next()
+    setIsTypingDone(true);
+    next();
   }
 
   return (
@@ -33,10 +37,12 @@ const Index = ({ next, items }) => {
         onTypingDone={onTypingDone}
       />
       <List>
-        {items.map((item, i) => <Item key={i} item={item} startAnimation={isTypingDone} />)}
+        {items.map((item, i) => (
+          <Item key={i} item={item} startAnimation={isTypingDone} />
+        ))}
       </List>
     </Section>
-  )
+  );
 };
 
-export default Index;
+export default Skills;

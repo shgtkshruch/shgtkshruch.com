@@ -1,24 +1,21 @@
-import styled from '@emotion/styled'
-import Tippy from '@tippy.js/react'
+import styled from "@emotion/styled";
+import Tippy from "@tippy.js/react";
 
-import { mq } from '../variables';
+import type { Skill } from "../../types/api";
+import { mq } from "../variables";
 
-const nthChildAnimation = Array.from('_'.repeat(30)).reduce((res, _, i) => {
-  const delay = 0.05 * (i + 1)
+const nthChildAnimation = Array.from("_".repeat(30)).reduce((res, _, i) => {
+  const delay = 0.05 * (i + 1);
   res += `
     &:nth-of-type(${i + 1}) {
       transition: color 0.3s;
       animation: fadeIn 0.8s ${delay}s forwards;
     }
-  `
-  return res
-}, '')
+  `;
+  return res;
+}, "");
 
-type SkillProps = {
-  startAnimation: boolean
-}
-
-const Skill = styled.li<SkillProps>`
+const SkillItem = styled.li<{startAnimation: boolean}>`
   position: relative;
   margin-right: 1rem;
   margin-bottom: 0.4rem;
@@ -26,9 +23,9 @@ const Skill = styled.li<SkillProps>`
   opacity: 0;
   font-size: 1.1rem;
   pointer-events: none;
-  ${props => props.startAnimation ? nthChildAnimation : ''}
+  ${(props) => (props.startAnimation ? nthChildAnimation : "")}
   &::after {
-    content: '/';
+    content: "/";
     position: absolute;
     top: 0;
     left: 100%;
@@ -52,14 +49,17 @@ const Skill = styled.li<SkillProps>`
   }
 `;
 
-const Item = ({ item, startAnimation }) => {
-  const { title, body } = item
+const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
+  item,
+  startAnimation,
+}) => {
+  const { title, body } = item;
 
   return (
     <Tippy content={body} animation="shift-toward-subtle" theme="material">
-      <Skill startAnimation={startAnimation}>{title}</Skill>
+      <SkillItem startAnimation={startAnimation}>{title}</SkillItem>
     </Tippy>
-  )
+  );
 };
 
 export default Item;

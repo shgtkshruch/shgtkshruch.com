@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import styled from '@emotion/styled'
+import { useState } from "react";
+import styled from "@emotion/styled";
 
-import Hgroup from '../common/Hgroup'
-import Mouse from './Mouse'
+import Hgroup from "../common/Hgroup";
+import Mouse from "./Mouse";
 
 const Section = styled.section`
   position: relative;
   height: 100vh;
-`
+`;
 
 const Wrapper = styled.div`
   position: absolute;
@@ -15,28 +15,24 @@ const Wrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-`
+`;
 
-type MuseWapperProps = {
-  isMouseShow: boolean
-}
-
-const MouseWrapper = styled.div<MuseWapperProps>`
+const MouseWrapper = styled.div<{ isMouseShow: boolean }>`
   position: absolute;
   bottom: 3rem;
   left: 50%;
   transform: translate(-50%, 0);
-  opacity: ${props => props.isMouseShow ? 1 : 0};
+  opacity: ${(props) => (props.isMouseShow ? 1 : 0)};
   transition: opacity 0.7s ease-in;
-`
+`;
 
-const Index = ({ next }) => {
-  const [isMouseShow, setIsMouseShow] = useState(false)
+const Index: React.FC<{ next: Function }> = ({ next }) => {
+  const [isMouseShow, setIsMouseShow] = useState(false);
 
   function onTypingDone() {
-    setIsMouseShow(true)
-    next()
-    window.addEventListener('scroll', () => setIsMouseShow(false))
+    setIsMouseShow(true);
+    next();
+    window.addEventListener("scroll", () => setIsMouseShow(false));
   }
 
   return (
@@ -52,7 +48,7 @@ const Index = ({ next }) => {
         <Mouse />
       </MouseWrapper>
     </Section>
-  )
+  );
 };
 
 export default Index;

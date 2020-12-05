@@ -1,16 +1,17 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/css'
+import { useState } from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/css";
 
-import { breakpoints, mq } from '../variables'
-import Section from '../common/Section'
-import Heading from '../common/Hgroup'
-import Item from './Item'
+import type { History } from "../../types/api";
+import { breakpoints, mq } from "../variables";
+import Section from "../common/Section";
+import Heading from "../common/Hgroup";
+import Item from "./Item";
 
 type ListProps = {
-  typingDone: boolean
-}
+  typingDone: boolean;
+};
 
 const List = styled.ul<ListProps>`
   display: inline-block;
@@ -23,44 +24,47 @@ const List = styled.ul<ListProps>`
     margin-top: 5rem;
   }
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 1px;
-    height: ${props => props.typingDone ? '100%' : 0};
+    height: ${(props) => (props.typingDone ? "100%" : 0)};
     background-color: currentColor;
     transition: height 0.8s ease-in-out;
   }
-`
+`;
 const sectionStyle = css`
   max-width: 55rem;
   margin: 0 auto;
   text-align: center;
-`
+`;
 
-const Index = ({ next, items }) => {
+const Histories: React.FC<{ next: Function; items: History[] }> = ({
+  next,
+  items,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [typingDone, setTypingDone] = useState(false);
 
   function updateCurrentIndex(index) {
-    if (isPc()) setCurrentIndex(index)
+    if (isPc()) setCurrentIndex(index);
   }
 
   function isSelected(i) {
-    return isMobile() ? true : currentIndex === i
+    return isMobile() ? true : currentIndex === i;
   }
 
   function isPc() {
-    return window.innerWidth >= breakpoints.pc
+    return window.innerWidth >= breakpoints.pc;
   }
 
   function isMobile() {
-    return window.innerWidth < breakpoints.pc
+    return window.innerWidth < breakpoints.pc;
   }
 
   function onTypingDone() {
-    setTypingDone(true)
+    setTypingDone(true);
     next();
   }
 
@@ -78,13 +82,17 @@ const Index = ({ next, items }) => {
             item={item}
             isSelected={isSelected(i)}
             typingDone={typingDone}
-            onAnimationEnd={() => i === items.length - 1 && currentIndex === -1 ? setCurrentIndex(0) : false}
+            onAnimationEnd={() =>
+              i === items.length - 1 && currentIndex === -1
+                ? setCurrentIndex(0)
+                : false
+            }
             updateCurrentIndex={() => updateCurrentIndex(i)}
           />
         ))}
       </List>
     </Section>
-  )
+  );
 };
 
-export default Index;
+export default Histories;

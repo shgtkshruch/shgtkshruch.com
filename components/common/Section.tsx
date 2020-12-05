@@ -1,7 +1,7 @@
-import { ReactNode } from "react"
-import styled from "@emotion/styled"
+import { ReactNode } from "react";
+import styled from "@emotion/styled";
 
-import { mq } from "../variables"
+import { mq } from "../variables";
 
 const Section = styled.section`
   padding: 3rem 0;
@@ -14,13 +14,19 @@ const Section = styled.section`
 `;
 
 type SectionProps = {
-  id?: string
-  className?: string
-  children: ReactNode
-}
+  id?: string;
+  className?: string;
+  children: ReactNode;
+};
 
-const SectionComponent = ({ id, className, children }: SectionProps) => <Section id={id} className={className}>
-  {children}
-</Section>;
+const SectionComponent: React.FC<SectionProps> = ({
+  id,
+  className,
+  children,
+}) => (
+  <Section id={id} className={className}>
+    {children}
+  </Section>
+);
 
 export default SectionComponent;

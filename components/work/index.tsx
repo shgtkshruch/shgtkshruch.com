@@ -1,24 +1,29 @@
-import { useState } from 'react'
-import styled from '@emotion/styled'
+import { useState } from "react";
+import styled from "@emotion/styled";
 
-import { mq } from '../variables'
-import Section from '../common/Section'
-import Heading from '../common/Hgroup'
-import Item from './Item'
+import type { Work } from "../../types/api";
+
+import { mq } from "../variables";
+import Section from "../common/Section";
+import Heading from "../common/Hgroup";
+import Item from "./Item";
 
 const List = styled.div`
   padding-top: 4rem;
   ${mq.pc} {
     padding-top: 14rem;
   }
-`
+`;
 
-const Index = ({ next, items }) => {
+const Works: React.FC<{ next: Function; items: Work[] }> = ({
+  next,
+  items,
+}) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   function onTypingDone() {
-    setIsTypingDone(true)
-    next()
+    setIsTypingDone(true);
+    next();
   }
 
   return (
@@ -29,10 +34,12 @@ const Index = ({ next, items }) => {
         onTypingDone={onTypingDone}
       />
       <List>
-        {items.map((item, i) => <Item key={i} item={item} isTypingDone={isTypingDone} />)}
+        {items.map((item, i) => (
+          <Item key={i} item={item} isTypingDone={isTypingDone} />
+        ))}
       </List>
     </Section>
-  )
+  );
 };
 
-export default Index;
+export default Works;
