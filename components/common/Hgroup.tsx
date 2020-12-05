@@ -1,16 +1,16 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from "react"
-import { css } from "@emotion/css"
-import styled from "@emotion/styled"
+import { useState } from "react";
+import { css } from "@emotion/css";
+import styled from "@emotion/styled";
 
-import Typist from "react-typist"
-import { InView } from "react-intersection-observer"
+import Typist from "react-typist";
+import { InView } from "react-intersection-observer";
 
-import { mq } from "../variables"
+import { mq } from "../variables";
 
 const wrapperStyle = css`
   text-align: center;
-`
+`;
 
 const Title = styled.h2`
   display: inline-block;
@@ -30,7 +30,13 @@ const Sub = styled.span`
   }
 `;
 
-const Hgroup = ({ title, subTitle, onTypingDone }) => {
+type HgroupProps = {
+  title: string;
+  subTitle: string;
+  onTypingDone: () => void;
+}
+
+const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
   const [inview, setView] = useState(false);
 
   return (
@@ -48,12 +54,12 @@ const Hgroup = ({ title, subTitle, onTypingDone }) => {
         >
           <Title>{title}</Title>
           <Typist.Delay ms={350} />
-          <br/>
+          <br />
           <Sub>{subTitle}</Sub>
         </Typist>
       )}
     </InView>
-  )
+  );
 };
 
 export default Hgroup;

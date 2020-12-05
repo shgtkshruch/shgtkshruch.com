@@ -1,11 +1,11 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
 const Scroll = styled.div`
   width: 1em;
   height: 3.125em;
   transform: translateX(-50%) scale(2);
   z-index: 99999;
-`
+`;
 
 const Arrow = styled.div`
   &::after,
@@ -46,14 +46,14 @@ const Arrow = styled.div`
       opacity: 1;
     }
   }
-`
+`;
 
 const Mouse = styled.div`
   height: 1.375em;
   width: 0.875em;
   border: 1px solid currentColor;
   border-radius: 2em;
-`
+`;
 
 const Wheel = styled.div`
   height: 0.1875em;
@@ -72,15 +72,17 @@ const Wheel = styled.div`
       transform: translateY(0.375em);
     }
   }
-`
+`;
 
-const MouseComponent = () => <Scroll>
-  <Mouse>
-    <Wheel />
-  </Mouse>
-  <Arrow>
-    <span></span>
-  </Arrow>
-</Scroll>;
+const MouseComponent: React.FC = () => (
+  <Scroll>
+    <Mouse>
+      <Wheel />
+    </Mouse>
+    <Arrow>
+      <span></span>
+    </Arrow>
+  </Scroll>
+);
 
 export default MouseComponent;

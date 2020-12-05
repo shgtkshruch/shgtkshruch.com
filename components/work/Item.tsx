@@ -2,8 +2,9 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/css'
-
 import { InView } from 'react-intersection-observer'
+
+import type { Work } from "../../types/api";
 
 import { mq } from '../variables'
 import Text from '../common/Text'
@@ -66,7 +67,7 @@ const A = styled.a<AProps>`
   }
 `
 
-const Item = ({ isTypingDone, item }) => {
+const Item: React.FC<{isTypingDone: boolean; item: Work }> = ({ isTypingDone, item }) => {
   const { title, age, url, body, image } = item
 
   const [inview, setView] = useState(false);
@@ -75,7 +76,7 @@ const Item = ({ isTypingDone, item }) => {
   return (
     <InView
       as="div"
-      onChange={(inview, entry) => inview ? setView(true) : false}
+      onChange={(inview, _) => inview ? setView(true) : false}
       className={itemStyle}
     >
       <Data isShow={isTypingDone && inview} textAnimationDone={textAnimationDone}>

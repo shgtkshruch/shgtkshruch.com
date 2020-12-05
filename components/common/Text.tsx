@@ -1,5 +1,5 @@
-import { ReactNode} from "react"
-import styled from "@emotion/styled"
+import { ReactNode } from "react";
+import styled from "@emotion/styled";
 
 const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
   const delay = 0.15 * (i + 1);
@@ -8,8 +8,8 @@ const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
       animation: fadeOut 0.9s ${delay}s both ease-in-out;
     }
   `;
-  return res
-}, "")
+  return res;
+}, "");
 
 const Wrapper = styled.div`
   display: inline-block;
@@ -62,14 +62,20 @@ const Content = styled.span`
   }
 `;
 
-type Text = {
-  className?: string
-  onAnimationEnd?: () => void
-  children: ReactNode
-}
+type TextProps = {
+  className?: string;
+  onAnimationEnd?: () => void;
+  children: ReactNode;
+};
 
-const TextComponent = ({ className, onAnimationEnd, children }: Text) => <Wrapper className={className} onAnimationEnd={onAnimationEnd}>
-  <Content>{children}</Content>
-</Wrapper>;
+const TextComponent: React.FC<TextProps> = ({
+  className,
+  onAnimationEnd,
+  children,
+}) => (
+  <Wrapper className={className} onAnimationEnd={onAnimationEnd}>
+    <Content>{children}</Content>
+  </Wrapper>
+);
 
 export default TextComponent;

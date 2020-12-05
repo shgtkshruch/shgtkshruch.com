@@ -1,6 +1,6 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
-import { mq } from "../variables"
+import { mq } from "../variables";
 
 const Link = styled.a`
   position: relative;
@@ -29,6 +29,9 @@ const Link = styled.a`
   }
 `;
 
-const LinkComponent = ({ children, ...props }) => <Link {...props}>{children}</Link>;
+const LinkComponent: React.FC<React.ComponentPropsWithoutRef<'a'>> = ({
+  children,
+  ...props
+}) => <Link {...props}>{children}</Link>;
 
 export default LinkComponent;

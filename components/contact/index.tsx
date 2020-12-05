@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from '@emotion/styled'
 
+import type { Contact } from '../../types/api'
 import { mq } from '../variables'
 import Section from '../common/Section'
 import Heading from '../common/Hgroup'
@@ -16,7 +17,7 @@ const List = styled.ul`
   }
 `
 
-const Index = ({ items }) => {
+const Contacts: React.FC<{items: Contact[] }> = ({ items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   return (
@@ -33,4 +34,4 @@ const Index = ({ items }) => {
   )
 };
 
-export default Index;
+export default Contacts;

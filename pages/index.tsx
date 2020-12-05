@@ -1,13 +1,15 @@
 import { useState } from 'react'
 import { Global, css } from '@emotion/react'
 
+import type { Work, History, Skill, Contact } from '../types/api'
+
 import Head from 'next/head'
 import Container from '../components/layout/Container'
 import Intro from '../components/intro'
-import Work from '../components/work'
-import History from '../components/history'
-import Skill from '../components/skill'
-import Contact from '../components/contact'
+import Works from '../components/work'
+import Histories from '../components/history'
+import Skills from '../components/skill'
+import Contacts from '../components/contact'
 import Footer from '../components/footer'
 import ColorTheme from '../components/common/ColorTheme'
 import GitHubCorner from '../components/common/GitHub-Corner'
@@ -46,10 +48,10 @@ export default function Home({ works, history, skills, contacts }) {
         />
         <main>
           <Intro next={next} />
-          {index > 0 && <Work next={next} items={works} />}
-          {index > 1 && <History next={next} items={history} />}
-          {index > 2 && <Skill next={next} items={skills} />}
-          {index > 3 && <Contact items={contacts} />}
+          {index > 0 && <Works next={next} items={works} />}
+          {index > 1 && <Histories next={next} items={history} />}
+          {index > 2 && <Skills next={next} items={skills} />}
+          {index > 3 && <Contacts items={contacts} />}
         </main>
         <Footer />
       </Container>
@@ -60,10 +62,10 @@ export default function Home({ works, history, skills, contacts }) {
 }
 
 export const getStaticProps = async () => {
-  const works = await fetchData('works')
-  const history = await fetchData('history')
-  const skills = await fetchData('skills')
-  const contacts = await fetchData('contacts')
+  const works: Work[] = await fetchData('works')
+  const history: History[] = await fetchData('history')
+  const skills: Skill[] = await fetchData('skills')
+  const contacts: Contact[] = await fetchData('contacts')
 
   return {
     props: {
