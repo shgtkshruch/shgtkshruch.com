@@ -102,7 +102,11 @@ const Item: React.FC<{isTypingDone: boolean; item: Work }> = ({ isTypingDone, it
         isShow={isTypingDone && inview}
         textAnimationDone={textAnimationDone}
       >
-        <img src={image.url} alt={title} />
+        <picture>
+          <source type="image/webp" srcSet={image.url + '?fm=webp'} />
+          <source type="image/jpeg" srcSet={image.url} />
+          <img src={image.url} alt={title} />
+        </picture>
       </A>
     </InView>
   )
