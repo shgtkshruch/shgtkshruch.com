@@ -1,6 +1,7 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5bc590c-bb26-4ee2-be21-64df7bb8f866/deploy-status)](https://app.netlify.com/sites/condescending-dubinsky-142049/deploys)
-[![CodeQL](https://github.com/shgtkshruch/shgtkshruch.com/workflows/CodeQL/badge.svg)](https://github.com/shgtkshruch/shgtkshruch.com/actions?query=workflow%3ACodeQL)
-[![Lighthouse CI](https://github.com/shgtkshruch/shgtkshruch.com/workflows/Lighthouse%20CI/badge.svg?branch=master)](https://github.com/shgtkshruch/shgtkshruch.com/actions?query=workflow%3A%22Lighthouse+CI%22)
+[![Netlify Status](https://img.shields.io/netlify/b5bc590c-bb26-4ee2-be21-64df7bb8f866?style=for-the-badge)](https://app.netlify.com/sites/condescending-dubinsky-142049/deploys)
+[![CodeQL](https://img.shields.io/github/workflow/status/shgtkshruch/shgtkshruch.com/CodeQL/master?label=CodeQL&style=for-the-badge)](https://github.com/shgtkshruch/shgtkshruch.com/actions?query=workflow%3ACodeQL)
+[![Lighthouse CI](https://img.shields.io/github/workflow/status/shgtkshruch/shgtkshruch.com/Lighthouse%20CI/master?label=Lighthouse%20CI&style=for-the-badge)](https://github.com/shgtkshruch/shgtkshruch.com/actions?query=workflow%3A%22Lighthouse+CI%22)
+![dependencies](https://img.shields.io/david/shgtkshruch/shgtkshruch.com?style=for-the-badge)
 
 [![shgtkshruch com_(Laptop with HiDPI screen) ](https://user-images.githubusercontent.com/5207601/83959269-d4259080-a8b5-11ea-8584-74917e365ffa.png)](https://shgtkshruch.com)
 
