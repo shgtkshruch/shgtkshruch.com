@@ -26,7 +26,7 @@ const MouseWrapper = styled.div<{ isMouseShow: boolean }>`
   transition: opacity 0.7s ease-in;
 `;
 
-const Index: React.FC<{ next: Function }> = ({ next }) => {
+const Index: React.FC<{ next: () => void }> = ({ next }) => {
   const [isMouseShow, setIsMouseShow] = useState(false);
 
   function onTypingDone() {

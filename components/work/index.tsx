@@ -15,7 +15,7 @@ const List = styled.div`
   }
 `;
 
-const Works: React.FC<{ next: Function; items: Work[] }> = ({
+const Works: React.FC<{ next: () => void; items: Work[] }> = ({
   next,
   items,
 }) => {

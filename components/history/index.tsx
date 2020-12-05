@@ -40,7 +40,7 @@ const sectionStyle = css`
   text-align: center;
 `;
 
-const Histories: React.FC<{ next: Function; items: History[] }> = ({
+const Histories: React.FC<{ next: () => void; items: History[] }> = ({
   next,
   items,
 }) => {

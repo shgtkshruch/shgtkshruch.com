@@ -18,7 +18,7 @@ const List = styled.ul`
   }
 `;
 
-const Skills: React.FC<{ next: Function; items: Skill[] }> = ({
+const Skills: React.FC<{ next: () => void; items: Skill[] }> = ({
   next,
   items,
 }) => {
