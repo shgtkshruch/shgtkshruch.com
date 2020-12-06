@@ -79,13 +79,16 @@ export const getStaticProps = async () => {
   };
 };
 
-async function fetchData(path: string) {
-  const limit = 30
-  const res = await fetch(`https://shgtkshruch.microcms.io/api/v1/${path}?limit=${limit}`, {
+async function fetchData(path: keyof HomeProps) {
+  const endpoint = "https://shgtkshruch.microcms.io";
+  const limit = "limit=30";
+  const activeOnly = "filters=active[equals]true";
+  const host = `${endpoint}/api/v1/${path}?${limit}&${activeOnly}`;
+  const res = await fetch(host, {
     headers: {
-      'X-API-KEY': process.env.MICRO_CMS_API_KEY
-    }
-  );
+      "X-API-KEY": process.env.MICRO_CMS_API_KEY,
+    },
+  });
   const response = await res.json();
   const items: Pick<HomeProps, keyof HomeProps> = response.contents;
   return items;
