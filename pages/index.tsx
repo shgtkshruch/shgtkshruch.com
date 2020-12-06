@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Global, css } from "@emotion/react";
 
 import type { Work, History, Skill, Contact } from "../types/api";
 
@@ -11,9 +10,9 @@ import Histories from "../components/history";
 import Skills from "../components/skill";
 import Contacts from "../components/contact";
 import Footer from "../components/footer";
+import GlobalStyle from "../components/common/GlobalStyle";
 import ColorTheme from "../components/common/ColorTheme";
 import GitHubCorner from "../components/common/GitHub-Corner";
-import { mq, theme } from "../components/variables";
 
 type HomeProps = {
   works: Work[];
@@ -27,30 +26,11 @@ const Home = ({ works, history, skills, contacts }: HomeProps) => {
 
   return (
     <>
+      <GlobalStyle />
       <Head>
         <title>Shigetaka Shirouchi</title>
       </Head>
       <Container>
-        <Global
-          styles={css`
-            :root {
-              --primary-color: ${theme.light.primaryColor};
-              --bg-color: ${theme.light.bgColor};
-              --accent-color: ${theme.light.accentColor};
-            }
-            .jp {
-              font-family: "Sawarabi Gothic", "Yu Gothic", YuGothic,
-                "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial,
-                "メイリオ", Meiryo, sans-serif;
-              font-size: 0.9rem;
-              letter-spacing: 0.08em;
-              line-height: 2.6;
-              ${mq.pc} {
-                font-size: 0.95rem;
-              }
-            }
-          `}
-        />
         <main>
           <Intro next={next} />
           {index > 0 && <Works next={next} items={works} />}
