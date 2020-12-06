@@ -30,7 +30,7 @@ const Works: React.FC<{ next: () => void; items: Work[] }> = ({
     <Section id="work" className="work">
       <Heading
         title="work"
-        subTitle="My client and private works."
+        subTitle="Write code anywhere in the company or OSS."
         onTypingDone={onTypingDone}
       />
       <List>
