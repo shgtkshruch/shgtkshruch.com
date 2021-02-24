@@ -2,5 +2,8 @@
   command = "yarn build && yarn export"
   publish = "out"
 
+[context.netlify]
+  command = "echo branch"
+
 [[plugins]]
 package = "netlify-plugin-cache-nextjs"
