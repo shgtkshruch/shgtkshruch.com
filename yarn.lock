@@ -232,12 +232,12 @@
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.1.0.tgz#6c9eafc78c1529248f8f4d92b0799a712b6052c6"
   integrity sha512-i9YbZPN3QgfighY/1X1Pu118VUz2Fmmhd6b2n0/O8YVgGGfw0FbUYoA97k7FkpGJ+pLCFEDLUmAPPV4D1kpeFw==
 
-"@lhci/cli@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@lhci/cli/-/cli-0.8.0.tgz#79acaa3ca8dac2ff0005f89c16ba799a0b293f9d"
-  integrity sha512-UuS7QatZVtwP4gdvhwPfFwNWowjcoU5S8xs04HHkLt6eGcxlZGaL76SaicCREwij/PSw+6G99DSaO36P95vBkA==
+"@lhci/cli@0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@lhci/cli/-/cli-0.8.2.tgz#0fade3b54fc7d4878fed875aae33228dd91b3d87"
+  integrity sha512-+tBCAAz4+/DxLmP9Q8CbnZ2kWc568iCt1H3k0w5Z5AHfryJYVvbQ6VwRADeH5msln4TEe2/34WE/pQuEgS5dnw==
   dependencies:
-    "@lhci/utils" "0.8.0"
+    "@lhci/utils" "0.8.2"
     chrome-launcher "^0.13.4"
     compression "^1.7.4"
     debug "^4.3.1"
@@ -253,10 +253,10 @@
     yargs "^15.4.1"
     yargs-parser "^13.1.2"
 
-"@lhci/utils@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@lhci/utils/-/utils-0.8.0.tgz#b18968e3387bc71dea9c036412892da9ad9e4610"
-  integrity sha512-3wPb2UQooIGupfy6qwq/X7shMgww2krberFXixLRa38sTeAjXtJQ4pXLkK8cCiNxrm3Z2ZZFr3jeybiuJt4zWA==
+"@lhci/utils@0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@lhci/utils/-/utils-0.8.2.tgz#da8a10531d6670b115e33a2889f7c89374ee9380"
+  integrity sha512-bhogpr86lg9+tOhwn96gw2aHgPMYX4J0B63V5es7TREps4b7LxUnUwmYwPIiAzisqJm+rCexhP9cadYC4e9+7w==
   dependencies:
     debug "^4.3.1"
     isomorphic-fetch "^3.0.0"
