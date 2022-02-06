@@ -55,6 +55,7 @@ const Header = styled.div`
 `;
 
 const Name = styled(Link)<{
+  as: 'button',
   isShow: boolean;
   onClick: () => void;
   onFocus: () => void;
