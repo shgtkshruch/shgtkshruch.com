@@ -22,7 +22,7 @@
     "next": "12.1.5",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-intersection-observer": "8.34.0",
+    "react-intersection-observer": "9.1.0",
     "react-typist": "2.0.5"
   },
   "devDependencies": {
