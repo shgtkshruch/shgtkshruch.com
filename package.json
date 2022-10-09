@@ -2,10 +2,18 @@
   "name": "shgtkshruch.com",
   "version": "0.1.0",
   "private": true,
-  "author": "Shigetaka Shirouchi <info@shgtkshruch.com>",
+  "author": {
+    "name": "Shigetaka Shirouchi",
+    "email": "info@shgtkshruch.com"
+  },
   "description": "Portfolio",
-  "repository": "https://github.com/shgtkshruch/shgtkshruch.com",
-  "bugs": "https://github.com/shgtkshruch/shgtkshruch.com/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shgtkshruch/shgtkshruch.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shgtkshruch/shgtkshruch.com/issues"
+  },
   "homepage": "https://shgtkshruch.com/",
   "scripts": {
     "dev": "next dev",
@@ -14,7 +22,8 @@
     "export": "next export",
     "lighthouce:ci": "lhci autorun",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=1f605060323a"
   },
   "dependencies": {
     "@emotion/css": "11.9.0",
@@ -41,9 +50,12 @@
     "@types/node": "16.11.38",
     "@types/react": "18.0.14",
     "babel-loader": "^8.2.5",
+    "chromatic": "^6.10.1",
     "typescript": "4.7.3"
   },
   "engines": {
     "node": ">= 16.13.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "shgtkshruch.com@0.1.0"
 }
