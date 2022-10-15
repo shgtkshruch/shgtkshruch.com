@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@lhci/cli": "0.9.0",
-    "@types/node": "16.11.60",
+    "@types/node": "16.11.65",
     "@types/react": "18.0.21",
     "typescript": "4.8.3"
   },
