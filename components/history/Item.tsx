@@ -5,6 +5,7 @@ import { History } from "../../types/api";
 import { mq } from "../variables";
 import Link from "../common/Link";
 import Text from "../common/Text";
+import { useState } from "react";
 
 const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
   const delay = 0.9 + 0.12 * i;
@@ -145,6 +146,11 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
   updateCurrentIndex,
 }) => {
   const { age, title, body, url } = item;
+    const [animationKey, setAnimationKey] = useState(0);
+
+  const triggerAnimation = () => {
+    setAnimationKey(prev => prev + 1);
+  };
 
   return (
     <Item typingDone={typingDone} onAnimationEnd={onAnimationEnd}>
@@ -153,13 +159,16 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
         <Name
           as="button"
           isShow={isSelected}
-          onClick={updateCurrentIndex}
+          onClick={() => {
+            updateCurrentIndex();
+            triggerAnimation();
+           }}
           onFocus={updateCurrentIndex}
         >
           {title}
         </Name>
       </Header>
-      <TextWrapper className="jp" isSelected={isSelected}>
+      <TextWrapper key={animationKey} className="jp" isSelected={isSelected}>
         {body.split("\n").map((t, i) => (
           <Text key={i}>{t}</Text>
         ))}
