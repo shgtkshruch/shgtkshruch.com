@@ -1,5 +1,20 @@
 import styled from "@emotion/styled";
-import Tippy from "@tippy.js/react";
+import {
+  useFloating,
+  autoUpdate,
+  offset,
+  flip,
+  shift,
+  useHover,
+  useFocus,
+  useDismiss,
+  useRole,
+  useInteractions,
+  FloatingPortal,
+  arrow,
+  FloatingArrow,
+} from "@floating-ui/react";
+import { useState, useRef } from "react";
 
 import type { Skill } from "../../types/api";
 import { mq } from "../variables";
@@ -49,16 +64,66 @@ const SkillItem = styled.li<{startAnimation: boolean}>`
   }
 `;
 
+const TooltipContent = styled.div`
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  max-width: 200px;
+  z-index: 1000;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+`;
+
 const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
   item,
   startAnimation,
 }) => {
   const { title, body } = item;
+  const [isOpen, setIsOpen] = useState(false);
+  const arrowRef = useRef(null);
+
+  const { refs, floatingStyles, context } = useFloating({
+    open: isOpen,
+    onOpenChange: setIsOpen,
+    middleware: [offset(5), flip(), shift(), arrow({ element: arrowRef })],
+    whileElementsMounted: autoUpdate,
+  });
+
+  const hover = useHover(context, { move: false });
+  const focus = useFocus(context);
+  const dismiss = useDismiss(context);
+  const role = useRole(context, { role: "tooltip" });
+
+  const { getReferenceProps, getFloatingProps } = useInteractions([
+    hover,
+    focus,
+    dismiss,
+    role,
+  ]);
 
   return (
-    <Tippy content={body} animation="shift-toward-subtle" theme="material">
-      <SkillItem startAnimation={startAnimation}>{title}</SkillItem>
-    </Tippy>
+    <>
+      <SkillItem
+        ref={refs.setReference}
+        startAnimation={startAnimation}
+        {...getReferenceProps()}
+      >
+        {title}
+      </SkillItem>
+      {isOpen && (
+        <FloatingPortal>
+          <TooltipContent
+            ref={refs.setFloating}
+            style={floatingStyles}
+            {...getFloatingProps()}
+          >
+            {body}
+            <FloatingArrow ref={arrowRef} context={context} fill="rgba(0, 0, 0, 0.9)" />
+          </TooltipContent>
+        </FloatingPortal>
+      )}
+    </>
   );
 };
 

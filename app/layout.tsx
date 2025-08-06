@@ -2,9 +2,6 @@ import { Metadata, Viewport } from 'next'
 
 import '../public/static/app.css'
 import 'react-typist/dist/Typist.css'
-import 'tippy.js/dist/tippy.css'
-import 'tippy.js/animations/shift-toward-subtle.css'
-import 'tippy.js/themes/material.css'
 
 import ClientComponents from './ClientComponents';
 import { GA_TRACKING_ID } from "../lib/gtag";

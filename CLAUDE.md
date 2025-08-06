@@ -21,7 +21,7 @@ This is a portfolio website built with Next.js and TypeScript, using static site
 - **TypeScript** (strict mode disabled)
 - **Emotion** for CSS-in-JS styling (@emotion/react, @emotion/styled, @emotion/css)
 - **microCMS** as headless CMS for content management
-- **React libraries**: react-typist (typing animations), @tippy.js/react (tooltips), react-intersection-observer
+- **React libraries**: react-typist (typing animations), @floating-ui/react (tooltips), react-intersection-observer
 
 ### Application Structure
 
