@@ -5,33 +5,83 @@
 
 [![shgtkshruch com_(Laptop with HiDPI screen) ](https://user-images.githubusercontent.com/5207601/83959269-d4259080-a8b5-11ea-8584-74917e365ffa.png)](https://shgtkshruch.com)
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# shgtkshruch.com
+
+A modern portfolio website built with Next.js App Router, TypeScript, and microCMS. Features progressive section reveal, typing animations, and responsive design with light/dark theme support.
+
+## Tech Stack
+
+- **Next.js** with App Router and static export for optimal performance
+- **TypeScript** for type safety with strict mode
+- **Emotion** for CSS-in-JS styling
+- **Biome** for linting and formatting
+- **microCMS** as headless CMS for content management
+- **React libraries**: react-typist-component, @floating-ui/react, react-intersection-observer
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js >= 22
+- Yarn package manager
+- `MICRO_CMS_API_KEY` environment variable
+
+### Development
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Build
 
-## Learn More
+```bash
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Generates static files in the `out/` directory.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Code Quality
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+yarn lint          # Run Biome linting checks
+yarn lint:fix      # Fix auto-fixable issues
+yarn format        # Format code
+yarn lighthouce:ci # Run Lighthouse CI (requires build first)
+```
 
-## Deploy on Vercel
+## Architecture
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The site uses Next.js App Router with server/client component separation and progressive section reveal:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. **Intro** - Landing section with typing animation
+2. **Works** - Portfolio projects 
+3. **History** - Work experience
+4. **Skills** - Technical skills
+5. **Contacts** - Contact information
+
+Content is fetched from microCMS API during build time with TypeScript interfaces for all data models.
+
+## Project Structure
+
+```
+app/
+├── page.tsx         # Server component for data fetching
+├── HomeClient.tsx   # Client component for interactive UI
+└── layout.tsx       # Root layout
+
+components/
+├── common/          # Shared UI components
+├── intro/           # Landing section
+├── work/            # Portfolio projects
+├── history/         # Work experience
+├── skill/           # Technical skills
+├── contact/         # Contact information
+├── footer/          # Footer section
+├── layout/          # Layout components
+└── variables.ts     # Design tokens
+
+types/
+└── api.ts          # TypeScript interfaces for API data
+```
