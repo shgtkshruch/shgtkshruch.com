@@ -36,7 +36,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "lib/gtag.js",
+    "lib/gtag.ts",
     "next.config.js",
     "lighthouserc.js"
   ],
