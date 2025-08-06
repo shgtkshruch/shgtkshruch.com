@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/css";
 
 import type { Contact } from "../../types/api";
+import { SVGAttributes } from "react";
 
 const nthChildAnimation = Array.from("_".repeat(5)).reduce((res, _, i) => {
   const delay = 0.12 * (i + 1);
@@ -28,7 +29,7 @@ const ContactItem = styled.li<{ isShow: boolean }>`
     }
   }
 `;
-const Svg = (props) => {
+const Svg = (props: SVGAttributes<SVGSVGElement> & { color: string }) => {
   const size = `2.2rem`;
   return (
     <svg
@@ -69,7 +70,7 @@ const Item: React.FC<{ item: Contact; isShow: boolean }> = ({
     <ContactItem isShow={isShow}>
       <a href={url} target="_blank" rel="noreferrer noopener">
         <Svg viewBox="0 0 16 16" color={color}>
-          <path d={paths[title]} />
+          <path d={paths[title as keyof typeof paths]} />
         </Svg>
       </a>
     </ContactItem>

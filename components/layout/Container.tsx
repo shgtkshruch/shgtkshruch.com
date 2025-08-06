@@ -15,6 +15,6 @@ const Container = styled.div`
   }
 `;
 
-const ContainerComponent = ({ children }) => <Container>{children}</Container>;
+const ContainerComponent = ({ children }: { children: React.ReactNode }) => <Container>{children}</Container>;
 
 export default ContainerComponent;

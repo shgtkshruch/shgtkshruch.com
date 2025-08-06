@@ -50,15 +50,15 @@ const ColorTheme: React.FC = () => {
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--primary-color",
-      theme[currentTheme].primaryColor
+      theme[currentTheme as keyof typeof theme].primaryColor
     );
     document.documentElement.style.setProperty(
       "--bg-color",
-      theme[currentTheme].bgColor
+      theme[currentTheme as keyof typeof theme].bgColor
     );
     document.documentElement.style.setProperty(
       "--accent-color",
-      theme[currentTheme].accentColor
+      theme[currentTheme as keyof typeof theme].accentColor
     );
   }, [currentTheme]);
 

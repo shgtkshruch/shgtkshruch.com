@@ -47,11 +47,11 @@ const Histories: React.FC<{ next: () => void; items: History[] }> = ({
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [typingDone, setTypingDone] = useState(false);
 
-  function updateCurrentIndex(index) {
+  function updateCurrentIndex(index: number) {
     if (isPc()) setCurrentIndex(index);
   }
 
-  function isSelected(i) {
+  function isSelected(i: number) {
     return isMobile() ? true : currentIndex === i;
   }
 
