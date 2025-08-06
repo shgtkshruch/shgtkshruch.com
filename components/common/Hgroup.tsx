@@ -3,7 +3,7 @@ import { useState } from "react";
 import { css } from "@emotion/css";
 import styled from "@emotion/styled";
 
-import Typist from "react-typist";
+import Typist from "react-typist-component";
 import { InView } from "react-intersection-observer";
 
 import { mq } from "../variables";
@@ -48,8 +48,7 @@ const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
       {inview && (
         <Typist
           startDelay={500}
-          avgTypingDelay={35}
-          stdTypingDelay={20}
+          typingDelay={35}
           onTypingDone={onTypingDone}
         >
           <Title>{title}</Title>

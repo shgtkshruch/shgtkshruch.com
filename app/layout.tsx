@@ -1,7 +1,6 @@
 import { Metadata, Viewport } from 'next'
 
 import '../public/static/app.css'
-import 'react-typist/dist/Typist.css'
 
 import ClientComponents from './ClientComponents';
 import { GA_TRACKING_ID } from "../lib/gtag";
