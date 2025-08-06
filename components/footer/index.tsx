@@ -17,7 +17,7 @@ const Small = styled.small`
 const Index: React.FC = () => (
   <Footer>
     <Small>
-      Copyright © 2017-2020 shigetaka shirouchi All Rights Reserved.
+      Copyright © 2017-2015 shigetaka shirouchi All Rights Reserved.
     </Small>
   </Footer>
 );
