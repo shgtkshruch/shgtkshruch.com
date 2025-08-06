@@ -43,7 +43,7 @@ const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
     <InView
       as="hgroup"
       className={wrapperStyle}
-      onChange={(inview, entry) => (inview ? setView(true) : false)}
+      onChange={(inview, _entry) => (inview ? setView(true) : false)}
     >
       {inview && (
         <Typist startDelay={500} typingDelay={35} onTypingDone={onTypingDone}>

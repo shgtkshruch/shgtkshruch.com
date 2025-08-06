@@ -28,8 +28,8 @@ const Contacts: React.FC<{ items: Contact[] }> = ({ items }) => {
         onTypingDone={() => setIsTypingDone(true)}
       />
       <List>
-        {items.map((item, i) => (
-          <Item key={i} item={item} isShow={isTypingDone} />
+        {items.map((item) => (
+          <Item key={item.id} item={item} isShow={isTypingDone} />
         ))}
       </List>
     </Section>

@@ -79,7 +79,7 @@ const Histories: React.FC<{ next: () => void; items: History[] }> = ({
       <List typingDone={typingDone}>
         {items.map((item, i) => (
           <Item
-            key={i}
+            key={item.id}
             item={item}
             isSelected={isSelected(i)}
             typingDone={typingDone}

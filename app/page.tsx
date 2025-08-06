@@ -22,9 +22,14 @@ async function fetchData(path: string) {
   const limit = "limit=30";
   const activeOnly = "filters=active[equals]true";
   const host = `${endpoint}/api/v1/${path}?${limit}&${activeOnly}`;
+  const apiKey = process.env.MICRO_CMS_API_KEY;
+  if (!apiKey) {
+    throw new Error("MICRO_CMS_API_KEY environment variable is required");
+  }
+
   const res = await fetch(host, {
     headers: {
-      "X-API-KEY": process.env.MICRO_CMS_API_KEY!,
+      "X-API-KEY": apiKey,
     },
   });
   const response = await res.json();

@@ -168,8 +168,8 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
         </Name>
       </Header>
       <TextWrapper key={animationKey} className="jp" isSelected={isSelected}>
-        {body.split("\n").map((t, i) => (
-          <Text key={i}>{t}</Text>
+        {body.split("\n").map((t) => (
+          <Text key={`${title}-${t.slice(0, 20)}`}>{t}</Text>
         ))}
         <br />
         <Text>

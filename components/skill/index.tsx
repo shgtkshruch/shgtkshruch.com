@@ -37,8 +37,8 @@ const Skills: React.FC<{ next: () => void; items: Skill[] }> = ({
         onTypingDone={onTypingDone}
       />
       <List>
-        {items.map((item, i) => (
-          <Item key={i} item={item} startAnimation={isTypingDone} />
+        {items.map((item) => (
+          <Item key={item.id} item={item} startAnimation={isTypingDone} />
         ))}
       </List>
     </Section>

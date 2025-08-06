@@ -33,8 +33,8 @@ const Works: React.FC<{ next: () => void; items: Work[] }> = ({
         onTypingDone={onTypingDone}
       />
       <List>
-        {items.map((item, i) => (
-          <Item key={i} item={item} isTypingDone={isTypingDone} />
+        {items.map((item) => (
+          <Item key={item.id} item={item} isTypingDone={isTypingDone} />
         ))}
       </List>
     </Section>

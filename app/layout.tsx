@@ -41,7 +41,7 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <link
-          href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata"
+          href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata&display=swap"
           rel="stylesheet"
         />
         <script
@@ -54,6 +54,7 @@ export default function RootLayout({
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
         />
         <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: Required for Google Analytics
           dangerouslySetInnerHTML={{
             __html: `
             window.dataLayer = window.dataLayer || [];
