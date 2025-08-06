@@ -1,10 +1,11 @@
+import { Contact, History, Skill, Work } from "@/types/api";
 import { HomeClient } from "./HomeClient";
 
 export default async function HomePage() {
-  const works = await fetchData("works");
-  const history = await fetchData("history");
-  const skills = await fetchData("skills");
-  const contacts = await fetchData("contacts");
+  const works: Work[] = await fetchData("works");
+  const history: History[] = await fetchData("history");
+  const skills: Skill[] = await fetchData("skills");
+  const contacts: Contact[] = await fetchData("contacts");
 
   return <HomeClient works={works} history={history} skills={skills} contacts={contacts} />;
 }
