@@ -2,7 +2,6 @@ import { Metadata, Viewport } from 'next'
 
 import '../public/static/app.css'
 
-import ClientComponents from './ClientComponents';
 import { GA_TRACKING_ID } from "../lib/gtag";
 
 export const metadata: Metadata = {
@@ -67,7 +66,6 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ClientComponents />
         {children}
       </body>
     </html>

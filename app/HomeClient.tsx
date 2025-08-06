@@ -9,6 +9,9 @@ import Histories from "../components/history";
 import Skills from "../components/skill";
 import Contacts from "../components/contact";
 import Footer from "../components/footer";
+import GitHubCorner from "../components/common/GitHub-Corner";
+import GlobalStyle from "../components/common/GlobalStyle";
+import ColorTheme from "../components/common/ColorTheme";
 
 type HomeProps = {
   works: Work[];
@@ -22,15 +25,20 @@ export function HomeClient({ works, history, skills, contacts }: HomeProps) {
   const next = () => setIndex(index + 1);
 
   return (
-    <Container>
-      <main>
-        <Intro next={next} />
-        {index > 0 && <Works next={next} items={works} />}
-        {index > 1 && <Histories next={next} items={history} />}
-        {index > 2 && <Skills next={next} items={skills} />}
-        {index > 3 && <Contacts items={contacts} />}
-      </main>
-      <Footer />
-    </Container>
+    <>
+      <Container>
+        <main>
+          <Intro next={next} />
+          {index > 0 && <Works next={next} items={works} />}
+          {index > 1 && <Histories next={next} items={history} />}
+          {index > 2 && <Skills next={next} items={skills} />}
+          {index > 3 && <Contacts items={contacts} />}
+        </main>
+        <Footer />
+      </Container>
+      <GitHubCorner />
+      <GlobalStyle />
+      <ColorTheme />
+    </>
   );
 }
