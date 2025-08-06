@@ -10,45 +10,58 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `yarn start` - Start production server
 
 ### Quality Assurance
+- `yarn lint` - Run Biome linting checks
+- `yarn lint:fix` - Run Biome and fix auto-fixable issues
+- `yarn format` - Format code with Biome
 - `yarn lighthouce:ci` - Run Lighthouse CI performance tests (requires build first)
 
 ## Architecture
 
-This is a portfolio website built with Next.js and TypeScript, using static site generation with export mode.
+This is a portfolio website built with Next.js App Router and TypeScript, using static site generation with export mode.
 
 ### Key Technologies
-- **Next.js** with static export (`output: 'export'` in next.config.js)
+- **Next.js** with static export (`output: 'export'` in next.config.js) and App Router
 - **Emotion** for CSS-in-JS styling (@emotion/react, @emotion/styled, @emotion/css)
+- **Biome** for linting and formatting (replaces ESLint/Prettier)
 - **microCMS** as headless CMS for content management
 - **React libraries**: react-typist-component (typing animations), @floating-ui/react (tooltips), react-intersection-observer
 
 ### Application Structure
 
-The site is a single-page application with progressive section reveal:
+The site uses Next.js App Router with server/client component separation:
+- **Server Components**: Data fetching in `app/page.tsx` using microCMS API
+- **Client Components**: Interactive UI in `app/HomeClient.tsx` with progressive reveal
+
+Progressive section reveal pattern:
 1. **Intro** - Landing section with typing animation
 2. **Works** - Portfolio projects (index > 0)
 3. **History** - Work experience (index > 1) 
 4. **Skills** - Technical skills (index > 2)
 5. **Contacts** - Contact information (index > 3)
 
-Each section is conditionally rendered based on the `index` state managed in `pages/index.tsx`.
+Each section is conditionally rendered based on the `index` state managed in `HomeClient.tsx`.
 
 ### Data Flow
-- Content is fetched from microCMS API during build time via `getStaticProps`
+- Content is fetched from microCMS API during build time in server components
 - API endpoints follow pattern: `https://shgtkshruch.microcms.io/api/v1/{path}?limit=30&filters=active[equals]true`
 - Requires `MICRO_CMS_API_KEY` environment variable
 - TypeScript interfaces defined in `types/api.ts` for Work, History, Skill, Contact entities
+- Data flows from server component (`page.tsx`) to client component (`HomeClient.tsx`)
 
 ### Styling System
-- Global styles and theme management in `components/common/`
-- Responsive breakpoints: mobile (600px), desktop (1200px) defined in `components/variables.ts`
-- Light/dark theme support with CSS custom properties
-- Theme colors and media queries centralized in `components/variables.ts`
+- **Emotion CSS-in-JS** with global styles and theme management in `components/common/`
+- **Path aliases**: `@/components/*`, `@/types/*`, `@/lib/*`, `@/app/*` configured in tsconfig.json
+- **Responsive breakpoints**: mobile (600px), desktop (1200px) defined in `components/variables.ts`
+- **Light/dark theme**: Automatic theme detection with CSS custom properties
+- **Theme colors and media queries**: Centralized in `components/variables.ts`
+- **Code formatting**: Biome configured with double quotes and space indentation
 
 ### Component Organization
-- `components/common/` - Shared UI components (GlobalStyle, ColorTheme, etc.)
+- **App Router structure**: `app/page.tsx` (server), `app/HomeClient.tsx` (client), `app/layout.tsx`
+- `components/common/` - Shared UI components (GlobalStyle, ColorTheme, GitHub-Corner, etc.)
 - `components/{section}/` - Section-specific components (work, history, skill, contact, intro, footer)
 - `components/layout/` - Layout components (Container)
+- `components/variables.ts` - Design tokens (breakpoints, theme, media queries)
 
 ### Build Output
 - Static files exported to `out/` directory
@@ -56,6 +69,11 @@ Each section is conditionally rendered based on the `index` state managed in `pa
 - Lighthouse CI configured to test the built output
 
 ### Environment Requirements
-- Node.js >= 16.13.0
+- Node.js >= 22
 - Yarn package manager
 - `MICRO_CMS_API_KEY` environment variable for content fetching
+
+### Code Quality
+- **Biome**: Handles linting, formatting, and import organization
+- **TypeScript**: Strict mode enabled with path aliases
+- **Lighthouse CI**: Performance testing configured for static builds
