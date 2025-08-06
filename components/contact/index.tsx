@@ -1,11 +1,11 @@
-import { useState } from 'react'
-import styled from '@emotion/styled'
+import styled from "@emotion/styled";
+import { useState } from "react";
 
-import type { Contact } from '../../types/api'
-import { mq } from '../variables'
-import Section from '../common/Section'
-import Heading from '../common/Hgroup'
-import Item from './Item'
+import type { Contact } from "../../types/api";
+import Heading from "../common/Hgroup";
+import Section from "../common/Section";
+import { mq } from "../variables";
+import Item from "./Item";
 
 const List = styled.ul`
   display: flex;
@@ -15,9 +15,9 @@ const List = styled.ul`
   ${mq.pc} {
     margin-top: 6rem;
   }
-`
+`;
 
-const Contacts: React.FC<{items: Contact[] }> = ({ items }) => {
+const Contacts: React.FC<{ items: Contact[] }> = ({ items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   return (
@@ -28,10 +28,12 @@ const Contacts: React.FC<{items: Contact[] }> = ({ items }) => {
         onTypingDone={() => setIsTypingDone(true)}
       />
       <List>
-        {items.map((item, i) => <Item key={i} item={item} isShow={isTypingDone} />)}
+        {items.map((item, i) => (
+          <Item key={i} item={item} isShow={isTypingDone} />
+        ))}
       </List>
     </Section>
-  )
+  );
 };
 
 export default Contacts;

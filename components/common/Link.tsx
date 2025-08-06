@@ -29,7 +29,7 @@ const Link = styled.a`
   }
 `;
 
-const LinkComponent: React.FC<React.ComponentPropsWithoutRef<'a'>> = ({
+const LinkComponent: React.FC<React.ComponentPropsWithoutRef<"a">> = ({
   children,
   ...props
 }) => <Link {...props}>{children}</Link>;

@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from "react";
+
 import { css } from "@emotion/css";
 import styled from "@emotion/styled";
-
-import Typist from "react-typist-component";
+import { useState } from "react";
 import { InView } from "react-intersection-observer";
+import Typist from "react-typist-component";
 
 import { mq } from "../variables";
 
@@ -34,7 +34,7 @@ type HgroupProps = {
   title: string;
   subTitle: string;
   onTypingDone: () => void;
-}
+};
 
 const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
   const [inview, setView] = useState(false);
@@ -46,11 +46,7 @@ const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
       onChange={(inview, entry) => (inview ? setView(true) : false)}
     >
       {inview && (
-        <Typist
-          startDelay={500}
-          typingDelay={35}
-          onTypingDone={onTypingDone}
-        >
+        <Typist startDelay={500} typingDelay={35} onTypingDone={onTypingDone}>
           <Title>{title}</Title>
           <Typist.Delay ms={350} />
           <br />

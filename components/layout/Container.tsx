@@ -1,6 +1,6 @@
-import styled from "@emotion/styled"
+import styled from "@emotion/styled";
 
-import { mq } from "../variables"
+import { mq } from "../variables";
 
 const Container = styled.div`
   max-width: 48rem;
@@ -15,6 +15,8 @@ const Container = styled.div`
   }
 `;
 
-const ContainerComponent = ({ children }: { children: React.ReactNode }) => <Container>{children}</Container>;
+const ContainerComponent = ({ children }: { children: React.ReactNode }) => (
+  <Container>{children}</Container>
+);
 
 export default ContainerComponent;

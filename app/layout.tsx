@@ -1,41 +1,41 @@
-import { Metadata, Viewport } from 'next'
+import type { Metadata, Viewport } from "next";
 
-import '../public/static/app.css'
+import "../public/static/app.css";
 
 import { GA_TRACKING_ID } from "../lib/gtag";
 
 export const metadata: Metadata = {
-  title: 'Shigetaka Shirouchi',
+  title: "Shigetaka Shirouchi",
   description: "I'm a Front-End Engineer.",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
   openGraph: {
-    title: 'Shigetaka Shirouchi',
-    type: 'website',
-    url: 'https://shgtkshruch.com',
-    images: 'https://shgtkshruch.com/ogp.png',
+    title: "Shigetaka Shirouchi",
+    type: "website",
+    url: "https://shgtkshruch.com",
+    images: "https://shgtkshruch.com/ogp.png",
     description: "I'm a Front-End Engineer.",
   },
   twitter: {
-    card: 'summary_large_image',
-    site: '@shgtkshruch',
-    title: 'Shigetaka Shirouchi',
+    card: "summary_large_image",
+    site: "@shgtkshruch",
+    title: "Shigetaka Shirouchi",
     description: "I'm a Front-End Engineer.",
-    images: 'https://shgtkshruch.com/ogp.png',
+    images: "https://shgtkshruch.com/ogp.png",
   },
-}
+};
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
-  themeColor: '#000000',
-}
+  themeColor: "#000000",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="ja">
@@ -65,9 +65,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
-  )
+  );
 }

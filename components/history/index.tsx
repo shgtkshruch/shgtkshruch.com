@@ -1,12 +1,13 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from "react";
-import styled from "@emotion/styled";
+
 import { css } from "@emotion/css";
+import styled from "@emotion/styled";
+import { useState } from "react";
 
 import type { History } from "../../types/api";
-import { breakpoints, mq } from "../variables";
-import Section from "../common/Section";
 import Heading from "../common/Hgroup";
+import Section from "../common/Section";
+import { breakpoints, mq } from "../variables";
 import Item from "./Item";
 
 type ListProps = {

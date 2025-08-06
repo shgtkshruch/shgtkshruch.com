@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { mq, theme } from "../variables";
 
 const Button = styled.button`
@@ -50,15 +51,15 @@ const ColorTheme: React.FC = () => {
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--primary-color",
-      theme[currentTheme as keyof typeof theme].primaryColor
+      theme[currentTheme as keyof typeof theme].primaryColor,
     );
     document.documentElement.style.setProperty(
       "--bg-color",
-      theme[currentTheme as keyof typeof theme].bgColor
+      theme[currentTheme as keyof typeof theme].bgColor,
     );
     document.documentElement.style.setProperty(
       "--accent-color",
-      theme[currentTheme as keyof typeof theme].accentColor
+      theme[currentTheme as keyof typeof theme].accentColor,
     );
   }, [currentTheme]);
 

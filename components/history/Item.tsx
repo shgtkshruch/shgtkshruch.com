@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
-
-import { History } from "../../types/api";
-import { mq } from "../variables";
+import { useState } from "react";
+import type { History } from "../../types/api";
 import Link from "../common/Link";
 import Text from "../common/Text";
-import { useState } from "react";
+import { mq } from "../variables";
 
 const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
   const delay = 0.9 + 0.12 * i;
@@ -56,7 +55,7 @@ const Header = styled.div`
 `;
 
 const Name = styled(Link)<{
-  as: 'button',
+  as: "button";
   isShow: boolean;
   onClick: () => void;
   onFocus: () => void;
@@ -136,7 +135,7 @@ type ItemPComponentProps = {
   isSelected: boolean;
   onAnimationEnd: () => void;
   updateCurrentIndex: () => void;
-}
+};
 
 const ItemComponent: React.FC<ItemPComponentProps> = ({
   item,
@@ -146,10 +145,10 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
   updateCurrentIndex,
 }) => {
   const { age, title, body, url } = item;
-    const [animationKey, setAnimationKey] = useState(0);
+  const [animationKey, setAnimationKey] = useState(0);
 
   const triggerAnimation = () => {
-    setAnimationKey(prev => prev + 1);
+    setAnimationKey((prev) => prev + 1);
   };
 
   return (
@@ -162,7 +161,7 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
           onClick={() => {
             updateCurrentIndex();
             triggerAnimation();
-           }}
+          }}
           onFocus={updateCurrentIndex}
         >
           {title}

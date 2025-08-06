@@ -1,10 +1,10 @@
-import { useState } from "react";
 import styled from "@emotion/styled";
+import { useState } from "react";
 
 import type { Skill } from "../../types/api";
-import { mq } from "../variables";
-import Section from "../common/Section";
 import Heading from "../common/Hgroup";
+import Section from "../common/Section";
+import { mq } from "../variables";
 import Item from "./Item";
 
 const List = styled.ul`

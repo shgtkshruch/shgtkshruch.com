@@ -1,1 +1,1 @@
-export const GA_TRACKING_ID = 'G-CZVY40LMGZ'
+export const GA_TRACKING_ID = "G-CZVY40LMGZ";

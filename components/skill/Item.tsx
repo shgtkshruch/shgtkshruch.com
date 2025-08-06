@@ -1,20 +1,20 @@
 import styled from "@emotion/styled";
 import {
-  useFloating,
-  autoUpdate,
-  offset,
-  flip,
-  shift,
-  useHover,
-  useFocus,
-  useDismiss,
-  useRole,
-  useInteractions,
-  FloatingPortal,
   arrow,
+  autoUpdate,
   FloatingArrow,
+  FloatingPortal,
+  flip,
+  offset,
+  shift,
+  useDismiss,
+  useFloating,
+  useFocus,
+  useHover,
+  useInteractions,
+  useRole,
 } from "@floating-ui/react";
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 
 import type { Skill } from "../../types/api";
 import { mq } from "../variables";
@@ -30,7 +30,7 @@ const nthChildAnimation = Array.from("_".repeat(30)).reduce((res, _, i) => {
   return res;
 }, "");
 
-const SkillItem = styled.li<{startAnimation: boolean}>`
+const SkillItem = styled.li<{ startAnimation: boolean }>`
   position: relative;
   margin-right: 1rem;
   margin-bottom: 0.4rem;
@@ -119,7 +119,11 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
             {...getFloatingProps()}
           >
             {body}
-            <FloatingArrow ref={arrowRef} context={context} fill="rgba(0, 0, 0, 0.9)" />
+            <FloatingArrow
+              ref={arrowRef}
+              context={context}
+              fill="rgba(0, 0, 0, 0.9)"
+            />
           </TooltipContent>
         </FloatingPortal>
       )}

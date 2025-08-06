@@ -1,14 +1,14 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/css'
-import { InView } from 'react-intersection-observer'
+
+import { css } from "@emotion/css";
+import styled from "@emotion/styled";
+import { useState } from "react";
+import { InView } from "react-intersection-observer";
 
 import type { Work } from "../../types/api";
-
-import { mq } from '../variables'
-import Text from '../common/Text'
-import Link from '../common/Link'
+import Link from "../common/Link";
+import Text from "../common/Text";
+import { mq } from "../variables";
 
 const itemStyle = css`
   display: flex;
@@ -27,16 +27,16 @@ const itemStyle = css`
       margin-bottom: 14rem;
     }
   }
-`
+`;
 
 type DataProps = {
-  isShow: boolean
-  textAnimationDone: boolean
-}
+  isShow: boolean;
+  textAnimationDone: boolean;
+};
 
 const Data = styled.div<DataProps>`
-  display: ${props => props.isShow ? 'block' : 'none'};
-  pointer-events: ${props => props.textAnimationDone ? 'auto' : 'none'};
+  display: ${(props) => (props.isShow ? "block" : "none")};
+  pointer-events: ${(props) => (props.textAnimationDone ? "auto" : "none")};
   ${mq.pc} {
     width: 37%;
   }
@@ -50,12 +50,12 @@ const Data = styled.div<DataProps>`
   }
 `;
 
-type AProps = DataProps
+type AProps = DataProps;
 
 const A = styled.a<AProps>`
   margin-bottom: 3rem;
-  opacity: ${props => props.isShow ? 1 : 0};
-  pointer-events: ${props => props.textAnimationDone ? 'auto' : 'none'};
+  opacity: ${(props) => (props.isShow ? 1 : 0)};
+  pointer-events: ${(props) => (props.textAnimationDone ? "auto" : "none")};
   box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
   transition: box-shadow 0.5s, opacity 1s;
   ${mq.pc} {
@@ -65,10 +65,13 @@ const A = styled.a<AProps>`
       box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
     }
   }
-`
+`;
 
-const Item: React.FC<{isTypingDone: boolean; item: Work }> = ({ isTypingDone, item }) => {
-  const { title, age, url, body, image } = item
+const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
+  isTypingDone,
+  item,
+}) => {
+  const { title, age, url, body, image } = item;
 
   const [inview, setView] = useState(false);
   const [textAnimationDone, setTextAnimationDone] = useState(false);
@@ -76,24 +79,27 @@ const Item: React.FC<{isTypingDone: boolean; item: Work }> = ({ isTypingDone, it
   return (
     <InView
       as="div"
-      onChange={(inview, _) => inview ? setView(true) : false}
+      onChange={(inview, _) => (inview ? setView(true) : false)}
       className={itemStyle}
     >
-      <Data isShow={isTypingDone && inview} textAnimationDone={textAnimationDone}>
+      <Data
+        isShow={isTypingDone && inview}
+        textAnimationDone={textAnimationDone}
+      >
         <Text>title: {title}</Text>
-        <br/>
+        <br />
         <Text>year: {age}</Text>
-        <br/>
+        <br />
         <Text className="text--url">
           url:&nbsp;
-          <Link
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >{url}</Link>
+          <Link href={url} target="_blank" rel="noopener noreferrer">
+            {url}
+          </Link>
         </Text>
-        <br/>
-        <Text className="jp" onAnimationEnd={() => setTextAnimationDone(true)}>{body}</Text>
+        <br />
+        <Text className="jp" onAnimationEnd={() => setTextAnimationDone(true)}>
+          {body}
+        </Text>
       </Data>
       <A
         href={url}
@@ -103,13 +109,13 @@ const Item: React.FC<{isTypingDone: boolean; item: Work }> = ({ isTypingDone, it
         textAnimationDone={textAnimationDone}
       >
         <picture>
-          <source type="image/webp" srcSet={image.url + '?fm=webp'} />
+          <source type="image/webp" srcSet={image.url + "?fm=webp"} />
           <source type="image/jpeg" srcSet={image.url} />
           <img src={image.url} alt={title} />
         </picture>
       </A>
     </InView>
-  )
+  );
 };
 
 export default Item;

@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import styled from "@emotion/styled";
+import type { ReactNode } from "react";
 
 import { mq } from "../variables";
 

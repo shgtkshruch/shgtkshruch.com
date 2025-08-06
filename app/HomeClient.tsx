@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import type { Work, History, Skill, Contact } from "../types/api";
-import Container from "../components/layout/Container";
-import Intro from "../components/intro";
-import Works from "../components/work";
-import Histories from "../components/history";
-import Skills from "../components/skill";
-import Contacts from "../components/contact";
-import Footer from "../components/footer";
+import ColorTheme from "../components/common/ColorTheme";
 import GitHubCorner from "../components/common/GitHub-Corner";
 import GlobalStyle from "../components/common/GlobalStyle";
-import ColorTheme from "../components/common/ColorTheme";
+import Contacts from "../components/contact";
+import Footer from "../components/footer";
+import Histories from "../components/history";
+import Intro from "../components/intro";
+import Container from "../components/layout/Container";
+import Skills from "../components/skill";
+import Works from "../components/work";
+import type { Contact, History, Skill, Work } from "../types/api";
 
 type HomeProps = {
   works: Work[];

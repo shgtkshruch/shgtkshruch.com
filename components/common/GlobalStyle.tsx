@@ -1,4 +1,4 @@
-import { Global, css } from "@emotion/react";
+import { css, Global } from "@emotion/react";
 import { mq, theme } from "../variables";
 
 const GlobalStyle: React.FC = () => (
