@@ -26,6 +26,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "lib/gtag.js"
+    "lib/gtag.js",
+    "next.config.js"
   ]
 }
