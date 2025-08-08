@@ -1,71 +1,62 @@
-/** @jsxImportSource @emotion/react */
-
-import { css } from "@emotion/css";
-import styled from "@emotion/styled";
 import { useState } from "react";
 import { InView } from "react-intersection-observer";
+import { css } from "../../styled-system/css";
 
 import type { Work } from "../../types/api";
 import Link from "../common/Link";
 import Text from "../common/Text";
-import { mq } from "../variables";
 
-const itemStyle = css`
-  display: flex;
-  flex-direction: column-reverse;
-  margin: 0 auto;
-  &:not(:last-child) {
-    margin-bottom: 6rem;
-  }
-  ${mq.pc} {
-    flex-direction: row;
-    flex-wrap: wrap;
-    flex-flow: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    &:not(:last-child) {
-      margin-bottom: 14rem;
-    }
-  }
-`;
+const itemStyles = css({
+  display: "flex",
+  flexDirection: "column-reverse",
+  margin: "0 auto",
+  "&:not(:last-child)": {
+    marginBottom: "6rem",
+  },
+  pc: {
+    flexDirection: "row-reverse",
+    flexWrap: "wrap",
+    flexFlow: "row-reverse",
+    justifyContent: "space-between",
+    alignItems: "center",
+    "&:not(:last-child)": {
+      marginBottom: "14rem",
+    },
+  },
+});
 
-type DataProps = {
-  isShow: boolean;
-  textAnimationDone: boolean;
-};
+const dataStyles = (isShow: boolean, textAnimationDone: boolean) =>
+  css({
+    display: isShow ? "block" : "none",
+    pointerEvents: textAnimationDone ? "auto" : "none",
+    pc: {
+      width: "37%",
+    },
+    "& .text": {
+      "&--url": {
+        width: "100%",
+        overflow: "hidden",
+        whiteSpace: "nowrap",
+        textOverflow: "ellipsis",
+      },
+    },
+  });
 
-const Data = styled.div<DataProps>`
-  display: ${(props) => (props.isShow ? "block" : "none")};
-  pointer-events: ${(props) => (props.textAnimationDone ? "auto" : "none")};
-  ${mq.pc} {
-    width: 37%;
-  }
-  .text {
-    &--url {
-      width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-  }
-`;
-
-type AProps = DataProps;
-
-const A = styled.a<AProps>`
-  margin-bottom: 3rem;
-  opacity: ${(props) => (props.isShow ? 1 : 0)};
-  pointer-events: ${(props) => (props.textAnimationDone ? "auto" : "none")};
-  box-shadow: 0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3);
-  transition: box-shadow 0.5s, opacity 1s;
-  ${mq.pc} {
-    width: 55%;
-    margin-bottom: 0;
-    &:hover {
-      box-shadow: 0 60px 100px -12px rgba(0, 0, 0, 0.3);
-    }
-  }
-`;
+const linkStyles = (isShow: boolean, textAnimationDone: boolean) =>
+  css({
+    marginBottom: "3rem",
+    opacity: isShow ? 1 : 0,
+    pointerEvents: textAnimationDone ? "auto" : "none",
+    boxShadow: "0 37.125px 70px -12.125px rgba(0, 0, 0, 0.3)",
+    transition: "box-shadow 0.5s, opacity 1s",
+    pc: {
+      width: "55%",
+      marginBottom: 0,
+      _hover: {
+        boxShadow: "0 60px 100px -12px rgba(0, 0, 0, 0.3)",
+      },
+    },
+  });
 
 const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
   isTypingDone,
@@ -80,12 +71,9 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
     <InView
       as="div"
       onChange={(inview, _) => (inview ? setView(true) : false)}
-      className={itemStyle}
+      className={itemStyles}
     >
-      <Data
-        isShow={isTypingDone && inview}
-        textAnimationDone={textAnimationDone}
-      >
+      <div className={dataStyles(isTypingDone && inview, textAnimationDone)}>
         <Text>title: {title}</Text>
         <br />
         <Text>year: {age}</Text>
@@ -100,20 +88,19 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
         <Text className="jp" onAnimationEnd={() => setTextAnimationDone(true)}>
           {body}
         </Text>
-      </Data>
-      <A
+      </div>
+      <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        isShow={isTypingDone && inview}
-        textAnimationDone={textAnimationDone}
+        className={linkStyles(isTypingDone && inview, textAnimationDone)}
       >
         <picture>
           <source type="image/webp" srcSet={`${image.url}?fm=webp`} />
           <source type="image/jpeg" srcSet={image.url} />
           <img src={image.url} alt={title} />
         </picture>
-      </A>
+      </a>
     </InView>
   );
 };

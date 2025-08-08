@@ -1,25 +1,23 @@
-import styled from "@emotion/styled";
-import { mq } from "../variables";
+import { css } from "../../styled-system/css";
 
-const Footer = styled.footer`
-  padding-bottom: 1rem;
-  text-align: center;
-}
-`;
+const footerStyles = css({
+  paddingBottom: "1rem",
+  textAlign: "center",
+});
 
-const Small = styled.small`
-  font-size: 0.6rem;
-  ${mq.pc} {
-    font-size: 0.8rem;
-  }
-`;
+const smallStyles = css({
+  fontSize: "0.6rem",
+  pc: {
+    fontSize: "0.8rem",
+  },
+});
 
 const Index: React.FC = () => (
-  <Footer>
-    <Small>
+  <footer className={footerStyles}>
+    <small className={smallStyles}>
       Copyright © 2017-2025 shigetaka shirouchi All Rights Reserved.
-    </Small>
-  </Footer>
+    </small>
+  </footer>
 );
 
 export default Index;

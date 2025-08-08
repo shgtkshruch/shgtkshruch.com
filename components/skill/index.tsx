@@ -1,22 +1,21 @@
-import styled from "@emotion/styled";
 import { useState } from "react";
+import { css } from "../../styled-system/css";
 
 import type { Skill } from "../../types/api";
 import Heading from "../common/Hgroup";
 import Section from "../common/Section";
-import { mq } from "../variables";
 import Item from "./Item";
 
-const List = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 55rem;
-  margin: 3rem auto -1.6rem;
-  ${mq.pc} {
-    margin-top: 5rem;
-  }
-`;
+const listStyles = css({
+  display: "flex",
+  flexWrap: "wrap",
+  justifyContent: "center",
+  maxWidth: "55rem",
+  margin: "3rem auto -1.6rem",
+  pc: {
+    marginTop: "5rem",
+  },
+});
 
 const Skills: React.FC<{ next: () => void; items: Skill[] }> = ({
   next,
@@ -36,11 +35,11 @@ const Skills: React.FC<{ next: () => void; items: Skill[] }> = ({
         subTitle="Adopt the latest tools and methodology."
         onTypingDone={onTypingDone}
       />
-      <List>
+      <ul className={listStyles}>
         {items.map((item) => (
           <Item key={item.id} item={item} startAnimation={isTypingDone} />
         ))}
-      </List>
+      </ul>
     </Section>
   );
 };

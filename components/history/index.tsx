@@ -1,45 +1,40 @@
-/** @jsxImportSource @emotion/react */
-
-import { css } from "@emotion/css";
-import styled from "@emotion/styled";
 import { useState } from "react";
+import { css } from "../../styled-system/css";
 
 import type { History } from "../../types/api";
 import Heading from "../common/Hgroup";
 import Section from "../common/Section";
-import { breakpoints, mq } from "../variables";
+import { breakpoints } from "../variables";
 import Item from "./Item";
 
-type ListProps = {
-  typingDone: boolean;
-};
+const listStyles = (typingDone: boolean) =>
+  css({
+    display: "inline-block",
+    textAlign: "left",
+    position: "relative",
+    padding: "4rem 0",
+    marginTop: "2rem",
+    pc: {
+      display: "block",
+      marginTop: "5rem",
+    },
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "1px",
+      height: typingDone ? "100%" : 0,
+      backgroundColor: "currentColor",
+      transition: "height 0.8s ease-in-out",
+    },
+  });
 
-const List = styled.ul<ListProps>`
-  display: inline-block;
-  text-align: left;
-  position: relative;
-  padding: 4rem 0;
-  margin-top: 2rem;
-  ${mq.pc} {
-    display: block;
-    margin-top: 5rem;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: ${(props) => (props.typingDone ? "100%" : 0)};
-    background-color: currentColor;
-    transition: height 0.8s ease-in-out;
-  }
-`;
-const sectionStyle = css`
-  max-width: 55rem;
-  margin: 0 auto;
-  text-align: center;
-`;
+const sectionStyles = css({
+  maxWidth: "55rem",
+  margin: "0 auto",
+  textAlign: "center",
+});
 
 const Histories: React.FC<{ next: () => void; items: History[] }> = ({
   next,
@@ -70,13 +65,13 @@ const Histories: React.FC<{ next: () => void; items: History[] }> = ({
   }
 
   return (
-    <Section id="history" className={sectionStyle}>
+    <Section id="history" className={sectionStyles}>
       <Heading
         title="history"
         subTitle="Learn WEB technology with Internet."
         onTypingDone={onTypingDone}
       />
-      <List typingDone={typingDone}>
+      <ul className={listStyles(typingDone)}>
         {items.map((item, i) => (
           <Item
             key={item.id}
@@ -91,7 +86,7 @@ const Histories: React.FC<{ next: () => void; items: History[] }> = ({
             updateCurrentIndex={() => updateCurrentIndex(i)}
           />
         ))}
-      </List>
+      </ul>
     </Section>
   );
 };

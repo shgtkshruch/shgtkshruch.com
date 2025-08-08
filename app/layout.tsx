@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 
-import "../public/static/app.css";
+import "../styles/index.css";
 
 import { GA_TRACKING_ID } from "../lib/gtag";
 

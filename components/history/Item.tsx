@@ -1,133 +1,144 @@
-/** @jsxImportSource @emotion/react */
-import styled from "@emotion/styled";
 import { useState } from "react";
+import { css } from "../../styled-system/css";
 import type { History } from "../../types/api";
 import Link from "../common/Link";
 import Text from "../common/Text";
-import { mq } from "../variables";
 
-const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
-  const delay = 0.9 + 0.12 * i;
-  res += `
-    &:nth-of-type(${i + 1}) {
-      animation: fadeInUp 0.8s ${delay}s forwards ease-in-out;
-    }
-  `;
-  return res;
-}, "");
-
-const Item = styled.li<{ typingDone: boolean }>`
-  position: relative;
-  padding-left: 1rem;
-  opacity: 0;
-  &:not(:last-child) {
-    margin-bottom: 5rem;
+const keyframesStyle = `
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(15px);
   }
-  ${(props) => (props.typingDone ? nthChildAnimation : "")}
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(15px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
   }
-`;
-const size = "10px";
-
-const Header = styled.div`
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: -1rem;
-    transform: translate(-50%, -50%);
-    width: ${size};
-    height: ${size};
-    border-radius: 50%;
-    background-color: currentColor;
-  }
+}
 `;
 
-const Name = styled(Link)<{
-  as: "button";
-  isShow: boolean;
-  onClick: () => void;
-  onFocus: () => void;
-}>`
-  margin-left: 1.3rem;
-  letter-spacing: 0.05em;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  color: currentColor;
-  font-family: inherit;
-  outline: none;
-  &::before {
-    left: -5%;
-    transform: skew(-25deg);
-  }
-  &:hover::before {
-    width: 110%;
-  }
-  ${(props) => (props.isShow ? activeStyle : "")}
-`;
-
-const activeStyle = `
-  color: var(--bg-color);
-  &::before {
-    width: 110%;
-  }
-`;
-
-const TextWrapper = styled.div<{ isSelected: boolean }>`
-  display: ${(props) => (props.isSelected ? "block" : "none")};
-  margin-top: 1.6em;
-  letter-spacing: 0.02em;
-  line-height: 1.8;
-  ${mq.pc} {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 62%;
-    padding-left: 1rem;
-    margin-top: 0;
-    z-index: 1;
-  }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 1px;
+const lineKeyframesStyle = `
+@keyframes line {
+  0% {
     height: 0;
-    background-color: var(--primary-color);
-    animation: line 0.3s 1s forwards;
   }
-  @keyframes line {
-    0% {
-      height: 0;
-    }
-    100% {
-      height: 100%;
-    }
+  100% {
+    height: 100%;
   }
+}
 `;
 
-const MoreButton = styled(Link)`
-  display: inline-block;
-  border: 1px solid currentColor;
-  text-decoration: none;
-  padding: 0.5rem 1.4rem;
-  line-height: 1;
-  letter-spacing: 0.06em;
-`;
+const itemStyles = (typingDone: boolean) =>
+  css({
+    position: "relative",
+    paddingLeft: "1rem",
+    opacity: 0,
+    "&:not(:last-child)": {
+      marginBottom: "5rem",
+    },
+    ...(typingDone && {
+      "&:nth-of-type(1)": {
+        animation: "fadeInUp 0.8s 0.9s forwards ease-in-out",
+      },
+      "&:nth-of-type(2)": {
+        animation: "fadeInUp 0.8s 1.02s forwards ease-in-out",
+      },
+      "&:nth-of-type(3)": {
+        animation: "fadeInUp 0.8s 1.14s forwards ease-in-out",
+      },
+      "&:nth-of-type(4)": {
+        animation: "fadeInUp 0.8s 1.26s forwards ease-in-out",
+      },
+      "&:nth-of-type(5)": {
+        animation: "fadeInUp 0.8s 1.38s forwards ease-in-out",
+      },
+      "&:nth-of-type(6)": {
+        animation: "fadeInUp 0.8s 1.5s forwards ease-in-out",
+      },
+      "&:nth-of-type(7)": {
+        animation: "fadeInUp 0.8s 1.62s forwards ease-in-out",
+      },
+    }),
+  });
+
+const headerStyles = css({
+  position: "relative",
+  "&::before": {
+    content: '""',
+    position: "absolute",
+    top: "50%",
+    left: "-1rem",
+    transform: "translate(-50%, -50%)",
+    width: "10px",
+    height: "10px",
+    borderRadius: "50%",
+    backgroundColor: "currentColor",
+  },
+});
+
+const nameStyles = (isShow: boolean) =>
+  css({
+    marginLeft: "1.3rem",
+    letterSpacing: "0.05em",
+    fontSize: "1.2rem",
+    cursor: "pointer",
+    border: "none",
+    backgroundColor: "transparent",
+    color: "currentColor",
+    fontFamily: "inherit",
+    outline: "none",
+    "&::before": {
+      left: "-5%",
+      transform: "skew(-25deg)",
+      ...(isShow && {
+        width: "110%",
+      }),
+    },
+    "&:hover::before": {
+      width: "110% !important",
+    },
+    ...(isShow && {
+      color: "var(--bg-color)",
+    }),
+  });
+
+const textWrapperStyles = (isSelected: boolean) =>
+  css({
+    display: isSelected ? "block" : "none",
+    marginTop: "1.6em",
+    letterSpacing: "0.02em",
+    lineHeight: 1.8,
+    pc: {
+      position: "absolute",
+      top: 0,
+      right: 0,
+      width: "62%",
+      paddingLeft: "1rem",
+      marginTop: 0,
+      zIndex: 1,
+    },
+    "&::before": {
+      content: '""',
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "1px",
+      height: 0,
+      backgroundColor: "var(--primary-color)",
+      animation: "line 0.3s 1s forwards",
+    },
+  });
+
+const moreButtonStyles = css({
+  display: "inline-block",
+  border: "1px solid currentColor",
+  textDecoration: "none",
+  padding: "0.5rem 1.4rem",
+  lineHeight: 1,
+  letterSpacing: "0.06em",
+});
 
 type ItemPComponentProps = {
   item: History;
@@ -152,33 +163,45 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
   };
 
   return (
-    <Item typingDone={typingDone} onAnimationEnd={onAnimationEnd}>
-      <Header>
-        <span>{age}</span>
-        <Name
-          as="button"
-          isShow={isSelected}
-          onClick={() => {
-            updateCurrentIndex();
-            triggerAnimation();
-          }}
-          onFocus={updateCurrentIndex}
+    <>
+      <style>{keyframesStyle}</style>
+      <style>{lineKeyframesStyle}</style>
+      <li className={itemStyles(typingDone)} onAnimationEnd={onAnimationEnd}>
+        <div className={headerStyles}>
+          <span>{age}</span>
+          <Link
+            type="button"
+            className={nameStyles(isSelected)}
+            onClick={() => {
+              updateCurrentIndex();
+              triggerAnimation();
+            }}
+            onFocus={updateCurrentIndex}
+          >
+            {title}
+          </Link>
+        </div>
+        <div
+          key={animationKey}
+          className={`jp ${textWrapperStyles(isSelected)}`}
         >
-          {title}
-        </Name>
-      </Header>
-      <TextWrapper key={animationKey} className="jp" isSelected={isSelected}>
-        {body.split("\n").map((t) => (
-          <Text key={`${title}-${t.slice(0, 20)}`}>{t}</Text>
-        ))}
-        <br />
-        <Text>
-          <MoreButton href={url} target="_blank" rel="noopener noreferrer">
-            more
-          </MoreButton>
-        </Text>
-      </TextWrapper>
-    </Item>
+          {body.split("\n").map((t) => (
+            <Text key={`${title}-${t.slice(0, 20)}`}>{t}</Text>
+          ))}
+          <br />
+          <Text>
+            <Link
+              className={moreButtonStyles}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              more
+            </Link>
+          </Text>
+        </div>
+      </li>
+    </>
   );
 };
 

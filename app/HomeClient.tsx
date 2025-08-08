@@ -3,7 +3,6 @@
 import { useState } from "react";
 import ColorTheme from "../components/common/ColorTheme";
 import GitHubCorner from "../components/common/GitHub-Corner";
-import GlobalStyle from "../components/common/GlobalStyle";
 import Contacts from "../components/contact";
 import Footer from "../components/footer";
 import Histories from "../components/history";
@@ -37,7 +36,6 @@ export function HomeClient({ works, history, skills, contacts }: HomeProps) {
         <Footer />
       </Container>
       <GitHubCorner />
-      <GlobalStyle />
       <ColorTheme />
     </>
   );

@@ -1,27 +1,29 @@
-const breakpoints = { sp: 600, pc: 1200 };
+import { token } from "../styled-system/tokens";
 
-type MQ = {
-  sp?: string;
-  pc?: string;
+// Breakpoints are now handled by Panda CSS
+export const breakpoints = { sp: 600, pc: 1200 };
+
+// Media queries using Panda's token system
+export const mq = {
+  sp: "@media (min-width: 600px)",
+  pc: "@media (min-width: 1200px)",
 };
 
-const mq: MQ = Object.keys(breakpoints).reduce((obj, type) => {
-  obj[type as keyof typeof breakpoints] =
-    `@media (min-width: ${breakpoints[type as keyof typeof breakpoints]}px)`;
-  return obj;
-}, {} as MQ);
-
-const theme = {
+// Theme colors - now using Panda CSS semantic tokens
+export const theme = {
   light: {
-    primaryColor: "#222",
-    bgColor: "#fff",
-    accentColor: "red",
+    primaryColor: token("colors.light.primary"),
+    bgColor: token("colors.light.bg"),
+    accentColor: token("colors.light.accent"),
   },
   dark: {
-    primaryColor: "#dee1e8",
-    bgColor: "#161725",
-    accentColor: "#ef40b8",
+    primaryColor: token("colors.dark.primary"),
+    bgColor: token("colors.dark.bg"),
+    accentColor: token("colors.dark.accent"),
   },
 };
 
-export { breakpoints, mq, theme };
+// Helper functions for accessing tokens
+export const getToken = (path: string) => token(path as any);
+export const getColor = (colorName: "primary" | "bg" | "accent") =>
+  token(`colors.${colorName}` as any);

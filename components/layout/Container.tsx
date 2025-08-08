@@ -1,22 +1,22 @@
-import styled from "@emotion/styled";
-
-import { mq } from "../variables";
-
-const Container = styled.div`
-  max-width: 48rem;
-  margin-left: auto;
-  margin-right: auto;
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  ${mq.pc} {
-    max-width: 98rem;
-    padding-right: 4rem;
-    padding-left: 4rem;
-  }
-`;
+import { css } from "../../styled-system/css";
 
 const ContainerComponent = ({ children }: { children: React.ReactNode }) => (
-  <Container>{children}</Container>
+  <div
+    className={css({
+      maxWidth: "48rem",
+      marginLeft: "auto",
+      marginRight: "auto",
+      paddingRight: "1.5rem",
+      paddingLeft: "1.5rem",
+      pc: {
+        maxWidth: "98rem",
+        paddingRight: "4rem",
+        paddingLeft: "4rem",
+      },
+    })}
+  >
+    {children}
+  </div>
 );
 
 export default ContainerComponent;

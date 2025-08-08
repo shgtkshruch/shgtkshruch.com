@@ -1,66 +1,17 @@
-import styled from "@emotion/styled";
 import type { ReactNode } from "react";
+import { css } from "../../styled-system/css";
 
-const nthChildAnimation = Array.from("_".repeat(7)).reduce((res, _, i) => {
-  const delay = 0.15 * (i + 1);
-  res += `
-    &:nth-of-type(${i + 1})::before {
-      animation: fadeOut 0.9s ${delay}s both ease-in-out;
-    }
-  `;
-  return res;
-}, "");
-
-const Wrapper = styled.div`
-  display: inline-block;
-  position: relative;
-  &:not(:last-child) {
-    margin-bottom: 0.7rem;
+// Generate nth-child animation styles
+const generateNthChildStyles = () => {
+  const styles: Record<string, any> = {};
+  for (let i = 1; i <= 7; i++) {
+    const delay = 0.15 * i;
+    styles[`&:nth-of-type(${i})::before`] = {
+      animation: `fadeOut 0.9s ${delay}s both ease-in-out`,
+    };
   }
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: currentColor;
-    animation: fadeOut 0.9s 0.15s both ease-in-out;
-    z-index: 1;
-  }
-  ${nthChildAnimation}
-  @keyframes fadeOut {
-    0% {
-      transform: scale(0, 1);
-      transform-origin: left top;
-    }
-    30% {
-      transform: scale(1, 1);
-      transform-origin: left top;
-    }
-    70% {
-      transform: scale(1, 1);
-      transform-origin: right top;
-    }
-    100% {
-      transform: scale(0, 1);
-      transform-origin: right top;
-    }
-  }
-`;
-
-const Content = styled.span`
-  opacity: 0;
-  animation: show 0.1s 0.9s forwards;
-  @keyframes show {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-`;
+  return styles;
+};
 
 type TextProps = {
   className?: string;
@@ -73,9 +24,37 @@ const TextComponent: React.FC<TextProps> = ({
   onAnimationEnd,
   children,
 }) => (
-  <Wrapper className={className} onAnimationEnd={onAnimationEnd}>
-    <Content>{children}</Content>
-  </Wrapper>
+  <div
+    className={`${css({
+      display: "inline-block",
+      position: "relative",
+      "&:not(:last-child)": {
+        marginBottom: "0.7rem",
+      },
+      _before: {
+        content: '""',
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundColor: "currentColor",
+        animation: "fadeOut 0.9s 0.15s both ease-in-out",
+        zIndex: 1,
+      },
+      ...generateNthChildStyles(),
+    })} ${className || ""}`}
+    onAnimationEnd={onAnimationEnd}
+  >
+    <span
+      className={css({
+        opacity: 0,
+        animation: "show 0.1s 0.9s forwards",
+      })}
+    >
+      {children}
+    </span>
+  </div>
 );
 
 export default TextComponent;

@@ -1,34 +1,7 @@
-/** @jsxImportSource @emotion/react */
-
-import { css } from "@emotion/css";
-import styled from "@emotion/styled";
 import { useState } from "react";
 import { InView } from "react-intersection-observer";
 import Typist from "react-typist-component";
-
-import { mq } from "../variables";
-
-const wrapperStyle = css`
-  text-align: center;
-`;
-
-const Title = styled.h2`
-  display: inline-block;
-  margin-bottom: 1rem;
-  font-size: 2rem;
-  line-height: 1.4;
-  font-weight: normal;
-  letter-spacing: 0.2em;
-`;
-
-const Sub = styled.span`
-  font-size: 1rem;
-  letter-spacing: 0.1em;
-  line-height: 1.6;
-  ${mq.pc} {
-    font-size: 1.2rem;
-  }
-`;
+import { css } from "../../styled-system/css";
 
 type HgroupProps = {
   title: string;
@@ -42,15 +15,39 @@ const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
   return (
     <InView
       as="hgroup"
-      className={wrapperStyle}
+      className={css({
+        textAlign: "center",
+      })}
       onChange={(inview, _entry) => (inview ? setView(true) : false)}
     >
       {inview && (
         <Typist startDelay={500} typingDelay={35} onTypingDone={onTypingDone}>
-          <Title>{title}</Title>
+          <h2
+            className={css({
+              display: "inline-block",
+              marginBottom: "1rem",
+              fontSize: "2rem",
+              lineHeight: "1.4",
+              fontWeight: "normal",
+              letterSpacing: "0.2em",
+            })}
+          >
+            {title}
+          </h2>
           <Typist.Delay ms={350} />
           <br />
-          <Sub>{subTitle}</Sub>
+          <span
+            className={css({
+              fontSize: "1rem",
+              letterSpacing: "0.1em",
+              lineHeight: "1.6",
+              pc: {
+                fontSize: "1.2rem",
+              },
+            })}
+          >
+            {subTitle}
+          </span>
         </Typist>
       )}
     </InView>

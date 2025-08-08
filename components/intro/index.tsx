@@ -1,30 +1,31 @@
-import styled from "@emotion/styled";
 import { useState } from "react";
+import { css } from "../../styled-system/css";
 
 import Hgroup from "../common/Hgroup";
 import Mouse from "./Mouse";
 
-const Section = styled.section`
-  position: relative;
-  height: 100vh;
-`;
+const sectionStyles = css({
+  position: "relative",
+  height: "100vh",
+});
 
-const Wrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-`;
+const wrapperStyles = css({
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: "100%",
+});
 
-const MouseWrapper = styled.div<{ isMouseShow: boolean }>`
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translate(-50%, 0);
-  opacity: ${(props) => (props.isMouseShow ? 1 : 0)};
-  transition: opacity 0.7s ease-in;
-`;
+const mouseWrapperStyles = (isMouseShow: boolean) =>
+  css({
+    position: "absolute",
+    bottom: "3rem",
+    left: "50%",
+    transform: "translate(-50%, 0)",
+    opacity: isMouseShow ? 1 : 0,
+    transition: "opacity 0.7s ease-in",
+  });
 
 const Index: React.FC<{ next: () => void }> = ({ next }) => {
   const [isMouseShow, setIsMouseShow] = useState(false);
@@ -36,18 +37,18 @@ const Index: React.FC<{ next: () => void }> = ({ next }) => {
   }
 
   return (
-    <Section>
-      <Wrapper>
+    <section className={sectionStyles}>
+      <div className={wrapperStyles}>
         <Hgroup
           title="Shigetaka Shirouchi"
           subTitle="I'm a Front-End Engineer."
           onTypingDone={onTypingDone}
         />
-      </Wrapper>
-      <MouseWrapper isMouseShow={isMouseShow}>
+      </div>
+      <div className={mouseWrapperStyles(isMouseShow)}>
         <Mouse />
-      </MouseWrapper>
-    </Section>
+      </div>
+    </section>
   );
 };
 

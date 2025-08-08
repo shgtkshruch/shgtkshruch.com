@@ -31,3 +31,7 @@ yarn-error.log*
 
 # build
 *.tsbuildinfo
+
+## Panda
+styled-system
+styled-system-studio

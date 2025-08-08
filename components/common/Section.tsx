@@ -1,17 +1,5 @@
-import styled from "@emotion/styled";
 import type { ReactNode } from "react";
-
-import { mq } from "../variables";
-
-const Section = styled.section`
-  padding: 3rem 0;
-  ${mq.pc} {
-    padding: 9rem 0;
-  }
-  &:first-of-type {
-    padding-top: 0;
-  }
-`;
+import { css } from "../../styled-system/css";
 
 type SectionProps = {
   id?: string;
@@ -24,9 +12,20 @@ const SectionComponent: React.FC<SectionProps> = ({
   className,
   children,
 }) => (
-  <Section id={id} className={className}>
+  <section
+    id={id}
+    className={`${css({
+      padding: "3rem 0",
+      pc: {
+        padding: "9rem 0",
+      },
+      _firstOfType: {
+        paddingTop: 0,
+      },
+    })} ${className || ""}`}
+  >
     {children}
-  </Section>
+  </section>
 );
 
 export default SectionComponent;

@@ -1,18 +1,10 @@
-import styled from "@emotion/styled";
 import { useState } from "react";
+import { css } from "../../styled-system/css";
 
 import type { Work } from "../../types/api";
 import Heading from "../common/Hgroup";
 import Section from "../common/Section";
-import { mq } from "../variables";
 import Item from "./Item";
-
-const List = styled.div`
-  padding-top: 4rem;
-  ${mq.pc} {
-    padding-top: 14rem;
-  }
-`;
 
 const Works: React.FC<{ next: () => void; items: Work[] }> = ({
   next,
@@ -32,11 +24,18 @@ const Works: React.FC<{ next: () => void; items: Work[] }> = ({
         subTitle="Write code anywhere in the company or OSS."
         onTypingDone={onTypingDone}
       />
-      <List>
+      <div
+        className={css({
+          paddingTop: "4rem",
+          pc: {
+            paddingTop: "14rem",
+          },
+        })}
+      >
         {items.map((item) => (
           <Item key={item.id} item={item} isTypingDone={isTypingDone} />
         ))}
-      </List>
+      </div>
     </Section>
   );
 };

@@ -1,47 +1,55 @@
-/** @jsxImportSource @emotion/react */
-
-import { css } from "@emotion/css";
-import styled from "@emotion/styled";
 import type { SVGAttributes } from "react";
+import { css } from "../../styled-system/css";
 import type { Contact } from "../../types/api";
 
-const nthChildAnimation = Array.from("_".repeat(5)).reduce((res, _, i) => {
-  const delay = 0.12 * (i + 1);
-  res += `
-    &:nth-of-type(${i + 1}) {
-      animation: fadeInUp 0.8s ${delay}s forwards;
-    }
-  `;
-  return res;
-}, "");
+const contactItemStyles = (isShow: boolean) =>
+  css({
+    opacity: 0,
+    ...(isShow && {
+      "&:nth-of-type(1)": {
+        animation: "fadeInUp 0.8s 0.12s forwards",
+      },
+      "&:nth-of-type(2)": {
+        animation: "fadeInUp 0.8s 0.24s forwards",
+      },
+      "&:nth-of-type(3)": {
+        animation: "fadeInUp 0.8s 0.36s forwards",
+      },
+      "&:nth-of-type(4)": {
+        animation: "fadeInUp 0.8s 0.48s forwards",
+      },
+      "&:nth-of-type(5)": {
+        animation: "fadeInUp 0.8s 0.6s forwards",
+      },
+    }),
+  });
 
-const ContactItem = styled.li<{ isShow: boolean }>`
-  opacity: 0;
-  ${(props) => (props.isShow ? nthChildAnimation : "")}
-  @keyframes fadeInUp {
-    0% {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+const keyframesStyle = `
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 `;
 const Svg = (props: SVGAttributes<SVGSVGElement> & { color: string }) => {
-  const size = `2.2rem`;
+  const size = "2.2rem";
   return (
     <svg
-      className={css`
-        width: ${size};
-        height: ${size};
-        fill: var(--primary-color);
-        transition: fill 0.3s;
-        &:hover {
-          fill: ${props.color};
-        }
-      `}
+      className={css({
+        width: size,
+        height: size,
+        fill: "var(--primary-color)",
+        transition: "fill 0.3s",
+        "&:hover": {
+          fill: "var(--hover-color)",
+        },
+      })}
+      style={{ "--hover-color": props.color } as React.CSSProperties}
       {...props}
     />
   );
@@ -66,13 +74,16 @@ const Item: React.FC<{ item: Contact; isShow: boolean }> = ({
   const { title, url, color } = item;
 
   return (
-    <ContactItem isShow={isShow}>
-      <a href={url} target="_blank" rel="noreferrer noopener">
-        <Svg viewBox="0 0 16 16" color={color}>
-          <path d={paths[title as keyof typeof paths]} />
-        </Svg>
-      </a>
-    </ContactItem>
+    <>
+      <style>{keyframesStyle}</style>
+      <li className={contactItemStyles(isShow)}>
+        <a href={url} target="_blank" rel="noreferrer noopener">
+          <Svg viewBox="0 0 16 16" color={color}>
+            <path d={paths[title as keyof typeof paths]} />
+          </Svg>
+        </a>
+      </li>
+    </>
   );
 };
 
