@@ -33,7 +33,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "lib/gtag.ts",
-    "next.config.js",
+    "next.config.ts",
     "lighthouserc.js"
   ],
   "exclude": ["node_modules", "out"]
