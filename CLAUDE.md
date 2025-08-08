@@ -21,7 +21,7 @@ This is a portfolio website built with Next.js App Router and TypeScript, using 
 
 ### Key Technologies
 - **Next.js** with static export (`output: 'export'` in next.config.js) and App Router
-- **Emotion** for CSS-in-JS styling (@emotion/react, @emotion/styled, @emotion/css)
+- **Panda CSS** for CSS-in-JS styling with atomic CSS generation
 - **Biome** for linting and formatting (replaces ESLint/Prettier)
 - **microCMS** as headless CMS for content management
 - **React libraries**: react-typist-component (typing animations), @floating-ui/react (tooltips), react-intersection-observer
@@ -49,7 +49,7 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 - Data flows from server component (`page.tsx`) to client component (`HomeClient.tsx`)
 
 ### Styling System
-- **Emotion CSS-in-JS** with global styles and theme management in `components/common/`
+- **Panda CSS** with atomic CSS generation and design tokens
 - **Path aliases**: `@/components/*`, `@/types/*`, `@/lib/*`, `@/app/*` configured in tsconfig.json
 - **Responsive breakpoints**: mobile (600px), desktop (1200px) defined in `components/variables.ts`
 - **Light/dark theme**: Automatic theme detection with CSS custom properties
