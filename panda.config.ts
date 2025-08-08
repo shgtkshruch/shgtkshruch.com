@@ -39,7 +39,8 @@ export default defineConfig({
             value: "Inconsolata, Sawarabi Gothic, monospace, sans-serif",
           },
           japanese: {
-            value: "Sawarabi Gothic, Yu Gothic, YuGothic, ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, Arial, メイリオ, Meiryo, sans-serif",
+            value:
+              "Sawarabi Gothic, Yu Gothic, YuGothic, ヒラギノ角ゴ ProN W3, Hiragino Kaku Gothic ProN, Arial, メイリオ, Meiryo, sans-serif",
           },
         },
         spacing: {

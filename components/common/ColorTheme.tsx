@@ -16,8 +16,12 @@ const ColorTheme: React.FC = () => {
 
   useEffect(() => {
     // Initialize theme on mount
-    const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const savedTheme = (localStorage.getItem("theme") as "light" | "dark") || (prefersDarkMode ? "dark" : "light");
+    const prefersDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const savedTheme =
+      (localStorage.getItem("theme") as "light" | "dark") ||
+      (prefersDarkMode ? "dark" : "light");
     setCurrentTheme(savedTheme);
   }, []);
 
