@@ -1,3 +1,11 @@
+## 4.0.0 (2025-08-08)
+- [Next.js (App Router)](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Panda CSS](https://panda-css.com/)
+- [Biome](https://biomejs.dev/)
+- [microCMS](https://microcms.io/)
+- [Netlify](https://www.netlify.com/)
+
 ## 3.0.0 (2020-06-06)
 - [Next.js](https://nextjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
