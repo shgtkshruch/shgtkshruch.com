@@ -22,8 +22,3 @@ export const theme = {
     accentColor: token("colors.dark.accent"),
   },
 };
-
-// Helper functions for accessing tokens
-export const getToken = (path: string) => token(path as any);
-export const getColor = (colorName: "primary" | "bg" | "accent") =>
-  token(`colors.${colorName}` as any);
