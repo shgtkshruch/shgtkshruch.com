@@ -65,7 +65,7 @@ const Histories: React.FC<{ next: () => void; items: History[] }> = ({
   }
 
   return (
-    <Section id="history" className={sectionStyles}>
+    <Section className={sectionStyles}>
       <Heading
         title="history"
         subTitle="Learn WEB technology with Internet."

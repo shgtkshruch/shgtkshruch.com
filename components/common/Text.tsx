@@ -3,7 +3,7 @@ import { css } from "../../styled-system/css";
 
 // Generate nth-child animation styles
 const generateNthChildStyles = () => {
-  const styles: Record<string, any> = {};
+  const styles: Record<string, { animation: string }> = {};
   for (let i = 1; i <= 7; i++) {
     const delay = 0.15 * i;
     styles[`&:nth-of-type(${i})::before`] = {
