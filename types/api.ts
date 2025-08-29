@@ -6,6 +6,7 @@ interface Common {
 
 export interface Work extends Common {
   title: string;
+  titleLang: "jp" | "en";
   body: string;
   age: string;
   url: string;

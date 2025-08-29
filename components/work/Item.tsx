@@ -62,7 +62,7 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
   isTypingDone,
   item,
 }) => {
-  const { title, age, url, body, image } = item;
+  const { title, titleLang, age, url, body, image } = item;
 
   const [inview, setView] = useState(false);
   const [textAnimationDone, setTextAnimationDone] = useState(false);
@@ -74,7 +74,10 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
       className={itemStyles}
     >
       <div className={dataStyles(isTypingDone && inview, textAnimationDone)}>
-        <Text>title: {title}</Text>
+        <Text>
+          title:
+          <span className={titleLang}> {title}</span>
+        </Text>
         <br />
         <Text>year: {age}</Text>
         <br />
