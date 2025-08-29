@@ -18,7 +18,7 @@ const Works: React.FC<{ next: () => void; items: Work[] }> = ({
   }
 
   return (
-    <Section id="work" className="work">
+    <Section className="work">
       <Heading
         title="work"
         subTitle="Write code anywhere in the company or OSS."

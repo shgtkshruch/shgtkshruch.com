@@ -29,7 +29,7 @@ const Skills: React.FC<{ next: () => void; items: Skill[] }> = ({
   }
 
   return (
-    <Section id="skils">
+    <Section>
       <Heading
         title="skill"
         subTitle="Adopt the latest tools and methodology."

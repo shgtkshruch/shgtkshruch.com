@@ -20,7 +20,7 @@ const Contacts: React.FC<{ items: Contact[] }> = ({ items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   return (
-    <Section id="contact">
+    <Section>
       <Heading
         title="contact"
         subTitle="Please feel free to contact me."
