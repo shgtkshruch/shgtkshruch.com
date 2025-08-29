@@ -96,7 +96,7 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
         className={linkStyles(isTypingDone && inview, textAnimationDone)}
       >
         <picture>
-          <source type="image/webp" srcSet={`${image.url}?fm=webp`} />
+          <source type="image/webp" srcSet={`${image.url}?fm=webp&w=1200`} />
           <source type="image/jpeg" srcSet={image.url} />
           <img src={image.url} alt={title} />
         </picture>
