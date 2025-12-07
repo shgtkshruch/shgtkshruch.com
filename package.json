@@ -31,6 +31,6 @@
     "@pandacss/dev": "^1.0.1",
     "@types/node": "22.18.0",
     "@types/react": "19.2.7",
-    "typescript": "5.9.2"
+    "typescript": "5.9.3"
   }
 }
