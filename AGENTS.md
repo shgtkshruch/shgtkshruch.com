@@ -5,16 +5,16 @@ This file provides guidance to coding agents working with code in this repositor
 ## Commands
 
 ### Development
-- `yarn dev` - Start Astro development server with Panda CSS watch mode at http://localhost:4321
-- `yarn build` - Generate Panda CSS, run type checks, and build static site (outputs to `dist/` directory)
-- `yarn preview` - Preview production build locally
-- `yarn panda` - Generate Panda CSS types and utilities
+- `pnpm dev` - Start Astro development server with Panda CSS watch mode at http://localhost:4321
+- `pnpm build` - Generate Panda CSS, run type checks, and build static site (outputs to `dist/` directory)
+- `pnpm preview` - Preview production build locally
+- `pnpm panda` - Generate Panda CSS types and utilities
 
 ### Quality Assurance
-- `yarn lint` - Run Biome linting checks
-- `yarn lint:fix` - Run Biome and fix auto-fixable issues
-- `yarn format` - Format code with Biome
-- `yarn lighthouce:ci` - Run Lighthouse CI performance tests (requires build first)
+- `pnpm lint` - Run Biome linting checks
+- `pnpm lint:fix` - Run Biome and fix auto-fixable issues
+- `pnpm format` - Format code with Biome
+- `pnpm lighthouce:ci` - Run Lighthouse CI performance tests (requires build first)
 
 ## Architecture
 
@@ -79,7 +79,7 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 
 ### Environment Requirements
 - Node.js >= 22
-- Yarn package manager
+- pnpm package manager
 - `MICRO_CMS_API_KEY` environment variable for content fetching
 
 ### Code Quality

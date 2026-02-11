@@ -2,6 +2,7 @@
   "name": "shgtkshruch.com",
   "version": "3.0.0",
   "private": true,
+  "packageManager": "pnpm@10.11.0",
   "author": "Shigetaka Shirouchi <info@shgtkshruch.com>",
   "description": "Portfolio",
   "repository": "https://github.com/shgtkshruch/shgtkshruch.com",
