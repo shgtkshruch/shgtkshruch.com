@@ -1,0 +1,20 @@
+---
+import { css } from '../../../styled-system/css';
+
+const containerStyles = css({
+  maxWidth: '48rem',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  paddingRight: '1.5rem',
+  paddingLeft: '1.5rem',
+  pc: {
+    maxWidth: '98rem',
+    paddingRight: '4rem',
+    paddingLeft: '4rem',
+  },
+});
+---
+
+<div class={containerStyles}>
+  <slot />
+</div>
