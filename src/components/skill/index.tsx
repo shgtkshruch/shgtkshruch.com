@@ -2,8 +2,8 @@ import { useState } from "react";
 import { css } from "../../../styled-system/css";
 
 import type { Skill } from "../../types/api";
-import Heading from "../islands/Hgroup";
 import Section from "../common/Section";
+import Heading from "../islands/Hgroup";
 import Item from "./Item";
 
 const listStyles = css({

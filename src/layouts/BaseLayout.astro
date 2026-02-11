@@ -1,6 +1,5 @@
 ---
-import { GA_TRACKING_ID } from '../lib/gtag';
-import '../styles/index.css';
+import "../styles/index.css";
 
 export interface Props {
   title?: string;
@@ -8,12 +7,13 @@ export interface Props {
 }
 
 const {
-  title = 'Shigetaka Shirouchi',
+  title = "Shigetaka Shirouchi",
   description = "I'm a Front-End Engineer.",
 } = Astro.props;
 
-const siteUrl = 'https://shgtkshruch.com';
+const siteUrl = "https://shgtkshruch.com";
 const ogImage = `${siteUrl}/ogp.png`;
+const GA_TRACKING_ID = import.meta.env.PUBLIC_GA_TRACKING_ID || "";
 ---
 
 <!DOCTYPE html>

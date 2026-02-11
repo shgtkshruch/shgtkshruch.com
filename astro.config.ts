@@ -1,10 +1,10 @@
-import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: 'https://shgtkshruch.com',
-  output: 'static',
+  site: "https://shgtkshruch.com",
+  output: "static",
 
   integrations: [
     react(), // React Islands用
@@ -14,12 +14,12 @@ export default defineConfig({
   vite: {
     ssr: {
       // microCMS APIアクセスのためのexternal設定
-      noExternal: ['react-intersection-observer', 'react-typist-component'],
+      noExternal: ["react-intersection-observer", "react-typist-component"],
     },
   },
 
   // ビルド設定
   build: {
-    inlineStylesheets: 'auto', // パフォーマンス最適化
+    inlineStylesheets: "auto", // パフォーマンス最適化
   },
 });

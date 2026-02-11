@@ -1,54 +1,54 @@
 ---
-import { css } from '../../../styled-system/css';
+import { css } from "../../../styled-system/css";
 
-const scrollStyles = css({
-  width: '1em',
-  height: '3.125em',
-  transform: 'translateX(-50%) scale(2)',
+const _scrollStyles = css({
+  width: "1em",
+  height: "3.125em",
+  transform: "translateX(-50%) scale(2)",
   zIndex: 99999,
 });
 
-const arrowStyles = css({
-  '& span, &::after, &::before': {
-    display: 'block',
-    width: '0.315em',
-    height: '0.315em',
-    borderRight: '1px solid currentColor',
-    borderBottom: '1px solid currentColor',
-    margin: '0 0 0.125em 0.315em',
-    transform: 'rotate(45deg)',
-    animation: 'mouse-scroll 1s infinite',
-    animationDirection: 'alternate',
+const _arrowStyles = css({
+  "& span, &::after, &::before": {
+    display: "block",
+    width: "0.315em",
+    height: "0.315em",
+    borderRight: "1px solid currentColor",
+    borderBottom: "1px solid currentColor",
+    margin: "0 0 0.125em 0.315em",
+    transform: "rotate(45deg)",
+    animation: "mouse-scroll 1s infinite",
+    animationDirection: "alternate",
   },
-  '&::after, &::before': {
+  "&::after, &::before": {
     content: '""',
   },
-  '&::before': {
-    marginTop: '0.315em',
-    animationDelay: '0.1s',
+  "&::before": {
+    marginTop: "0.315em",
+    animationDelay: "0.1s",
   },
-  '&::after': {
-    animationDelay: '0.3s',
+  "&::after": {
+    animationDelay: "0.3s",
   },
-  '& span': {
-    animationDelay: '0.2s',
+  "& span": {
+    animationDelay: "0.2s",
   },
 });
 
-const mouseStyles = css({
-  height: '1.375em',
-  width: '0.875em',
-  border: '1px solid currentColor',
-  borderRadius: '2em',
+const _mouseStyles = css({
+  height: "1.375em",
+  width: "0.875em",
+  border: "1px solid currentColor",
+  borderRadius: "2em",
 });
 
-const wheelStyles = css({
-  height: '0.1875em',
-  width: '0.1875em',
-  margin: '0.1875em auto 0',
-  backgroundColor: 'currentColor',
-  animation: 'mouse-wheel 1.4s ease infinite',
-  borderRadius: '50%',
+const _wheelStyles = css({
+  height: "0.1875em",
+  width: "0.1875em",
+  margin: "0.1875em auto 0",
+  backgroundColor: "currentColor",
+  animation: "mouse-wheel 1.4s ease infinite",
+  borderRadius: "50%",
 });
 ---
 

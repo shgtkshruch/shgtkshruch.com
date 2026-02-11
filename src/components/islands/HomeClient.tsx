@@ -1,10 +1,10 @@
 import { useState } from "react";
+import type { Contact, History, Skill, Work } from "../../types/api";
 import Contacts from "../contact";
 import Histories from "../history";
 import Intro from "../intro";
 import Skills from "../skill";
 import Works from "../work";
-import type { Contact, History, Skill, Work } from "../../types/api";
 
 type HomeProps = {
   works: Work[];
