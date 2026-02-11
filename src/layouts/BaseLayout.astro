@@ -1,0 +1,83 @@
+---
+import "../styles/index.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Shigetaka Shirouchi",
+  description = "I'm a Front-End Engineer.",
+} = Astro.props;
+
+const siteUrl = "https://shgtkshruch.com";
+const ogImage = `${siteUrl}/ogp.png`;
+const GA_TRACKING_ID = import.meta.env.PUBLIC_GA_TRACKING_ID || "";
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:description" content={description} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@shgtkshruch" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <title>{title}</title>
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/f5bfd049f6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Google Analytics -->
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></script>
+    <script is:inline define:vars={{ GA_TRACKING_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', GA_TRACKING_ID);
+    </script>
+
+    <!-- Theme initialization (FOUC prevention) -->
+    <script is:inline>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+      const colors = {
+        light: { primary: '#222', bg: '#fff', accent: 'red' },
+        dark: { primary: '#dee1e8', bg: '#161725', accent: '#ef40b8' }
+      };
+
+      document.documentElement.style.setProperty('--primary-color', colors[theme].primary);
+      document.documentElement.style.setProperty('--bg-color', colors[theme].bg);
+      document.documentElement.style.setProperty('--accent-color', colors[theme].accent);
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

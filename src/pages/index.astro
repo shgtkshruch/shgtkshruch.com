@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Container from "../components/layout/Container.astro";
+import Footer from "../components/footer/index.astro";
+import GitHubCorner from "../components/common/GitHubCorner.astro";
+import ColorTheme from "../components/islands/ColorTheme";
+import { HomeClient } from "../components/islands/HomeClient";
+import { getContacts, getHistory, getSkills, getWorks } from "../lib/microcms";
+
+const [works, history, skills, contacts] = await Promise.all([
+  getWorks(),
+  getHistory(),
+  getSkills(),
+  getContacts(),
+]);
+---
+
+<BaseLayout>
+  <Container>
+    <HomeClient
+      works={works}
+      history={history}
+      skills={skills}
+      contacts={contacts}
+      client:load
+    />
+    <Footer />
+  </Container>
+  <GitHubCorner />
+  <ColorTheme client:load />
+</BaseLayout>
