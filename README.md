@@ -25,13 +25,13 @@ A modern portfolio website built with Astro, TypeScript, and microCMS. Features 
 ### Prerequisites
 
 - Node.js >= 22
-- Yarn package manager
+- pnpm package manager
 - `MICRO_CMS_API_KEY` environment variable
 
 ### Development
 
 ```bash
-yarn dev           # Start Astro dev server with Panda CSS watch mode
+pnpm dev           # Start Astro dev server with Panda CSS watch mode
 ```
 
 Open [http://localhost:4321](http://localhost:4321) to view the site.
@@ -39,8 +39,8 @@ Open [http://localhost:4321](http://localhost:4321) to view the site.
 ### Build
 
 ```bash
-yarn build         # Generate Panda CSS, run type checks, and build static site
-yarn preview       # Preview production build locally
+pnpm build         # Generate Panda CSS, run type checks, and build static site
+pnpm preview       # Preview production build locally
 ```
 
 Generates static files in the `dist/` directory with optimized CSS.
@@ -48,7 +48,7 @@ Generates static files in the `dist/` directory with optimized CSS.
 ### Panda CSS
 
 ```bash
-yarn panda         # Generate Panda CSS utilities and tokens
+pnpm panda         # Generate Panda CSS utilities and tokens
 ```
 
 The `styled-system/` directory contains auto-generated CSS utilities and design tokens.
@@ -56,10 +56,10 @@ The `styled-system/` directory contains auto-generated CSS utilities and design 
 ### Code Quality
 
 ```bash
-yarn lint          # Run Biome linting checks
-yarn lint:fix      # Fix auto-fixable issues
-yarn format        # Format code
-yarn lighthouce:ci # Run Lighthouse CI (requires build first)
+pnpm lint          # Run Biome linting checks
+pnpm lint:fix      # Fix auto-fixable issues
+pnpm format        # Format code
+pnpm lighthouce:ci # Run Lighthouse CI (requires build first)
 ```
 
 ## Architecture
