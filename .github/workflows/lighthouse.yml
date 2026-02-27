@@ -10,7 +10,7 @@ jobs:
           version: 10.30.3
       - uses: actions/setup-node@v6
         with:
-          node-version: '24.13'
+          node-version: '24.14'
           check-latest: true
           cache: 'pnpm'
       - run: pnpm install
