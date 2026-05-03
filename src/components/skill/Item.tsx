@@ -62,10 +62,12 @@ const skillItemStyles = (startAnimation: boolean) =>
 const tooltipContentStyles = css({
   background: "rgba(0, 0, 0, 0.9)",
   color: "white",
-  padding: "8px 12px",
+  padding: "0.6rem 1rem",
   borderRadius: "4px",
+  fontFamily: "--fonts-japanese",
   fontSize: "0.875rem",
-  maxWidth: "300px",
+  letterSpacing: "0.05em",
+  maxWidth: "20rem",
   zIndex: 1000,
   boxShadow: "0 4px 14px rgba(0, 0, 0, 0.15)",
 });
@@ -100,12 +102,10 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
   return (
     <>
       <style>{keyframesStyle}</style>
-      <li
-        ref={refs.setReference}
-        className={skillItemStyles(startAnimation)}
-        {...getReferenceProps()}
-      >
-        {title}
+      <li className={skillItemStyles(startAnimation)}>
+        <button type="button" ref={refs.setReference} {...getReferenceProps()}>
+          {title}
+        </button>
       </li>
       {isOpen && (
         <FloatingPortal>
