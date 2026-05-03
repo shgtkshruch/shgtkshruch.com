@@ -6,7 +6,10 @@ const contactItemStyles = (isShow: boolean) =>
   css({
     opacity: 0,
     ...(isShow && {
-      animation: "fadeInUp 0.8s calc(sibling-index() * 0.05s) forwards",
+      animationName: "fadeInUp",
+      animationDuration: "0.8s",
+      animationDelay: "calc(sibling-index() * 0.05s)",
+      animationFillMode: "forwards",
     }),
   });
 

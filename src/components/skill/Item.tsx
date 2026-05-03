@@ -41,7 +41,10 @@ const skillItemStyles = (startAnimation: boolean) =>
     pointerEvents: "none",
     ...(startAnimation && {
       transition: "color 0.3s",
-      animation: "fadeIn 0.8s calc(sibling-index() * 0.03s) forwards",
+      animationName: "fadeIn",
+      animationDuration: "0.8s",
+      animationDelay: "calc(sibling-index() * 0.03s)",
+      animationFillMode: "forwards",
     }),
     "&::after": {
       content: '"/"',

@@ -7,9 +7,6 @@ type TextProps = {
   children: ReactNode;
 };
 
-const textCoverDelay = 0.1;
-const animationDuration = 0.9;
-
 const TextComponent: React.FC<TextProps> = ({
   className,
   onAnimationEnd,
@@ -30,7 +27,11 @@ const TextComponent: React.FC<TextProps> = ({
         width: "100%",
         height: "100%",
         backgroundColor: "currentColor",
-        animation: `fadeOut ${animationDuration}s calc(${textCoverDelay}s + sibling-index() * 0.08s) both ease-in-out`,
+        animationName: "fadeOut",
+        animationDuration: "0.9s",
+        animationDelay: "calc(0.1s + sibling-index() * 0.08s)",
+        animationFillMode: "both",
+        animationTimingFunction: "ease-in-out",
         zIndex: 1,
       },
     })} ${className || ""}`}
@@ -39,7 +40,7 @@ const TextComponent: React.FC<TextProps> = ({
     <span
       className={css({
         opacity: 0,
-        animation: `show 0.1s ${animationDuration}s forwards`,
+        animation: `show 0.1s 0.9s forwards`,
       })}
     >
       {children}
