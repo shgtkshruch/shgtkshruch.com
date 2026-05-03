@@ -32,31 +32,13 @@ const keyframesStyle = `
 
 const skillItemStyles = (startAnimation: boolean) =>
   css({
-    position: "relative",
-    marginRight: "1rem",
-    marginBottom: "0.4rem",
-    letterSpacing: "0.1em",
-    opacity: 0,
     fontSize: "1.1rem",
-    pointerEvents: "none",
-    ...(startAnimation && {
-      transition: "color 0.3s",
-      animationName: "fadeIn",
-      animationDuration: "0.8s",
-      animationDelay: "calc(sibling-index() * 0.03s)",
-      animationFillMode: "forwards",
-    }),
-    "&::after": {
-      content: '"/"',
-      position: "absolute",
-      top: 0,
-      left: "100%",
-      color: "var(--primary-color)",
-    },
     pc: {
-      marginBottom: "1.6rem",
       fontSize: "1.2rem",
       _hover: {
+        color: "var(--accent-color)",
+      },
+      _focus: {
         color: "var(--accent-color)",
       },
     },
@@ -105,8 +87,38 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
   return (
     <>
       <style>{keyframesStyle}</style>
-      <li className={skillItemStyles(startAnimation)}>
-        <button type="button" ref={refs.setReference} {...getReferenceProps()}>
+      <li
+        className={css({
+          opacity: 0,
+          position: "relative",
+          marginBottom: "0.4rem",
+          letterSpacing: "0.1em",
+          ...(startAnimation && {
+            transition: "color 0.3s",
+            animationName: "fadeIn",
+            animationDuration: "0.8s",
+            animationDelay: "calc(sibling-index() * 0.03s)",
+            animationFillMode: "forwards",
+          }),
+          "&:not(:last-child)::after": {
+            content: '"/"',
+            position: "absolute",
+            top: 0,
+            left: "calc(100% + var(--skill-gap) / 2)",
+            transform: "translateX(-50%)",
+            color: "var(--primary-color)",
+          },
+          pc: {
+            marginBottom: "1.6rem",
+          },
+        })}
+      >
+        <button
+          type="button"
+          ref={refs.setReference}
+          className={skillItemStyles(startAnimation)}
+          {...getReferenceProps()}
+        >
           {title}
         </button>
       </li>

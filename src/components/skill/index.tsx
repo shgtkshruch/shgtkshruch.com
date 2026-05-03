@@ -8,12 +8,15 @@ import Item from "./Item";
 
 const listStyles = css({
   display: "flex",
+  "--skill-gap": "1rem",
+  columnGap: "var(--skill-gap)",
   flexWrap: "wrap",
   justifyContent: "center",
   maxWidth: "55rem",
   margin: "3rem auto -1.6rem",
   pc: {
     marginTop: "5rem",
+    "--skill-gap": "1.6rem",
   },
 });
 
