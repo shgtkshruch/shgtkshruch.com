@@ -6,7 +6,7 @@ import Mouse from "./Mouse";
 
 const sectionStyles = css({
   position: "relative",
-  height: "100vh",
+  height: "100svh",
 });
 
 const wrapperStyles = css({
