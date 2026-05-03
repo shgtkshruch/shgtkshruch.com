@@ -30,19 +30,18 @@ const keyframesStyle = `
 }
 `;
 
-const skillItemStyles = (startAnimation: boolean) =>
-  css({
-    fontSize: "1.1rem",
-    pc: {
-      fontSize: "1.2rem",
-      _hover: {
-        color: "var(--accent-color)",
-      },
-      _focus: {
-        color: "var(--accent-color)",
-      },
+const skillItemStyles = css({
+  fontSize: "1.1rem",
+  pc: {
+    fontSize: "1.2rem",
+    _hover: {
+      color: "var(--accent-color)",
     },
-  });
+    _focus: {
+      color: "var(--accent-color)",
+    },
+  },
+});
 
 const tooltipContentStyles = css({
   background: "rgba(0, 0, 0, 0.9)",
@@ -116,7 +115,7 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
         <button
           type="button"
           ref={refs.setReference}
-          className={skillItemStyles(startAnimation)}
+          className={skillItemStyles}
           {...getReferenceProps()}
         >
           {title}
