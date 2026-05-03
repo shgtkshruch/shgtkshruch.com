@@ -68,12 +68,15 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setView(true);
-        observer.disconnect();
-      }
-    }, { threshold: 0.5 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.5 },
+    );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
