@@ -18,13 +18,13 @@ A modern portfolio website built with Astro, TypeScript, and microCMS. Features 
 - **Panda CSS** for zero-runtime CSS-in-JS styling with atomic CSS generation
 - **Biome** for linting and formatting (replaces ESLint/Prettier)
 - **microCMS** as headless CMS for content management
-- **React libraries**: react-typist-component, @floating-ui/react, react-intersection-observer
+- **React libraries**: react-typist-component (typing animations), @floating-ui/react (tooltips)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js >= 22
+- Node.js >= 24
 - pnpm package manager
 - `MICRO_CMS_API_KEY` environment variable
 
@@ -135,7 +135,7 @@ styled-system/            # Auto-generated (gitignored)
 dist/                     # Build output (gitignored)
 
 panda.config.ts           # Panda CSS configuration
-astro.config.mjs          # Astro configuration
+astro.config.ts           # Astro configuration
 ```
 
 ## Performance Features

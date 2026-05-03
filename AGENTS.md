@@ -27,7 +27,7 @@ This is a portfolio website built with Astro and TypeScript, using static site g
 - **Panda CSS** for CSS-in-JS styling with atomic CSS generation
 - **Biome** for linting and formatting (replaces ESLint/Prettier)
 - **microCMS** as headless CMS for content management
-- **React libraries**: react-typist-component (typing animations), @floating-ui/react (tooltips), react-intersection-observer
+- **React libraries**: react-typist-component (typing animations), @floating-ui/react (tooltips)
 
 ### Application Structure
 
@@ -57,7 +57,7 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 - **Light/dark theme**: Automatic theme detection with CSS custom properties
 - **Theme colors and media queries**: Centralized in `src/components/variables.ts`
 - **Code formatting**: Biome configured with double quotes and space indentation
-- **Global styles**: Defined in `src/styles/index.css`
+- **Global styles**: Defined in `panda.config.ts` (`globalCss`) — includes `.sr-only` and `.jp` utility classes
 
 ### Component Organization
 - **Pages**: `src/pages/index.astro` - Main page with data fetching
@@ -78,7 +78,7 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 - Lighthouse CI configured to test the built output
 
 ### Environment Requirements
-- Node.js >= 22
+- Node.js >= 24
 - pnpm package manager
 - `MICRO_CMS_API_KEY` environment variable for content fetching
 
