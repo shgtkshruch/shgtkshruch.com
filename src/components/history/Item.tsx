@@ -39,27 +39,8 @@ const itemStyles = (typingDone: boolean) =>
       marginBottom: "5rem",
     },
     ...(typingDone && {
-      "&:nth-of-type(1)": {
-        animation: "fadeInUp 0.8s 0.9s forwards ease-in-out",
-      },
-      "&:nth-of-type(2)": {
-        animation: "fadeInUp 0.8s 1.02s forwards ease-in-out",
-      },
-      "&:nth-of-type(3)": {
-        animation: "fadeInUp 0.8s 1.14s forwards ease-in-out",
-      },
-      "&:nth-of-type(4)": {
-        animation: "fadeInUp 0.8s 1.26s forwards ease-in-out",
-      },
-      "&:nth-of-type(5)": {
-        animation: "fadeInUp 0.8s 1.38s forwards ease-in-out",
-      },
-      "&:nth-of-type(6)": {
-        animation: "fadeInUp 0.8s 1.5s forwards ease-in-out",
-      },
-      "&:nth-of-type(7)": {
-        animation: "fadeInUp 0.8s 1.62s forwards ease-in-out",
-      },
+      animation:
+        "fadeInUp 0.5s calc(0.8s + sibling-index() * 0.05s) forwards ease-in-out",
     }),
   });
 
