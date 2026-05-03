@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { InView } from "react-intersection-observer";
+import { useEffect, useRef, useState } from "react";
 import { css } from "../../../styled-system/css";
 
 import type { Work } from "../../types/api";
@@ -20,7 +19,7 @@ const itemStyles = css({
     justifyContent: "space-between",
     alignItems: "center",
     "&:not(:last-child)": {
-      marginBottom: "14rem",
+      marginBottom: "20rem",
     },
   },
 });
@@ -66,13 +65,21 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
 
   const [inview, setView] = useState(false);
   const [textAnimationDone, setTextAnimationDone] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setView(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <InView
-      as="div"
-      onChange={(inview, _) => (inview ? setView(true) : false)}
-      className={itemStyles}
-    >
+    <div ref={ref} className={itemStyles}>
       <div className={dataStyles(isTypingDone && inview, textAnimationDone)}>
         <Text>
           title:
@@ -104,7 +111,7 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
           <img src={image.url} alt={title} />
         </picture>
       </a>
-    </InView>
+    </div>
   );
 };
 

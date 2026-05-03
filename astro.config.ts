@@ -13,8 +13,7 @@ export default defineConfig({
 
   vite: {
     ssr: {
-      // microCMS APIアクセスのためのexternal設定
-      noExternal: ["react-intersection-observer", "react-typist-component"],
+      noExternal: ["react-typist-component"],
     },
   },
 
