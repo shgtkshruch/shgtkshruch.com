@@ -6,7 +6,7 @@ import Section from "../common/Section";
 import Heading from "../islands/Hgroup";
 import Item from "./Item";
 
-const listStyles = css({
+const listBaseStyles = {
   display: "flex",
   "--skill-gap": "1rem",
   columnGap: "var(--skill-gap)",
@@ -18,27 +18,27 @@ const listStyles = css({
     marginTop: "5rem",
     "--skill-gap": "1.6rem",
   },
-});
+} as const;
 
-const Skills: React.FC<{ next: () => void; items: Skill[] }> = ({
-  next,
-  items,
-}) => {
+const Skills: React.FC<{ items: Skill[] }> = ({ items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
-
-  function onTypingDone() {
-    setIsTypingDone(true);
-    next();
-  }
 
   return (
     <Section>
       <Heading
         title="skill"
         subTitle="End-to-end thinking, from browser to server."
-        onTypingDone={onTypingDone}
+        onTypingDone={() => setIsTypingDone(true)}
       />
-      <ul className={listStyles}>
+      <ul
+        inert={!isTypingDone || undefined}
+        className={css({
+          ...listBaseStyles,
+          opacity: isTypingDone ? 1 : 0,
+          visibility: isTypingDone ? "visible" : "hidden",
+          transition: "opacity 0.6s ease",
+        })}
+      >
         {items.map((item) => (
           <Item key={item.id} item={item} startAnimation={isTypingDone} />
         ))}

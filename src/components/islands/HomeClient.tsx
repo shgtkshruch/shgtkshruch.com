@@ -20,10 +20,10 @@ export function HomeClient({ works, history, skills, contacts }: HomeProps) {
   return (
     <main>
       <Intro next={next} />
-      {index > 0 && <Works next={next} items={works} />}
-      {index > 1 && <Histories next={next} items={history} />}
-      {index > 2 && <Skills next={next} items={skills} />}
-      {index > 3 && <Contacts items={contacts} />}
+      {index > 0 && <Works items={works} />}
+      {index > 0 && <Histories items={history} />}
+      {index > 0 && <Skills items={skills} />}
+      {index > 0 && <Contacts items={contacts} />}
     </main>
   );
 }

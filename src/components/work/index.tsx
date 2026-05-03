@@ -6,30 +6,26 @@ import Section from "../common/Section";
 import Heading from "../islands/Hgroup";
 import Item from "./Item";
 
-const Works: React.FC<{ next: () => void; items: Work[] }> = ({
-  next,
-  items,
-}) => {
+const Works: React.FC<{ items: Work[] }> = ({ items }) => {
   const [isTypingDone, setIsTypingDone] = useState(false);
-
-  function onTypingDone() {
-    setIsTypingDone(true);
-    next();
-  }
 
   return (
     <Section className="work">
       <Heading
         title="work"
         subTitle="Writing code wherever, from companies to open source."
-        onTypingDone={onTypingDone}
+        onTypingDone={() => setIsTypingDone(true)}
       />
       <div
+        inert={!isTypingDone || undefined}
         className={css({
           paddingTop: "4rem",
           pc: {
             paddingTop: "14rem",
           },
+          opacity: isTypingDone ? 1 : 0,
+          visibility: isTypingDone ? "visible" : "hidden",
+          transition: "opacity 0.6s ease",
         })}
       >
         {items.map((item) => (

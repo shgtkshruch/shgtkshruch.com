@@ -1,7 +1,8 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useState } from "react";
 import { css } from "../../../styled-system/css";
 
 import type { Work } from "../../types/api";
+import { useInView } from "../../hooks/useInView";
 import Link from "../common/Link";
 import Text from "../common/Text";
 
@@ -59,33 +60,18 @@ const linkStyles = (isShow: boolean, textAnimationDone: boolean) =>
     },
   });
 
-const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
-  isTypingDone,
+const Item: React.FC<{ item: Work; isTypingDone: boolean }> = ({
   item,
+  isTypingDone,
 }) => {
   const { title, titleLang, age, url, body, image } = item;
 
-  const [inview, setView] = useState(false);
+  const { ref, inView } = useInView<HTMLDivElement>();
   const [textAnimationDone, setTextAnimationDone] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.5 },
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <div ref={ref} className={itemStyles}>
-      <div className={dataStyles(isTypingDone && inview, textAnimationDone)}>
+      <div className={dataStyles(inView && isTypingDone, textAnimationDone)}>
         <Text>
           title:
           <span className={titleLang}> {title}</span>
@@ -120,7 +106,7 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className={linkStyles(isTypingDone && inview, textAnimationDone)}
+        className={linkStyles(inView && isTypingDone, textAnimationDone)}
       >
         <picture>
           <source type="image/webp" srcSet={`${image.url}?fm=webp&w=1200`} />

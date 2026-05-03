@@ -1,27 +1,21 @@
-import { useEffect, useRef, useState } from "react";
 import Typist from "react-typist-component";
 import { css } from "../../../styled-system/css";
+import { useInView } from "../../hooks/useInView";
 
 type HgroupProps = {
   title: string;
   subTitle: string;
-  onTypingDone: () => void;
+  onTypingDone?: () => void;
+  intersectionOptions?: IntersectionObserverInit;
 };
 
-const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
-  const [inview, setView] = useState(false);
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setView(true);
-        observer.disconnect();
-      }
-    });
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
+const Hgroup: React.FC<HgroupProps> = ({
+  title,
+  subTitle,
+  onTypingDone,
+  intersectionOptions,
+}) => {
+  const { ref, inView } = useInView<HTMLElement>(intersectionOptions);
 
   return (
     <hgroup
@@ -30,7 +24,7 @@ const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
         textAlign: "center",
       })}
     >
-      {inview && (
+      {inView && (
         <Typist startDelay={500} typingDelay={30} onTypingDone={onTypingDone}>
           <h2
             className={css({

@@ -17,10 +17,10 @@ const SectionComponent: React.FC<SectionProps> = ({
     className={`${css({
       padding: "3rem 0",
       pc: {
-        padding: "9rem 0",
+        padding: "10rem 0",
       },
       _firstOfType: {
-        paddingTop: 0,
+        padding: 0,
       },
     })} ${className || ""}`}
   >

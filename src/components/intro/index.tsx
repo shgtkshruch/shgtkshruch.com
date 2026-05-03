@@ -43,6 +43,7 @@ const Index: React.FC<{ next: () => void }> = ({ next }) => {
           title="Shigetaka Shirouchi"
           subTitle="I'm a Front-End Engineer."
           onTypingDone={onTypingDone}
+          intersectionOptions={{ rootMargin: "0px 0px 0px 0px" }}
         />
       </div>
       <div className={mouseWrapperStyles(isMouseShow)}>

@@ -7,7 +7,7 @@ import Heading from "../islands/Hgroup";
 import { breakpoints } from "../variables";
 import Item from "./Item";
 
-const listStyles = (typingDone: boolean) =>
+const listStyles = (startAnimation: boolean) =>
   css({
     display: "inline-block",
     textAlign: "left",
@@ -24,7 +24,7 @@ const listStyles = (typingDone: boolean) =>
       top: 0,
       left: 0,
       width: "1px",
-      height: typingDone ? "100%" : 0,
+      height: startAnimation ? "100%" : 0,
       backgroundColor: "currentColor",
       transition: "height 0.8s ease-in-out",
     },
@@ -36,12 +36,9 @@ const sectionStyles = css({
   textAlign: "center",
 });
 
-const Histories: React.FC<{ next: () => void; items: History[] }> = ({
-  next,
-  items,
-}) => {
+const Histories: React.FC<{ items: History[] }> = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [typingDone, setTypingDone] = useState(false);
+  const [isTypingDone, setIsTypingDone] = useState(false);
 
   function updateCurrentIndex(index: number) {
     if (isPc()) setCurrentIndex(index);
@@ -59,25 +56,20 @@ const Histories: React.FC<{ next: () => void; items: History[] }> = ({
     return window.innerWidth < breakpoints.pc;
   }
 
-  function onTypingDone() {
-    setTypingDone(true);
-    next();
-  }
-
   return (
     <Section className={sectionStyles}>
       <Heading
         title="history"
         subTitle="Self-taught engineer, turning curiosity into craft."
-        onTypingDone={onTypingDone}
+        onTypingDone={() => setIsTypingDone(true)}
       />
-      <ul className={listStyles(typingDone)}>
+      <ul className={listStyles(isTypingDone)}>
         {items.map((item, i) => (
           <Item
             key={item.id}
             item={item}
             isSelected={isSelected(i)}
-            typingDone={typingDone}
+            startAnimation={isTypingDone}
             onAnimationEnd={() =>
               i === items.length - 1 && currentIndex === -1
                 ? setCurrentIndex(0)

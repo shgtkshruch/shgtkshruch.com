@@ -131,7 +131,7 @@ const moreButtonStyles = css({
 
 type ItemPComponentProps = {
   item: History;
-  typingDone: boolean;
+  startAnimation: boolean;
   isSelected: boolean;
   onAnimationEnd: () => void;
   updateCurrentIndex: () => void;
@@ -139,7 +139,7 @@ type ItemPComponentProps = {
 
 const ItemComponent: React.FC<ItemPComponentProps> = ({
   item,
-  typingDone,
+  startAnimation,
   isSelected,
   onAnimationEnd,
   updateCurrentIndex,
@@ -155,7 +155,10 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
     <>
       <style>{keyframesStyle}</style>
       <style>{lineKeyframesStyle}</style>
-      <li className={itemStyles(typingDone)} onAnimationEnd={onAnimationEnd}>
+      <li
+        className={itemStyles(startAnimation)}
+        onAnimationEnd={onAnimationEnd}
+      >
         <div className={headerStyles}>
           <span>{age}</span>
           <Link
