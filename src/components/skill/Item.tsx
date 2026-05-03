@@ -92,7 +92,7 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
           opacity: 0,
           position: "relative",
           marginBottom: "0.4rem",
-          letterSpacing: "0.1em",
+          letterSpacing: "0.05em",
           ...(startAnimation && {
             transition: "color 0.3s",
             animationName: "fadeIn",
