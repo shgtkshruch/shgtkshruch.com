@@ -27,6 +27,7 @@ const itemStyles = css({
 const dataStyles = (isShow: boolean, textAnimationDone: boolean) =>
   css({
     display: isShow ? "block" : "none",
+    lineHeight: 2,
     pointerEvents: textAnimationDone ? "auto" : "none",
     pc: {
       width: "37%",
@@ -97,7 +98,7 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
             {url}
           </Link>
         </Text>
-        <br />
+        <div className={css({ marginTop: "0.9rem" })} />
         {body.split("\n").map((t, i, arr) => (
           <Fragment key={`${title}-${t.slice(0, 20)}`}>
             <Text

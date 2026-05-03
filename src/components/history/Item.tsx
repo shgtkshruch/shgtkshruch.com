@@ -184,7 +184,7 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
           <Text
             display="inline-block"
             className={css({
-              marginTop: "0.4rem",
+              marginBlock: "0.4rem",
             })}
           >
             <Link

@@ -17,6 +17,7 @@ const TextComponent: React.FC<TextProps> = ({
   <div
     className={`${css({
       display,
+      paddingBlock: "0.15em",
       backgroundImage: "linear-gradient(currentColor, currentColor)",
       backgroundRepeat: "no-repeat",
       boxDecorationBreak: "clone",
@@ -30,7 +31,6 @@ const TextComponent: React.FC<TextProps> = ({
   >
     <span
       className={css({
-        lineHeight: 2.5,
         opacity: 0,
         animationName: "show",
         animationDuration: "0.1s",
