@@ -29,6 +29,7 @@ const dataStyles = (isShow: boolean, textAnimationDone: boolean) =>
     display: isShow ? "block" : "none",
     lineHeight: 2,
     pointerEvents: textAnimationDone ? "auto" : "none",
+    overflow: "hidden",
     pc: {
       width: "37%",
     },

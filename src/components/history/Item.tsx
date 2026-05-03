@@ -182,8 +182,8 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
           ))}
           <br />
           <Text
-            display="inline-block"
             className={css({
+              display: "inline-block",
               marginBlock: "0.4rem",
             })}
           >

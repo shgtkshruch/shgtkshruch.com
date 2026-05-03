@@ -3,20 +3,18 @@ import { css } from "../../../styled-system/css";
 
 type TextProps = {
   className?: string;
-  display?: "inline" | "inline-block";
   onAnimationEnd?: () => void;
   children: ReactNode;
 };
 
 const TextComponent: React.FC<TextProps> = ({
   className,
-  display = "inline",
   onAnimationEnd,
   children,
 }) => (
   <div
     className={`${css({
-      display,
+      display: "inline",
       paddingBlock: "0.15em",
       backgroundImage: "linear-gradient(currentColor, currentColor)",
       backgroundRepeat: "no-repeat",
