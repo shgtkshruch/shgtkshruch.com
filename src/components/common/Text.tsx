@@ -3,44 +3,39 @@ import { css } from "../../../styled-system/css";
 
 type TextProps = {
   className?: string;
+  display?: "inline" | "inline-block";
   onAnimationEnd?: () => void;
   children: ReactNode;
 };
 
 const TextComponent: React.FC<TextProps> = ({
   className,
+  display = "inline",
   onAnimationEnd,
   children,
 }) => (
   <div
     className={`${css({
-      display: "inline-block",
-      position: "relative",
-      "&:not(:last-child)": {
-        marginBottom: "0.7rem",
-      },
-      _before: {
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        backgroundColor: "currentColor",
-        animationName: "fadeOut",
-        animationDuration: "0.9s",
-        animationDelay: "calc(0.1s + sibling-index() * 0.08s)",
-        animationFillMode: "both",
-        animationTimingFunction: "ease-in-out",
-        zIndex: 1,
-      },
+      display,
+      backgroundImage: "linear-gradient(currentColor, currentColor)",
+      backgroundRepeat: "no-repeat",
+      boxDecorationBreak: "clone",
+      animationName: "fadeOut",
+      animationDuration: "0.9s",
+      animationDelay: "calc(0.1s + sibling-index() * 0.08s)",
+      animationFillMode: "both",
+      animationTimingFunction: "ease-in-out",
     })} ${className || ""}`}
     onAnimationEnd={onAnimationEnd}
   >
     <span
       className={css({
+        lineHeight: 2.5,
         opacity: 0,
-        animation: `show 0.1s 0.9s forwards`,
+        animationName: "show",
+        animationDuration: "0.1s",
+        animationDelay: "1s",
+        animationFillMode: "forwards",
       })}
     >
       {children}

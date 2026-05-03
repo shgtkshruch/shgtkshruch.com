@@ -91,20 +91,20 @@ export default defineConfig({
         },
         fadeOut: {
           "0%": {
-            transform: "scale(0, 1)",
-            transformOrigin: "left top",
+            backgroundSize: "0% 100%",
+            backgroundPosition: "left",
           },
           "30%": {
-            transform: "scale(1, 1)",
-            transformOrigin: "left top",
+            backgroundSize: "100% 100%",
+            backgroundPosition: "left",
           },
           "70%": {
-            transform: "scale(1, 1)",
-            transformOrigin: "right top",
+            backgroundSize: "100% 100%",
+            backgroundPosition: "right",
           },
           "100%": {
-            transform: "scale(0, 1)",
-            transformOrigin: "right top",
+            backgroundSize: "0% 100%",
+            backgroundPosition: "right",
           },
         },
         show: {

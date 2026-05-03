@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { css } from "../../../styled-system/css";
 
 import type { Work } from "../../types/api";
@@ -98,9 +98,21 @@ const Item: React.FC<{ isTypingDone: boolean; item: Work }> = ({
           </Link>
         </Text>
         <br />
-        <Text className="jp" onAnimationEnd={() => setTextAnimationDone(true)}>
-          {body}
-        </Text>
+        {body.split("\n").map((t, i, arr) => (
+          <Fragment key={`${title}-${t.slice(0, 20)}`}>
+            <Text
+              className="jp"
+              onAnimationEnd={
+                i === arr.length - 1
+                  ? () => setTextAnimationDone(true)
+                  : undefined
+              }
+            >
+              {t}
+            </Text>
+            {i < arr.length - 1 && <br />}
+          </Fragment>
+        ))}
       </div>
       <a
         href={url}

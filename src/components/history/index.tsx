@@ -31,7 +31,7 @@ const listStyles = (typingDone: boolean) =>
   });
 
 const sectionStyles = css({
-  maxWidth: "55rem",
+  maxWidth: "57rem",
   margin: "0 auto",
   textAlign: "center",
 });

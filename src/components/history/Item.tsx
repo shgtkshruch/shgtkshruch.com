@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { css } from "../../../styled-system/css";
 import type { History } from "../../types/api";
 import Link from "../common/Link";
@@ -121,9 +121,10 @@ const textWrapperStyles = (isSelected: boolean) =>
 
 const moreButtonStyles = css({
   display: "inline-block",
+  verticalAlign: "middle",
   border: "1px solid currentColor",
   textDecoration: "none",
-  padding: "0.5rem 1.4rem",
+  padding: "0.4rem 1.4rem",
   lineHeight: 1,
   letterSpacing: "0.06em",
 });
@@ -173,11 +174,19 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
           key={animationKey}
           className={`jp ${textWrapperStyles(isSelected)}`}
         >
-          {body.split("\n").map((t) => (
-            <Text key={`${title}-${t.slice(0, 20)}`}>{t}</Text>
+          {body.split("\n").map((t, i, arr) => (
+            <Fragment key={`${title}-${t.slice(0, 20)}`}>
+              <Text className="jp">{t}</Text>
+              {i < arr.length - 1 && <br />}
+            </Fragment>
           ))}
           <br />
-          <Text>
+          <Text
+            display="inline-block"
+            className={css({
+              marginTop: "0.4rem",
+            })}
+          >
             <Link
               className={moreButtonStyles}
               href={url}
