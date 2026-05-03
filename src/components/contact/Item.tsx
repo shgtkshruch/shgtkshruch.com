@@ -8,7 +8,7 @@ const contactItemStyles = (isShow: boolean) =>
     ...(isShow && {
       animationName: "fadeInUp",
       animationDuration: "0.8s",
-      animationDelay: "calc(sibling-index() * 0.05s)",
+      animationDelay: "calc(sibling-index() * 50ms)",
       animationFillMode: "forwards",
     }),
   });

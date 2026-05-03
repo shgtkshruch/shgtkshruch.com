@@ -39,8 +39,11 @@ const itemStyles = (typingDone: boolean) =>
       marginBottom: "5rem",
     },
     ...(typingDone && {
-      animation:
-        "fadeInUp 0.5s calc(0.8s + sibling-index() * 0.05s) forwards ease-in-out",
+      animationName: "fadeInUp",
+      animationDuration: "0.5s",
+      animationDelay: "calc(800ms + sibling-index() * 50ms)",
+      animationFillMode: "forwards",
+      animationTimingFunction: "ease-in-out",
     }),
   });
 
