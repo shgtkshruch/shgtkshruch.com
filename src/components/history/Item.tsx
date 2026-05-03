@@ -49,6 +49,9 @@ const itemStyles = (typingDone: boolean) =>
 
 const headerStyles = css({
   position: "relative",
+  display: "grid",
+  gridTemplateColumns: "5rem 1fr",
+  alignItems: "center",
   "&::before": {
     content: '""',
     position: "absolute",
@@ -64,7 +67,8 @@ const headerStyles = css({
 
 const nameStyles = (isShow: boolean) =>
   css({
-    marginLeft: "1.3rem",
+    width: "fit-content",
+    lineHeight: 1.2,
     letterSpacing: "0.05em",
     fontSize: "1.2rem",
     cursor: "pointer",
@@ -74,14 +78,14 @@ const nameStyles = (isShow: boolean) =>
     fontFamily: "inherit",
     outline: "none",
     "&::before": {
-      left: "-5%",
+      left: "-7.5%",
       transform: "skew(-25deg)",
       ...(isShow && {
-        width: "110%",
+        width: "115%",
       }),
     },
     "&:hover::before": {
-      width: "110% !important",
+      width: "115% !important",
     },
     ...(isShow && {
       color: "var(--bg-color)",
