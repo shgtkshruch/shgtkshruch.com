@@ -31,7 +31,7 @@ const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone }) => {
       })}
     >
       {inview && (
-        <Typist startDelay={500} typingDelay={35} onTypingDone={onTypingDone}>
+        <Typist startDelay={500} typingDelay={30} onTypingDone={onTypingDone}>
           <h2
             className={css({
               display: "inline-block",

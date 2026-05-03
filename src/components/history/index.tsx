@@ -68,7 +68,7 @@ const Histories: React.FC<{ next: () => void; items: History[] }> = ({
     <Section className={sectionStyles}>
       <Heading
         title="history"
-        subTitle="Learn WEB technology with Internet."
+        subTitle="Self-taught engineer, turning curiosity into craft."
         onTypingDone={onTypingDone}
       />
       <ul className={listStyles(typingDone)}>

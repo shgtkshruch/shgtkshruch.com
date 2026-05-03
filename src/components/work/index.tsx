@@ -21,7 +21,7 @@ const Works: React.FC<{ next: () => void; items: Work[] }> = ({
     <Section className="work">
       <Heading
         title="work"
-        subTitle="Write code anywhere in the company or OSS."
+        subTitle="Writing code wherever, from companies to open source."
         onTypingDone={onTypingDone}
       />
       <div

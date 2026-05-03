@@ -35,7 +35,7 @@ const Skills: React.FC<{ next: () => void; items: Skill[] }> = ({
     <Section>
       <Heading
         title="skill"
-        subTitle="Adopt the latest tools and methodology."
+        subTitle="End-to-end thinking, from browser to server."
         onTypingDone={onTypingDone}
       />
       <ul className={listStyles}>
