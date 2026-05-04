@@ -27,11 +27,7 @@ const Hgroup: React.FC<HgroupProps> = ({
       })}
     >
       {inView && (
-        <Typist
-          startDelay={startDelay}
-          typingDelay={30}
-          onTypingDone={onTypingDone}
-        >
+        <Typist startDelay={startDelay} typingDelay={30} onTypingDone={onTypingDone}>
           <h2
             className={css({
               display: "inline-block",
