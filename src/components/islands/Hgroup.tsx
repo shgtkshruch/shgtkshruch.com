@@ -9,12 +9,7 @@ type HgroupProps = {
   intersectionOptions?: IntersectionObserverInit;
 };
 
-const Hgroup: React.FC<HgroupProps> = ({
-  title,
-  subTitle,
-  onTypingDone,
-  intersectionOptions,
-}) => {
+const Hgroup: React.FC<HgroupProps> = ({ title, subTitle, onTypingDone, intersectionOptions }) => {
   const { ref, inView } = useInView<HTMLElement>(intersectionOptions);
 
   return (

@@ -57,10 +57,7 @@ const tooltipContentStyles = css({
   boxShadow: "0 4px 14px rgba(0, 0, 0, 0.15)",
 });
 
-const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
-  item,
-  startAnimation,
-}) => {
+const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({ item, startAnimation }) => {
   const { title, body } = item;
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef(null);
@@ -78,12 +75,7 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
   const dismiss = useDismiss(context);
   const role = useRole(context, { role: "tooltip" });
 
-  const { getReferenceProps, getFloatingProps } = useInteractions([
-    hover,
-    focus,
-    dismiss,
-    role,
-  ]);
+  const { getReferenceProps, getFloatingProps } = useInteractions([hover, focus, dismiss, role]);
 
   return (
     <>
@@ -99,8 +91,7 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
             transition: "color 0.3s",
             animationName: "fadeIn",
             animationDuration: "0.8s",
-            animationDelay:
-              "calc(var(--sibling-index, sibling-index()) * 0.03s)",
+            animationDelay: "calc(var(--sibling-index, sibling-index()) * 0.03s)",
             animationFillMode: "forwards",
           }),
           "&:not(:last-child)::after": {
@@ -134,11 +125,7 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
             {...getFloatingProps()}
           >
             {body}
-            <FloatingArrow
-              ref={arrowRef}
-              context={context}
-              fill="rgba(0, 0, 0, 0.9)"
-            />
+            <FloatingArrow ref={arrowRef} context={context} fill="rgba(0, 0, 0, 0.9)" />
           </div>
         </FloatingPortal>
       )}

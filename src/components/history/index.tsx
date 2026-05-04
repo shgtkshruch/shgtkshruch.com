@@ -71,9 +71,7 @@ const Histories: React.FC<{ items: History[] }> = ({ items }) => {
             isSelected={isSelected(i)}
             startAnimation={isTypingDone}
             onAnimationEnd={() =>
-              i === items.length - 1 && currentIndex === -1
-                ? setCurrentIndex(0)
-                : false
+              i === items.length - 1 && currentIndex === -1 ? setCurrentIndex(0) : false
             }
             updateCurrentIndex={() => updateCurrentIndex(i)}
           />

@@ -59,10 +59,7 @@ const linkStyles = (isShow: boolean, textAnimationDone: boolean) =>
     },
   });
 
-const Item: React.FC<{ item: Work; isTypingDone: boolean }> = ({
-  item,
-  isTypingDone,
-}) => {
+const Item: React.FC<{ item: Work; isTypingDone: boolean }> = ({ item, isTypingDone }) => {
   const { title, titleLang, age, url, body, image } = item;
 
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -89,11 +86,7 @@ const Item: React.FC<{ item: Work; isTypingDone: boolean }> = ({
           <Fragment key={`${title}-${t.slice(0, 20)}`}>
             <Text
               className="jp"
-              onAnimationEnd={
-                i === arr.length - 1
-                  ? () => setTextAnimationDone(true)
-                  : undefined
-              }
+              onAnimationEnd={i === arr.length - 1 ? () => setTextAnimationDone(true) : undefined}
             >
               {t}
             </Text>

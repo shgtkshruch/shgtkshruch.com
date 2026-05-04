@@ -7,11 +7,7 @@ type SectionProps = {
   children: ReactNode;
 };
 
-const SectionComponent: React.FC<SectionProps> = ({
-  id,
-  className,
-  children,
-}) => (
+const SectionComponent: React.FC<SectionProps> = ({ id, className, children }) => (
   <section
     id={id}
     className={`${css({

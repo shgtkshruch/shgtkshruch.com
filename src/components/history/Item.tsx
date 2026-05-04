@@ -42,8 +42,7 @@ const itemStyles = (typingDone: boolean) =>
     ...(typingDone && {
       animationName: "fadeInUp",
       animationDuration: "0.5s",
-      animationDelay:
-        "calc(800ms + var(--sibling-index, sibling-index()) * 50ms)",
+      animationDelay: "calc(800ms + var(--sibling-index, sibling-index()) * 50ms)",
       animationFillMode: "forwards",
       animationTimingFunction: "ease-in-out",
     }),
@@ -159,11 +158,7 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
     <>
       <style>{keyframesStyle}</style>
       <style>{lineKeyframesStyle}</style>
-      <li
-        ref={ref}
-        className={itemStyles(startAnimation)}
-        onAnimationEnd={onAnimationEnd}
-      >
+      <li ref={ref} className={itemStyles(startAnimation)} onAnimationEnd={onAnimationEnd}>
         <div className={headerStyles}>
           <span>{age}</span>
           <Link
@@ -178,10 +173,7 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
             {title}
           </Link>
         </div>
-        <div
-          key={animationKey}
-          className={`jp ${textWrapperStyles(isSelected)}`}
-        >
+        <div key={animationKey} className={`jp ${textWrapperStyles(isSelected)}`}>
           {body.split("\n").map((t, i, arr) => (
             <Fragment key={`${title}-${t.slice(0, 20)}`}>
               <Text className="jp">{t}</Text>
@@ -195,12 +187,7 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
               marginBlock: "0.4rem",
             })}
           >
-            <Link
-              className={moreButtonStyles}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link className={moreButtonStyles} href={url} target="_blank" rel="noopener noreferrer">
               more
             </Link>
           </Text>

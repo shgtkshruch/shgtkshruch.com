@@ -8,11 +8,7 @@ type TextProps = {
   children: ReactNode;
 };
 
-const TextComponent: React.FC<TextProps> = ({
-  className,
-  onAnimationEnd,
-  children,
-}) => {
+const TextComponent: React.FC<TextProps> = ({ className, onAnimationEnd, children }) => {
   const ref = useSiblingIndex<HTMLDivElement>();
   return (
     <div
@@ -25,8 +21,7 @@ const TextComponent: React.FC<TextProps> = ({
         boxDecorationBreak: "clone",
         animationName: "fadeOut",
         animationDuration: "0.9s",
-        animationDelay:
-          "calc(0.1s + var(--sibling-index, sibling-index()) * 0.08s)",
+        animationDelay: "calc(0.1s + var(--sibling-index, sibling-index()) * 0.08s)",
         animationFillMode: "both",
         animationTimingFunction: "ease-in-out",
       })} ${className || ""}`}

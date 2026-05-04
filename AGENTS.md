@@ -5,12 +5,14 @@ This file provides guidance to coding agents working with code in this repositor
 ## Commands
 
 ### Development
+
 - `pnpm dev` - Start Astro development server with Panda CSS watch mode at http://localhost:4321
 - `pnpm build` - Generate Panda CSS, run type checks, and build static site (outputs to `dist/` directory)
 - `pnpm preview` - Preview production build locally
 - `pnpm panda` - Generate Panda CSS types and utilities
 
 ### Quality Assurance
+
 - `pnpm lint` - Run Biome linting checks
 - `pnpm lint:fix` - Run Biome and fix auto-fixable issues
 - `pnpm format` - Format code with Biome
@@ -21,6 +23,7 @@ This file provides guidance to coding agents working with code in this repositor
 This is a portfolio website built with Astro and TypeScript, using static site generation.
 
 ### Key Technologies
+
 - **Astro 5** with static output (`output: 'static'`) and Islands Architecture
 - **@astrojs/react** for React Islands (interactive components)
 - **@astrojs/sitemap** for SEO optimization
@@ -32,10 +35,12 @@ This is a portfolio website built with Astro and TypeScript, using static site g
 ### Application Structure
 
 The site uses Astro's Islands Architecture with selective hydration:
+
 - **Astro Components** (`.astro`): Static components rendered at build time
 - **React Islands** (`.tsx`): Interactive components with client-side hydration
 
 Progressive section reveal pattern:
+
 1. **Intro** - Landing section with typing animation
 2. **Works** - Portfolio projects (index > 0)
 3. **History** - Work experience (index > 1)
@@ -45,6 +50,7 @@ Progressive section reveal pattern:
 Each section is conditionally rendered based on the `index` state managed in `HomeClient.tsx` React Island.
 
 ### Data Flow
+
 - Content is fetched from microCMS API during build time in Astro pages
 - API endpoints follow pattern: `https://shgtkshruch.microcms.io/api/v1/{path}?limit=30&filters=active[equals]true`
 - Requires `MICRO_CMS_API_KEY` environment variable
@@ -52,6 +58,7 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 - Data flows from Astro page (`src/pages/index.astro`) to React Island (`src/components/islands/HomeClient.tsx`)
 
 ### Styling System
+
 - **Panda CSS** with atomic CSS generation and design tokens
 - **Responsive breakpoints**: mobile (600px), desktop (1200px) defined in `src/components/variables.ts`
 - **Light/dark theme**: Automatic theme detection with CSS custom properties
@@ -60,6 +67,7 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 - **Global styles**: Defined in `panda.config.ts` (`globalCss`) — includes `.sr-only` and `.jp` utility classes
 
 ### Component Organization
+
 - **Pages**: `src/pages/index.astro` - Main page with data fetching
 - **Layouts**: `src/layouts/BaseLayout.astro` - Base layout with HTML structure and meta tags
 - **React Islands**: `src/components/islands/` - Interactive components (ColorTheme, Hgroup, HomeClient)
@@ -72,17 +80,20 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 - **Types**: `src/types/api.ts` - TypeScript type definitions
 
 ### Build Output
+
 - Static files exported to `dist/` directory
 - CSS extracted to static files with Panda CSS atomic classes
 - TypeScript type checking with `astro check` before build
 - Lighthouse CI configured to test the built output
 
 ### Environment Requirements
+
 - Node.js >= 24
 - pnpm package manager
 - `MICRO_CMS_API_KEY` environment variable for content fetching
 
 ### Code Quality
+
 - **Biome**: Handles linting, formatting, and import organization
 - **TypeScript**: Strict mode enabled with path aliases
 - **Lighthouse CI**: Performance testing configured for static builds
