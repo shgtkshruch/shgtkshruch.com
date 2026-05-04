@@ -20,6 +20,9 @@ importers:
       '@floating-ui/react':
         specifier: ^0.27.15
         version: 0.27.19(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
+      '@fontsource/inconsolata':
+        specifier: ^5.2.8
+        version: 5.2.8
       astro:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@24.12.2)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@6.0.2)(yaml@2.8.4)
@@ -582,6 +585,9 @@ packages:
 
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
+
+  '@fontsource/inconsolata@5.2.8':
+    resolution: {integrity: sha512-lIZW+WOZYpUH91g9r6rYYhfTmptF3YPPM54ZOs8IYVeeL4SeiAu4tfj7mdr8llYEq31DLYgi6JtGIJa192gB0Q==}
 
   '@formatjs/ecma402-abstract@2.3.6':
     resolution: {integrity: sha512-HJnTFeRM2kVFVr5gr5kH1XP6K0JcJtE7Lzvtr3FS/so5f1kpsqqqxy5JF+FRaO6H2qmcMfAUIox7AJteieRtVw==}
@@ -4551,6 +4557,8 @@ snapshots:
       tabbable: 6.4.0
 
   '@floating-ui/utils@0.2.11': {}
+
+  '@fontsource/inconsolata@5.2.8': {}
 
   '@formatjs/ecma402-abstract@2.3.6':
     dependencies:

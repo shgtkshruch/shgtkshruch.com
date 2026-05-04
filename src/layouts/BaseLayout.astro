@@ -1,5 +1,6 @@
 ---
 import "../styles/index.css";
+import inconsolataUrl from "@fontsource/inconsolata/files/inconsolata-latin-400-normal.woff2?url";
 
 export interface Props {
   title?: string;
@@ -13,10 +14,9 @@ const {
   fontChars,
 } = Astro.props;
 
-const fontFamilies = "Sawarabi+Gothic|Inconsolata";
-const fontUrl = fontChars
-  ? `https://fonts.googleapis.com/css?family=${fontFamilies}&text=${encodeURIComponent(fontChars)}&display=swap`
-  : `https://fonts.googleapis.com/css?family=${fontFamilies}&display=swap`;
+const sawarabiUrl = fontChars
+  ? `https://fonts.googleapis.com/css?family=Sawarabi+Gothic&text=${encodeURIComponent(fontChars)}&display=swap`
+  : `https://fonts.googleapis.com/css?family=Sawarabi+Gothic&display=swap`;
 
 const siteUrl = "https://shgtkshruch.com";
 const ogImage = `${siteUrl}/ogp.png`;
@@ -27,6 +27,11 @@ const GA_TRACKING_ID = import.meta.env.PUBLIC_GA_TRACKING_ID || "";
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Fonts: preconnect early to minimize latency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#000000" />
@@ -48,8 +53,9 @@ const GA_TRACKING_ID = import.meta.env.PUBLIC_GA_TRACKING_ID || "";
     <title>{title}</title>
     <link rel="icon" href="/favicon.ico" />
 
-    <!-- Google Fonts -->
-    <link href={fontUrl} rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="preload" href={inconsolataUrl} as="font" type="font/woff2" crossOrigin="anonymous" />
+    <link href={sawarabiUrl} rel="stylesheet" />
 
     <!-- Google Analytics -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></script>

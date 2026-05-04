@@ -1,1 +1,3 @@
+@import "@fontsource/inconsolata/latin-400.css";
+
 @layer reset, base, tokens, recipes, utilities;
