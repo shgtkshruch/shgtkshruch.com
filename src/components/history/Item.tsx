@@ -1,5 +1,6 @@
 import { Fragment, useState } from "react";
 import { css } from "../../../styled-system/css";
+import { useSiblingIndex } from "../../hooks/useSiblingIndex";
 import type { History } from "../../types/api";
 import Link from "../common/Link";
 import Text from "../common/Text";
@@ -41,7 +42,7 @@ const itemStyles = (typingDone: boolean) =>
     ...(typingDone && {
       animationName: "fadeInUp",
       animationDuration: "0.5s",
-      animationDelay: "calc(800ms + sibling-index() * 50ms)",
+      animationDelay: "calc(800ms + var(--sibling-index, sibling-index()) * 50ms)",
       animationFillMode: "forwards",
       animationTimingFunction: "ease-in-out",
     }),
@@ -151,11 +152,14 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
     setAnimationKey((prev) => prev + 1);
   };
 
+  const ref = useSiblingIndex<HTMLLIElement>();
+
   return (
     <>
       <style>{keyframesStyle}</style>
       <style>{lineKeyframesStyle}</style>
       <li
+        ref={ref}
         className={itemStyles(startAnimation)}
         onAnimationEnd={onAnimationEnd}
       >

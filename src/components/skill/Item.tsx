@@ -14,6 +14,7 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useRef, useState } from "react";
+import { useSiblingIndex } from "../../hooks/useSiblingIndex";
 import { css } from "../../../styled-system/css";
 
 import type { Skill } from "../../types/api";
@@ -63,6 +64,7 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
   const { title, body } = item;
   const [isOpen, setIsOpen] = useState(false);
   const arrowRef = useRef(null);
+  const siblingRef = useSiblingIndex<HTMLLIElement>();
 
   const { refs, floatingStyles, context } = useFloating({
     open: isOpen,
@@ -87,6 +89,7 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
     <>
       <style>{keyframesStyle}</style>
       <li
+        ref={siblingRef}
         className={css({
           opacity: 0,
           position: "relative",
@@ -96,7 +99,7 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
             transition: "color 0.3s",
             animationName: "fadeIn",
             animationDuration: "0.8s",
-            animationDelay: "calc(sibling-index() * 0.03s)",
+            animationDelay: "calc(var(--sibling-index, sibling-index()) * 0.03s)",
             animationFillMode: "forwards",
           }),
           "&:not(:last-child)::after": {

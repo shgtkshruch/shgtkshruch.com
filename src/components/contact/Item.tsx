@@ -1,6 +1,7 @@
 import type { SVGAttributes } from "react";
 import { css } from "../../../styled-system/css";
 import type { Contact } from "../../types/api";
+import { useSiblingIndex } from "../../hooks/useSiblingIndex";
 
 const contactItemStyles = (isShow: boolean) =>
   css({
@@ -8,7 +9,7 @@ const contactItemStyles = (isShow: boolean) =>
     ...(isShow && {
       animationName: "fadeInUp",
       animationDuration: "0.8s",
-      animationDelay: "calc(sibling-index() * 50ms)",
+      animationDelay: "calc(var(--sibling-index, sibling-index()) * 50ms)",
       animationFillMode: "forwards",
     }),
   });
@@ -61,11 +62,12 @@ const Item: React.FC<{ item: Contact; isShow: boolean }> = ({
   isShow,
 }) => {
   const { title, url, color } = item;
+  const ref = useSiblingIndex<HTMLLIElement>();
 
   return (
     <>
       <style>{keyframesStyle}</style>
-      <li className={contactItemStyles(isShow)}>
+      <li ref={ref} className={contactItemStyles(isShow)}>
         <a href={url} target="_blank" rel="noreferrer noopener">
           <Svg viewBox="0 0 16 16" color={color}>
             <path d={paths[title as keyof typeof paths]} />

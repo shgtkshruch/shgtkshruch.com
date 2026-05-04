@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { css } from "../../../styled-system/css";
+import { useSiblingIndex } from "../../hooks/useSiblingIndex";
 
 type TextProps = {
   className?: string;
@@ -11,8 +12,11 @@ const TextComponent: React.FC<TextProps> = ({
   className,
   onAnimationEnd,
   children,
-}) => (
+}) => {
+  const ref = useSiblingIndex<HTMLDivElement>();
+  return (
   <div
+    ref={ref}
     className={`${css({
       display: "inline",
       paddingBlock: "0.15em",
@@ -21,7 +25,7 @@ const TextComponent: React.FC<TextProps> = ({
       boxDecorationBreak: "clone",
       animationName: "fadeOut",
       animationDuration: "0.9s",
-      animationDelay: "calc(0.1s + sibling-index() * 0.08s)",
+      animationDelay: "calc(0.1s + var(--sibling-index, sibling-index()) * 0.08s)",
       animationFillMode: "both",
       animationTimingFunction: "ease-in-out",
     })} ${className || ""}`}
@@ -39,6 +43,7 @@ const TextComponent: React.FC<TextProps> = ({
       {children}
     </span>
   </div>
-);
+  );
+};
 
 export default TextComponent;
