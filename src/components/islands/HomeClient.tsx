@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import type { Contact, History, Skill, Work } from "../../types/api";
-import Contacts from "../contact";
-import Histories from "../history";
 import Intro from "../intro";
-import Skills from "../skill";
-import Works from "../work";
+
+const Works = lazy(() => import("../work"));
+const Histories = lazy(() => import("../history"));
+const Skills = lazy(() => import("../skill"));
+const Contacts = lazy(() => import("../contact"));
 
 type HomeProps = {
   works: Work[];
@@ -20,10 +21,14 @@ export function HomeClient({ works, history, skills, contacts }: HomeProps) {
   return (
     <main>
       <Intro next={next} />
-      {index > 0 && <Works items={works} />}
-      {index > 0 && <Histories items={history} />}
-      {index > 0 && <Skills items={skills} />}
-      {index > 0 && <Contacts items={contacts} />}
+      {index > 0 && (
+        <Suspense>
+          <Works items={works} />
+          <Histories items={history} />
+          <Skills items={skills} />
+          <Contacts items={contacts} />
+        </Suspense>
+      )}
     </main>
   );
 }
