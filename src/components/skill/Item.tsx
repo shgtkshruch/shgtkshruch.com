@@ -99,7 +99,8 @@ const Item: React.FC<{ item: Skill; startAnimation: boolean }> = ({
             transition: "color 0.3s",
             animationName: "fadeIn",
             animationDuration: "0.8s",
-            animationDelay: "calc(var(--sibling-index, sibling-index()) * 0.03s)",
+            animationDelay:
+              "calc(var(--sibling-index, sibling-index()) * 0.03s)",
             animationFillMode: "forwards",
           }),
           "&:not(:last-child)::after": {

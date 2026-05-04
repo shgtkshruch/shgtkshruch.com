@@ -15,34 +15,35 @@ const TextComponent: React.FC<TextProps> = ({
 }) => {
   const ref = useSiblingIndex<HTMLDivElement>();
   return (
-  <div
-    ref={ref}
-    className={`${css({
-      display: "inline",
-      paddingBlock: "0.15em",
-      backgroundImage: "linear-gradient(currentColor, currentColor)",
-      backgroundRepeat: "no-repeat",
-      boxDecorationBreak: "clone",
-      animationName: "fadeOut",
-      animationDuration: "0.9s",
-      animationDelay: "calc(0.1s + var(--sibling-index, sibling-index()) * 0.08s)",
-      animationFillMode: "both",
-      animationTimingFunction: "ease-in-out",
-    })} ${className || ""}`}
-    onAnimationEnd={onAnimationEnd}
-  >
-    <span
-      className={css({
-        opacity: 0,
-        animationName: "show",
-        animationDuration: "0.1s",
-        animationDelay: "1s",
-        animationFillMode: "forwards",
-      })}
+    <div
+      ref={ref}
+      className={`${css({
+        display: "inline",
+        paddingBlock: "0.15em",
+        backgroundImage: "linear-gradient(currentColor, currentColor)",
+        backgroundRepeat: "no-repeat",
+        boxDecorationBreak: "clone",
+        animationName: "fadeOut",
+        animationDuration: "0.9s",
+        animationDelay:
+          "calc(0.1s + var(--sibling-index, sibling-index()) * 0.08s)",
+        animationFillMode: "both",
+        animationTimingFunction: "ease-in-out",
+      })} ${className || ""}`}
+      onAnimationEnd={onAnimationEnd}
     >
-      {children}
-    </span>
-  </div>
+      <span
+        className={css({
+          opacity: 0,
+          animationName: "show",
+          animationDuration: "0.1s",
+          animationDelay: "1s",
+          animationFillMode: "forwards",
+        })}
+      >
+        {children}
+      </span>
+    </div>
   );
 };
 

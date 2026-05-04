@@ -42,7 +42,8 @@ const itemStyles = (typingDone: boolean) =>
     ...(typingDone && {
       animationName: "fadeInUp",
       animationDuration: "0.5s",
-      animationDelay: "calc(800ms + var(--sibling-index, sibling-index()) * 50ms)",
+      animationDelay:
+        "calc(800ms + var(--sibling-index, sibling-index()) * 50ms)",
       animationFillMode: "forwards",
       animationTimingFunction: "ease-in-out",
     }),
