@@ -27,6 +27,6 @@ export default defineConfig({
 
   // ビルド設定
   build: {
-    inlineStylesheets: "auto", // パフォーマンス最適化
+    inlineStylesheets: "always",
   },
 });
