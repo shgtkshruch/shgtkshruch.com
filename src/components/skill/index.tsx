@@ -2,6 +2,7 @@ import { useState } from "react";
 import { css } from "../../../styled-system/css";
 
 import type { Skill } from "../../types/api";
+import { SKILL } from "../../lib/sectionText";
 import Section from "../common/Section";
 import Heading from "../islands/Hgroup";
 import Item from "./Item";
@@ -26,8 +27,8 @@ const Skills: React.FC<{ items: Skill[] }> = ({ items }) => {
   return (
     <Section>
       <Heading
-        title="skill"
-        subTitle="End-to-end thinking, from browser to server."
+        title={SKILL.title}
+        subTitle={SKILL.subTitle}
         onTypingDone={() => setIsTypingDone(true)}
       />
       <ul

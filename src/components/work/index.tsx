@@ -2,6 +2,7 @@ import { useState } from "react";
 import { css } from "../../../styled-system/css";
 
 import type { Work } from "../../types/api";
+import { WORK } from "../../lib/sectionText";
 import Section from "../common/Section";
 import Heading from "../islands/Hgroup";
 import Item from "./Item";
@@ -12,8 +13,8 @@ const Works: React.FC<{ items: Work[] }> = ({ items }) => {
   return (
     <Section className="work">
       <Heading
-        title="work"
-        subTitle="Writing code wherever, from companies to open source."
+        title={WORK.title}
+        subTitle={WORK.subTitle}
         onTypingDone={() => setIsTypingDone(true)}
       />
       <div

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { css } from "../../../styled-system/css";
 
 import type { Contact } from "../../types/api";
+import { CONTACT } from "../../lib/sectionText";
 import Section from "../common/Section";
 import Heading from "../islands/Hgroup";
 import Item from "./Item";
@@ -22,8 +23,8 @@ const Contacts: React.FC<{ items: Contact[] }> = ({ items }) => {
   return (
     <Section>
       <Heading
-        title="contact"
-        subTitle="Please feel free to contact me."
+        title={CONTACT.title}
+        subTitle={CONTACT.subTitle}
         onTypingDone={() => setIsTypingDone(true)}
       />
       <ul className={listStyles}>

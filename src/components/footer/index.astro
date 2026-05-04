@@ -1,5 +1,6 @@
 ---
 import { css } from "../../../styled-system/css";
+import { FOOTER } from "../../lib/sectionText";
 
 const footerStyles = css({
   paddingBottom: "1rem",
@@ -16,6 +17,6 @@ const smallStyles = css({
 
 <footer className={footerStyles}>
   <small className={smallStyles}>
-    © shigetaka shirouchi All Rights Reserved.
+    {FOOTER}
   </small>
 </footer>

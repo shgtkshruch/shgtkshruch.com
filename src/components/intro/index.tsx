@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { css } from "../../../styled-system/css";
+import { INTRO } from "../../lib/sectionText";
 
 import Hgroup from "../islands/Hgroup";
 import Mouse from "./Mouse";
@@ -40,8 +41,8 @@ const Index: React.FC<{ next: () => void }> = ({ next }) => {
     <section className={sectionStyles}>
       <div className={wrapperStyles}>
         <Hgroup
-          title="Shigetaka Shirouchi"
-          subTitle="I'm a Front-End Engineer."
+          title={INTRO.title}
+          subTitle={INTRO.subTitle}
           onTypingDone={onTypingDone}
           intersectionOptions={{ rootMargin: "0px 0px 0px 0px" }}
         />

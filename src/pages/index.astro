@@ -6,6 +6,7 @@ import GitHubCorner from "../components/common/GitHubCorner.astro";
 import ColorTheme from "../components/islands/ColorTheme";
 import { HomeClient } from "../components/islands/HomeClient";
 import { getContacts, getHistory, getSkills, getWorks } from "../lib/microcms";
+import { CONTACT, FOOTER, HISTORY, INTRO, SKILL, WORK } from "../lib/sectionText";
 
 const [works, history, skills, contacts] = await Promise.all([
   getWorks(),
@@ -13,9 +14,27 @@ const [works, history, skills, contacts] = await Promise.all([
   getSkills(),
   getContacts(),
 ]);
+
+const staticText = [
+  INTRO.title, INTRO.subTitle,
+  WORK.title, WORK.subTitle,
+  HISTORY.title, HISTORY.subTitle,
+  SKILL.title, SKILL.subTitle,
+  CONTACT.title, CONTACT.subTitle,
+  FOOTER,
+].join("");
+
+const dynamicText = [
+  ...works.flatMap((w) => [w.title, w.body, w.age]),
+  ...history.flatMap((h) => [h.age, h.title, h.body]),
+  ...skills.flatMap((s) => [s.title, s.body]),
+  ...contacts.map((c) => c.title),
+].join("");
+
+const fontChars = [...new Set(staticText + dynamicText)].join("");
 ---
 
-<BaseLayout>
+<BaseLayout fontChars={fontChars}>
   <Container>
     <HomeClient
       works={works}

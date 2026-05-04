@@ -2,6 +2,7 @@ import { useState } from "react";
 import { css } from "../../../styled-system/css";
 
 import type { History } from "../../types/api";
+import { HISTORY } from "../../lib/sectionText";
 import Section from "../common/Section";
 import Heading from "../islands/Hgroup";
 import { breakpoints } from "../variables";
@@ -59,8 +60,8 @@ const Histories: React.FC<{ items: History[] }> = ({ items }) => {
   return (
     <Section className={sectionStyles}>
       <Heading
-        title="history"
-        subTitle="Self-taught engineer, turning curiosity into craft."
+        title={HISTORY.title}
+        subTitle={HISTORY.subTitle}
         onTypingDone={() => setIsTypingDone(true)}
       />
       <ul className={listStyles(isTypingDone)}>

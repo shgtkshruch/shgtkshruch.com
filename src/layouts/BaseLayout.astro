@@ -4,12 +4,19 @@ import "../styles/index.css";
 export interface Props {
   title?: string;
   description?: string;
+  fontChars?: string;
 }
 
 const {
   title = "Shigetaka Shirouchi",
   description = "I'm a Front-End Engineer.",
+  fontChars,
 } = Astro.props;
+
+const fontFamilies = "Sawarabi+Gothic|Inconsolata";
+const fontUrl = fontChars
+  ? `https://fonts.googleapis.com/css?family=${fontFamilies}&text=${encodeURIComponent(fontChars)}&display=swap`
+  : `https://fonts.googleapis.com/css?family=${fontFamilies}&display=swap`;
 
 const siteUrl = "https://shgtkshruch.com";
 const ogImage = `${siteUrl}/ogp.png`;
@@ -42,10 +49,7 @@ const GA_TRACKING_ID = import.meta.env.PUBLIC_GA_TRACKING_ID || "";
     <link rel="icon" href="/favicon.ico" />
 
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css?family=Sawarabi+Gothic|Inconsolata&display=swap"
-      rel="stylesheet"
-    />
+    <link href={fontUrl} rel="stylesheet" />
 
     <!-- Google Analytics -->
     <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}></script>
