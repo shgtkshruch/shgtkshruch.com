@@ -43,6 +43,7 @@ const Index: React.FC<{ next: () => void }> = ({ next }) => {
         <Hgroup
           title={INTRO.title}
           subTitle={INTRO.subTitle}
+          startDelay={0}
           onTypingDone={onTypingDone}
           intersectionOptions={{ rootMargin: "0px 0px 0px 0px" }}
         />
