@@ -1,8 +1,7 @@
 import { Fragment, useState } from "react";
 import { css } from "../../../styled-system/css";
-
-import type { Work } from "../../types/api";
 import { useInView } from "../../hooks/useInView";
+import type { Work } from "../../types/api";
 import Link from "../common/Link";
 import Text from "../common/Text";
 

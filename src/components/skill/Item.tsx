@@ -14,8 +14,8 @@ import {
   useRole,
 } from "@floating-ui/react";
 import { useRef, useState } from "react";
-import { useSiblingIndex } from "../../hooks/useSiblingIndex";
 import { css } from "../../../styled-system/css";
+import { useSiblingIndex } from "../../hooks/useSiblingIndex";
 
 import type { Skill } from "../../types/api";
 

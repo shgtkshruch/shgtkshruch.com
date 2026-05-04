@@ -1,7 +1,7 @@
 import type { SVGAttributes } from "react";
 import { css } from "../../../styled-system/css";
-import type { Contact } from "../../types/api";
 import { useSiblingIndex } from "../../hooks/useSiblingIndex";
+import type { Contact } from "../../types/api";
 
 const contactItemStyles = (isShow: boolean) =>
   css({
