@@ -65,7 +65,7 @@ const Item: React.FC<{ item: Contact; isShow: boolean }> = ({ item, isShow }) =>
     <>
       <style>{keyframesStyle}</style>
       <li ref={ref} className={contactItemStyles(isShow)}>
-        <a href={url} target="_blank" rel="noreferrer noopener">
+        <a href={url} target="_blank" rel="noreferrer noopener" aria-label={title}>
           <Svg viewBox="0 0 16 16" color={color}>
             <path d={paths[title as keyof typeof paths]} />
           </Svg>
