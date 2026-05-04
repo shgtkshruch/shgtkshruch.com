@@ -13,9 +13,9 @@ This file provides guidance to coding agents working with code in this repositor
 
 ### Quality Assurance
 
-- `pnpm lint` - Run Biome linting checks
-- `pnpm lint:fix` - Run Biome and fix auto-fixable issues
-- `pnpm format` - Format code with Biome
+- `pnpm lint` - Run Oxlint checks
+- `pnpm lint:fix` - Run Oxlint and fix auto-fixable issues
+- `pnpm format` - Format code with Oxfmt
 - `pnpm lighthouce:ci` - Run Lighthouse CI performance tests (requires build first)
 
 ## Architecture
@@ -28,7 +28,7 @@ This is a portfolio website built with Astro and TypeScript, using static site g
 - **@astrojs/react** for React Islands (interactive components)
 - **@astrojs/sitemap** for SEO optimization
 - **Panda CSS** for CSS-in-JS styling with atomic CSS generation
-- **Biome** for linting and formatting (replaces ESLint/Prettier)
+- **Oxlint** for fast linting and **Oxfmt** for code formatting
 - **microCMS** as headless CMS for content management
 - **React libraries**: react-typist-component (typing animations), @floating-ui/react (tooltips)
 
@@ -63,7 +63,7 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 - **Responsive breakpoints**: mobile (600px), desktop (1200px) defined in `src/components/variables.ts`
 - **Light/dark theme**: Automatic theme detection with CSS custom properties
 - **Theme colors and media queries**: Centralized in `src/components/variables.ts`
-- **Code formatting**: Biome configured with double quotes and space indentation
+- **Code formatting**: Oxfmt for formatting, Oxlint for linting and import organization
 - **Global styles**: Defined in `panda.config.ts` (`globalCss`) — includes `.sr-only` and `.jp` utility classes
 
 ### Component Organization
@@ -94,6 +94,6 @@ Each section is conditionally rendered based on the `index` state managed in `Ho
 
 ### Code Quality
 
-- **Biome**: Handles linting, formatting, and import organization
+- **Oxlint + Oxfmt**: Handles linting, formatting, and import organization
 - **TypeScript**: Strict mode enabled with path aliases
 - **Lighthouse CI**: Performance testing configured for static builds

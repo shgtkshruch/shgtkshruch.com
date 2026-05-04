@@ -1,5 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5bc590c-bb26-4ee2-be21-64df7bb8f866/deploy-status)](https://app.netlify.com/projects/condescending-dubinsky-142049/deploys)
-[![Biome Check](https://github.com/shgtkshruch/shgtkshruch.com/actions/workflows/biome.yml/badge.svg)](https://github.com/shgtkshruch/shgtkshruch.com/actions/workflows/biome.yml)
+[![Lint and Format Check](https://github.com/shgtkshruch/shgtkshruch.com/actions/workflows/lint.yml/badge.svg)](https://github.com/shgtkshruch/shgtkshruch.com/actions/workflows/lint.yml)
 [![CodeQL](https://github.com/shgtkshruch/shgtkshruch.com/actions/workflows/codeql-analysis.yml/badge.svg?branch=master)](https://github.com/shgtkshruch/shgtkshruch.com/actions/workflows/codeql-analysis.yml)
 [![Lighthouse CI](https://github.com/shgtkshruch/shgtkshruch.com/actions/workflows/lighthouse.yml/badge.svg?branch=master)](https://github.com/shgtkshruch/shgtkshruch.com/actions/workflows/lighthouse.yml)
 
@@ -16,7 +15,7 @@ A modern portfolio website built with Astro, TypeScript, and microCMS. Features 
 - **@astrojs/sitemap** for SEO optimization
 - **TypeScript** for type safety with strict mode
 - **Panda CSS** for zero-runtime CSS-in-JS styling with atomic CSS generation
-- **Biome** for linting and formatting (replaces ESLint/Prettier)
+- **Oxlint** for fast linting and **Oxfmt** for code formatting
 - **microCMS** as headless CMS for content management
 - **React libraries**: react-typist-component (typing animations), @floating-ui/react (tooltips)
 
@@ -56,9 +55,9 @@ The `styled-system/` directory contains auto-generated CSS utilities and design 
 ### Code Quality
 
 ```bash
-pnpm lint          # Run Biome linting checks
+pnpm lint          # Run Oxlint checks
 pnpm lint:fix      # Fix auto-fixable issues
-pnpm format        # Format code
+pnpm format        # Format code with Oxfmt
 pnpm lighthouce:ci # Run Lighthouse CI (requires build first)
 ```
 
@@ -119,6 +118,9 @@ src/
 │   ├── footer/           # Footer section
 │   ├── layout/           # Layout components (Container)
 │   └── variables.ts      # Design tokens (breakpoints, theme, media queries)
+├── hooks/
+│   ├── useInView.ts      # Intersection Observer hook for section reveal
+│   └── useSiblingIndex.ts # Sibling element index hook
 ├── lib/
 │   ├── gtag.ts           # Google Analytics utilities
 │   └── microcms.ts       # microCMS API client

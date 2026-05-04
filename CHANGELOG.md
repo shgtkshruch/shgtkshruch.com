@@ -1,3 +1,13 @@
+## 5.0.0 (2026-05-04)
+
+- [Astro](https://astro.build/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Panda CSS](https://panda-css.com/)
+- [Oxlint](https://oxc.rs/docs/guide/usage/linter)
+- [Oxfmt](https://oxc.rs/docs/guide/usage/formatter)
+- [microCMS](https://microcms.io/)
+- [Cloudflare Pages](https://pages.cloudflare.com/)
+
 ## 4.0.0 (2025-08-08)
 
 - [Next.js (App Router)](https://nextjs.org/)
