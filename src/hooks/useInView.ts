@@ -20,7 +20,7 @@ export function useInView<T extends Element>(
     }, options);
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [options]);
 
   return { ref, inView };
 }
