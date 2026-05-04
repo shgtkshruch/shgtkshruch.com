@@ -10,7 +10,7 @@ export interface Work extends Common {
   body: string;
   age: string;
   url: string;
-  image: { url: string };
+  image: { url: string; width: number; height: number };
 }
 
 export interface History extends Common {

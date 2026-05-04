@@ -103,7 +103,7 @@ const Item: React.FC<{ item: Work; isTypingDone: boolean }> = ({ item, isTypingD
         <picture>
           <source type="image/webp" srcSet={`${image.url}?fm=webp&w=1200`} />
           <source type="image/jpeg" srcSet={image.url} />
-          <img src={image.url} alt={title} />
+          <img src={image.url} alt={title} width={image.width} height={image.height} />
         </picture>
       </a>
     </div>
