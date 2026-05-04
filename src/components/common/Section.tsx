@@ -20,7 +20,7 @@ const SectionComponent: React.FC<SectionProps> = ({
         padding: "10rem 0",
       },
       _firstOfType: {
-        padding: 0,
+        paddingTop: 0,
       },
     })} ${className || ""}`}
   >

@@ -33,7 +33,7 @@ const Hgroup: React.FC<HgroupProps> = ({
               fontSize: "2rem",
               lineHeight: "1.4",
               fontWeight: "normal",
-              letterSpacing: "0.2em",
+              letterSpacing: "0.1em",
             })}
           >
             {title}
