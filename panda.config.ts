@@ -149,6 +149,14 @@ export default defineConfig({
       fontWeight: "normal",
       fontSize: "inherit",
     },
+    dl: {
+      display: "inline-flex",
+      gap: "0.5em",
+      margin: 0,
+    },
+    dd: {
+      margin: 0,
+    },
     "::selection": {
       backgroundColor: "var(--primary-color)",
       color: "var(--bg-color)",

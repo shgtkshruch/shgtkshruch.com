@@ -69,17 +69,28 @@ const Item: React.FC<{ item: Work; isTypingDone: boolean }> = ({ item, isTypingD
     <div ref={ref} className={itemStyles}>
       <div className={dataStyles(inView && isTypingDone, textAnimationDone)}>
         <Text>
-          title:
-          <span className={titleLang}> {title}</span>
+          <dl>
+            <dt>title:</dt>
+            <dd className={titleLang}>{title}</dd>
+          </dl>
         </Text>
         <br />
-        <Text>year: {age}</Text>
+        <Text>
+          <dl>
+            <dt>year:</dt>
+            <dd>{age}</dd>
+          </dl>
+        </Text>
         <br />
         <Text className="text--url">
-          url:&nbsp;
-          <Link href={url} target="_blank" rel="noopener noreferrer">
-            {url}
-          </Link>
+          <dl>
+            <dt>url:</dt>
+            <dd>
+              <Link href={url} target="_blank" rel="noopener noreferrer">
+                {url}
+              </Link>
+            </dd>
+          </dl>
         </Text>
         <div className={css({ marginTop: "0.9rem" })} />
         {body.split("\n").map((t, i, arr) => (
