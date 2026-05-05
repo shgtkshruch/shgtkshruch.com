@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shgtkshruch.com/sitemap-index.xml
