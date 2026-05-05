@@ -100,44 +100,17 @@ The project uses **Panda CSS** for zero-runtime styling with build-time optimiza
 
 ```
 src/
-├── pages/
-│   └── index.astro       # Main page with data fetching
-├── layouts/
-│   └── BaseLayout.astro  # Base layout with HTML structure
+├── pages/          # Astro pages (data fetching at build time)
+├── layouts/        # Base HTML layout
 ├── components/
-│   ├── islands/          # React Islands (interactive components)
-│   │   ├── ColorTheme.tsx
-│   │   ├── Hgroup.tsx
-│   │   └── HomeClient.tsx
-│   ├── common/           # Shared UI components (GitHubCorner, Link, Section, Text)
-│   ├── intro/            # Landing section with typing animation
-│   ├── work/             # Portfolio projects showcase
-│   ├── history/          # Work experience timeline
-│   ├── skill/            # Technical skills with tooltips
-│   ├── contact/          # Contact information with social links
-│   ├── footer/           # Footer section
-│   ├── layout/           # Layout components (Container)
-│   └── variables.ts      # Design tokens (breakpoints, theme, media queries)
-├── hooks/
-│   ├── useInView.ts      # Intersection Observer hook for section reveal
-│   └── useSiblingIndex.ts # Sibling element index hook
-├── lib/
-│   ├── gtag.ts           # Google Analytics utilities
-│   └── microcms.ts       # microCMS API client
-├── styles/
-│   └── index.css         # Global styles
-└── types/
-    └── api.ts            # TypeScript interfaces for API data
-
-styled-system/            # Auto-generated (gitignored)
-├── css/                  # CSS utilities and functions
-├── tokens/               # Design tokens
-└── patterns/             # Layout patterns
-
-dist/                     # Build output (gitignored)
-
-panda.config.ts           # Panda CSS configuration
-astro.config.ts           # Astro configuration
+│   ├── islands/    # React Islands (interactive: color theme, heading, home client)
+│   ├── common/     # Shared UI components
+│   ├── {section}/  # Section-specific components (intro, work, history, skill, contact, footer)
+│   └── layout/     # Layout wrappers
+├── hooks/          # React hooks (intersection observer, sibling index)
+├── lib/            # API clients (microCMS, Google Analytics)
+├── styles/         # Global CSS
+└── types/          # TypeScript interfaces for API data
 ```
 
 ## Performance Features
