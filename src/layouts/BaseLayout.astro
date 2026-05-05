@@ -65,7 +65,7 @@ const GA_TRACKING_ID = import.meta.env.PUBLIC_GA_TRACKING_ID || "";
     <link rel="icon" href="/favicon.ico" />
 
     <!-- Fonts -->
-    {sawarabiWoff2Url && <link rel="preload" href={sawarabiWoff2Url} as="font" type="font/woff2" crossOrigin="anonymous" />}
+    {sawarabiWoff2Url && <link rel="preload" href={sawarabiWoff2Url} as="font" type="font/woff2" crossorigin="anonymous" />}
     {sawarabiCss
       ? <Fragment set:html={`<style>${sawarabiCss}</style>`} />
       : <link href={sawarabiUrl} rel="stylesheet" />}
