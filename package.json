@@ -11,7 +11,6 @@
     "dev": "panda codegen --watch & astro dev",
     "build": "panda codegen && astro check && astro build",
     "preview": "astro preview",
-    "lighthouce:ci": "lhci autorun",
     "lint": "oxlint .",
     "lint:fix": "oxlint --fix .",
     "format": "oxfmt --check .",
@@ -32,7 +31,6 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.3",
-    "@lhci/cli": "0.15.1",
     "@pandacss/dev": "^1.0.1",
     "@playwright/test": "^1.59.1",
     "@types/node": "24.12.2",
