@@ -17,7 +17,7 @@
     "format": "oxfmt --check .",
     "format:fix": "oxfmt --write .",
     "panda": "panda codegen",
-    "test:a11y": "astro build && playwright test"
+    "test:a11y": "pnpm build && playwright test"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
