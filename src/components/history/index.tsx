@@ -64,7 +64,7 @@ const Histories: React.FC<{ items: History[] }> = ({ items }) => {
         subTitle={HISTORY.subTitle}
         onTypingDone={() => setIsTypingDone(true)}
       />
-      <ul className={listStyles(isTypingDone)}>
+      <ol className={listStyles(isTypingDone)}>
         {items.map((item, i) => (
           <Item
             key={item.id}
@@ -77,7 +77,7 @@ const Histories: React.FC<{ items: History[] }> = ({ items }) => {
             updateCurrentIndex={() => updateCurrentIndex(i)}
           />
         ))}
-      </ul>
+      </ol>
     </Section>
   );
 };
