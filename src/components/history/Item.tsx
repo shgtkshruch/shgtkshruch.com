@@ -188,7 +188,7 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
             })}
           >
             <Link className={moreButtonStyles} href={url} target="_blank" rel="noopener noreferrer">
-              more
+              link
             </Link>
           </Text>
         </div>
