@@ -16,7 +16,8 @@
     "lint:fix": "oxlint --fix .",
     "format": "oxfmt --check .",
     "format:fix": "oxfmt --write .",
-    "panda": "panda codegen"
+    "panda": "panda codegen",
+    "test:a11y": "astro build && playwright test"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -30,8 +31,10 @@
     "react-typist-component": "^1.1.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@lhci/cli": "0.15.1",
     "@pandacss/dev": "^1.0.1",
+    "@playwright/test": "^1.59.1",
     "@types/node": "24.12.2",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
