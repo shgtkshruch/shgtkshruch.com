@@ -154,19 +154,8 @@ Comprehensive accessibility guidelines based on WCAG 2.2 and Lighthouse accessib
 <!-- Video with captions -->
 <video controls>
   <source src="video.mp4" type="video/mp4" />
-  <track
-    kind="captions"
-    src="captions.vtt"
-    srclang="en"
-    label="English"
-    default
-  />
-  <track
-    kind="descriptions"
-    src="descriptions.vtt"
-    srclang="en"
-    label="Descriptions"
-  />
+  <track kind="captions" src="captions.vtt" srclang="en" label="English" default />
+  <track kind="descriptions" src="descriptions.vtt" srclang="en" label="Descriptions" />
 </video>
 
 <!-- Audio with transcript -->

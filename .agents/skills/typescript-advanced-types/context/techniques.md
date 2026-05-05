@@ -30,10 +30,7 @@ function isString(value: unknown): value is string {
   return typeof value === "string";
 }
 
-function isArrayOf<T>(
-  value: unknown,
-  guard: (item: unknown) => item is T,
-): value is T[] {
+function isArrayOf<T>(value: unknown, guard: (item: unknown) => item is T): value is T[] {
   return Array.isArray(value) && value.every(guard);
 }
 
@@ -64,11 +61,7 @@ function processValue(value: unknown) {
 
 ```typescript
 // Type assertion tests
-type AssertEqual<T, U> = [T] extends [U]
-  ? [U] extends [T]
-    ? true
-    : false
-  : false;
+type AssertEqual<T, U> = [T] extends [U] ? ([U] extends [T] ? true : false) : false;
 
 type Test1 = AssertEqual<string, string>; // true
 type Test2 = AssertEqual<string, number>; // false

@@ -135,10 +135,7 @@ function isString(value: unknown): value is string {
   return typeof value === "string";
 }
 
-function isArrayOf<T>(
-  value: unknown,
-  guard: (item: unknown) => item is T,
-): value is T[] {
+function isArrayOf<T>(value: unknown, guard: (item: unknown) => item is T): value is T[] {
   return Array.isArray(value) && value.every(guard);
 }
 ```

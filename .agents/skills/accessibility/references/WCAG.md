@@ -128,12 +128,7 @@
 
 ```html
 <label for="email">Email</label>
-<input
-  type="email"
-  id="email"
-  aria-invalid="true"
-  aria-describedby="email-error"
-/>
+<input type="email" id="email" aria-invalid="true" aria-describedby="email-error" />
 <p id="email-error" role="alert">Please enter a valid email address.</p>
 ```
 

@@ -79,12 +79,7 @@ Announce errors to screen readers and focus the first invalid field on submit.
 <form novalidate>
   <div class="field" aria-live="polite">
     <label for="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      aria-invalid="true"
-      aria-describedby="email-error"
-    />
+    <input type="email" id="email" aria-invalid="true" aria-describedby="email-error" />
     <p id="email-error" class="error" role="alert">
       Please enter a valid email address (e.g., name@example.com)
     </p>
@@ -170,16 +165,8 @@ Tabs require `role="tablist"`, `role="tab"`, and `role="tabpanel"` with proper `
 
 ```html
 <div role="tablist" aria-label="Product information">
-  <button role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1">
-    Description
-  </button>
-  <button
-    role="tab"
-    id="tab-2"
-    aria-selected="false"
-    aria-controls="panel-2"
-    tabindex="-1"
-  >
+  <button role="tab" id="tab-1" aria-selected="true" aria-controls="panel-1">Description</button>
+  <button role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2" tabindex="-1">
     Reviews
   </button>
 </div>

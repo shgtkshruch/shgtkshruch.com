@@ -115,11 +115,7 @@ type OptionalKeys<T> = {
 }[keyof T];
 
 type IsComplete<T, S> =
-  RequiredKeys<T> extends keyof S
-    ? S[RequiredKeys<T>] extends undefined
-      ? false
-      : true
-    : false;
+  RequiredKeys<T> extends keyof S ? (S[RequiredKeys<T>] extends undefined ? false : true) : false;
 
 class Builder<T, S extends BuilderState<T> = {}> {
   private state: S = {} as S;
@@ -143,11 +139,7 @@ interface User {
 
 const builder = new Builder<User>();
 
-const user = builder
-  .set("id", "1")
-  .set("name", "John")
-  .set("email", "john@example.com")
-  .build(); // OK: all required fields set
+const user = builder.set("id", "1").set("name", "John").set("email", "john@example.com").build(); // OK: all required fields set
 
 // const incomplete = builder
 //   .set("id", "1")
@@ -325,9 +317,7 @@ type Event =
 function reducer(state: State, event: Event): State {
   switch (state.type) {
     case "idle":
-      return event.type === "FETCH"
-        ? { type: "fetching", requestId: event.requestId }
-        : state;
+      return event.type === "FETCH" ? { type: "fetching", requestId: event.requestId } : state;
     case "fetching":
       if (event.type === "SUCCESS") {
         return { type: "success", data: event.data };
