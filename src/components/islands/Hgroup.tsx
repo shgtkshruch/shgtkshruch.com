@@ -5,6 +5,7 @@ import { useInView } from "../../hooks/useInView";
 type HgroupProps = {
   title: string;
   subTitle: string;
+  level?: 1 | 2;
   startDelay?: number;
   onTypingDone?: () => void;
   intersectionOptions?: IntersectionObserverInit;
@@ -13,11 +14,13 @@ type HgroupProps = {
 const Hgroup: React.FC<HgroupProps> = ({
   title,
   subTitle,
+  level = 2,
   startDelay = 500,
   onTypingDone,
   intersectionOptions,
 }) => {
   const { ref, inView } = useInView<HTMLElement>(intersectionOptions);
+  const Heading = `h${level}` as "h1" | "h2";
 
   return (
     <hgroup
@@ -28,7 +31,7 @@ const Hgroup: React.FC<HgroupProps> = ({
     >
       {inView && (
         <Typist startDelay={startDelay} typingDelay={30} onTypingDone={onTypingDone}>
-          <h2
+          <Heading
             className={css({
               display: "inline-block",
               marginBottom: "1rem",
@@ -39,7 +42,7 @@ const Hgroup: React.FC<HgroupProps> = ({
             })}
           >
             {title}
-          </h2>
+          </Heading>
           <Typist.Delay ms={350} />
           <br />
           <span
