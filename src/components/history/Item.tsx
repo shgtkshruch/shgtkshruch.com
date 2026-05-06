@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useRef, useState } from "react";
 import { css } from "../../../styled-system/css";
 import { useSiblingIndex } from "../../hooks/useSiblingIndex";
 import type { History } from "../../types/api";
@@ -36,6 +36,9 @@ const itemStyles = (typingDone: boolean) =>
     position: "relative",
     paddingLeft: "1rem",
     opacity: 0,
+    "@media (prefers-reduced-motion: reduce)": {
+      opacity: 1,
+    },
     "&:not(:last-child)": {
       marginBottom: "5rem",
     },
@@ -148,6 +151,17 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
 }) => {
   const { age, title, body, url, linkText } = item;
   const [animationKey, setAnimationKey] = useState(0);
+  const bodyId = `history-body-${title.replace(/\s+/g, "-")}`;
+  const liveRef = useRef<HTMLDivElement>(null);
+
+  const announce = () => {
+    const el = liveRef.current;
+    if (!el) return;
+    el.textContent = "";
+    requestAnimationFrame(() => {
+      el.textContent = `${body} ${linkText}`;
+    });
+  };
 
   const triggerAnimation = () => {
     setAnimationKey((prev) => prev + 1);
@@ -165,16 +179,34 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
           <Link
             type="button"
             className={nameStyles(isSelected)}
+            aria-expanded={isSelected}
+            aria-controls={bodyId}
             onClick={() => {
               updateCurrentIndex();
               triggerAnimation();
             }}
-            onFocus={updateCurrentIndex}
+            onFocus={() => {
+              updateCurrentIndex();
+              announce();
+            }}
           >
             {title}
           </Link>
         </div>
-        <div key={animationKey} className={`jp ${textWrapperStyles(isSelected)}`}>
+        <div
+          ref={liveRef}
+          aria-live="polite"
+          aria-atomic="true"
+          className={css({
+            position: "absolute",
+            width: "1px",
+            height: "1px",
+            overflow: "hidden",
+            clip: "rect(0,0,0,0)",
+            whiteSpace: "nowrap",
+          })}
+        />
+        <div id={bodyId} key={animationKey} className={`jp ${textWrapperStyles(isSelected)}`}>
           {body.split("\n").map((t, i, arr) => (
             <Fragment key={`${title}-${t.slice(0, 20)}`}>
               <Text className="jp">{t}</Text>
