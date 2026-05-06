@@ -26,8 +26,8 @@
     "@floating-ui/react": "^0.27.15",
     "@fontsource/inconsolata": "^5.2.8",
     "astro": "^6.2.1",
-    "react": "19.2.5",
-    "react-dom": "19.2.5",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
     "react-typist-component": "^1.1.1"
   },
   "devDependencies": {
