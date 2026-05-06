@@ -8,6 +8,7 @@ export function useInView<T extends Element>(
 ) {
   const [inView, setInView] = useState(false);
   const ref = useRef<T>(null);
+  const optionsRef = useRef(options);
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -21,10 +22,10 @@ export function useInView<T extends Element>(
         setInView(true);
         observer.disconnect();
       }
-    }, options);
+    }, optionsRef.current);
     observer.observe(el);
     return () => observer.disconnect();
-  }, [options]);
+  }, []);
 
   return { ref, inView };
 }

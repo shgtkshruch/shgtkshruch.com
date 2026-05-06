@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Typist from "react-typist-component";
 import { css } from "../../../styled-system/css";
 import { useInView } from "../../hooks/useInView";
@@ -46,11 +46,14 @@ const Hgroup: React.FC<HgroupProps> = ({
     setPrefersReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   }, []);
 
+  const onTypingDoneRef = useRef(onTypingDone);
+  onTypingDoneRef.current = onTypingDone;
+
   useEffect(() => {
     if (prefersReducedMotion && inView) {
-      onTypingDone?.();
+      onTypingDoneRef.current?.();
     }
-  }, [prefersReducedMotion, inView, onTypingDone]);
+  }, [prefersReducedMotion, inView]);
 
   return (
     <hgroup

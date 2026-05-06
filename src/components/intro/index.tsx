@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { css } from "../../../styled-system/css";
 import { INTRO } from "../../lib/sectionText";
 
@@ -52,8 +52,11 @@ const arrowStyles = css({
 
 const Index: React.FC<{ next: () => void }> = ({ next }) => {
   const [isMouseShow, setIsMouseShow] = useState(false);
-  const prefersReducedMotion =
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    setPrefersReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
 
   function onTypingDone() {
     setIsMouseShow(true);
