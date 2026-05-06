@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from "react";
+import { Fragment, useState } from "react";
 import { css } from "../../../styled-system/css";
 import { useSiblingIndex } from "../../hooks/useSiblingIndex";
 import type { History } from "../../types/api";
@@ -152,16 +152,6 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
   const { age, title, body, url, linkText } = item;
   const [animationKey, setAnimationKey] = useState(0);
   const bodyId = `history-body-${title.replace(/\s+/g, "-")}`;
-  const liveRef = useRef<HTMLDivElement>(null);
-
-  const announce = () => {
-    const el = liveRef.current;
-    if (!el) return;
-    el.textContent = "";
-    requestAnimationFrame(() => {
-      el.textContent = `${body} ${linkText}`;
-    });
-  };
 
   const triggerAnimation = () => {
     setAnimationKey((prev) => prev + 1);
@@ -185,27 +175,11 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
               updateCurrentIndex();
               triggerAnimation();
             }}
-            onFocus={() => {
-              updateCurrentIndex();
-              announce();
-            }}
+            onFocus={updateCurrentIndex}
           >
             {title}
           </Link>
         </div>
-        <div
-          ref={liveRef}
-          aria-live="polite"
-          aria-atomic="true"
-          className={css({
-            position: "absolute",
-            width: "1px",
-            height: "1px",
-            overflow: "hidden",
-            clip: "rect(0,0,0,0)",
-            whiteSpace: "nowrap",
-          })}
-        />
         <div id={bodyId} key={animationKey} className={`jp ${textWrapperStyles(isSelected)}`}>
           {body.split("\n").map((t, i, arr) => (
             <Fragment key={`${title}-${t.slice(0, 20)}`}>
