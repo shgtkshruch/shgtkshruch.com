@@ -96,7 +96,6 @@ const nameStyles = (isShow: boolean) =>
 const textWrapperStyles = (isSelected: boolean) =>
   css({
     display: isSelected ? "block" : "none",
-    marginTop: "1.6em",
     letterSpacing: "0.02em",
     lineHeight: 1.8,
     pc: {
@@ -105,6 +104,7 @@ const textWrapperStyles = (isSelected: boolean) =>
       right: 0,
       width: "62%",
       paddingLeft: "1rem",
+      paddingBottom: "0.5rem",
       marginTop: 0,
       zIndex: 1,
     },
