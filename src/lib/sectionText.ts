@@ -5,17 +5,17 @@ export const INTRO = {
 
 export const WORK = {
   title: "work",
-  subTitle: "Writing code wherever, from companies to open source.",
+  subTitle: "From companies to open source.",
 };
 
 export const HISTORY = {
   title: "history",
-  subTitle: "Self-taught engineer, turning curiosity into craft.",
+  subTitle: "Curiosity turned into craft.",
 };
 
 export const SKILL = {
   title: "skill",
-  subTitle: "End-to-end thinking, from browser to server.",
+  subTitle: "From browser to server.",
 };
 
 export const CONTACT = {
