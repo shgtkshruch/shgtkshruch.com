@@ -10,6 +10,10 @@ export function useInView<T extends Element>(
   const ref = useRef<T>(null);
 
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setInView(true);
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(([entry]) => {

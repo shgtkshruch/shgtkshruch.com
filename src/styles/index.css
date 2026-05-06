@@ -1,3 +1,13 @@
 @import "@fontsource/inconsolata/latin-400.css";
 
 @layer reset, base, tokens, recipes, utilities;
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

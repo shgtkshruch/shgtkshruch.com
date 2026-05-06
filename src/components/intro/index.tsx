@@ -28,8 +28,32 @@ const mouseWrapperStyles = (isMouseShow: boolean) =>
     transition: "opacity 0.7s ease-in",
   });
 
+const scrollTextStyles = css({
+  position: "absolute",
+  bottom: "3rem",
+  left: "50%",
+  transform: "translateX(-50%)",
+  fontSize: "1rem",
+  letterSpacing: "0.2em",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  gap: "0.4rem",
+});
+
+const arrowStyles = css({
+  display: "block",
+  width: "0.5em",
+  height: "0.5em",
+  borderRight: "1px solid currentColor",
+  borderBottom: "1px solid currentColor",
+  transform: "rotate(45deg)",
+});
+
 const Index: React.FC<{ next: () => void }> = ({ next }) => {
   const [isMouseShow, setIsMouseShow] = useState(false);
+  const prefersReducedMotion =
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function onTypingDone() {
     setIsMouseShow(true);
@@ -49,9 +73,16 @@ const Index: React.FC<{ next: () => void }> = ({ next }) => {
           intersectionOptions={{ rootMargin: "0px 0px 0px 0px" }}
         />
       </div>
-      <div className={mouseWrapperStyles(isMouseShow)}>
-        <Mouse />
-      </div>
+      {prefersReducedMotion ? (
+        <span className={scrollTextStyles}>
+          scroll
+          <span className={arrowStyles} />
+        </span>
+      ) : (
+        <div className={mouseWrapperStyles(isMouseShow)}>
+          <Mouse />
+        </div>
+      )}
     </section>
   );
 };
