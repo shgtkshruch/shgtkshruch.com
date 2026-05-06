@@ -18,6 +18,7 @@ export interface History extends Common {
   title: string;
   body: string;
   url: string;
+  linkText: string;
 }
 
 export interface Skill extends Common {

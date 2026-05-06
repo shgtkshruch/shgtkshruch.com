@@ -125,7 +125,8 @@ const moreButtonStyles = css({
   verticalAlign: "middle",
   border: "1px solid currentColor",
   textDecoration: "none",
-  padding: "0.4rem 1.4rem",
+  padding: "0.5rem 1.2rem",
+  fontSize: "0.9rem",
   lineHeight: 1,
   letterSpacing: "0.06em",
 });
@@ -145,7 +146,7 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
   onAnimationEnd,
   updateCurrentIndex,
 }) => {
-  const { age, title, body, url } = item;
+  const { age, title, body, url, linkText } = item;
   const [animationKey, setAnimationKey] = useState(0);
 
   const triggerAnimation = () => {
@@ -180,15 +181,10 @@ const ItemComponent: React.FC<ItemPComponentProps> = ({
               {i < arr.length - 1 && <br />}
             </Fragment>
           ))}
-          <br />
-          <Text
-            className={css({
-              display: "inline-block",
-              marginBlock: "0.4rem",
-            })}
-          >
+          <div className={css({ marginTop: "0.3rem" })}></div>
+          <Text className={css({ display: "inline-block", paddingBlock: 0 })}>
             <Link className={moreButtonStyles} href={url} target="_blank" rel="noopener noreferrer">
-              link
+              {linkText}
             </Link>
           </Text>
         </div>
