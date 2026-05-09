@@ -44,6 +44,5 @@
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm format:fix && git add -u"
-  },
-  "packageManager": "pnpm@10.33.3"
+  }
 }
