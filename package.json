@@ -34,7 +34,7 @@
     "@axe-core/playwright": "^4.11.3",
     "@pandacss/dev": "^1.0.1",
     "@playwright/test": "^1.59.1",
-    "@types/node": "24.12.3",
+    "@types/node": "24.12.4",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "oxfmt": "^0.48.0",
